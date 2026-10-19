@@ -57,6 +57,12 @@ lbl, n = ndimage.label(inside)
 if n > 1:
     sizes = ndimage.sum(inside, lbl, range(1, n + 1))
     inside = lbl == (np.argmax(sizes) + 1)
+# Pontos que preenchem o volume do líquido: o site usa para manter o volume
+# constante quando o frasco inclina (acha a altura da superfície por quantil).
+rng = np.random.default_rng(7)
+inner = pos[inside]
+sel = rng.choice(len(inner), size=min(1500, len(inner)), replace=False)
+vol_pts = (inner[sel] + rng.uniform(-pitch / 2, pitch / 2, size=(len(sel), 3))).round(4)
 field = ndimage.gaussian_filter(inside.astype(np.float32), sigma=LQ.get("smooth", 1.6))
 verts, faces, normals, _ = measure.marching_cubes(field, level=0.5)
 verts = verts * pitch + origin
@@ -75,3 +81,7 @@ scene.add_geometry(liquid, node_name="liquid", geom_name="liquid")
 b = liquid.bounds
 print(f"    liquid: {len(liquid.faces)} faces, watertight={liquid.is_watertight}, bounds={b.round(3).tolist()}, volume={liquid.volume*1e6/ (2/np.ptp(src.bounds[:,1]))**3:.0f} (unid. relativas)")
 scene.export(out)
+import json as _json
+pts_path = out.replace(".raw.glb", ".liquid.json")
+_json.dump({"points": vol_pts.reshape(-1).tolist()}, open(pts_path, "w"), separators=(",", ":"))
+print(f"    pontos de volume: {len(vol_pts)} → {pts_path}")

@@ -21,7 +21,7 @@ document.querySelectorAll<HTMLAnchorElement>("[data-slug]").forEach((a) => {
 });
 
 glbUrl(`models/${name}.parts.glb.txt`).then((url) => {
-  entry.model = { desktop: url, mobile: url };
+  entry.model = { desktop: url, mobile: url, liquid: `models/${name}.liquid.json` };
   createRoot(document.getElementById("lab")!).render(
     <LabCanvas slug={entry.slug} spin={spin} angle={spin ? 70 : 25} dist={entry.slug === "prada-paradoxe" ? 6.5 : 5.6} />,
   );

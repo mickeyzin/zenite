@@ -72,7 +72,7 @@ function Rig({ perfume, mobile, quality }: SceneProps) {
     [],
   );
   const look = useMemo(() => new THREE.Vector3(), []);
-  const smoothed = useRef({ p: experienceState.progress, px: 0, py: 0 });
+  const smoothed = useRef({ p: experienceState.progress, px: 0, py: 0, spin: 0, tx: 0, tz: 0, lean: 0, prevP: experienceState.progress });
 
   useFrame((state, delta) => {
     const camera = state.camera as THREE.PerspectiveCamera;
@@ -99,9 +99,28 @@ function Rig({ perfume, mobile, quality }: SceneProps) {
     if (bottleOffset.current) {
       bottleOffset.current.position.set(shot.offset[0], shot.offset[1] + Math.sin(t * 0.7) * 0.025 * idle, 0);
     }
+    // Arraste do visitante (volta com mola ao soltar) + inclinação pelo scroll:
+    // nas viradas entre etapas o frasco "pende" um pouco e o líquido balança.
+    const d = experienceState.drag;
+    const springRate = d.active ? 14 : 3.2;
+    s.spin = damp(s.spin, d.spin, springRate, dt);
+    s.tx = damp(s.tx, d.tiltX, springRate, dt);
+    s.tz = damp(s.tz, d.tiltZ, springRate, dt);
+    if (!d.active) {
+      d.spin = damp(d.spin, 0, 2.2, dt);
+      d.tiltX = damp(d.tiltX, 0, 3, dt);
+      d.tiltZ = damp(d.tiltZ, 0, 3, dt);
+    }
+    const scrollVel = (s.p - s.prevP) / Math.max(dt, 1e-3);
+    s.prevP = s.p;
+    s.lean = damp(s.lean, reduced ? 0 : THREE.MathUtils.clamp(scrollVel * 3.2, -0.28, 0.28), 5, dt);
     if (bottleSpin.current) {
-      bottleSpin.current.rotation.y = frontRotationY + shot.rot + Math.sin(t * 0.45) * 0.025 * idle;
-      bottleSpin.current.rotation.z = Math.sin(t * 0.33) * 0.008 * idle;
+      bottleSpin.current.rotation.set(
+        s.tx,
+        frontRotationY + shot.rot + s.spin + Math.sin(t * 0.45) * 0.025 * idle,
+        s.tz - s.lean + Math.sin(t * 0.33) * 0.008 * idle,
+        "YXZ",
+      );
     }
 
     // A luz acompanha a rotação: a chave orbita a meio passo do frasco e a
@@ -149,7 +168,12 @@ function Rig({ perfume, mobile, quality }: SceneProps) {
       <group ref={bottleOffset}>
         <BackHalo color={th.glow} opacity={0.35} />
         <group ref={bottleSpin}>
-          <PerfumeBottle url={mobile ? perfume.model.mobile : perfume.model.desktop} look={perfume.look} mobile={mobile} />
+          <PerfumeBottle
+            url={mobile ? perfume.model.mobile : perfume.model.desktop}
+            liquidPoints={perfume.model.liquid}
+            look={perfume.look}
+            mobile={mobile}
+          />
         </group>
       </group>
     </>

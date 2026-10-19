@@ -23,5 +23,6 @@ rm -f "$OUT"/models/*
 for m in art-of-universe.parts art-of-universe.parts.mobile creed-wild-vetiver.parts prada-paradoxe.parts; do base64 -w0 "public/models/$m.glb" > "$OUT/models/$m.glb.txt"; done
 rm -f "$OUT"/models/*.glb
 cp public/images/perfumes/art-of-universe-poster.webp "$OUT/images/perfumes/"
+cp public/models/*.liquid.json "$OUT/models/"
 cp preview/index.html "$OUT/index.html"
 ls -lh "$OUT" "$OUT/models"

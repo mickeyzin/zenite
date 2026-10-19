@@ -52,16 +52,23 @@ export interface BottleLook {
   liquid: {
     color: string;
     surfaceColor: string;
-    /** Nível de enchimento, 0–1 da altura interna. */
+    /** Fração do volume interno ocupada pelo líquido (0–1). */
     fill: number;
   };
 }
 
 /** Dados mínimos para exibir um frasco (laboratório e cenas). */
+export interface BottleModel {
+  desktop: string;
+  mobile: string;
+  /** Pontos que preenchem o volume do líquido (scripts/models). */
+  liquid?: string;
+}
+
 export interface BottleEntry {
   slug: string;
   name: string;
-  model: { desktop: string; mobile: string };
+  model: BottleModel;
   theme: UniverseTheme;
   look: BottleLook;
 }
@@ -72,7 +79,7 @@ export interface Perfume {
   line?: string;
   name: string;
   fullName: string;
-  model: { desktop: string; mobile: string };
+  model: BottleModel;
   /** Rotação (rad) que coloca a face frontal do frasco para a câmera. */
   frontRotationY: number;
   concentration: Sourced<string>;

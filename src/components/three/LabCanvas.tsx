@@ -1,6 +1,6 @@
 "use client";
 
-import { Environment, Lightformer, OrbitControls } from "@react-three/drei";
+import { Environment, Lightformer, PresentationControls } from "@react-three/drei";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Bloom, EffectComposer, ToneMapping } from "@react-three/postprocessing";
 import { ToneMappingMode } from "postprocessing";
@@ -14,19 +14,21 @@ import { PerfumeBottle } from "./PerfumeBottle";
  * Laboratório: arraste para girar, role para aproximar.
  * Parâmetros de URL: ?p=<slug>&angle=<graus>&spin=1 (balança para testar o líquido)
  */
-function useSpinner({ angle, spin }: { angle: number; spin: boolean }) {
+function useSpinner({ angle, spin, tilt }: { angle: number; spin: boolean; tilt: number }) {
   const g = useRef<THREE.Group>(null);
   useFrame((s) => {
     if (!g.current) return;
     const t = s.clock.elapsedTime;
     g.current.rotation.y = (angle * Math.PI) / 180 + (spin ? Math.sin(t * 1.3) * 0.9 : 0);
+    // "Balanço": o frasco também pende de um lado para o outro.
+    g.current.rotation.z = (tilt * Math.PI) / 180 + (spin ? Math.sin(t * 1.9) * 0.45 : 0);
   });
   return g as React.RefObject<THREE.Group>;
 }
 
-function Bottle({ angle, spin, slug }: { angle: number; spin: boolean; slug: string }) {
+function Bottle({ angle, spin, slug, tilt }: { angle: number; spin: boolean; slug: string; tilt: number }) {
   const p = bottles.find((x) => x.slug === slug) ?? bottles[0];
-  const g = useSpinner({ angle, spin });
+  const g = useSpinner({ angle, spin, tilt });
   return (
     <>
       <NebulaSky theme={p.theme} resolution={512} octaves={5} />
@@ -40,9 +42,12 @@ function Bottle({ angle, spin, slug }: { angle: number; spin: boolean; slug: str
       <spotLight position={[-3, 4.5, 5]} intensity={90} angle={0.5} penumbra={1} color={p.theme.keyLight} />
       <spotLight position={[-3.5, 2.5, -3.5]} intensity={140} angle={0.6} penumbra={1} color={p.theme.rimLight} />
       <spotLight position={[3.5, 1, -3]} intensity={110} angle={0.6} penumbra={1} color={p.theme.fillLight} />
-      <group ref={g}>
-        <PerfumeBottle url={p.model.desktop} look={p.look} />
-      </group>
+      {/* Arrastar gira e inclina o PRÓPRIO frasco (não a câmera), então o líquido reage. */}
+      <PresentationControls global cursor snap speed={1.4} polar={[-0.7, 0.7]} azimuth={[-Infinity, Infinity]} damping={0.25}>
+        <group ref={g}>
+          <PerfumeBottle url={p.model.desktop} liquidPoints={p.model.liquid} look={p.look} />
+        </group>
+      </PresentationControls>
     </>
   );
 }
@@ -52,6 +57,7 @@ interface LabProps {
   angle?: number;
   spin?: boolean;
   dist?: number;
+  tilt?: number;
 }
 
 export default function LabCanvas(props: LabProps) {
@@ -60,12 +66,12 @@ export default function LabCanvas(props: LabProps) {
   const spin = props.spin ?? params.get("spin") === "1";
   const slug = props.slug ?? params.get("p") ?? "lattafa-art-of-universe";
   const dist = props.dist ?? Number(params.get("dist") ?? 5.6);
+  const tilt = props.tilt ?? Number(params.get("tilt") ?? 0);
   return (
     <Canvas dpr={[1, 1.75]} camera={{ fov: 30, position: [0, 0.2, dist] }} gl={{ antialias: false }}>
       <Suspense fallback={null}>
-        <Bottle angle={angle} spin={spin} slug={slug} />
+        <Bottle angle={angle} spin={spin} slug={slug} tilt={tilt} />
       </Suspense>
-      <OrbitControls enablePan={false} minDistance={2} maxDistance={9} />
       <EffectComposer multisampling={4}>
         <Bloom mipmapBlur luminanceThreshold={0.85} intensity={0.6} />
         <ToneMapping mode={ToneMappingMode.NEUTRAL} />

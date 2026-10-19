@@ -2,7 +2,7 @@
 
 import { useGLTF } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
-import { forwardRef, useMemo, useRef } from "react";
+import { forwardRef, useEffect, useMemo, useRef } from "react";
 import * as THREE from "three";
 import type { BottleLook } from "@/data/types";
 
@@ -20,11 +20,15 @@ import type { BottleLook } from "@/data/types";
  */
 interface Props {
   url: string;
+  /** JSON com pontos do volume do líquido (conservação de volume ao inclinar). */
+  liquidPoints?: string;
   look: BottleLook;
   mobile?: boolean;
 }
 
 type Std = THREE.MeshStandardMaterial;
+
+const debugLiquid = typeof window !== "undefined" && window.location.search.includes("debug");
 
 function physicalFrom(src: Std, extra: THREE.MeshPhysicalMaterialParameters) {
   return new THREE.MeshPhysicalMaterial({
@@ -49,6 +53,7 @@ function liquidMaterial(look: BottleLook["liquid"]) {
     uPlaneNormal: { value: new THREE.Vector3(0, 1, 0) },
     uSurface: { value: new THREE.Color(look.surfaceColor) },
     uTime: { value: 0 },
+    uWave: { value: 0.004 },
   };
   const m = new THREE.MeshPhysicalMaterial({
     color: look.color,
@@ -71,14 +76,16 @@ function liquidMaterial(look: BottleLook["liquid"]) {
         "#include <common>",
         `#include <common>
         varying vec3 vLiqWorld;
-        uniform vec3 uPlanePoint, uPlaneNormal, uSurface; uniform float uTime;`,
+        uniform vec3 uPlanePoint, uPlaneNormal, uSurface; uniform float uTime, uWave;`,
       )
       .replace(
         "void main() {",
         `void main() {
           vec3 rel = vLiqWorld - uPlanePoint;
           // Ondulação sutil na superfície
-          float ripple = sin(rel.x * 18.0 + uTime * 2.1) * sin(rel.z * 15.0 - uTime * 1.7) * 0.004;
+          // Ondas: amplitude cresce com a agitação do líquido (uWave).
+          float ripple = (sin(rel.x * 14.0 + uTime * 3.1) * 0.6 + sin(rel.z * 11.0 - uTime * 2.3) * 0.4) * uWave
+                       + sin((rel.x + rel.z) * 31.0 + uTime * 5.0) * uWave * 0.25;
           float liqD = dot(rel, uPlaneNormal) - ripple;
           if (liqD > 0.0) discard;`,
       )
@@ -88,7 +95,7 @@ function liquidMaterial(look: BottleLook["liquid"]) {
           // Faces internas visíveis = superfície do líquido vista de cima/lado.
           if (!gl_FrontFacing) {
             float edge = 0.75 + 0.25 * sin(uTime * 0.8);
-            gl_FragColor.rgb = mix(gl_FragColor.rgb, uSurface * edge, 0.75);
+            gl_FragColor.rgb = mix(gl_FragColor.rgb, uSurface * edge * 0.8, 0.45);
           } else {
             // Menisco: faixa clara onde a superfície encontra o vidro.
             gl_FragColor.rgb += uSurface * smoothstep(-0.025, 0.0, liqD) * 1.6;
@@ -98,7 +105,7 @@ function liquidMaterial(look: BottleLook["liquid"]) {
   return { material: m, uniforms };
 }
 
-export const PerfumeBottle = forwardRef<THREE.Group, Props>(function PerfumeBottle({ url, look, mobile }, ref) {
+export const PerfumeBottle = forwardRef<THREE.Group, Props>(function PerfumeBottle({ url, liquidPoints, look, mobile }, ref) {
   const { scene } = useGLTF(url);
   const liquidRef = useRef<{ mesh: THREE.Mesh; uniforms: ReturnType<typeof liquidMaterial>["uniforms"]; box: THREE.Box3 } | null>(null);
 
@@ -152,58 +159,131 @@ export const PerfumeBottle = forwardRef<THREE.Group, Props>(function PerfumeBott
     return root;
   }, [scene, look]);
 
-  // Molinha amortecida: o balanço do líquido responde à velocidade de rotação/translação.
+  // Pontos do volume do líquido, no espaço original do GLB.
+  const volume = useRef<Float32Array | null>(null);
+  useEffect(() => {
+    if (!liquidPoints) return;
+    let alive = true;
+    fetch(liquidPoints)
+      .then((r) => r.json())
+      .then((j: { points: number[] }) => {
+        if (alive) volume.current = new Float32Array(j.points);
+      })
+      .catch(() => {});
+    return () => {
+      alive = false;
+    };
+  }, [liquidPoints]);
+
+  /*
+   * Física do líquido (barata e estável):
+   * - a superfície é um plano cuja normal tende ao "para cima" do MUNDO: se o
+   *   frasco inclina, o líquido continua nivelado;
+   * - a normal é um pêndulo amortecido, empurrado pela aceleração do frasco e
+   *   pela sua rotação (o líquido "atrasa" e depois oscila);
+   * - a altura do plano é recalculada a cada quadro para que a fração `fill`
+   *   dos pontos de volume fique abaixo dele: o volume se conserva.
+   */
   const sim = useRef({
+    init: false,
     prevQ: new THREE.Quaternion(),
     prevP: new THREE.Vector3(),
+    prevV: new THREE.Vector3(),
+    prevW: new THREE.Vector3(),
     tilt: new THREE.Vector2(),
     vel: new THREE.Vector2(),
-    init: false,
+    energy: 0,
+    dots: new Float32Array(0),
   });
   const tmp = useMemo(
-    () => ({ q: new THREE.Quaternion(), p: new THREE.Vector3(), dq: new THREE.Quaternion(), e: new THREE.Euler(), min: new THREE.Vector3(), max: new THREE.Vector3(), c: new THREE.Vector3() }),
+    () => ({
+      q: new THREE.Quaternion(),
+      p: new THREE.Vector3(),
+      s: new THREE.Vector3(),
+      dq: new THREE.Quaternion(),
+      w: new THREE.Vector3(),
+      v: new THREE.Vector3(),
+      a: new THREE.Vector3(),
+      n: new THREE.Vector3(),
+      x: new THREE.Vector3(),
+      pt: new THREE.Vector3(),
+      c: new THREE.Vector3(),
+    }),
     [],
   );
 
   useFrame((state, delta) => {
     const L = liquidRef.current;
     if (!L) return;
-    const dt = Math.min(delta, 1 / 20);
-    const m = L.mesh;
-    m.updateWorldMatrix(true, false);
-    m.matrixWorld.decompose(tmp.p, tmp.q, tmp.c);
+    const dt = Math.min(Math.max(delta, 1 / 240), 1 / 20);
     const S = sim.current;
+    model.updateWorldMatrix(true, false);
+    model.matrixWorld.decompose(tmp.p, tmp.q, tmp.s);
     if (!S.init) {
       S.prevQ.copy(tmp.q);
       S.prevP.copy(tmp.p);
       S.init = true;
     }
-    // Velocidade angular (rad/s) em torno de Y e deslocamento lateral.
+    // Velocidade angular (vetor no mundo) e aceleração linear.
     tmp.dq.copy(S.prevQ).invert().premultiply(tmp.q);
-    tmp.e.setFromQuaternion(tmp.dq);
-    const angVel = tmp.e.y / Math.max(dt, 1e-4);
-    const linVel = (tmp.p.x - S.prevP.x) / Math.max(dt, 1e-4);
+    if (tmp.dq.w < 0) tmp.dq.set(-tmp.dq.x, -tmp.dq.y, -tmp.dq.z, -tmp.dq.w);
+    const ang = 2 * Math.acos(Math.min(1, tmp.dq.w));
+    const sinH = Math.sqrt(Math.max(1 - tmp.dq.w * tmp.dq.w, 1e-9));
+    tmp.w.set(tmp.dq.x / sinH, tmp.dq.y / sinH, tmp.dq.z / sinH).multiplyScalar(ang / dt);
+    tmp.v.subVectors(tmp.p, S.prevP).divideScalar(dt);
+    tmp.a.subVectors(tmp.v, S.prevV).divideScalar(dt);
+    const alphaY = (tmp.w.y - S.prevW.y) / dt;
     S.prevQ.copy(tmp.q);
     S.prevP.copy(tmp.p);
-    // Força → inclinação desejada; mola (k) com amortecimento (c).
-    const k = 38, c = 3.2;
-    const fx = THREE.MathUtils.clamp(-linVel * 0.05 + angVel * 0.035, -0.6, 0.6);
-    const fz = THREE.MathUtils.clamp(angVel * 0.05, -0.6, 0.6);
-    S.vel.x += (-k * S.tilt.x - c * S.vel.x + fx * k * 0.2) * dt;
-    S.vel.y += (-k * S.tilt.y - c * S.vel.y + fz * k * 0.2) * dt;
+    S.prevV.copy(tmp.v);
+    S.prevW.copy(tmp.w);
+
+    // Eixo X local do frasco projetado no plano horizontal (para o giro em Y).
+    tmp.x.set(1, 0, 0).applyQuaternion(tmp.q).setY(0).normalize();
+    const clampF = (v: number) => THREE.MathUtils.clamp(v, -40, 40);
+    // Excitação: aceleração lateral, rotação em X/Z e aceleração do giro em Y.
+    const ex = clampF(-tmp.a.x * 0.09 + tmp.w.z * 0.9 + tmp.x.x * alphaY * 0.035);
+    const ez = clampF(-tmp.a.z * 0.09 - tmp.w.x * 0.9 + tmp.x.z * alphaY * 0.035);
+    const k = 46; // rigidez (~1,1 Hz)
+    const c = 2.1; // amortecimento
+    S.vel.x += (-k * S.tilt.x - c * S.vel.x + ex) * dt;
+    S.vel.y += (-k * S.tilt.y - c * S.vel.y + ez) * dt;
     S.tilt.x += S.vel.x * dt;
     S.tilt.y += S.vel.y * dt;
-    S.tilt.clampLength(0, 0.35);
+    S.tilt.clampLength(0, 0.55);
+    S.energy = THREE.MathUtils.damp(S.energy, Math.min(1, S.vel.length() * 0.35 + S.tilt.length() * 1.2), 6, dt);
 
-    // Plano da superfície em coordenadas de mundo.
-    tmp.min.copy(L.box.min).applyMatrix4(m.matrixWorld);
-    tmp.max.copy(L.box.max).applyMatrix4(m.matrixWorld);
-    const lowY = Math.min(tmp.min.y, tmp.max.y);
-    const highY = Math.max(tmp.min.y, tmp.max.y);
-    tmp.c.addVectors(tmp.min, tmp.max).multiplyScalar(0.5);
-    L.uniforms.uPlanePoint.value.set(tmp.c.x, lowY + (highY - lowY) * look.liquid.fill, tmp.c.z);
-    L.uniforms.uPlaneNormal.value.set(S.tilt.x, 1, S.tilt.y).normalize();
+    tmp.n.set(S.tilt.x, 1, S.tilt.y).normalize();
+
+    // Altura da superfície que conserva o volume.
+    const pts = volume.current;
+    let offset: number;
+    if (pts && pts.length >= 3) {
+      const n = pts.length / 3;
+      if (S.dots.length !== n) S.dots = new Float32Array(n);
+      const e = model.matrixWorld.elements;
+      for (let i = 0; i < n; i++) {
+        const x = pts[i * 3], y = pts[i * 3 + 1], z = pts[i * 3 + 2];
+        const wx = e[0] * x + e[4] * y + e[8] * z + e[12];
+        const wy = e[1] * x + e[5] * y + e[9] * z + e[13];
+        const wz = e[2] * x + e[6] * y + e[10] * z + e[14];
+        S.dots[i] = wx * tmp.n.x + wy * tmp.n.y + wz * tmp.n.z;
+      }
+      S.dots.sort();
+      offset = S.dots[Math.min(n - 1, Math.floor(look.liquid.fill * n))];
+    } else {
+      // Sem pontos: aproximação pela caixa do líquido.
+      L.mesh.updateWorldMatrix(true, false);
+      tmp.c.copy(L.box.min).lerp(L.box.max, 0.5).applyMatrix4(L.mesh.matrixWorld);
+      const lowY = tmp.pt.copy(L.box.min).applyMatrix4(L.mesh.matrixWorld).y;
+      const highY = tmp.pt.copy(L.box.max).applyMatrix4(L.mesh.matrixWorld).y;
+      offset = tmp.c.dot(tmp.n) + (Math.min(lowY, highY) + Math.abs(highY - lowY) * look.liquid.fill - tmp.c.y);
+    }
+    L.uniforms.uPlaneNormal.value.copy(tmp.n);
+    L.uniforms.uPlanePoint.value.copy(tmp.n).multiplyScalar(offset);
     L.uniforms.uTime.value = state.clock.elapsedTime;
+    L.uniforms.uWave.value = 0.003 + S.energy * 0.03;
+    if (debugLiquid) (window as unknown as { __liquid?: object }).__liquid = { tilt: [S.tilt.x, S.tilt.y], energy: S.energy, offset };
   });
 
   void mobile;

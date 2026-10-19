@@ -15,6 +15,7 @@ export const artOfUniverse: Perfume = {
   model: {
     desktop: "/models/art-of-universe.parts.glb",
     mobile: "/models/art-of-universe.parts.mobile.glb",
+    liquid: "/models/art-of-universe.liquid.json",
   },
   frontRotationY: 0,
   concentration: { value: "Eau de Parfum", status: "verificado", sources: retailSources },
@@ -98,7 +99,7 @@ export const artOfUniverse: Perfume = {
   look: {
     // Transparência do vidro a confirmar com o frasco real.
     glass: { useTexture: true, tint: "#ffffff", transmission: 0.82, thickness: 0.45, roughness: 0.06, attenuationColor: "#5a86ff", attenuationDistance: 2.2, brightness: 2.6 },
-    liquid: { color: "#2448d8", surfaceColor: "#cfe6ff", fill: 0.8 },
+    liquid: { color: "#2448d8", surfaceColor: "#cfe6ff", fill: 0.72 },
   },
 };
 
@@ -113,7 +114,11 @@ export const bottles: BottleEntry[] = [
   {
     slug: "creed-wild-vetiver",
     name: "Creed Wild Vetiver",
-    model: { desktop: "/models/creed-wild-vetiver.parts.glb", mobile: "/models/creed-wild-vetiver.parts.mobile.glb" },
+    model: {
+      desktop: "/models/creed-wild-vetiver.parts.glb",
+      mobile: "/models/creed-wild-vetiver.parts.mobile.glb",
+      liquid: "/models/creed-wild-vetiver.liquid.json",
+    },
     theme: {
       deep: "#020a06",
       mid: "#0b3a22",
@@ -126,13 +131,17 @@ export const bottles: BottleEntry[] = [
     },
     look: {
       glass: { useTexture: false, tint: "#f4fbf1", transmission: 1, thickness: 0.5, roughness: 0.03, attenuationColor: "#e6f3df", attenuationDistance: 3, brightness: 1 },
-      liquid: { color: "#5f9a2c", surfaceColor: "#d6efb0", fill: 0.84 },
+      liquid: { color: "#5f9a2c", surfaceColor: "#d6efb0", fill: 0.74 },
     },
   },
   {
     slug: "prada-paradoxe",
     name: "Prada Paradoxe",
-    model: { desktop: "/models/prada-paradoxe.parts.glb", mobile: "/models/prada-paradoxe.parts.mobile.glb" },
+    model: {
+      desktop: "/models/prada-paradoxe.parts.glb",
+      mobile: "/models/prada-paradoxe.parts.mobile.glb",
+      liquid: "/models/prada-paradoxe.liquid.json",
+    },
     theme: {
       deep: "#0a0210",
       mid: "#4a0f3f",
@@ -145,7 +154,7 @@ export const bottles: BottleEntry[] = [
     },
     look: {
       glass: { useTexture: false, tint: "#fff7f9", transmission: 1, thickness: 0.6, roughness: 0.03, attenuationColor: "#ffe8ee", attenuationDistance: 3, brightness: 1 },
-      liquid: { color: "#ff6f86", surfaceColor: "#ffd6de", fill: 0.78 },
+      liquid: { color: "#ff6f86", surfaceColor: "#ffd6de", fill: 0.66 },
     },
   },
 ];

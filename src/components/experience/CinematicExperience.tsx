@@ -135,6 +135,40 @@ export function CinematicExperience({ perfume, index, total }: { perfume: Perfum
     { scope: section, dependencies: [mode], revertOnUpdate: true },
   );
 
+  /**
+   * Arrastar sobre a cena inclina e gira o frasco. No toque, o deslize vertical
+   * continua rolando a página (touch-action: pan-y); o horizontal move o frasco.
+   */
+  const dragRef = useRef<{ x: number; y: number; t: number; id: number } | null>(null);
+  const onPointerDown = (e: React.PointerEvent) => {
+    if ((e.target as HTMLElement).closest("a, button, .stage-panel, .stage-rail")) return;
+    dragRef.current = { x: e.clientX, y: e.clientY, t: performance.now(), id: e.pointerId };
+    experienceState.drag.active = true;
+    (e.currentTarget as HTMLElement).setPointerCapture?.(e.pointerId);
+  };
+  const onPointerMove = (e: React.PointerEvent) => {
+    const g = dragRef.current;
+    if (!g || g.id !== e.pointerId) return;
+    const now = performance.now();
+    const dx = e.clientX - g.x;
+    const dy = e.clientY - g.y;
+    const vx = dx / Math.max(now - g.t, 8); // px/ms
+    const d = experienceState.drag;
+    const w = window.innerWidth;
+    d.spin += (dx / w) * Math.PI * 1.4;
+    // Inclina na direção do movimento (como segurar e balançar o frasco).
+    d.tiltZ = Math.max(-0.6, Math.min(0.6, d.tiltZ * 0.85 - vx * 0.6));
+    if (e.pointerType !== "touch") d.tiltX = Math.max(-0.5, Math.min(0.5, d.tiltX + (dy / window.innerHeight) * 1.6));
+    g.x = e.clientX;
+    g.y = e.clientY;
+    g.t = now;
+  };
+  const onPointerUp = (e: React.PointerEvent) => {
+    if (dragRef.current?.id !== e.pointerId) return;
+    dragRef.current = null;
+    experienceState.drag.active = false;
+  };
+
   /** Teclado: quando o foco entra num painel oculto, rola até sua etapa. */
   const onFocusCapture = (e: React.FocusEvent) => {
     if (mode !== "cinema" || !section.current) return;
@@ -194,7 +228,13 @@ export function CinematicExperience({ perfume, index, total }: { perfume: Perfum
       aria-label={`Apresentação cinematográfica: ${perfume.fullName}`}
       onFocusCapture={onFocusCapture}
     >
-      <div className={`cinema-stage ${mobile ? "is-mobile" : ""}`}>
+      <div
+        className={`cinema-stage ${mobile ? "is-mobile" : ""}`}
+        onPointerDown={onPointerDown}
+        onPointerMove={onPointerMove}
+        onPointerUp={onPointerUp}
+        onPointerCancel={onPointerUp}
+      >
         {mounted && <ExperienceCanvas perfume={perfume} mobile={mobile} />}
         <div className="cinema-grade" aria-hidden />
 
@@ -203,7 +243,7 @@ export function CinematicExperience({ perfume, index, total }: { perfume: Perfum
             <span>{String(index + 1).padStart(2, "0")}</span> / {String(total).padStart(2, "0")} · Universo azul
           </p>
           <h1 className="hero-title">{perfume.fullName}</h1>
-          <p className="hero-sub">Role para girar o frasco e ler a resenha em quatro movimentos.</p>
+          <p className="hero-sub">Role para girar o frasco e ler a resenha em quatro movimentos. Arraste para inclinar.</p>
         </header>
         <div className="scroll-cue" aria-hidden>
           <span />
