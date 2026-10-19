@@ -1,7 +1,7 @@
 "use client";
 
-import { useFrame } from "@react-three/fiber";
-import { useMemo, useRef } from "react";
+import { useThree } from "@react-three/fiber";
+import { useLayoutEffect, useMemo, useRef } from "react";
 import * as THREE from "three";
 import { noiseGLSL } from "./shaders/noise";
 import type { UniverseTheme } from "@/data/types";
@@ -10,9 +10,14 @@ import type { UniverseTheme } from "@/data/types";
  * Esfera de fundo com uma galáxia procedural: faixa galáctica inclinada,
  * nuvens de gás com domain warping, faixas de poeira escura e micro-estrelas.
  * Tudo calculado por direção de visão — não é uma textura plana.
+ *
+ * Desempenho: o shader é caro, então ele é renderizado UMA vez num cubemap
+ * (CubeCamera) que vira o fundo da cena. O vidro refrata esse fundo sem custo extra.
  */
-export function NebulaSky({ theme, octaves = 6 }: { theme: UniverseTheme; octaves?: number }) {
+export function NebulaSky({ theme, octaves = 6, resolution = 1024 }: { theme: UniverseTheme; octaves?: number; resolution?: number }) {
   const mat = useRef<THREE.ShaderMaterial>(null);
+  const mesh = useRef<THREE.Mesh>(null);
+  const gl = useThree((s) => s.gl);
   const uniforms = useMemo(
     () => ({
       uTime: { value: 0 },
@@ -26,12 +31,29 @@ export function NebulaSky({ theme, octaves = 6 }: { theme: UniverseTheme; octave
     [],
   );
 
-  useFrame((_, dt) => {
-    if (mat.current) mat.current.uniforms.uTime.value += dt;
-  });
+  const rt = useMemo(
+    () => new THREE.WebGLCubeRenderTarget(resolution, { type: THREE.HalfFloatType, generateMipmaps: false }),
+    [resolution],
+  );
+
+  useLayoutEffect(() => {
+    const m = mesh.current;
+    if (!m) return;
+    const parent = m.parent;
+    const bake = new THREE.Scene();
+    bake.add(m);
+    m.visible = true;
+    new THREE.CubeCamera(0.1, 200, rt).update(gl, bake);
+    m.visible = false;
+    parent?.add(m);
+  }, [gl, rt, octaves]);
+
+  useLayoutEffect(() => () => rt.dispose(), [rt]);
 
   return (
-    <mesh renderOrder={-10} frustumCulled={false}>
+    <>
+    <primitive attach="background" object={rt.texture} />
+    <mesh ref={mesh} renderOrder={-10} frustumCulled={false} visible={false}>
       <sphereGeometry args={[80, 64, 32]} />
       <shaderMaterial
         ref={mat}
@@ -90,5 +112,6 @@ export function NebulaSky({ theme, octaves = 6 }: { theme: UniverseTheme; octave
           }`}
       />
     </mesh>
+    </>
   );
 }

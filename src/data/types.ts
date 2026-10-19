@@ -30,6 +30,26 @@ export interface UniverseTheme {
   fillLight: string;
 }
 
+/** Ajustes visuais das peças separadas do frasco (ver scripts/models). */
+export interface BottleLook {
+  glass: {
+    /** 0 = opaco (como o GLB original), 1 = totalmente transmissivo. */
+    transmission: number;
+    thickness: number;
+    roughness: number;
+    attenuationColor: string;
+    attenuationDistance: number;
+    /** Multiplica a cor da textura no vidro (>1 clareia o tom transmitido). */
+    brightness: number;
+  };
+  liquid: {
+    color: string;
+    surfaceColor: string;
+    /** Nível de enchimento, 0–1 da altura interna. */
+    fill: number;
+  };
+}
+
 export interface Perfume {
   slug: string;
   brand: string;
@@ -57,4 +77,5 @@ export interface Perfume {
     similar: Sourced<{ name: string; reason: string }[]>;
   };
   theme: UniverseTheme;
+  look: BottleLook;
 }

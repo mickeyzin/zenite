@@ -1,0 +1,68 @@
+"use client";
+
+import { Environment, Lightformer, OrbitControls } from "@react-three/drei";
+import { Canvas, useFrame } from "@react-three/fiber";
+import { Bloom, EffectComposer, ToneMapping } from "@react-three/postprocessing";
+import { ToneMappingMode } from "postprocessing";
+import { Suspense, useRef, useState } from "react";
+import * as THREE from "three";
+import { featuredPerfumes } from "@/data/perfumes";
+import { NebulaSky } from "./NebulaSky";
+import { PerfumeBottle } from "./PerfumeBottle";
+
+/**
+ * Laboratório: arraste para girar, role para aproximar.
+ * Parâmetros de URL: ?p=<slug>&angle=<graus>&spin=1 (balança para testar o líquido)
+ */
+function useSpinner({ angle, spin }: { angle: number; spin: boolean }) {
+  const g = useRef<THREE.Group>(null);
+  useFrame((s) => {
+    if (!g.current) return;
+    const t = s.clock.elapsedTime;
+    g.current.rotation.y = (angle * Math.PI) / 180 + (spin ? Math.sin(t * 1.3) * 0.9 : 0);
+  });
+  return g as React.RefObject<THREE.Group>;
+}
+
+function Bottle({ angle, spin, slug }: { angle: number; spin: boolean; slug: string }) {
+  const p = featuredPerfumes.find((x) => x.slug === slug) ?? featuredPerfumes[0];
+  const g = useSpinner({ angle, spin });
+  return (
+    <>
+      <NebulaSky theme={p.theme} resolution={512} octaves={5} />
+      <Environment resolution={256} frames={1}>
+        <Lightformer form="rect" intensity={3.2} color={p.theme.keyLight} position={[0, 5, 4]} scale={[6, 2.5, 1]} target={[0, 0, 0]} />
+        <Lightformer form="rect" intensity={4} color={p.theme.rimLight} position={[-5, 1, -2]} scale={[1.2, 7, 1]} target={[0, 0, 0]} />
+        <Lightformer form="rect" intensity={3} color={p.theme.fillLight} position={[5, 0.5, -1]} scale={[1.2, 7, 1]} target={[0, 0, 0]} />
+        <Lightformer form="rect" intensity={1.8} color={p.theme.accent} position={[0, -4, 2]} scale={[8, 1, 1]} target={[0, 0, 0]} />
+        <Lightformer form="rect" intensity={0.3} color={p.theme.keyLight} position={[0, 0.5, 9]} scale={[9, 4, 1]} target={[0, 0, 0]} />
+      </Environment>
+      <spotLight position={[-3, 4.5, 5]} intensity={90} angle={0.5} penumbra={1} color={p.theme.keyLight} />
+      <spotLight position={[-3.5, 2.5, -3.5]} intensity={140} angle={0.6} penumbra={1} color={p.theme.rimLight} />
+      <spotLight position={[3.5, 1, -3]} intensity={110} angle={0.6} penumbra={1} color={p.theme.fillLight} />
+      <group ref={g}>
+        <PerfumeBottle url={p.model.desktop} look={p.look} />
+      </group>
+    </>
+  );
+}
+
+export default function LabCanvas() {
+  const [params] = useState(() => (typeof window === "undefined" ? new URLSearchParams() : new URLSearchParams(window.location.search)));
+  const angle = Number(params.get("angle") ?? 0);
+  const spin = params.get("spin") === "1";
+  const slug = params.get("p") ?? "lattafa-art-of-universe";
+  const dist = Number(params.get("dist") ?? 5.6);
+  return (
+    <Canvas dpr={[1, 1.75]} camera={{ fov: 30, position: [0, 0.2, dist] }} gl={{ antialias: false }}>
+      <Suspense fallback={null}>
+        <Bottle angle={angle} spin={spin} slug={slug} />
+      </Suspense>
+      <OrbitControls enablePan={false} minDistance={2} maxDistance={9} />
+      <EffectComposer multisampling={4}>
+        <Bloom mipmapBlur luminanceThreshold={0.85} intensity={0.6} />
+        <ToneMapping mode={ToneMappingMode.NEUTRAL} />
+      </EffectComposer>
+    </Canvas>
+  );
+}

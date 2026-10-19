@@ -13,8 +13,8 @@ export const artOfUniverse: Perfume = {
   name: "Art of Universe",
   fullName: "Lattafa Pride Art of Universe",
   model: {
-    desktop: "/models/art-of-universe.glb",
-    mobile: "/models/art-of-universe.mobile.glb",
+    desktop: "/models/art-of-universe.parts.glb",
+    mobile: "/models/art-of-universe.parts.mobile.glb",
   },
   frontRotationY: 0,
   concentration: { value: "Eau de Parfum", status: "verificado", sources: retailSources },
@@ -94,6 +94,11 @@ export const artOfUniverse: Perfume = {
     keyLight: "#dce9ff",
     rimLight: "#2f7bff",
     fillLight: "#7d5cff",
+  },
+  look: {
+    // Transparência do vidro a confirmar com o frasco real.
+    glass: { transmission: 0.82, thickness: 0.45, roughness: 0.06, attenuationColor: "#5a86ff", attenuationDistance: 2.2, brightness: 2.6 },
+    liquid: { color: "#2448d8", surfaceColor: "#cfe6ff", fill: 0.8 },
   },
 };
 

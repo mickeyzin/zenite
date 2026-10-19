@@ -1,0 +1,52 @@
+{
+  "art-of-universe": {
+    "labels": [
+      "glass",
+      "plate",
+      "cap",
+      "gem",
+      "medallion"
+    ],
+    "default": "glass",
+    "smooth": 4,
+    "rules": [
+      {
+        "label": "plate",
+        "when": "(metal > 0.45) & (y < 0.56)"
+      },
+      {
+        "label": "plate",
+        "when": "(np.abs(x) < 0.40) & (y < 0.47) & (y > -0.86) & (np.abs(nz) > 0.35)"
+      },
+      {
+        "label": "medallion",
+        "when": "(z > zf + 0.012) & (np.abs(x) < 0.40) & (y < -0.15) & (y > -0.86)",
+        "lock": true
+      },
+      {
+        "label": "gem",
+        "when": "(z > zf + 0.012) & (np.abs(x) < 0.40) & (y >= -0.15) & (y < 0.47) & (r > 0.25) & (r > b)",
+        "lock": true
+      },
+      {
+        "label": "cap",
+        "when": "y >= 0.56",
+        "lock": true
+      }
+    ],
+    "liquid": {
+      "wall": 0.045,
+      "bottom": -0.8,
+      "top": 0.5,
+      "pitch": 0.008,
+      "smooth": 1.6,
+      "faces": 6000,
+      "color": [
+        0.25,
+        0.45,
+        1.0,
+        1.0
+      ]
+    }
+  }
+}

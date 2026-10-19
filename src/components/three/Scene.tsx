@@ -43,7 +43,7 @@ function Universe({ perfume, quality }: SceneProps) {
 
   return (
     <>
-      <NebulaSky theme={th} octaves={low ? 4 : 6} />
+      <NebulaSky theme={th} octaves={low ? 5 : 6} resolution={low ? 512 : 1024} />
       <NebulaLayers clouds={low ? clouds.slice(0, 3) : clouds} />
       <StarField count={low ? 1500 : 4000} radius={[38, 70]} colors={th.stars} size={0.9} seed={1} />
       <StarField count={low ? 500 : 1400} radius={[16, 36]} colors={th.stars} size={0.75} seed={2} />
@@ -149,7 +149,7 @@ function Rig({ perfume, mobile, quality }: SceneProps) {
       <group ref={bottleOffset}>
         <BackHalo color={th.glow} opacity={0.35} />
         <group ref={bottleSpin}>
-          <PerfumeBottle url={mobile ? perfume.model.mobile : perfume.model.desktop} />
+          <PerfumeBottle url={mobile ? perfume.model.mobile : perfume.model.desktop} look={perfume.look} mobile={mobile} />
         </group>
       </group>
     </>
@@ -179,6 +179,9 @@ export default function SceneCanvas({
       camera={{ fov: 30, near: 0.1, far: 200, position: [0, 0.5, 9.6] }}
       onCreated={({ gl }) => {
         gl.setClearColor("#03040b");
+        // Refração do vidro em meia resolução no celular.
+        const r = gl as THREE.WebGLRenderer & { transmissionResolutionScale?: number };
+        if (mobile && "transmissionResolutionScale" in r) r.transmissionResolutionScale = 0.5;
       }}
     >
       <PerformanceMonitor

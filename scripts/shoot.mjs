@@ -12,7 +12,7 @@ const logs = [];
 page.on("console", (m) => (m.type() === "error" || m.type() === "warning") && logs.push(`[${m.type()}] ${m.text()}`));
 page.on("pageerror", (e) => logs.push(`[pageerror] ${e.message}`));
 await page.goto(process.env.URL ?? "http://localhost:3000/?debug", { waitUntil: "networkidle", timeout: 180000 });
-await page.waitForSelector(".loader.is-done", { timeout: 180000 });
+await page.waitForSelector(".loader.is-done", { state: "attached", timeout: 180000 });
 await page.waitForTimeout(2500);
 for (const p of ps.split(",").map(Number)) {
   await page.evaluate((p) => {
@@ -23,7 +23,7 @@ for (const p of ps.split(",").map(Number)) {
   // Espera o scrub do GSAP alcançar o alvo (a GPU por software é lenta).
   await page.waitForFunction((p) => Math.abs(window.__zenite.progress - p) < 0.002, p, { timeout: 60000, polling: 250 }).catch(() => {});
   await page.waitForTimeout(+(process.env.SETTLE ?? 3500));
-  await page.screenshot({ path: `${out}/p${String(p).replace(".", "_")}.png` });
+  await page.screenshot({ path: `${out}/p${String(p).replace(".", "_")}.png`, timeout: 180000 });
 }
 console.log(JSON.stringify(await page.evaluate(() => [...document.querySelectorAll(".stage-rail button")].map((b) => { const r = b.querySelector(".rail-dot").getBoundingClientRect(); return [Math.round(r.x), Math.round(r.y)]; }))));
 console.log(logs.slice(0, 30).join("\n") || "sem erros no console");
