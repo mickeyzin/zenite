@@ -1,0 +1,104 @@
+import type { Perfume } from "./types";
+
+const retailSources = [
+  { label: "Superdrug", url: "https://www.superdrug.com/fragrance/fragrance-for-him/mens-aftershave/lattafa-pride-art-of-universe-100ml-eau-de-parfum-for-men/p/mp-00452156" },
+  { label: "Justmylook", url: "https://www.justmylook.com/products/lattafa-pride-art-of-universe-eau-de-parfum-100ml" },
+  { label: "Bjutip", url: "https://www.bjutip.com/unisex-perfumes/unisex-eau-de-parfum/lattafa-pride-art-of-universe-edp-u-100-ml" },
+];
+
+export const artOfUniverse: Perfume = {
+  slug: "lattafa-art-of-universe",
+  brand: "Lattafa",
+  line: "Lattafa Pride",
+  name: "Art of Universe",
+  fullName: "Lattafa Pride Art of Universe",
+  model: {
+    desktop: "/models/art-of-universe.glb",
+    mobile: "/models/art-of-universe.mobile.glb",
+  },
+  frontRotationY: 0,
+  concentration: { value: "Eau de Parfum", status: "verificado", sources: retailSources },
+  family: {
+    value: "Aromático · Cítrico · Amadeirado",
+    status: "a-confirmar",
+    note: "Varejistas divergem na classificação da família olfativa.",
+  },
+  year: { value: null, status: "a-confirmar", note: "Ano de lançamento ainda não confirmado em fonte oficial." },
+  gender: { value: "Unissex", status: "a-confirmar", note: "A maioria dos varejistas classifica como unissex." },
+  intro: {
+    value:
+      "Uma abertura cítrica e aromática de bergamota, tangerina, gengibre e menta conduz a um coração de pera e flor de laranjeira, pousado sobre cedro, âmbar e almíscar. Um frasco que leva o cosmos para a penteadeira.",
+    status: "provisorio",
+    note: "Resumo baseado na pirâmide declarada. A resenha editorial completa está em produção.",
+  },
+  notes: {
+    value: {
+      top: ["Bergamota", "Tangerina", "Gengibre", "Menta"],
+      heart: ["Pera", "Flor de laranjeira"],
+      base: ["Cedro", "Âmbar", "Almíscar"],
+    },
+    status: "a-confirmar",
+    note: "Pirâmide coincidente entre vários varejistas; confirmação na embalagem oficial pendente.",
+    sources: retailSources,
+  },
+  evolution: {
+    value: [
+      { phase: "Saída", text: "Brilho cítrico da bergamota e da tangerina, com o frescor picante do gengibre e da menta." },
+      { phase: "Coração", text: "A pera traz suculência; a flor de laranjeira acrescenta luminosidade floral." },
+      { phase: "Fundo", text: "Cedro, âmbar e almíscar formam uma base macia e amadeirada." },
+    ],
+    status: "provisorio",
+    note: "Estrutura esperada a partir das notas declaradas — ainda não testada pela Zênite.",
+  },
+  performance: {
+    value: [
+      { key: "fixacao", label: "Fixação", value: 7 },
+      { key: "projecao", label: "Projeção", value: 6 },
+      { key: "intensidade", label: "Intensidade", value: 6 },
+      { key: "versatilidade", label: "Versatilidade", value: 8 },
+    ],
+    status: "provisorio",
+    note: "Valores ilustrativos para validar o layout. Serão substituídos pelo teste editorial.",
+  },
+  seasons: { value: ["Primavera", "Verão"], status: "provisorio" },
+  occasions: { value: ["Dia a dia", "Trabalho", "Encontros casuais"], status: "provisorio" },
+  verdict: {
+    rating: { value: null, status: "provisorio", note: "Nota editorial em avaliação." },
+    pros: {
+      value: [
+        "Pirâmide cítrico-aromática com fundo amadeirado, de perfil versátil",
+        "Frasco colecionável com placa metálica e planetas em relevo",
+      ],
+      status: "provisorio",
+    },
+    cons: {
+      value: ["Desempenho ainda não testado pela Zênite"],
+      status: "provisorio",
+    },
+    profile: {
+      value: "Quem procura frescor cítrico com um fundo amadeirado e macio.",
+      status: "provisorio",
+    },
+    similar: {
+      value: [],
+      status: "provisorio",
+      note: "Comparações em curadoria — serão geradas a partir do catálogo.",
+    },
+  },
+  theme: {
+    deep: "#020615",
+    mid: "#0a2a7a",
+    glow: "#1a63ff",
+    accent: "#31c7f3",
+    stars: ["#ffffff", "#cfe9ff", "#8fdcff", "#31c7f3"],
+    keyLight: "#dce9ff",
+    rimLight: "#2f7bff",
+    fillLight: "#7d5cff",
+  },
+};
+
+export const featuredPerfumes: Perfume[] = [artOfUniverse];
+
+export function getPerfume(slug: string) {
+  return featuredPerfumes.find((p) => p.slug === slug);
+}
