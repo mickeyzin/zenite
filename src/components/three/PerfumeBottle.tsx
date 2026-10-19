@@ -119,6 +119,7 @@ export const PerfumeBottle = forwardRef<THREE.Group, Props>(function PerfumeBott
       } else if (part.startsWith("glass")) {
         const g = look.glass;
         mesh.material = physicalFrom(src, {
+          map: g.useTexture ? src.map : null,
           metalness: 0,
           metalnessMap: null,
           roughnessMap: null,
@@ -131,7 +132,7 @@ export const PerfumeBottle = forwardRef<THREE.Group, Props>(function PerfumeBott
           clearcoat: 1,
           clearcoatRoughness: 0.03,
           specularIntensity: 1,
-          color: new THREE.Color(1, 1, 1).multiplyScalar(g.brightness),
+          color: new THREE.Color(g.tint).multiplyScalar(g.brightness),
         });
       } else if (part.startsWith("gem")) {
         mesh.material = physicalFrom(src, { metalness: 0.1, roughness: 0.04, roughnessMap: null, clearcoat: 1, clearcoatRoughness: 0.02, iridescence: 0.25, envMapIntensity: 1.6 });

@@ -42,3 +42,4 @@ next-env.d.ts
 
 # prévia estática gerada
 /preview/dist/
+/.venv3d/

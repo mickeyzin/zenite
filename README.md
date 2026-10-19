@@ -32,33 +32,22 @@ Usa o Chromium do Playwright com GPU por software. O caminho do Chromium vem de 
 
 ## Modelos 3D
 
-Os originais ficam em `models-source/`. As versões otimizadas usadas pelo site ficam em `public/models/` e são geradas assim:
+Originais em `models-source/`. O site usa versões com **peças separadas** em `public/models/*.parts*.glb`
+(vidro, metais, rótulo, tampa e um volume de líquido gerado), criadas por `scripts/models/` — veja
+`scripts/models/README.md`.
 
-```bash
-./scripts/optimize-models.sh
-```
-
-| Modelo | Original | Desktop | Mobile |
+| Frasco | Peças | Desktop | Mobile |
 |---|---|---|---|
-| Art of Universe | 18,6 MB · 392 mil triângulos | 1,4 MB · 135 mil | 0,44 MB · 26 mil |
-| Creed Wild Vetiver | 12,7 MB · 235 mil | 1,1 MB · 92 mil | 0,34 MB · 19 mil |
-| Prada Paradoxe | 7,2 MB · 65 mil | 0,63 MB · 34 mil | 0,26 MB · 10 mil |
+| Art of Universe | vidro tingido, placa, tampa, gema, medalhão, líquido | 1,9 MB | 0,62 MB |
+| Creed Wild Vetiver | vidro incolor, impressão, tampa, líquido verde | 1,5 MB | 0,60 MB |
+| Prada Paradoxe | vidro incolor, colar, tampa, líquido rosa | 0,9 MB | 0,33 MB |
 
-Otimização: solda de vértices, simplificação com erro máximo de 0,01% (desktop) e 0,04% (mobile) do tamanho do modelo, compressão Meshopt e texturas WebP (2048 px no desktop, 1024 px no mobile).
+- **Vidro**: `MeshPhysicalMaterial` com transmissão e refração reais. A aparência fica em `look` (`src/data/perfumes.ts`).
+- **Líquido**: recortado por um plano que acompanha a gravidade e balança como uma mola amortecida conforme o frasco gira; com menisco claro na borda.
+- **Céu**: renderizado uma vez num cubemap, assim a refração do vidro não desenha o shader da nebulosa duas vezes por quadro.
+- **Laboratório**: `/laboratorio?p=<slug>` mostra um frasco isolado para inspeção (arraste para girar).
 
-### O que a inspeção mostrou (os três arquivos)
-
-- Gerados pelo **Meshy AI**: **uma única malha e um único material** por frasco. Não há partes separadas (vidro, tampa, líquido, rótulo).
-- Material PBR opaco (`alphaMode: OPAQUE`) com 3 texturas 2048 px: cor, metal/rugosidade e normal. O vidro, os reflexos, os logotipos e os rótulos estão **pintados na textura**.
-- **Não há líquido interno**, nem transparência real, nem animações.
-- Escala ~1,9 unidade de altura, centralizados, frente voltada para +Z (orientação já correta).
-- O verso dos frascos foi "imaginado" pela IA do Meshy e tem menos detalhe que a frente.
-
-### Ajuste de material aplicado
-
-Em `src/components/three/PerfumeBottle.tsx`: o material original é trocado por um `MeshPhysicalMaterial` que usa **exatamente as mesmas texturas**, mais uma camada fina de verniz (clearcoat 0,7) para o brilho de vidro polido. Cores, rótulos e logotipos não mudam. Para voltar ao visual original: `clearcoat={0}`.
-
-**Não aplicado (precisa de decisão):** transmissão/refração real e líquido animado. Como vidro, tampa e rótulo estão na mesma malha, ligar a transmissão deixaria o rótulo e a tampa translúcidos. Para ter vidro e líquido reais é preciso separar a malha (no Blender, ou um modelo refeito com peças separadas).
+O que a inspeção dos arquivos originais mostrou: malha única do Meshy AI, material opaco com cor/metal/normal em textura de 2048 px, sem líquido nem animações, frente em +Z. O verso e alguns textos foram "imaginados" pela IA (ex.: inscrição deformada no Creed).
 
 ## Arquitetura
 

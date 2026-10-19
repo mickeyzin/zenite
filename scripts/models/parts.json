@@ -48,5 +48,75 @@
         1.0
       ]
     }
+  },
+  "creed-wild-vetiver": {
+    "labels": [
+      "glass",
+      "label",
+      "cap"
+    ],
+    "default": "glass",
+    "smooth": 4,
+    "rules": [
+      {
+        "label": "label",
+        "when": "(r > 0.5) & (g > 0.55) & (y < 0.2) & (y > -0.8) & (nz > 0.4) & (z > 0)"
+      },
+      {
+        "label": "cap",
+        "when": "y >= 0.48",
+        "lock": true
+      }
+    ],
+    "liquid": {
+      "wall": 0.05,
+      "bottom": -0.78,
+      "top": 0.4,
+      "pitch": 0.008,
+      "smooth": 1.6,
+      "faces": 6000,
+      "color": [
+        0.3,
+        0.6,
+        0.3,
+        1.0
+      ]
+    }
+  },
+  "prada-paradoxe": {
+    "labels": [
+      "glass",
+      "collar",
+      "cap"
+    ],
+    "default": "glass",
+    "smooth": 4,
+    "rules": [
+      {
+        "label": "cap",
+        "when": "(y - x) / 1.4142 >= 0.05",
+        "lock": true
+      },
+      {
+        "label": "collar",
+        "when": "((y - x) / 1.4142 > -0.05) & ((y - x) / 1.4142 < 0.22) & (np.maximum(np.maximum(r, g), b) > 0.6) & (sat < 0.2) & (np.abs((x + y) / 1.4142 + 0.02) < 0.22)",
+        "lock": true
+      }
+    ],
+    "liquid": {
+      "wall": 0.06,
+      "bottom": -0.95,
+      "top": 0.95,
+      "region": "(y - x) / 1.4142 < -0.14",
+      "pitch": 0.008,
+      "smooth": 1.6,
+      "faces": 6000,
+      "color": [
+        0.95,
+        0.45,
+        0.5,
+        1.0
+      ]
+    }
   }
 }

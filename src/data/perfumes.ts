@@ -1,4 +1,4 @@
-import type { Perfume } from "./types";
+import type { BottleEntry, Perfume } from "./types";
 
 const retailSources = [
   { label: "Superdrug", url: "https://www.superdrug.com/fragrance/fragrance-for-him/mens-aftershave/lattafa-pride-art-of-universe-100ml-eau-de-parfum-for-men/p/mp-00452156" },
@@ -97,12 +97,58 @@ export const artOfUniverse: Perfume = {
   },
   look: {
     // Transparência do vidro a confirmar com o frasco real.
-    glass: { transmission: 0.82, thickness: 0.45, roughness: 0.06, attenuationColor: "#5a86ff", attenuationDistance: 2.2, brightness: 2.6 },
+    glass: { useTexture: true, tint: "#ffffff", transmission: 0.82, thickness: 0.45, roughness: 0.06, attenuationColor: "#5a86ff", attenuationDistance: 2.2, brightness: 2.6 },
     liquid: { color: "#2448d8", surfaceColor: "#cfe6ff", fill: 0.8 },
   },
 };
 
 export const featuredPerfumes: Perfume[] = [artOfUniverse];
+
+/**
+ * Frascos disponíveis para o laboratório e para as próximas cenas. Creed e
+ * Prada ainda não têm resenha; os temas e a aparência são preliminares (Fase 3).
+ */
+export const bottles: BottleEntry[] = [
+  artOfUniverse,
+  {
+    slug: "creed-wild-vetiver",
+    name: "Creed Wild Vetiver",
+    model: { desktop: "/models/creed-wild-vetiver.parts.glb", mobile: "/models/creed-wild-vetiver.parts.mobile.glb" },
+    theme: {
+      deep: "#020a06",
+      mid: "#0b3a22",
+      glow: "#1f9c5a",
+      accent: "#d8b45a",
+      stars: ["#ffffff", "#f3ead2", "#cfe9c8", "#d8b45a"],
+      keyLight: "#fff3d6",
+      rimLight: "#2fbf72",
+      fillLight: "#d8b45a",
+    },
+    look: {
+      glass: { useTexture: false, tint: "#f4fbf1", transmission: 1, thickness: 0.5, roughness: 0.03, attenuationColor: "#e6f3df", attenuationDistance: 3, brightness: 1 },
+      liquid: { color: "#5f9a2c", surfaceColor: "#d6efb0", fill: 0.84 },
+    },
+  },
+  {
+    slug: "prada-paradoxe",
+    name: "Prada Paradoxe",
+    model: { desktop: "/models/prada-paradoxe.parts.glb", mobile: "/models/prada-paradoxe.parts.mobile.glb" },
+    theme: {
+      deep: "#0a0210",
+      mid: "#4a0f3f",
+      glow: "#ff3d9a",
+      accent: "#ffb3d1",
+      stars: ["#ffffff", "#ffe3ef", "#ffc2dc", "#c79bff"],
+      keyLight: "#fff0f6",
+      rimLight: "#ff4fa3",
+      fillLight: "#a65cff",
+    },
+    look: {
+      glass: { useTexture: false, tint: "#fff7f9", transmission: 1, thickness: 0.6, roughness: 0.03, attenuationColor: "#ffe8ee", attenuationDistance: 3, brightness: 1 },
+      liquid: { color: "#ff6f86", surfaceColor: "#ffd6de", fill: 0.78 },
+    },
+  },
+];
 
 export function getPerfume(slug: string) {
   return featuredPerfumes.find((p) => p.slug === slug);

@@ -91,7 +91,7 @@ PALETTE = [(40, 120, 255), (230, 230, 235), (255, 200, 40), (255, 40, 60), (60, 
 v = mesh.vertices
 views = [("frente", 1.0), ("lado", None), ("costas", -1.0)]
 S = 360
-img = Image.new("RGB", (S * 3, S + 20), (12, 12, 20))
+img = Image.new("RGB", (S * 3, S * 2 + 40), (12, 12, 20))
 d = ImageDraw.Draw(img)
 for k, (name, sgn) in enumerate(views):
     if sgn is None:   # lado: câmera em +x
@@ -102,9 +102,12 @@ for k, (name, sgn) in enumerate(views):
     shade = np.clip(nd * 0.6 + 0.4, 0.15, 1)
     sx = (h * 0.45 + 0.5) * S + k * S
     sy = (0.5 - v[:, 1] * 0.45) * S + 20
+    tex = (np.clip(col, 0, 1) * 255).astype(int)
     for i in order:
         c = tuple(int(cc * shade[i]) for cc in PALETTE[lab[i] % len(PALETTE)])
         d.polygon([(sx[t], sy[t]) for t in f[i]], fill=c)
+        c2 = tuple(int(cc * (0.5 + 0.5 * shade[i])) for cc in tex[i])
+        d.polygon([(sx[t], sy[t] + S + 20) for t in f[i]], fill=c2)
     d.text((k * S + 8, 4), name, fill=(220, 220, 220))
 leg = " ".join(f"{i}:{L}" for i, L in enumerate(LABELS))
 ImageDraw.Draw(img).text((S + 60, 4), leg, fill=(200, 200, 200))

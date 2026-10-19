@@ -27,6 +27,11 @@ function App({ perfume }: { perfume: typeof artOfUniverse }) {
             Esta prévia mostra a Fase 2: o Lattafa Pride Art of Universe em quatro etapas. Role para cima para ver a
             animação voltar. Creed Wild Vetiver e Prada Paradoxe entram na próxima fase.
           </p>
+          <p className="mt-8">
+            <a className="btn-primary" href="lab.html">
+              Abrir o laboratório dos três frascos <span aria-hidden>→</span>
+            </a>
+          </p>
         </section>
       </main>
     </>
@@ -34,7 +39,7 @@ function App({ perfume }: { perfume: typeof artOfUniverse }) {
 }
 
 const isMobile = window.innerWidth / window.innerHeight < 0.85 || window.innerWidth < 768;
-const file = isMobile ? "models/art-of-universe.mobile.glb.txt" : "models/art-of-universe.glb.txt";
+const file = isMobile ? "models/art-of-universe.parts.mobile.glb.txt" : "models/art-of-universe.parts.glb.txt";
 const root = createRoot(document.getElementById("root")!);
 glbUrl(file).then((url) => {
   const perfume = { ...artOfUniverse, model: { desktop: url, mobile: url } };

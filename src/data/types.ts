@@ -33,6 +33,13 @@ export interface UniverseTheme {
 /** Ajustes visuais das peças separadas do frasco (ver scripts/models). */
 export interface BottleLook {
   glass: {
+    /**
+     * true: o vidro usa a cor da textura (vidro tingido).
+     * false: vidro incolor com `tint`; útil quando a cor da textura é do líquido
+     * visto através do vidro (Creed, Prada).
+     */
+    useTexture: boolean;
+    tint: string;
     /** 0 = opaco (como o GLB original), 1 = totalmente transmissivo. */
     transmission: number;
     thickness: number;
@@ -48,6 +55,15 @@ export interface BottleLook {
     /** Nível de enchimento, 0–1 da altura interna. */
     fill: number;
   };
+}
+
+/** Dados mínimos para exibir um frasco (laboratório e cenas). */
+export interface BottleEntry {
+  slug: string;
+  name: string;
+  model: { desktop: string; mobile: string };
+  theme: UniverseTheme;
+  look: BottleLook;
 }
 
 export interface Perfume {

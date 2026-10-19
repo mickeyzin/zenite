@@ -6,7 +6,7 @@ import { Bloom, EffectComposer, ToneMapping } from "@react-three/postprocessing"
 import { ToneMappingMode } from "postprocessing";
 import { Suspense, useRef, useState } from "react";
 import * as THREE from "three";
-import { featuredPerfumes } from "@/data/perfumes";
+import { bottles } from "@/data/perfumes";
 import { NebulaSky } from "./NebulaSky";
 import { PerfumeBottle } from "./PerfumeBottle";
 
@@ -25,7 +25,7 @@ function useSpinner({ angle, spin }: { angle: number; spin: boolean }) {
 }
 
 function Bottle({ angle, spin, slug }: { angle: number; spin: boolean; slug: string }) {
-  const p = featuredPerfumes.find((x) => x.slug === slug) ?? featuredPerfumes[0];
+  const p = bottles.find((x) => x.slug === slug) ?? bottles[0];
   const g = useSpinner({ angle, spin });
   return (
     <>
@@ -47,12 +47,19 @@ function Bottle({ angle, spin, slug }: { angle: number; spin: boolean; slug: str
   );
 }
 
-export default function LabCanvas() {
+interface LabProps {
+  slug?: string;
+  angle?: number;
+  spin?: boolean;
+  dist?: number;
+}
+
+export default function LabCanvas(props: LabProps) {
   const [params] = useState(() => (typeof window === "undefined" ? new URLSearchParams() : new URLSearchParams(window.location.search)));
-  const angle = Number(params.get("angle") ?? 0);
-  const spin = params.get("spin") === "1";
-  const slug = params.get("p") ?? "lattafa-art-of-universe";
-  const dist = Number(params.get("dist") ?? 5.6);
+  const angle = props.angle ?? Number(params.get("angle") ?? 0);
+  const spin = props.spin ?? params.get("spin") === "1";
+  const slug = props.slug ?? params.get("p") ?? "lattafa-art-of-universe";
+  const dist = props.dist ?? Number(params.get("dist") ?? 5.6);
   return (
     <Canvas dpr={[1, 1.75]} camera={{ fov: 30, position: [0, 0.2, dist] }} gl={{ antialias: false }}>
       <Suspense fallback={null}>
