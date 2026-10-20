@@ -47,7 +47,11 @@ export function CinematicExperience({ perfumes }: { perfumes: Perfume[] }) {
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     experienceState.reducedMotion = reduced;
     // Ganchos de verificação automatizada (?debug na URL).
-    if (window.location.search.includes("debug")) (window as unknown as { __zenite: typeof experienceState }).__zenite = experienceState;
+    if (window.location.search.includes("debug")) {
+      (window as unknown as { __zenite: typeof experienceState }).__zenite = experienceState;
+      // Prints automatizados em GPU lenta: sem "lag smoothing", o GSAP não freia as animações.
+      gsap.ticker.lagSmoothing(0);
+    }
     /* eslint-disable react-hooks/set-state-in-effect */
     if (!hasWebGL()) {
       setMode("static");
@@ -136,6 +140,8 @@ export function CinematicExperience({ perfumes }: { perfumes: Perfume[] }) {
         });
       });
       tl.to(".outro-cue", { autoAlpha: 1, y: 0, duration: 0.01 }, at(n - 1, 0.975));
+      // Borda inferior esmaece para o espaço: a cena "entrega" a página à Linha Zênite.
+      tl.fromTo(".cinema-fade", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.012, immediateRender: false }, at(n - 1, 0.982));
 
       return () => {
         experienceState.progress = 0;
@@ -251,6 +257,7 @@ export function CinematicExperience({ perfumes }: { perfumes: Perfume[] }) {
       >
         {mounted && <ExperienceCanvas perfumes={perfumes} mobile={mobile} />}
         <div className="cinema-grade" aria-hidden />
+        <div className="cinema-fade" aria-hidden />
 
         {perfumes.map((p, i) => (
           <header key={p.slug} className="hero-intro" data-perfume={i}>

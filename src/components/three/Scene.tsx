@@ -21,6 +21,7 @@ import {
   type Shot,
 } from "@/lib/timeline";
 import { BackHalo } from "./BackHalo";
+import { Constellation } from "./Constellation";
 import { CosmicDust } from "./CosmicDust";
 import { getDissolve } from "./dissolve";
 import { NebulaLayers, type NebulaCloud } from "./NebulaLayers";
@@ -260,6 +261,7 @@ function Rig({ perfumes, mobile, quality }: SceneProps) {
       <group ref={fxGroup}>
         <TransitionFX count={mobile ? 450 : 900} />
       </group>
+      <Constellation shots={shots} n={n} mobile={mobile} />
 
       {slots.map((slot, i) => (
         <group key={perfumes[i].slug} ref={slot.offset} visible={i === 0}>

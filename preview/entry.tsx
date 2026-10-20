@@ -1,5 +1,6 @@
 import { createRoot } from "react-dom/client";
 import { CinematicExperience } from "@/components/experience/CinematicExperience";
+import { HomeTrail } from "@/components/trail/HomeTrail";
 import { SiteHeader } from "@/components/ui/SiteHeader";
 import { featuredPerfumes } from "@/data/perfumes";
 import type { Perfume } from "@/data/types";
@@ -19,18 +20,16 @@ function App({ perfumes }: { perfumes: Perfume[] }) {
       <SiteHeader />
       <main id="conteudo">
         <CinematicExperience perfumes={perfumes} />
+        <HomeTrail />
         <section className="after-section">
           <p className="eyebrow">
             <span>✦</span> Prévia
           </p>
-          <h2 className="stage-title">Fim da apresentação</h2>
-          <p className="max-w-xl text-[var(--z-muted)] mt-4">
-            Três universos numa só rolagem: Lattafa Pride Art of Universe, Creed Wild Vetiver e Prada Paradoxe Intense.
-            Role para cima para ver as transições ao contrário.
-          </p>
+          <h2 className="stage-title">Laboratório dos frascos</h2>
+          <p className="max-w-xl text-[var(--z-muted)] mt-4">Gire e incline cada frasco de perto para ver o vidro e o líquido.</p>
           <p className="mt-8">
             <a className="btn-primary" href="lab.html">
-              Abrir o laboratório dos três frascos <span aria-hidden>→</span>
+              Abrir o laboratório <span aria-hidden>→</span>
             </a>
           </p>
         </section>

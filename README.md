@@ -2,7 +2,7 @@
 
 Portal editorial de perfumaria com apresentação cinematográfica em 3D. **Não é uma loja**: sem carrinho, checkout ou estoque. A monetização futura será por links de afiliado identificados.
 
-Estado atual: **Fases 1 a 3** — três perfumes (Lattafa Pride Art of Universe, Creed Wild Vetiver, Prada Paradoxe Intense) numa rolagem contínua, cada um com quatro etapas e universo próprio, e transições reversíveis entre eles.
+Estado atual: **Fases 1 a 4** — três perfumes (Lattafa Pride Art of Universe, Creed Wild Vetiver, Prada Paradoxe Intense) numa rolagem contínua, cada um com quatro etapas e universo próprio, e transições reversíveis entre eles.
 
 ## Rodar localmente
 
@@ -80,6 +80,13 @@ A seção tem 7 telas por perfume (`SCREENS_PER_PERFUME`). Tudo deriva do mesmo 
 - O ambiente de reflexos é trocado no instante em que nenhum frasco está visível.
 
 Para adicionar um perfume à apresentação, basta incluí-lo em `featuredPerfumes` com seu `theme` (paletas do universo) e `look` (materiais).
+
+## Linha Zênite
+
+- **Constelação** (`components/three/Constellation.tsx`): no fim da apresentação, estrelas voam até formar uma figura e se ligam por traços de luz. O desenho é definido em coordenadas de tela e projetado com a câmera do último quadro, então a estrela-âncora fica sempre a 86% da altura, no centro.
+- **Linha** (`components/trail/ZeniteTrail.tsx`): SVG que parte da âncora e passa por cada elemento com `data-zenite-star`. A ponta acompanha a linha de leitura (62% da tela): rolar desenha, subir recua. Cada estrela alcançada acende com uma pequena constelação.
+- Fica atrás do conteúdo (`pointer-events: none`). No celular corre pela margem esquerda. Com "reduzir movimento", aparece já desenhada.
+- O percurso (`components/trail/HomeTrail.tsx`) apresenta as próximas áreas, marcadas "Em breve" com a fase prevista.
 
 ## Dados e transparência
 
