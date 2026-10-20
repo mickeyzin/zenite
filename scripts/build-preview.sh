@@ -17,6 +17,13 @@ npx esbuild preview/lab-entry.tsx --bundle --minify --format=esm \
   --alias:next/link=./preview/shims/next-link.tsx \
   --alias:@=./src --define:process.env.NODE_ENV='"production"' --log-level=warning
 cp preview/lab.html "$OUT/lab.html"
+npx esbuild preview/pages-entry.tsx --bundle --minify --format=esm \
+  --outfile="$OUT/pages.js" --jsx=automatic --target=es2020 \
+  --alias:next/dynamic=./preview/shims/next-dynamic.tsx \
+  --alias:next/image=./preview/shims/next-image.tsx \
+  --alias:next/link=./preview/shims/next-link.tsx \
+  --alias:@=./src --define:process.env.NODE_ENV='"production"' --log-level=warning
+cp preview/catalogo.html preview/resenha.html preview/comparar.html "$OUT/"
 npx tailwindcss -i src/app/globals.css -o "$OUT/style.tmp.css" --minify 2>/dev/null
 cat preview/fonts.css "$OUT/style.tmp.css" > "$OUT/style.css" && rm "$OUT/style.tmp.css"
 rm -f "$OUT"/models/*

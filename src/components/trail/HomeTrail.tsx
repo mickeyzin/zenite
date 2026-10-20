@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { ZeniteTrail } from "./ZeniteTrail";
 
 /**
@@ -5,20 +6,24 @@ import { ZeniteTrail } from "./ZeniteTrail";
  * Os textos descrevem o que cada área terá; tudo está marcado como "Em breve"
  * até a Fase 5 (catálogo e resenhas) e seguintes.
  */
-const SECTIONS = [
+const SECTIONS: { id: string; label: string; title: string; text: string; phase: string; href?: string; cta?: string }[] = [
   {
     id: "catalogo",
     label: "Catálogo",
     title: "Explore por notas, famílias e ocasiões",
-    text: "Busca por nome, marca, nota olfativa, concentração, estação, ocasião, perfil e intensidade — com filtros e ordenação.",
+    text: "Busca por nome, marca, nota olfativa, concentração, estação, ocasião e perfil — com filtros e ordenação.",
     phase: "Fase 5",
+    href: "/catalogo",
+    cta: "Abrir o catálogo",
   },
   {
     id: "resenhas",
     label: "Resenhas",
     title: "Resenhas completas e verificáveis",
-    text: "Pirâmide olfativa, evolução, fixação, projeção e versatilidade. Dados oficiais, avaliação editorial e opinião de usuários sempre separados.",
+    text: "Pirâmide olfativa, evolução, perfil estimado, desempenho e perfumes semelhantes. Dados oficiais, avaliação editorial e opinião de usuários sempre separados.",
     phase: "Fase 5",
+    href: "/perfumes/lattafa-art-of-universe",
+    cta: "Ler uma resenha",
   },
   {
     id: "mapeamento",
@@ -31,8 +36,10 @@ const SECTIONS = [
     id: "comparacoes",
     label: "Comparações",
     title: "Lado a lado, com justificativa",
-    text: "Perfumes semelhantes comparados por notas, acordes, intensidade e ocasiões, sem afirmar que são idênticos quando não há evidência.",
+    text: "Perfumes comparados por notas, acordes e ocasiões, com justificativa — sem afirmar que são idênticos quando não há evidência.",
     phase: "Fase 5",
+    href: "/comparar",
+    cta: "Comparar perfumes",
   },
   {
     id: "guias",
@@ -74,9 +81,15 @@ export function HomeTrail() {
                 {s.title}
               </h3>
               <p className="trail-text">{s.text}</p>
-              <p className="trail-soon">
-                Em breve <span aria-hidden>·</span> {s.phase}
-              </p>
+              {s.href ? (
+                <Link href={s.href} className="btn-ghost trail-link">
+                  {s.cta} <span aria-hidden>→</span>
+                </Link>
+              ) : (
+                <p className="trail-soon">
+                  Em breve <span aria-hidden>·</span> {s.phase}
+                </p>
+              )}
             </div>
           </section>
         );

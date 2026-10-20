@@ -2,7 +2,7 @@
 
 Portal editorial de perfumaria com apresentação cinematográfica em 3D. **Não é uma loja**: sem carrinho, checkout ou estoque. A monetização futura será por links de afiliado identificados.
 
-Estado atual: **Fases 1 a 4** — três perfumes (Lattafa Pride Art of Universe, Creed Wild Vetiver, Prada Paradoxe Intense) numa rolagem contínua, cada um com quatro etapas e universo próprio, e transições reversíveis entre eles.
+Estado atual: **Fases 1 a 5** — três perfumes (Lattafa Pride Art of Universe, Creed Wild Vetiver, Prada Paradoxe Intense) numa rolagem contínua, cada um com quatro etapas e universo próprio, e transições reversíveis entre eles.
 
 ## Rodar localmente
 
@@ -87,6 +87,15 @@ Para adicionar um perfume à apresentação, basta incluí-lo em `featuredPerfum
 - **Linha** (`components/trail/ZeniteTrail.tsx`): SVG que parte da âncora e passa por cada elemento com `data-zenite-star`. A ponta acompanha a linha de leitura (62% da tela): rolar desenha, subir recua. Cada estrela alcançada acende com uma pequena constelação.
 - Fica atrás do conteúdo (`pointer-events: none`). No celular corre pela margem esquerda. Com "reduzir movimento", aparece já desenhada.
 - O percurso (`components/trail/HomeTrail.tsx`) apresenta as próximas áreas, marcadas "Em breve" com a fase prevista.
+
+## Catálogo, resenhas e comparações
+
+- `/catalogo`: busca (nome, marca, notas, família) e filtros (família, perfil predominante, marca, concentração, público, estação, ocasião), com ordenação. O estado fica na URL. Intensidade e preço ficam desativados até haver avaliação editorial e ofertas verificadas.
+- `/perfumes/[slug]`: resenha completa. Separa **dados do perfume** (com fonte e status), **perfil estimado**, **avaliação editorial** (provisória) e **opiniões de usuários** (em breve).
+- `/comparar?a=…&b=…`: dois perfumes lado a lado, com notas em comum destacadas.
+- **Perfil olfativo estimado** (`src/lib/olfactory.ts`): cada nota tem pesos por acorde. Daí saem doçura, frescor, presença amadeirada e presença especiada, sempre rotuladas como estimativa. Nota nova → cadastrar em `NOTE_ACCORDS` (a página avisa se faltar).
+- **Semelhantes** (`src/lib/similarity.ts`): 55% acordes, 35% notas em comum, 5% estações, 5% ocasiões. Abaixo de 35% aparece como "pouca semelhança"; o texto nunca afirma que são iguais.
+- Gráficos (`src/components/charts`): medidores e barras em HTML/CSS, renderizados no servidor, com valor em texto; a comparação usa duas cores validadas contra o fundo escuro.
 
 ## Dados e transparência
 

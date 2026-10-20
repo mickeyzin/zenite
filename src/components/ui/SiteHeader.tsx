@@ -1,6 +1,11 @@
 import Link from "next/link";
 
-const NAV = ["Catálogo", "Resenhas", "Mapeamento olfativo", "Guias"];
+const NAV: { label: string; href?: string }[] = [
+  { label: "Catálogo", href: "/catalogo" },
+  { label: "Comparar", href: "/comparar" },
+  { label: "Mapeamento olfativo" },
+  { label: "Guias" },
+];
 
 export function SiteHeader() {
   return (
@@ -12,13 +17,19 @@ export function SiteHeader() {
         <span className="brand-word">ZÊNITE</span>
         <span className="brand-sub">Perfumes Cósmicos</span>
       </Link>
-      <nav aria-label="Principal" className="hidden md:block">
-        <ul className="flex gap-8">
+      <nav aria-label="Principal">
+        <ul className="flex gap-5 md:gap-8">
           {NAV.map((n) => (
-            <li key={n}>
-              <span className="nav-soon" aria-disabled="true" title="Em breve">
-                {n}
-              </span>
+            <li key={n.label} className={n.href ? "" : "hidden md:block"}>
+              {n.href ? (
+                <Link href={n.href} className="nav-link">
+                  {n.label}
+                </Link>
+              ) : (
+                <span className="nav-soon" aria-disabled="true" title="Em breve">
+                  {n.label}
+                </span>
+              )}
             </li>
           ))}
         </ul>
