@@ -1,0 +1,624 @@
+{
+  "brand": "Lattafa",
+  "source": "https://lattafa.com",
+  "items": [
+    {
+      "url": "https://lattafa.com/product/art-of-universe/",
+      "fetchedAt": "2026-10-20T03:11:32.231Z",
+      "name": "Art of Universe",
+      "sku": "31PL0101",
+      "notesRaw": "Top - Bergamot, Mandarin, Ginger, Mint\n\nHeart - Orange Flower, Pear\n\nBase - Cedar Wood, Amber, Musk",
+      "size": "100 ML",
+      "gender": "Masculino",
+      "notesEn": {
+        "top": [
+          "Bergamot",
+          "Mandarin",
+          "Ginger",
+          "Mint"
+        ],
+        "heart": [
+          "Orange Flower",
+          "Pear"
+        ],
+        "base": [
+          "Cedar Wood",
+          "Amber",
+          "Musk"
+        ]
+      },
+      "notes": {
+        "top": [
+          "Bergamota",
+          "Tangerina",
+          "Gengibre",
+          "Menta"
+        ],
+        "heart": [
+          "Flor de laranjeira",
+          "Pera"
+        ],
+        "base": [
+          "Cedro",
+          "Âmbar",
+          "Almíscar"
+        ]
+      },
+      "unknownNotes": [],
+      "review": "ok"
+    },
+    {
+      "url": "https://lattafa.com/product/al-dur-al-maknoon-silver/",
+      "fetchedAt": "2026-10-20T03:12:11.634Z",
+      "name": "Al Dur Al Maknoon Silver",
+      "sku": "31LA0015",
+      "notesRaw": "Top: Bergamot, Apple, Pineapple\n\nHeart: Birch, Patchouli, Jasmine\n\n\n\nBase: Musk, Oakmoss, Leather, Amber",
+      "size": "100 ML",
+      "gender": "Masculino",
+      "notesEn": {
+        "top": [
+          "Bergamot",
+          "Apple",
+          "Pineapple"
+        ],
+        "heart": [
+          "Birch",
+          "Patchouli",
+          "Jasmine"
+        ],
+        "base": [
+          "Musk",
+          "Oakmoss",
+          "Leather",
+          "Amber"
+        ]
+      },
+      "notes": {
+        "top": [
+          "Bergamota",
+          "Maçã",
+          "Abacaxi"
+        ],
+        "heart": [
+          "Bétula",
+          "Patchouli",
+          "Jasmim"
+        ],
+        "base": [
+          "Almíscar",
+          "Musgo de carvalho",
+          "Couro",
+          "Âmbar"
+        ]
+      },
+      "unknownNotes": [],
+      "review": "ok"
+    },
+    {
+      "url": "https://lattafa.com/product/ameer-al-oudh-intense/",
+      "fetchedAt": "2026-10-20T03:12:22.330Z",
+      "name": "Ameer Al Oudh - Intense",
+      "sku": "31LA0587",
+      "notesRaw": "Top: Saffron, Nutmeg\n\nHeart: Geranium, Woody Notes, Labdanum\n\n\n\nBase: Oud, Vanilla, Leather",
+      "size": "100 ML",
+      "gender": "Masculino",
+      "notesEn": {
+        "top": [
+          "Saffron",
+          "Nutmeg"
+        ],
+        "heart": [
+          "Geranium",
+          "Woody Notes",
+          "Labdanum"
+        ],
+        "base": [
+          "Oud",
+          "Vanilla",
+          "Leather"
+        ]
+      },
+      "notes": {
+        "top": [
+          "Açafrão",
+          "Noz-moscada"
+        ],
+        "heart": [
+          "Gerânio",
+          "Notas amadeiradas",
+          "Ládano"
+        ],
+        "base": [
+          "Oud",
+          "Baunilha",
+          "Couro"
+        ]
+      },
+      "unknownNotes": [],
+      "review": "ok"
+    },
+    {
+      "url": "https://lattafa.com/product/ana-abiyedh-rouge/",
+      "fetchedAt": "2026-10-20T03:13:23.887Z",
+      "name": "Ana Abiyedh Rouge",
+      "sku": "31LA0522",
+      "notesRaw": "Top: Nashi Pear, Kumquat and Bergamot\n\nHeart: Caramel and Geranium\n\n\n\nBase: Ambergris, Musk and Oakmoss",
+      "size": "60 ML",
+      "gender": "Feminino",
+      "notesEn": {
+        "top": [
+          "Nashi Pear",
+          "Kumquat",
+          "Bergamot"
+        ],
+        "heart": [
+          "Caramel",
+          "Geranium"
+        ],
+        "base": [
+          "Ambergris",
+          "Musk",
+          "Oakmoss"
+        ]
+      },
+      "notes": {
+        "top": [
+          "Pera nashi",
+          "Kumquat",
+          "Bergamota"
+        ],
+        "heart": [
+          "Caramelo",
+          "Gerânio"
+        ],
+        "base": [
+          "Âmbar-gris",
+          "Almíscar",
+          "Musgo de carvalho"
+        ]
+      },
+      "unknownNotes": [],
+      "review": "ok"
+    },
+    {
+      "url": "https://lattafa.com/product/durrah/",
+      "fetchedAt": "2026-10-20T03:14:57.143Z",
+      "name": "Durrah",
+      "sku": "31NE0033",
+      "notesRaw": "Top: Peach, Peony\n\nHeart: Osmanthus, Jasmine, Heliotrope\n\nBase: Patchouli, Musk",
+      "size": "100 ML",
+      "gender": null,
+      "notesEn": {
+        "top": [
+          "Peach",
+          "Peony"
+        ],
+        "heart": [
+          "Osmanthus",
+          "Jasmine",
+          "Heliotrope"
+        ],
+        "base": [
+          "Patchouli",
+          "Musk"
+        ]
+      },
+      "notes": {
+        "top": [
+          "Pêssego",
+          "Peônia"
+        ],
+        "heart": [
+          "Osmanto",
+          "Jasmim",
+          "Heliotrópio"
+        ],
+        "base": [
+          "Patchouli",
+          "Almíscar"
+        ]
+      },
+      "unknownNotes": [],
+      "review": "ok"
+    },
+    {
+      "url": "https://lattafa.com/product/classic-stone/",
+      "fetchedAt": "2026-10-20T03:15:07.727Z",
+      "name": "Classic Stone",
+      "sku": "31NE0032",
+      "notesRaw": "Top: Violet, Saffron, Cardamom, Cumin\n\nHeart: Suede, Osmanthus, Clove, Nutmeg\n\n\n\nBase: Woody, Ambergris, Oakmoss, Musk",
+      "size": "100 ML",
+      "gender": null,
+      "notesEn": {
+        "top": [
+          "Violet",
+          "Saffron",
+          "Cardamom",
+          "Cumin"
+        ],
+        "heart": [
+          "Suede",
+          "Osmanthus",
+          "Clove",
+          "Nutmeg"
+        ],
+        "base": [
+          "Woody",
+          "Ambergris",
+          "Oakmoss",
+          "Musk"
+        ]
+      },
+      "notes": {
+        "top": [
+          "Violeta",
+          "Açafrão",
+          "Cardamomo",
+          "Cominho"
+        ],
+        "heart": [
+          "Camurça",
+          "Osmanto",
+          "Cravo-da-índia",
+          "Noz-moscada"
+        ],
+        "base": [
+          "Notas amadeiradas",
+          "Âmbar-gris",
+          "Musgo de carvalho",
+          "Almíscar"
+        ]
+      },
+      "unknownNotes": [],
+      "review": "ok"
+    },
+    {
+      "url": "https://lattafa.com/product/kasoof-black/",
+      "fetchedAt": "2026-10-20T03:15:31.660Z",
+      "name": "Kasoof- Black",
+      "sku": "31LF0232",
+      "notesRaw": "Top: Ginger, Black pepper\n\nHeart: Mugwort, Nutmeg, Lavender\n\n\n\nBase: Musk, Patchouli, Saffron",
+      "size": "100 ML",
+      "gender": "Masculino",
+      "notesEn": {
+        "top": [
+          "Ginger",
+          "Black pepper"
+        ],
+        "heart": [
+          "Mugwort",
+          "Nutmeg",
+          "Lavender"
+        ],
+        "base": [
+          "Musk",
+          "Patchouli",
+          "Saffron"
+        ]
+      },
+      "notes": {
+        "top": [
+          "Gengibre",
+          "Pimenta-preta"
+        ],
+        "heart": [
+          "Artemísia",
+          "Noz-moscada",
+          "Lavanda"
+        ],
+        "base": [
+          "Almíscar",
+          "Patchouli",
+          "Açafrão"
+        ]
+      },
+      "unknownNotes": [],
+      "review": "ok"
+    },
+    {
+      "url": "https://lattafa.com/product/majd-al-sultan/",
+      "fetchedAt": "2026-10-20T03:15:54.370Z",
+      "name": "Majd Al Sultan",
+      "sku": "31LF0038",
+      "notesRaw": "Top: Cypress, Lavender, Fir, Balsam, Saffron\n\nHeart: Carnation, Cashmeran, Caramel\n\n\n\nBase: Patchouli, Amber, Vanilla",
+      "size": "100 ML",
+      "gender": "Masculino",
+      "notesEn": {
+        "top": [
+          "Cypress",
+          "Lavender",
+          "Fir",
+          "Balsam",
+          "Saffron"
+        ],
+        "heart": [
+          "Carnation",
+          "Cashmeran",
+          "Caramel"
+        ],
+        "base": [
+          "Patchouli",
+          "Amber",
+          "Vanilla"
+        ]
+      },
+      "notes": {
+        "top": [
+          "Cipreste",
+          "Lavanda",
+          "Abeto",
+          "Bálsamo",
+          "Açafrão"
+        ],
+        "heart": [
+          "Cravo (flor)",
+          "Cashmeran",
+          "Caramelo"
+        ],
+        "base": [
+          "Patchouli",
+          "Âmbar",
+          "Baunilha"
+        ]
+      },
+      "unknownNotes": [],
+      "review": "ok"
+    },
+    {
+      "url": "https://lattafa.com/product/oud-thameen/",
+      "fetchedAt": "2026-10-20T03:16:18.254Z",
+      "name": "Oud Thameen",
+      "sku": "31LF0233",
+      "notesRaw": "Top: Bergamot, Cinnamon, Ginger\n\nHeart: Black Pepper, Coffee\n\n\n\nBase: Vanilla, Labdanum, Vetiver, Tonka bean, Myrrh",
+      "size": "100 ML",
+      "gender": "Masculino",
+      "notesEn": {
+        "top": [
+          "Bergamot",
+          "Cinnamon",
+          "Ginger"
+        ],
+        "heart": [
+          "Black Pepper",
+          "Coffee"
+        ],
+        "base": [
+          "Vanilla",
+          "Labdanum",
+          "Vetiver",
+          "Tonka bean",
+          "Myrrh"
+        ]
+      },
+      "notes": {
+        "top": [
+          "Bergamota",
+          "Canela",
+          "Gengibre"
+        ],
+        "heart": [
+          "Pimenta-preta",
+          "Café"
+        ],
+        "base": [
+          "Baunilha",
+          "Ládano",
+          "Vetiver",
+          "Fava-tonka",
+          "Mirra"
+        ]
+      },
+      "unknownNotes": [],
+      "review": "ok"
+    },
+    {
+      "url": "https://lattafa.com/product/ameer-al-arab/",
+      "fetchedAt": "2026-10-20T03:16:43.445Z",
+      "name": "Ameer Al Arab",
+      "sku": "31LA3085",
+      "notesRaw": "Top: Jasmine, Myrrh\n\nHeart: Basil, Cardamom, Lavander, Pepper\n\n\n\nBase: Patchouli, Saffron, Sandalwood",
+      "size": null,
+      "gender": "Masculino",
+      "notesEn": {
+        "top": [
+          "Jasmine",
+          "Myrrh"
+        ],
+        "heart": [
+          "Basil",
+          "Cardamom",
+          "Lavander",
+          "Pepper"
+        ],
+        "base": [
+          "Patchouli",
+          "Saffron",
+          "Sandalwood"
+        ]
+      },
+      "notes": {
+        "top": [
+          "Jasmim",
+          "Mirra"
+        ],
+        "heart": [
+          "Manjericão",
+          "Cardamomo",
+          "Lavanda",
+          "Pimenta"
+        ],
+        "base": [
+          "Patchouli",
+          "Açafrão",
+          "Sândalo"
+        ]
+      },
+      "unknownNotes": [],
+      "review": "ok"
+    },
+    {
+      "url": "https://lattafa.com/product/ameerat-al-arab/",
+      "fetchedAt": "2026-10-20T03:17:17.617Z",
+      "name": "Ameerat Al Arab",
+      "sku": "31LA3079",
+      "notesRaw": "Top:Basil, Cardamon, Mint.\n\nHeart: Honeysuckle, Lavender\n\n\n\nBase: Saffron, pepper, Jasmine",
+      "size": null,
+      "gender": "Feminino",
+      "notesEn": {
+        "top": [
+          "Basil",
+          "Cardamon",
+          "Mint"
+        ],
+        "heart": [
+          "Honeysuckle",
+          "Lavender"
+        ],
+        "base": [
+          "Saffron",
+          "pepper",
+          "Jasmine"
+        ]
+      },
+      "notes": {
+        "top": [
+          "Manjericão",
+          "Cardamomo",
+          "Menta"
+        ],
+        "heart": [
+          "Madressilva",
+          "Lavanda"
+        ],
+        "base": [
+          "Açafrão",
+          "Pimenta",
+          "Jasmim"
+        ]
+      },
+      "unknownNotes": [],
+      "review": "ok"
+    },
+    {
+      "url": "https://lattafa.com/product/andaleeb-flora/",
+      "fetchedAt": "2026-10-20T03:17:28.193Z",
+      "name": "Andaleeb Flora",
+      "sku": "31LF0227",
+      "notesRaw": null,
+      "size": null,
+      "gender": "Feminino",
+      "notesEn": null,
+      "notes": null,
+      "unknownNotes": [],
+      "review": "sem pirâmide"
+    },
+    {
+      "url": "https://lattafa.com/product/pure-white/",
+      "fetchedAt": "2026-10-20T03:17:49.650Z",
+      "name": "Pure White",
+      "sku": "31LF0033",
+      "notesRaw": null,
+      "size": "100 ML",
+      "gender": "Unissex",
+      "notesEn": null,
+      "notes": null,
+      "unknownNotes": [],
+      "review": "sem pirâmide"
+    },
+    {
+      "url": "https://lattafa.com/product/andaleeb/",
+      "fetchedAt": "2026-10-20T03:18:14.439Z",
+      "name": "Andaleeb",
+      "sku": "31LF0032",
+      "notesRaw": "Top: Orange, Mandarin Orange and Bergamot\n\nHeart: Jasmine and Rose\n\n\n\nBase: Patchouli, Sandalwood and Vetiver",
+      "size": "100 ML",
+      "gender": "Feminino",
+      "notesEn": {
+        "top": [
+          "Orange",
+          "Mandarin Orange",
+          "Bergamot"
+        ],
+        "heart": [
+          "Jasmine",
+          "Rose"
+        ],
+        "base": [
+          "Patchouli",
+          "Sandalwood",
+          "Vetiver"
+        ]
+      },
+      "notes": {
+        "top": [
+          "Laranja",
+          "Tangerina",
+          "Bergamota"
+        ],
+        "heart": [
+          "Jasmim",
+          "Rosa"
+        ],
+        "base": [
+          "Patchouli",
+          "Sândalo",
+          "Vetiver"
+        ]
+      },
+      "unknownNotes": [],
+      "review": "ok"
+    },
+    {
+      "url": "https://lattafa.com/product/antique-20-ml/",
+      "fetchedAt": "2026-10-20T03:18:37.139Z",
+      "name": "Antique 20 ML",
+      "sku": "31NE0017",
+      "notesRaw": "Top: Cardamo, Fig, Coconut, Black tea\n\nHeart: Iris, Vitever, Jasmine\n\n\n\nBase: Amber, Sandalwood, Tonka Bean, Caramel, Musk",
+      "size": "20 ML",
+      "gender": "Unissex",
+      "notesEn": {
+        "top": [
+          "Cardamo",
+          "Fig",
+          "Coconut",
+          "Black tea"
+        ],
+        "heart": [
+          "Iris",
+          "Vitever",
+          "Jasmine"
+        ],
+        "base": [
+          "Amber",
+          "Sandalwood",
+          "Tonka Bean",
+          "Caramel",
+          "Musk"
+        ]
+      },
+      "notes": {
+        "top": [
+          "Cardamomo",
+          "Figo",
+          "Coco",
+          "Chá preto"
+        ],
+        "heart": [
+          "Íris",
+          "Vetiver",
+          "Jasmim"
+        ],
+        "base": [
+          "Âmbar",
+          "Sândalo",
+          "Fava-tonka",
+          "Caramelo",
+          "Almíscar"
+        ]
+      },
+      "unknownNotes": [],
+      "review": "ok"
+    }
+  ],
+  "updatedAt": "2026-10-20T03:19:08.954Z"
+}
