@@ -1,5 +1,7 @@
 import type { BottleEntry, Perfume } from "./types";
 
+const lattafaOfficial = { label: "Lattafa (site oficial)", url: "https://lattafa.com/product/art-of-universe/" };
+
 const retailSources = [
   { label: "Superdrug", url: "https://www.superdrug.com/fragrance/fragrance-for-him/mens-aftershave/lattafa-pride-art-of-universe-100ml-eau-de-parfum-for-men/p/mp-00452156" },
   { label: "Justmylook", url: "https://www.justmylook.com/products/lattafa-pride-art-of-universe-eau-de-parfum-100ml" },
@@ -28,7 +30,12 @@ export const artOfUniverse: Perfume = {
     note: "Varejistas divergem na classificação da família olfativa.",
   },
   year: { value: null, status: "a-confirmar", note: "Ano de lançamento ainda não confirmado em fonte oficial." },
-  gender: { value: "Unissex", status: "a-confirmar", note: "A maioria dos varejistas classifica como unissex." },
+  gender: {
+    value: "Masculino",
+    status: "verificado",
+    note: "Classificação do site oficial da Lattafa. Alguns varejistas listam como unissex.",
+    sources: [lattafaOfficial],
+  },
   intro: {
     value:
       "Uma abertura cítrica e aromática de bergamota, tangerina, gengibre e menta conduz a um coração de pera e flor de laranjeira, pousado sobre cedro, âmbar e almíscar. Um frasco que leva o cosmos para a penteadeira.",
@@ -41,9 +48,9 @@ export const artOfUniverse: Perfume = {
       heart: ["Pera", "Flor de laranjeira"],
       base: ["Cedro", "Âmbar", "Almíscar"],
     },
-    status: "a-confirmar",
-    note: "Pirâmide coincidente entre vários varejistas; confirmação na embalagem oficial pendente.",
-    sources: retailSources,
+    status: "verificado",
+    note: "Pirâmide do site oficial da Lattafa, igual à dos varejistas consultados.",
+    sources: [lattafaOfficial, ...retailSources],
   },
   evolution: {
     value: [

@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "import:lattafa": "NODE_USE_ENV_PROXY=1 node scripts/importers/lattafa.mjs"
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",
