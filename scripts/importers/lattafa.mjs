@@ -25,6 +25,7 @@ const args = process.argv.slice(2);
 const opt = (k, d) => (args.includes(k) ? args[args.indexOf(k) + 1] : d);
 const LIMIT = Number(opt("--limit", 20));
 const ONLY = opt("--only", null);
+const RETRANSLATE = args.includes("--retranslate");
 
 // Produtos que não são perfume para a pele (ou são kits) ficam de fora.
 const EXCLUDE = /(deo|deodorant|giftset|gift-set|gift_set|body-|lotion|shower|soap|hair-?(oil|serum)|shampoo|car-|air-|room|home|candle|bakhoor|incense-stick|diffuser|freshener|reed|mist-?collection|combo|bundle|pack-of|set-of)/i;
@@ -126,7 +127,22 @@ function extract(url, html) {
   return item;
 }
 
+/** Retraduz os rascunhos com o dicionário atual, sem acessar o site. */
+function retranslate() {
+  const db = JSON.parse(fs.readFileSync(OUT, "utf8"));
+  for (const it of db.items) {
+    if (!it.notesEn) continue;
+    const unknown = [];
+    it.notes = { top: translate(it.notesEn.top, unknown), heart: translate(it.notesEn.heart, unknown), base: translate(it.notesEn.base, unknown) };
+    it.unknownNotes = [...new Set(unknown)];
+    it.review = !it.name ? "sem nome" : unknown.length ? "notas sem tradução" : "ok";
+  }
+  fs.writeFileSync(OUT, JSON.stringify(db, null, 2));
+  console.log(`retraduzidos: ${db.items.filter((i) => i.review === "ok").length} de ${db.items.length} completos`);
+}
+
 async function main() {
+  if (RETRANSLATE) return retranslate();
   const robots = parseRobots(await get(`${BASE}/robots.txt`));
   const delay = Math.max(10, robots.delay) * 1000;
   console.log(`robots.txt: crawl-delay ${delay / 1000}s`);
@@ -136,7 +152,11 @@ async function main() {
   let urls = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]).filter((u) => u.includes("/product/"));
   const total = urls.length;
   // Só a versão em inglês: as páginas /ar/ repetem o produto sem a pirâmide nos dados.
-  urls = urls.filter((u) => !EXCLUDE.test(new URL(u).pathname) && !new URL(u).pathname.startsWith("/ar/"));
+  // Variantes de tamanho ("-20-ml") repetem o mesmo perfume.
+  urls = urls.filter((u) => {
+    const p = new URL(u).pathname;
+    return !EXCLUDE.test(p) && !p.startsWith("/ar/") && !/-\d+-?ml\/?$/i.test(p);
+  });
   if (ONLY) urls = urls.filter((u) => u.includes(ONLY));
   console.log(`sitemap: ${total} produtos, ${urls.length} perfumes candidatos`);
 
