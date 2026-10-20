@@ -1,3 +1,4 @@
+import noteAccordsData from "../../data/note-accords.json";
 import type { Perfume } from "@/data/types";
 
 /**
@@ -24,32 +25,14 @@ export const ACCORDS = [
 export type AccordKey = (typeof ACCORDS)[number]["key"];
 type Weights = Partial<Record<AccordKey, number>>;
 
-/** Dicionário de notas → acordes. Notas novas precisam ser cadastradas aqui. */
-export const NOTE_ACCORDS: Record<string, Weights> = {
-  bergamota: { citrico: 1 },
-  tangerina: { citrico: 1, frutado: 0.3 },
-  gengibre: { especiado: 0.7, citrico: 0.3 },
-  menta: { aromatico: 1 },
-  pera: { frutado: 1 },
-  "flor de laranjeira": { floral: 1 },
-  cedro: { amadeirado: 1 },
-  ambar: { ambarado: 1 },
-  almiscar: { almiscarado: 1 },
-  "baga timur": { especiado: 0.6, citrico: 0.4 },
-  "pimenta-rosa": { especiado: 1 },
-  "rosa centifolia": { floral: 1 },
-  geranio: { floral: 0.5, verde: 0.3, aromatico: 0.2 },
-  "broto de cassis": { frutado: 0.6, verde: 0.4 },
-  vetiver: { amadeirado: 0.7, verde: 0.3 },
-  amberwood: { amadeirado: 0.5, ambarado: 0.5 },
-  neroli: { floral: 0.6, citrico: 0.4 },
-  "essencia de neroli": { floral: 0.6, citrico: 0.4 },
-  jasmim: { floral: 1 },
-  musgo: { verde: 0.6, amadeirado: 0.4 },
-  "baunilha bourbon": { doce: 1 },
-  ambrofix: { ambarado: 0.7, amadeirado: 0.3 },
-  serenolide: { almiscarado: 1 },
-};
+/**
+ * Dicionário de notas → acordes (data/note-accords.json, chave = nome
+ * normalizado). É o mesmo arquivo usado para popular o banco. Notas novas:
+ * cadastrar ali (ou pelo painel, quando o banco estiver ativo).
+ */
+export const NOTE_ACCORDS: Record<string, Weights> = Object.fromEntries(
+  Object.entries(noteAccordsData as Record<string, { name: string; weights: Weights }>).map(([k, v]) => [k, v.weights]),
+);
 
 /** Normaliza para comparar notas: minúsculas, sem acentos e sem ™/®. */
 export const normalize = (s: string) =>

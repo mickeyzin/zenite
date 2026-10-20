@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "import:lattafa": "NODE_USE_ENV_PROXY=1 node scripts/importers/lattafa.mjs"
+    "import:lattafa": "NODE_USE_ENV_PROXY=1 node scripts/importers/lattafa.mjs",
+    "db:seed:build": "esbuild scripts/db/build-seed.ts --bundle --platform=node --format=esm --outfile=scripts/db/.build-seed.mjs --log-level=warning && node scripts/db/.build-seed.mjs",
+    "db:test": "node scripts/db/test-rls.mjs --seed"
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",
@@ -22,6 +24,7 @@
     "three": "^0.186.1"
   },
   "devDependencies": {
+    "@electric-sql/pglite": "^0.5.10",
     "@gltf-transform/cli": "^4.5.1",
     "@tailwindcss/cli": "^4.3.3",
     "@tailwindcss/turbopack": "^4",
