@@ -42,7 +42,13 @@ export function ReviewView({ perfume: p, catalog }: { perfume: Perfume; catalog:
       {/* ——— Cabeçalho ——— */}
       <header className="review-hero">
         <div className="review-poster">
-          <Image src={p.poster} alt={`Frasco do ${p.fullName}`} width={900} height={1100} priority />
+          {p.poster ? (
+            <Image src={p.poster} alt={`Frasco do ${p.fullName}`} width={900} height={1100} priority />
+          ) : (
+            <span className="poster-empty" aria-hidden>
+              ✦
+            </span>
+          )}
         </div>
         <div className="review-head">
           <p className="eyebrow">

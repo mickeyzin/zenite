@@ -7,7 +7,7 @@ import { SiteHeader } from "@/components/ui/SiteHeader";
 import { featuredPerfumes } from "@/data/perfumes";
 
 // Páginas internas da prévia (catálogo, resenha, comparação), com os mesmos componentes do site.
-const perfumes = featuredPerfumes.map((p) => ({ ...p, poster: p.poster.replace(/^\//, "") }));
+const perfumes = featuredPerfumes.map((p) => ({ ...p, poster: p.poster?.replace(/^\//, "") ?? null }));
 const page = document.body.dataset.page;
 
 function Review() {

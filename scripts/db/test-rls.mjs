@@ -3,22 +3,9 @@
 // Uso: node scripts/db/test-rls.mjs [--seed]
 import { PGlite } from "@electric-sql/pglite";
 import fs from "node:fs";
+import { migration, prepare } from "./pglite-supabase.mjs";
 
 const db = new PGlite();
-const SUPABASE_MOCK = `
-  create role anon nologin; create role authenticated nologin;
-  create schema auth;
-  create table auth.users (id uuid primary key, email text);
-  create function auth.uid() returns uuid language sql stable as $$ select nullif(current_setting('request.jwt.claim.sub', true), '')::uuid $$;
-  grant usage on schema auth to anon, authenticated;
-  grant execute on function auth.uid() to anon, authenticated;
-  create schema storage;
-  create table storage.buckets (id text primary key, name text, public boolean);
-  create table storage.objects (id uuid primary key default gen_random_uuid(), bucket_id text, name text);
-  alter table storage.objects enable row level security;
-`;
-const sql = fs.readFileSync(new URL("../../supabase/migrations/0001_init.sql", import.meta.url), "utf8").replace(/create extension[^;]+;/, "");
-
 let pass = 0, fail = 0;
 const check = (name, ok, extra = "") => {
   ok ? pass++ : fail++;
@@ -30,9 +17,8 @@ const as = async (role, uid, fn) => {
 };
 const tryq = async (q) => { try { return { rows: (await db.query(q)).rows }; } catch (e) { return { error: e.message }; } };
 
-await db.exec(SUPABASE_MOCK);
-await db.exec(sql);
-await db.exec(sql); // reexecutar não pode quebrar
+await prepare(db);
+await db.exec(migration()); // reexecutar não pode quebrar
 check("migração executa (2×, idempotente)", true);
 
 const ADMIN = "11111111-1111-1111-1111-111111111111";

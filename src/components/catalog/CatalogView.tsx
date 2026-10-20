@@ -205,7 +205,13 @@ export function CatalogView({ perfumes }: { perfumes: Perfume[] }) {
             <li key={p.slug} className="perfume-card">
               <Link href={`/perfumes/${p.slug}`} className="perfume-card-link" aria-label={`Ver resenha do ${p.fullName}`}>
                 <div className="perfume-card-img">
-                  <Image src={p.poster} alt="" width={450} height={550} />
+                  {p.poster ? (
+                    <Image src={p.poster} alt="" width={450} height={550} />
+                  ) : (
+                    <span className="poster-empty" aria-hidden>
+                      ✦
+                    </span>
+                  )}
                 </div>
               </Link>
               <div className="perfume-card-body">

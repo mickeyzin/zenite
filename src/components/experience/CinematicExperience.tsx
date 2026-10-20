@@ -218,7 +218,7 @@ export function CinematicExperience({ perfumes }: { perfumes: Perfume[] }) {
           <article key={p.slug} className="static-perfume" aria-labelledby={`${p.slug}-static-title`}>
             <div className="static-hero">
               <div className="static-poster">
-                <Image src={p.poster} alt={`Frasco do ${p.fullName}`} width={900} height={1100} priority={i === 0} />
+                {p.poster && <Image src={p.poster} alt={`Frasco do ${p.fullName}`} width={900} height={1100} priority={i === 0} />}
               </div>
               <div>
                 <p className="eyebrow">

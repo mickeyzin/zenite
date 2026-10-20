@@ -46,6 +46,6 @@ Promise.all(
     const file = (isMobile ? p.model.mobile : p.model.desktop).split("/").pop()!;
     const url = await glbUrl(`models/${file}.txt`);
     const liquid = p.model.liquid ? `models/${p.model.liquid.split("/").pop()}` : undefined;
-    return { ...p, model: { desktop: url, mobile: url, liquid }, poster: p.poster.replace(/^\//, "") };
+    return { ...p, model: { desktop: url, mobile: url, liquid }, poster: p.poster?.replace(/^\//, "") ?? null };
   }),
 ).then((perfumes) => root.render(<App perfumes={perfumes} />));

@@ -62,12 +62,12 @@ featuredPerfumes.forEach((p, i) => {
   const brandSlug = slugOf(p.brand);
   const year = p.year.value ? Number(p.year.value) : null;
   out.push(`insert into public.perfumes (slug, brand_id, line, name, full_name, concentration, concentration_status, year, year_status, year_note,
-  gender, gender_status, gender_note, perfumers, perfumers_status, family, family_status, family_note, notes_status, notes_note, intro, intro_status,
+  gender, gender_status, gender_note, perfumers, perfumers_status, perfumers_note, family, family_status, family_note, notes_status, notes_note, intro, intro_status, intro_note,
   universe, theme, look, scene_scale, front_rotation, status, featured, featured_order)
 values (${q(p.slug)}, (select id from public.brands where slug = ${q(brandSlug)}), ${q(p.line ?? null)}, ${q(p.name)}, ${q(p.fullName)},
   ${q(p.concentration.value)}, ${q(p.concentration.status)}, ${q(year)}, ${q(p.year.status)}, ${q(p.year.note ?? null)},
-  ${q(p.gender.value)}, ${q(p.gender.status)}, ${q(p.gender.note ?? null)}, ${p.perfumers.value ? q(p.perfumers.value) : "null"}, ${q(p.perfumers.status)},
-  ${q(p.family.value)}, ${q(p.family.status)}, ${q(p.family.note ?? null)}, ${q(p.notes.status)}, ${q(p.notes.note ?? null)}, ${q(p.intro.value)}, ${q(p.intro.status)},
+  ${q(p.gender.value)}, ${q(p.gender.status)}, ${q(p.gender.note ?? null)}, ${p.perfumers.value ? q(p.perfumers.value) : "null"}, ${q(p.perfumers.status)}, ${q(p.perfumers.note ?? null)},
+  ${q(p.family.value)}, ${q(p.family.status)}, ${q(p.family.note ?? null)}, ${q(p.notes.status)}, ${q(p.notes.note ?? null)}, ${q(p.intro.value)}, ${q(p.intro.status)}, ${q(p.intro.note ?? null)},
   ${q(p.universe)}, ${q(p.theme)}, ${q(p.look)}, ${p.sceneScale}, ${p.frontRotationY}, 'publicado', true, ${i})
 on conflict (slug) do nothing;`);
   const pid = `(select id from public.perfumes where slug = ${q(p.slug)})`;
@@ -77,9 +77,9 @@ on conflict (slug) do nothing;`);
       out.push(`insert into public.perfume_notes (perfume_id, note_id, tier, position) values (${pid}, ${noteRef(NA[normalize(n)].name)}, '${tier}', ${k}) on conflict do nothing;`);
     }),
   );
-  out.push(`insert into public.reviews (perfume_id, status, status_note, evolution, performance, seasons, occasions, pros, cons, profile, rating, rating_note)
-values (${pid}, ${q(p.performance.status)}, ${q(p.performance.note ?? null)}, ${json(p.evolution.value)}, ${json(p.performance.value)}, ${q(p.seasons.value)}, ${q(p.occasions.value)},
-  ${q(p.verdict.pros.value)}, ${q(p.verdict.cons.value)}, ${q(p.verdict.profile.value)}, ${q(p.verdict.rating.value)}, ${q(p.verdict.rating.note ?? null)})
+  out.push(`insert into public.reviews (perfume_id, status, status_note, evolution, evolution_note, performance, seasons, occasions, pros, pros_note, cons, cons_note, profile, rating, rating_note)
+values (${pid}, ${q(p.performance.status)}, ${q(p.performance.note ?? null)}, ${json(p.evolution.value)}, ${q(p.evolution.note ?? null)}, ${json(p.performance.value)}, ${q(p.seasons.value)}, ${q(p.occasions.value)},
+  ${q(p.verdict.pros.value)}, ${q(p.verdict.pros.note ?? null)}, ${q(p.verdict.cons.value)}, ${q(p.verdict.cons.note ?? null)}, ${q(p.verdict.profile.value)}, ${q(p.verdict.rating.value)}, ${q(p.verdict.rating.note ?? null)})
 on conflict (perfume_id) do nothing;`);
   const sources = [
     ...(p.notes.sources ?? []).map((s) => ({ ...s, field: "notas" })),

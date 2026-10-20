@@ -97,7 +97,7 @@ export interface Perfume {
   universe: string;
   model: BottleModel;
   /** Imagem estática (modo sem WebGL e página de resenha). */
-  poster: string;
+  poster: string | null;
   /** Escala do frasco na cena (frascos largos, como o Prada, ficam menores). */
   sceneScale: number;
   perfumers: Sourced<string[] | null>;

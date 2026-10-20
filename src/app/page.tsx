@@ -1,15 +1,16 @@
 import { CinematicExperience } from "@/components/experience/CinematicExperience";
 import { HomeTrail } from "@/components/trail/HomeTrail";
-import { featuredPerfumes } from "@/data/perfumes";
+import { getFeatured } from "@/data/catalog";
 
-export default function Home() {
+export default async function Home() {
+  const featured = await getFeatured();
   return (
     <main id="conteudo">
-      <CinematicExperience perfumes={featuredPerfumes} />
+      <CinematicExperience perfumes={featured} />
 
       <HomeTrail />
 
-      <p className="sr-only">Perfumes em destaque: {featuredPerfumes.map((p) => p.fullName).join(", ")}.</p>
+      <p className="sr-only">Perfumes em destaque: {featured.map((p) => p.fullName).join(", ")}.</p>
       <footer className="site-footer">
         <p>
           A Zênite é um portal editorial independente. Não vendemos perfumes. Alguns links levarão a lojas parceiras e

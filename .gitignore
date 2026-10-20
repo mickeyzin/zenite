@@ -44,3 +44,4 @@ next-env.d.ts
 /preview/dist/
 /.venv3d/
 /scripts/db/.build-seed.mjs
+scripts/db/.test-roundtrip.mjs

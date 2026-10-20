@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
 import { CompareView } from "@/components/compare/CompareView";
-import { featuredPerfumes } from "@/data/perfumes";
+import { getPerfumes } from "@/data/catalog";
 
 export const metadata: Metadata = {
   title: "Comparar perfumes",
@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/comparar" },
 };
 
-export default function ComparePage() {
+export default async function ComparePage() {
   return (
     <main id="conteudo" className="catalog-page">
       <header className="catalog-head">
@@ -19,7 +19,7 @@ export default function ComparePage() {
         <h1 className="stage-title">Lado a lado</h1>
       </header>
       <Suspense fallback={null}>
-        <CompareView perfumes={featuredPerfumes} />
+        <CompareView perfumes={await getPerfumes()} />
       </Suspense>
     </main>
   );

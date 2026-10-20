@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
 import { CatalogView } from "@/components/catalog/CatalogView";
-import { featuredPerfumes } from "@/data/perfumes";
+import { getPerfumes } from "@/data/catalog";
 
 export const metadata: Metadata = {
   title: "Catálogo de perfumes",
@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/catalogo" },
 };
 
-export default function CatalogPage() {
+export default async function CatalogPage() {
   return (
     <main id="conteudo" className="catalog-page">
       <header className="catalog-head">
@@ -22,7 +22,7 @@ export default function CatalogPage() {
         </p>
       </header>
       <Suspense fallback={null}>
-        <CatalogView perfumes={featuredPerfumes} />
+        <CatalogView perfumes={await getPerfumes()} />
       </Suspense>
     </main>
   );

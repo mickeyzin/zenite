@@ -12,6 +12,10 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Gerados
+    "preview/dist/**",
+    "scripts/db/.build-seed.mjs",
+    "scripts/db/.test-roundtrip.mjs",
   ]),
 ]);
 

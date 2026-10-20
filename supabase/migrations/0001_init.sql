@@ -107,6 +107,7 @@ create table if not exists public.perfumes (
   gender_note text,
   perfumers text[],
   perfumers_status public.data_status not null default 'a-confirmar',
+  perfumers_note text,
   family text,
   family_status public.data_status not null default 'a-confirmar',
   family_note text,
@@ -114,6 +115,7 @@ create table if not exists public.perfumes (
   notes_note text,
   intro text,
   intro_status public.data_status not null default 'provisorio',
+  intro_note text,
   volume_ml numeric(6, 1),
   sku text,
   -- Apresentação 3D (opcional): universo e materiais do frasco
@@ -155,11 +157,14 @@ create table if not exists public.reviews (
   status public.data_status not null default 'provisorio',
   status_note text,
   evolution jsonb not null default '[]',   -- [{phase, text}]
+  evolution_note text,
   performance jsonb not null default '[]', -- [{key, label, value}]
   seasons text[] not null default '{}',
   occasions text[] not null default '{}',
   pros text[] not null default '{}',
+  pros_note text,
   cons text[] not null default '{}',
+  cons_note text,
   profile text,
   rating numeric(3, 1) check (rating between 0 and 10),
   rating_note text,

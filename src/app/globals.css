@@ -389,3 +389,15 @@ body {
 
 /* ——— Links ativos do percurso ——— */
 .trail-link { justify-self: start; margin-top: 0.4rem; }
+
+/* Perfume sem imagem (cadastrado pelo painel, pôster ainda não enviado) */
+.poster-empty {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  aspect-ratio: 9 / 11;
+  border-radius: 4px;
+  background: radial-gradient(circle at 50% 40%, color-mix(in oklab, var(--z-accent, #31c7f3) 18%, transparent), transparent 65%), #060a1c;
+  color: var(--z-accent, #31c7f3);
+  font-size: 2.5rem;
+}
