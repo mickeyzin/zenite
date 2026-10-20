@@ -63,7 +63,7 @@ function Lab() {
   }, [view]);
 
   if (!ready[view.slug]) return <p style={{ position: "fixed", inset: 0, display: "grid", placeItems: "center", color: "#a9b0cf", letterSpacing: ".2em", fontSize: 12 }}>CARREGANDO FRASCO…</p>;
-  return <LabCanvas preload={false} slug={view.slug} spin={view.spin} angle={view.spin ? 70 : 25} dist={view.slug === "prada-paradoxe" ? 6.5 : 5.6} />;
+  return <LabCanvas preload={false} slug={view.slug} spin={view.spin} angle={view.spin ? 70 : 25} dist={view.slug === "prada-paradoxe-intense" ? 6.5 : 5.6} />;
 }
 
 createRoot(document.getElementById("lab")!).render(<Lab />);

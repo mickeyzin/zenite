@@ -4,6 +4,7 @@ import { useFrame } from "@react-three/fiber";
 import { useMemo, useRef } from "react";
 import * as THREE from "three";
 import { noiseGLSL } from "./shaders/noise";
+import { mixUniverse, toColors } from "./universe";
 
 /**
  * Planetas distantes com bandas atmosféricas procedurais, iluminação de um
@@ -19,6 +20,8 @@ interface PlanetProps {
   bands?: number;
   seed?: number;
   tilt?: number;
+  /** [A, B, atmosfera] por universo; substitui colorA/colorB/atmosphere. */
+  palettes?: [string, string, string][];
 }
 
 export function Planet({
@@ -31,7 +34,12 @@ export function Planet({
   bands = 7,
   seed = 1,
   tilt = 0.3,
+  palettes,
 }: PlanetProps) {
+  const pal = useMemo(
+    () => (palettes ? { a: toColors(palettes.map((p) => p[0])), b: toColors(palettes.map((p) => p[1])), c: toColors(palettes.map((p) => p[2])) } : null),
+    [palettes],
+  );
   const ref = useRef<THREE.Mesh>(null);
   const sun = useMemo(() => new THREE.Vector3(...sunDir).normalize(), [sunDir]);
   const uniforms = useMemo(
@@ -47,6 +55,11 @@ export function Planet({
   );
   useFrame((_, dt) => {
     if (ref.current) ref.current.rotation.y += dt * 0.01;
+    if (pal) {
+      mixUniverse(uniforms.uA.value, pal.a);
+      mixUniverse(uniforms.uB.value, pal.b);
+      mixUniverse(uniforms.uAtm.value, pal.c);
+    }
   });
 
   return (

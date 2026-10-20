@@ -149,7 +149,13 @@ body {
 .btn-ghost[aria-pressed="true"] { border-color: var(--z-cyan); color: var(--z-white); background: rgba(49,199,243,.08); }
 
 .stage-rail { position: absolute; right: clamp(1rem, 2.4vw, 2.2rem); top: 50%; transform: translateY(-50%); z-index: 5; }
-.stage-rail ol { display: grid; gap: 1.1rem; }
+.stage-rail ol { display: grid; gap: 1.1rem; justify-items: end; }
+.rail-perfume { display: grid; justify-items: end; gap: .2rem; margin-bottom: 1.2rem; font-size: .6rem; letter-spacing: .24em; text-transform: uppercase; color: var(--z-muted); text-align: right; }
+.rail-perfume span { color: var(--z-cyan); font-weight: 600; }
+.rail-perfume strong { font-family: var(--font-serif); font-weight: 400; font-size: .95rem; letter-spacing: .04em; text-transform: none; color: var(--z-white); white-space: nowrap; }
+.rail-perfumes { margin-top: 1.4rem; display: flex !important; gap: .35rem !important; }
+.rail-perfumes button { width: auto !important; height: auto !important; padding: .2rem .35rem; font-size: .58rem; letter-spacing: .1em; color: var(--z-muted); border-bottom: 1px solid transparent; }
+.rail-perfumes button.is-active { color: var(--z-white); border-bottom-color: var(--z-cyan); }
 .stage-rail button { position: relative; display: grid; place-items: center; width: 20px; height: 20px; color: var(--z-muted); font-size: .62rem; letter-spacing: .22em; text-transform: uppercase; }
 .rail-dot { width: 7px; height: 7px; border-radius: 99px; border: 1px solid var(--z-muted); transition: all .4s; }
 .rail-label { position: absolute; right: 26px; white-space: nowrap; opacity: 0; transform: translateX(6px); transition: all .4s; }
@@ -184,6 +190,8 @@ body {
 .cinema-stage.is-mobile .stage-rail { top: auto; bottom: auto; top: 5.5rem; transform: none; }
 .cinema-stage.is-mobile .stage-rail ol { grid-auto-flow: row; gap: .8rem; }
 .cinema-stage.is-mobile .rail-label { display: none; }
+.cinema-stage.is-mobile .rail-perfume strong { display: none; }
+.cinema-stage.is-mobile .rail-perfumes { display: none !important; }
 .cinema-stage.is-mobile .hero-intro { bottom: 10svh; }
 .cinema-stage.is-mobile .metrics li { grid-template-columns: 6rem 1fr 2.6rem; }
 .cinema-stage.is-mobile .pros-cons, .cinema-stage.is-mobile .chip-groups { grid-template-columns: 1fr; gap: .8rem; }
@@ -202,6 +210,7 @@ body {
 @media (min-width: 900px) { .static-hero { grid-template-columns: minmax(0, 0.9fr) 1.1fr; } }
 .static-poster img { width: 100%; height: auto; max-height: 75svh; object-fit: contain; }
 .static-panels { display: grid; gap: 4rem; margin-top: 4rem; max-width: 46rem; }
+.static-perfume { margin-top: 6rem; padding-top: 4rem; border-top: 1px solid var(--z-line); }
 .static-panels .stage-panel { position: relative; inset: auto; transform: none; width: auto; }
 
 /* ——— Pós-experiência ——— */

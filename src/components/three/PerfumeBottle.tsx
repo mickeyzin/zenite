@@ -5,6 +5,7 @@ import { useFrame } from "@react-three/fiber";
 import { forwardRef, useEffect, useMemo, useRef } from "react";
 import * as THREE from "three";
 import type { BottleLook } from "@/data/types";
+import { applyDissolve, getDissolve } from "./dissolve";
 
 /**
  * Frasco com peças separadas (scripts/models/*). Cada nó do GLB tem um nome:
@@ -24,6 +25,8 @@ interface Props {
   liquidPoints?: string;
   look: BottleLook;
   mobile?: boolean;
+  /** Chave da dissolução no registro (transições entre perfumes). */
+  dissolveKey?: string;
 }
 
 type Std = THREE.MeshStandardMaterial;
@@ -105,7 +108,7 @@ function liquidMaterial(look: NonNullable<BottleLook["liquid"]>) {
   return { material: m, uniforms };
 }
 
-export const PerfumeBottle = forwardRef<THREE.Group, Props>(function PerfumeBottle({ url, liquidPoints, look, mobile }, ref) {
+export const PerfumeBottle = forwardRef<THREE.Group, Props>(function PerfumeBottle({ url, liquidPoints, look, mobile, dissolveKey }, ref) {
   const { scene } = useGLTF(url);
   const liquidRef = useRef<{ mesh: THREE.Mesh; uniforms: ReturnType<typeof liquidMaterial>["uniforms"]; box: THREE.Box3 } | null>(null);
 
@@ -170,6 +173,13 @@ export const PerfumeBottle = forwardRef<THREE.Group, Props>(function PerfumeBott
         });
       }
     });
+    if (dissolveKey) {
+      const dissolve = getDissolve(dissolveKey);
+      root.traverse((o) => {
+        const mesh = o as THREE.Mesh;
+        if (mesh.isMesh && mesh.material) applyDissolve(mesh.material as THREE.Material, dissolve);
+      });
+    }
     liquidRef.current = liquid;
     // Normaliza: altura de 2 unidades, centro na origem (mesma regra do modelo antigo).
     const box = new THREE.Box3().setFromObject(root);
@@ -179,7 +189,7 @@ export const PerfumeBottle = forwardRef<THREE.Group, Props>(function PerfumeBott
     root.scale.setScalar(s);
     root.position.copy(center.multiplyScalar(-s));
     return root;
-  }, [scene, look]);
+  }, [scene, look, dissolveKey]);
 
   // Pontos do volume do líquido, no espaço original do GLB.
   const volume = useRef<Float32Array | null>(null);
@@ -233,6 +243,18 @@ export const PerfumeBottle = forwardRef<THREE.Group, Props>(function PerfumeBott
     }),
     [],
   );
+
+  const disTmp = useMemo(() => ({ p: new THREE.Vector3(), s: new THREE.Vector3() }), []);
+  useFrame(() => {
+    if (!dissolveKey) return;
+    const dissolve = getDissolve(dissolveKey);
+    if (dissolve.uDissolve.value <= 0.0005) return;
+    model.getWorldPosition(disTmp.p);
+    model.getWorldScale(disTmp.s);
+    // O modelo foi normalizado para 2 de altura; a origem do grupo é o centro do frasco.
+    model.parent?.getWorldPosition(dissolve.uDisOrigin.value);
+    dissolve.uDisHeight.value = 2 * (model.parent ? model.parent.getWorldScale(disTmp.s).y : disTmp.s.y);
+  });
 
   useFrame((state, delta) => {
     const L = liquidRef.current;

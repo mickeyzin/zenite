@@ -7,17 +7,18 @@ import Link from "next/link";
  * portanto indexável e legível mesmo sem WebGL. No modo cinematográfico o GSAP
  * anima cada painel; no modo estático eles aparecem empilhados.
  */
-export function StagePanels({ perfume }: { perfume: Perfume }) {
+export function StagePanels({ perfume, index = 0 }: { perfume: Perfume; index?: number }) {
   const p = perfume;
+  const id = (k: string) => `${p.slug}-${k}`;
   const v = p.verdict;
   return (
     <>
       {/* ETAPA 1 — FRENTE */}
-      <article className="stage-panel side-left" data-stage="0" aria-labelledby="st1-title">
+      <article className="stage-panel side-left" data-stage="0" data-perfume={index} aria-labelledby={id("st1-title")}>
         <p className="eyebrow" data-reveal>
           <span>01</span> Visão frontal
         </p>
-        <h2 id="st1-title" className="stage-title" data-reveal>
+        <h2 id={id("st1-title")} className="stage-title" data-reveal>
           <span className="block text-[0.42em] tracking-[0.32em] uppercase font-sans font-medium text-[var(--z-cyan)] mb-3">
             {p.line ?? p.brand}
           </span>
@@ -32,6 +33,12 @@ export function StagePanels({ perfume }: { perfume: Perfume }) {
             <dt>Concentração</dt>
             <dd>{p.concentration.value}</dd>
           </div>
+          {p.perfumers.value && (
+            <div>
+              <dt>Perfumistas</dt>
+              <dd>{p.perfumers.value.join(", ")}</dd>
+            </div>
+          )}
           <div>
             <dt>Família olfativa</dt>
             <dd>
@@ -48,11 +55,11 @@ export function StagePanels({ perfume }: { perfume: Perfume }) {
       </article>
 
       {/* ETAPA 2 — PERFIL */}
-      <article className="stage-panel side-right" data-stage="1" aria-labelledby="st2-title">
+      <article className="stage-panel side-right" data-stage="1" data-perfume={index} aria-labelledby={id("st2-title")}>
         <p className="eyebrow" data-reveal>
           <span>02</span> Visão lateral
         </p>
-        <h2 id="st2-title" className="stage-title" data-reveal>
+        <h2 id={id("st2-title")} className="stage-title" data-reveal>
           Pirâmide olfativa
         </h2>
         <div className="pyramid" data-reveal>
@@ -86,11 +93,11 @@ export function StagePanels({ perfume }: { perfume: Perfume }) {
       </article>
 
       {/* ETAPA 3 — VERSO */}
-      <article className="stage-panel side-left" data-stage="2" aria-labelledby="st3-title">
+      <article className="stage-panel side-left" data-stage="2" data-perfume={index} aria-labelledby={id("st3-title")}>
         <p className="eyebrow" data-reveal>
           <span>03</span> Visão posterior
         </p>
-        <h2 id="st3-title" className="stage-title" data-reveal>
+        <h2 id={id("st3-title")} className="stage-title" data-reveal>
           Desempenho
         </h2>
         <ul className="metrics" data-reveal>
@@ -128,7 +135,7 @@ export function StagePanels({ perfume }: { perfume: Perfume }) {
       </article>
 
       {/* ETAPA 4 — PERSPECTIVA */}
-      <article className="stage-panel side-right" data-stage="3" aria-labelledby="st4-title">
+      <article className="stage-panel side-right" data-stage="3" data-perfume={index} aria-labelledby={id("st4-title")}>
         <p className="eyebrow" data-reveal>
           <span>04</span> Perspectiva
         </p>
@@ -141,7 +148,7 @@ export function StagePanels({ perfume }: { perfume: Perfume }) {
             <span className="rating-num">{v.rating.value ?? "—"}</span>
           </div>
           <div>
-            <h2 id="st4-title" className="stage-title !text-[clamp(1.9rem,3.2vw,3rem)]">
+            <h2 id={id("st4-title")} className="stage-title !text-[clamp(1.9rem,3.2vw,3rem)]">
               Avaliação editorial
             </h2>
             <p className="text-sm text-[var(--z-muted)]">{v.rating.note}</p>

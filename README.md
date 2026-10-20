@@ -2,7 +2,7 @@
 
 Portal editorial de perfumaria com apresentação cinematográfica em 3D. **Não é uma loja**: sem carrinho, checkout ou estoque. A monetização futura será por links de afiliado identificados.
 
-Estado atual: **Fases 1 e 2** — inspeção dos modelos + primeira cena (Lattafa Pride Art of Universe) com quatro etapas de scroll.
+Estado atual: **Fases 1 a 3** — três perfumes (Lattafa Pride Art of Universe, Creed Wild Vetiver, Prada Paradoxe Intense) numa rolagem contínua, cada um com quatro etapas e universo próprio, e transições reversíveis entre eles.
 
 ## Rodar localmente
 
@@ -68,6 +68,18 @@ src/
 - **Pós-processamento**: bloom moderado, vinheta, grão e tone mapping Neutral (o ACES deixava os azuis roxos).
 - **Desempenho**: modelo mobile mais leve, menos partículas no celular, `PerformanceMonitor` reduz a resolução se o FPS cair, e o render pausa quando a cena sai da tela.
 - **SEO/acessibilidade**: todo o texto das etapas é HTML renderizado no servidor; navegação por teclado leva até a etapa focada; link para pular o conteúdo; dados estruturados na resenha.
+
+## Transições entre perfumes
+
+A seção tem 7 telas por perfume (`SCREENS_PER_PERFUME`). Tudo deriva do mesmo progresso de scroll (`src/lib/timeline.ts`):
+
+- `perfumeAt` → perfume ativo e progresso local; as 4 etapas valem para cada trecho.
+- `themeMix` → universo contínuo (0, 1, 2…): céu (3 cubemaps pré-calculados e misturados), nebulosas, estrelas, poeira, planetas e luzes trocam de cor gradualmente.
+- `dissolveAt` → o frasco se dissolve de cima para baixo com borda luminosa (`components/three/dissolve.ts`) e o próximo se forma ao contrário.
+- `burstPhase` / `boundaryGlow` → partículas que se espalham e convergem, e o ponto de luz que nasce na fronteira.
+- O ambiente de reflexos é trocado no instante em que nenhum frasco está visível.
+
+Para adicionar um perfume à apresentação, basta incluí-lo em `featuredPerfumes` com seu `theme` (paletas do universo) e `look` (materiais).
 
 ## Dados e transparência
 

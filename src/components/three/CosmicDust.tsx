@@ -3,12 +3,16 @@
 import { useFrame } from "@react-three/fiber";
 import { useMemo, useRef } from "react";
 import * as THREE from "three";
+import { mixUniverse, toColors } from "./universe";
 
 /**
  * Partículas luminosas que flutuam ao redor do frasco. As mais próximas da
  * câmera ficam maiores e desfocadas (bokeh), reforçando a profundidade.
  */
-export function CosmicDust({ count = 500, color = "#8fd8ff", color2 = "#7d5cff" }) {
+export function CosmicDust({ count = 500, palettes = [["#8fd8ff", "#7d5cff"]] }: { count?: number; palettes?: [string, string][] }) {
+  const color = palettes[0][0];
+  const color2 = palettes[0][1];
+  const pal = useMemo(() => ({ a: toColors(palettes.map((p) => p[0])), b: toColors(palettes.map((p) => p[1])) }), [palettes]);
   const mat = useRef<THREE.ShaderMaterial>(null);
   const geo = useMemo(() => {
     let s = 7;
@@ -41,6 +45,8 @@ export function CosmicDust({ count = 500, color = "#8fd8ff", color2 = "#7d5cff" 
     if (!mat.current) return;
     mat.current.uniforms.uTime.value += dt;
     mat.current.uniforms.uPixelRatio.value = state.gl.getPixelRatio();
+    mixUniverse(uniforms.uColor.value, pal.a);
+    mixUniverse(uniforms.uColor2.value, pal.b);
   });
 
   return (

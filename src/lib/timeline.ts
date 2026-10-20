@@ -11,8 +11,15 @@ export const STAGES = [
 
 export type StageId = (typeof STAGES)[number]["id"];
 
-/** Altura total da seção, em múltiplos da altura da tela. */
-export const SECTION_SCREENS = 7;
+/** Altura do trecho de cada perfume, em telas. A seção tem N trechos. */
+export const SCREENS_PER_PERFUME = 7;
+
+/*
+ * Janelas da transição entre perfumes (frações do trecho local):
+ * o frasco atual se dissolve no fim do seu trecho e o próximo surge no começo do seguinte.
+ */
+export const DISSOLVE_OUT: [number, number] = [0.952, 0.996];
+export const DISSOLVE_IN: [number, number] = [0.004, 0.055];
 
 export interface Shot {
   p: number;
@@ -37,7 +44,8 @@ export const DESKTOP_SHOTS: Shot[] = [
   { p: 0.72, cam: [-0.05, 0.25, 5.9], look: [0, 0.02, 0], rot: PI + 0.06, offset: [0.95, 0], fov: 30 },
   { p: 0.78, cam: [-0.6, -0.12, 5.4], look: [0, 0.02, 0], rot: 1.75 * PI, offset: [-0.9, 0], fov: 29 },
   { p: 0.94, cam: [-0.45, -0.05, 4.8], look: [0, 0.05, 0], rot: 1.79 * PI, offset: [-0.9, 0], fov: 28 },
-  { p: 1.0, cam: [0, 0.6, 10.5], look: [0, 0.1, 0], rot: 2 * PI, offset: [0, 0.1], fov: 30 },
+  // Igual ao início: a câmera chega à mesma posição em que o próximo perfume começa.
+  { p: 1.0, cam: [0, 0.6, 11.5], look: [0, -0.35, 0], rot: 2 * PI - 0.55, offset: [0, 0.45], fov: 30 },
 ];
 
 /** Em telas verticais o frasco sobe e o texto ocupa a metade inferior. */
@@ -88,4 +96,41 @@ export function activeStageIndex(p: number) {
     if (p >= (i === 0 ? STAGES[0].start - 0.04 : (STAGES[i - 1].end + STAGES[i].start) / 2)) return i;
   }
   return -1;
+}
+
+/** Perfume ativo e progresso local (0–1) dentro do seu trecho. */
+export function perfumeAt(p: number, n: number) {
+  const g = clamp01(p) * n;
+  const index = Math.min(n - 1, Math.floor(g));
+  return { index, local: g - index };
+}
+
+/** Universo contínuo: 0 = primeiro perfume, 1 = segundo… com mistura suave nas fronteiras. */
+export function themeMix(p: number, n: number) {
+  const g = clamp01(p) * n;
+  let v = 0;
+  for (let k = 1; k < n; k++) v += smooth(clamp01((g - (k - 0.05)) / 0.1));
+  return v;
+}
+
+/** 0 = frasco inteiro, 1 = totalmente dissolvido. */
+export function dissolveAt(local: number, index: number) {
+  const out = smooth(clamp01((local - DISSOLVE_OUT[0]) / (DISSOLVE_OUT[1] - DISSOLVE_OUT[0])));
+  const inn = index === 0 ? 0 : 1 - smooth(clamp01((local - DISSOLVE_IN[0]) / (DISSOLVE_IN[1] - DISSOLVE_IN[0])));
+  return Math.max(out, inn);
+}
+
+/** Ponto de luz que nasce na fronteira entre dois perfumes (0–1). */
+export function boundaryGlow(p: number, n: number) {
+  const g = clamp01(p) * n;
+  let v = 0;
+  for (let k = 1; k < n; k++) v = Math.max(v, Math.exp(-(((g - k) / 0.028) ** 2)));
+  return v;
+}
+
+/** Fase das partículas: −1..0 = convergindo (entrada), 0..1 = explodindo (saída). */
+export function burstPhase(local: number, index: number, n: number) {
+  if (local > 0.93 && index < n) return clamp01((local - 0.93) / 0.07);
+  if (local < 0.07 && index > 0) return -1 + clamp01(local / 0.07);
+  return 0;
 }

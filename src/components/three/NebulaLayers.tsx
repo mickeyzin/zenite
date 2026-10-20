@@ -5,6 +5,7 @@ import { useFrame } from "@react-three/fiber";
 import { useMemo, useRef } from "react";
 import * as THREE from "three";
 import { noiseGLSL } from "./shaders/noise";
+import { mixUniverse, toColors } from "./universe";
 
 /**
  * Camadas de gás semitransparentes em profundidades diferentes. Com o
@@ -14,8 +15,9 @@ import { noiseGLSL } from "./shaders/noise";
 export interface NebulaCloud {
   position: [number, number, number];
   scale: number;
-  color: string;
-  color2: string;
+  /** Uma cor por universo (o componente mistura conforme o scroll). */
+  color: string[];
+  color2: string[];
   opacity: number;
   seed: number;
 }
@@ -53,13 +55,17 @@ function Cloud({ c }: { c: NebulaCloud }) {
       uTime: { value: 0 },
       uOpacity: { value: c.opacity },
       uSeed: { value: c.seed },
-      uColor: { value: new THREE.Color(c.color) },
-      uColor2: { value: new THREE.Color(c.color2) },
+      uColor: { value: new THREE.Color(c.color[0]) },
+      uColor2: { value: new THREE.Color(c.color2[0]) },
     }),
     [c],
   );
+  const pal = useMemo(() => ({ a: toColors(c.color), b: toColors(c.color2) }), [c]);
   useFrame((_, dt) => {
-    if (mat.current) mat.current.uniforms.uTime.value += dt;
+    if (!mat.current) return;
+    mat.current.uniforms.uTime.value += dt;
+    mixUniverse(uniforms.uColor.value, pal.a);
+    mixUniverse(uniforms.uColor2.value, pal.b);
   });
   return (
     <Billboard position={c.position}>

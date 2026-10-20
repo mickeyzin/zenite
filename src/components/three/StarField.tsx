@@ -3,6 +3,7 @@
 import { useFrame } from "@react-three/fiber";
 import { useMemo, useRef } from "react";
 import * as THREE from "three";
+import { mixUniverse, toColors } from "./universe";
 
 /**
  * Estrelas como partículas reais em três faixas de profundidade.
@@ -15,6 +16,8 @@ interface Props {
   colors: string[];
   size?: number;
   seed?: number;
+  /** Tom das estrelas por universo. */
+  tints?: string[];
 }
 
 function rand(seed: number) {
@@ -25,7 +28,7 @@ function rand(seed: number) {
   };
 }
 
-export function StarField({ count, radius, colors, size = 1, seed = 1 }: Props) {
+export function StarField({ count, radius, colors, size = 1, seed = 1, tints = ["#ffffff"] }: Props) {
   const mat = useRef<THREE.ShaderMaterial>(null);
   const geo = useMemo(() => {
     const r = rand(seed * 9973);
@@ -55,14 +58,16 @@ export function StarField({ count, radius, colors, size = 1, seed = 1 }: Props) 
   }, [count, radius, colors, seed]);
 
   const uniforms = useMemo(
-    () => ({ uTime: { value: 0 }, uSize: { value: size }, uPixelRatio: { value: 1 } }),
+    () => ({ uTime: { value: 0 }, uSize: { value: size }, uPixelRatio: { value: 1 }, uTint: { value: new THREE.Color(1, 1, 1) } }),
     [size],
   );
+  const tintColors = useMemo(() => toColors(tints), [tints]);
 
   useFrame((state, dt) => {
     if (!mat.current) return;
     mat.current.uniforms.uTime.value += dt;
     mat.current.uniforms.uPixelRatio.value = state.gl.getPixelRatio();
+    mixUniverse(uniforms.uTint.value, tintColors);
   });
 
   return (
@@ -87,7 +92,7 @@ export function StarField({ count, radius, colors, size = 1, seed = 1 }: Props) 
             gl_Position = projectionMatrix * mv;
           }`}
         fragmentShader={/* glsl */ `
-          varying vec3 vColor; varying float vMag; varying float vTw;
+          varying vec3 vColor; varying float vMag; varying float vTw; uniform vec3 uTint;
           void main(){
             vec2 p = gl_PointCoord - 0.5;
             float r = length(p);
@@ -96,7 +101,7 @@ export function StarField({ count, radius, colors, size = 1, seed = 1 }: Props) 
             float spikes = (exp(-abs(p.x)*60.0) + exp(-abs(p.y)*60.0)) * smoothstep(0.5, 0.0, r) * smoothstep(0.25, 0.8, vMag);
             float a = (core + halo + spikes*0.6) * vTw;
             if (a < 0.01) discard;
-            gl_FragColor = vec4(vColor * a * (0.7 + vMag*1.8), a);
+            gl_FragColor = vec4(mix(vColor, vColor * uTint * 1.15, 0.7) * a * (0.7 + vMag*1.8), a);
           }`}
       />
     </points>

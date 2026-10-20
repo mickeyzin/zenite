@@ -6,7 +6,7 @@ import type { Perfume } from "@/data/types";
 import SceneCanvas from "@/components/three/Scene";
 
 /** Canvas + tela de carregamento. Carregado só no cliente (next/dynamic). */
-export default function ExperienceCanvas({ perfume, mobile }: { perfume: Perfume; mobile: boolean }) {
+export default function ExperienceCanvas({ perfumes, mobile }: { perfumes: Perfume[]; mobile: boolean }) {
   const { progress } = useProgress();
   const [ready, setReady] = useState(false);
   const [visible, setVisible] = useState(true);
@@ -24,7 +24,7 @@ export default function ExperienceCanvas({ perfume, mobile }: { perfume: Perfume
   return (
     <>
       <div ref={host} className="absolute inset-0" aria-hidden>
-        <SceneCanvas perfume={perfume} mobile={mobile} active={visible} onReady={() => setReady(true)} />
+        <SceneCanvas perfumes={perfumes} mobile={mobile} active={visible} onReady={() => setReady(true)} />
       </div>
       <div className={`loader ${ready ? "is-done" : ""}`} role="status" aria-live="polite">
         <div className="loader-mark" aria-hidden>

@@ -28,6 +28,16 @@ export interface UniverseTheme {
   keyLight: string;
   rimLight: string;
   fillLight: string;
+  /** Pares [cor de fundo, cor de brilho] das 5 camadas de nebulosa. */
+  nebula: [string, string][];
+  /** Tom aplicado às estrelas. */
+  starTint: string;
+  /** [cor 1, cor 2] da poeira cósmica. */
+  dust: [string, string];
+  /** Planeta grande e lua: [cor A, cor B, atmosfera]. */
+  planet: [string, string, string];
+  moon: [string, string, string];
+  ambient: string;
 }
 
 /** Ajustes visuais das peças separadas do frasco (ver scripts/models). */
@@ -83,7 +93,14 @@ export interface Perfume {
   line?: string;
   name: string;
   fullName: string;
+  /** Nome do universo exibido na abertura (ex.: "Universo azul"). */
+  universe: string;
   model: BottleModel;
+  /** Imagem estática (modo sem WebGL e página de resenha). */
+  poster: string;
+  /** Escala do frasco na cena (frascos largos, como o Prada, ficam menores). */
+  sceneScale: number;
+  perfumers: Sourced<string[] | null>;
   /** Rotação (rad) que coloca a face frontal do frasco para a câmera. */
   frontRotationY: number;
   concentration: Sourced<string>;

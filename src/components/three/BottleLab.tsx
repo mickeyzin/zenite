@@ -18,7 +18,7 @@ export function BottleLab() {
         key="lab"
         slug={state.slug}
         spin={state.spin}
-        dist={state.slug === "prada-paradoxe" ? 6.5 : 5.6}
+        dist={state.slug === "prada-paradoxe-intense" ? 6.5 : 5.6}
       />
       <nav aria-label="Frascos" className="fixed top-20 left-4 right-4 z-10 flex flex-wrap gap-2">
         {bottles.map((b) => (

@@ -1,7 +1,8 @@
 import { createRoot } from "react-dom/client";
 import { CinematicExperience } from "@/components/experience/CinematicExperience";
 import { SiteHeader } from "@/components/ui/SiteHeader";
-import { artOfUniverse } from "@/data/perfumes";
+import { featuredPerfumes } from "@/data/perfumes";
+import type { Perfume } from "@/data/types";
 
 // Na prévia os arquivos ficam ao lado da página: caminhos relativos.
 // Os modelos vêm em base64 (.txt) porque a hospedagem da prévia não serve .glb;
@@ -12,20 +13,20 @@ async function glbUrl(path: string) {
   return URL.createObjectURL(new Blob([bin], { type: "model/gltf-binary" }));
 }
 
-function App({ perfume }: { perfume: typeof artOfUniverse }) {
+function App({ perfumes }: { perfumes: Perfume[] }) {
   return (
     <>
       <SiteHeader />
       <main id="conteudo">
-        <CinematicExperience perfume={perfume} index={0} total={3} />
+        <CinematicExperience perfumes={perfumes} />
         <section className="after-section">
           <p className="eyebrow">
             <span>✦</span> Prévia
           </p>
-          <h2 className="stage-title">Fim da primeira cena</h2>
+          <h2 className="stage-title">Fim da apresentação</h2>
           <p className="max-w-xl text-[var(--z-muted)] mt-4">
-            Esta prévia mostra a Fase 2: o Lattafa Pride Art of Universe em quatro etapas. Role para cima para ver a
-            animação voltar. Creed Wild Vetiver e Prada Paradoxe entram na próxima fase.
+            Três universos numa só rolagem: Lattafa Pride Art of Universe, Creed Wild Vetiver e Prada Paradoxe Intense.
+            Role para cima para ver as transições ao contrário.
           </p>
           <p className="mt-8">
             <a className="btn-primary" href="lab.html">
@@ -39,9 +40,13 @@ function App({ perfume }: { perfume: typeof artOfUniverse }) {
 }
 
 const isMobile = window.innerWidth / window.innerHeight < 0.85 || window.innerWidth < 768;
-const file = isMobile ? "models/art-of-universe.parts.mobile.glb.txt" : "models/art-of-universe.parts.glb.txt";
 const root = createRoot(document.getElementById("root")!);
-glbUrl(file).then((url) => {
-  const perfume = { ...artOfUniverse, model: { desktop: url, mobile: url, liquid: undefined } };
-  root.render(<App perfume={perfume} />);
-});
+// Baixa os três frascos em paralelo (versão mobile no celular).
+Promise.all(
+  featuredPerfumes.map(async (p) => {
+    const file = (isMobile ? p.model.mobile : p.model.desktop).split("/").pop()!;
+    const url = await glbUrl(`models/${file}.txt`);
+    const liquid = p.model.liquid ? `models/${p.model.liquid.split("/").pop()}` : undefined;
+    return { ...p, model: { desktop: url, mobile: url, liquid }, poster: p.poster.replace(/^\//, "") };
+  }),
+).then((perfumes) => root.render(<App perfumes={perfumes} />));

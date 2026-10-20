@@ -1,10 +1,10 @@
 import { CinematicExperience } from "@/components/experience/CinematicExperience";
-import { artOfUniverse, featuredPerfumes } from "@/data/perfumes";
+import { featuredPerfumes } from "@/data/perfumes";
 
 export default function Home() {
   return (
     <main id="conteudo">
-      <CinematicExperience perfume={artOfUniverse} index={0} total={3} />
+      <CinematicExperience perfumes={featuredPerfumes} />
 
       <section id="depois" className="after-section">
         <p className="eyebrow">
@@ -12,8 +12,8 @@ export default function Home() {
         </p>
         <h2 className="stage-title">O restante do universo Zênite</h2>
         <p className="max-w-xl text-[var(--z-muted)] mt-4">
-          Esta é a primeira cena da plataforma. As próximas fases trazem os universos do Creed Wild Vetiver e do Prada
-          Paradoxe, a Linha Zênite, o catálogo com filtros, o mapeamento olfativo por IA e as ofertas de lojas parceiras.
+          As próximas fases trazem a Linha Zênite, o catálogo com filtros, o mapeamento olfativo por IA e as ofertas de
+          lojas parceiras.
         </p>
         <ul className="after-grid">
           {["Catálogo", "Resenhas completas", "Mapeamento olfativo", "Comparações", "Guias de perfumaria", "Ofertas de parceiros"].map(

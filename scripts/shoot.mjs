@@ -25,6 +25,6 @@ for (const p of ps.split(",").map(Number)) {
   await page.waitForTimeout(+(process.env.SETTLE ?? 3500));
   await page.screenshot({ path: `${out}/p${String(p).replace(".", "_")}.png`, timeout: 180000 });
 }
-console.log(JSON.stringify(await page.evaluate(() => [...document.querySelectorAll(".stage-rail button")].map((b) => { const r = b.querySelector(".rail-dot").getBoundingClientRect(); return [Math.round(r.x), Math.round(r.y)]; }))));
+console.log(JSON.stringify(await page.evaluate(() => [...document.querySelectorAll(".stage-rail .rail-dot")].map((b) => { const r = b.getBoundingClientRect(); return [Math.round(r.x), Math.round(r.y)]; }))));
 console.log(logs.slice(0, 30).join("\n") || "sem erros no console");
 await browser.close();

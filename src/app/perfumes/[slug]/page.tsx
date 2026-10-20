@@ -42,7 +42,7 @@ export default async function PerfumePage({ params }: PageProps<"/perfumes/[slug
     <main id="conteudo" className="review">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <div className="grid gap-10 md:grid-cols-[0.8fr_1.2fr] items-center">
-        <Image src="/images/perfumes/art-of-universe-poster.webp" alt={`Frasco do ${p.fullName}`} width={900} height={1100} priority className="w-full h-auto" />
+        <Image src={p.poster} alt={`Frasco do ${p.fullName}`} width={900} height={1100} priority className="w-full h-auto" />
         <div>
           <p className="eyebrow">
             <span>Resenha</span> {p.brand}

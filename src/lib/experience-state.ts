@@ -5,6 +5,8 @@
 export const experienceState = {
   /** Progresso suavizado (0–1) da seção cinematográfica, vindo do scrub do GSAP. */
   progress: 0,
+  /** Universo contínuo (0 = 1º perfume, 1 = 2º…), atualizado pela cena. */
+  universe: 0,
   /** Ponteiro normalizado (-1..1) para paralaxe sutil no desktop. */
   pointer: { x: 0, y: 0 },
   /**
