@@ -69,12 +69,13 @@ const textOf = (html) =>
     .filter(Boolean)
     .join("\n");
 
+// Valores com "|" no dicionário expandem uma nota combinada em várias.
 function translate(list, unknown) {
-  return list.map((n) => {
+  return list.flatMap((n) => {
     const key = n.toLowerCase().replace(/\s+/g, " ").trim();
-    if (DICT[key]) return DICT[key];
+    if (DICT[key]) return DICT[key].split("|");
     unknown.push(n);
-    return n;
+    return [n];
   });
 }
 
