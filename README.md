@@ -38,7 +38,7 @@ Originais em `models-source/`. O site usa versões com **peças separadas** em `
 
 | Frasco | Peças | Desktop | Mobile |
 |---|---|---|---|
-| Art of Universe | vidro tingido, placa, tampa, gema, medalhão, líquido | 1,9 MB | 0,62 MB |
+| Art of Universe | corpo azul opaco, placa (só na frente, arte plana), tampa — sem líquido, como o frasco real | 1,7 MB | 0,58 MB |
 | Creed Wild Vetiver | vidro incolor, impressão, tampa, líquido verde | 1,5 MB | 0,60 MB |
 | Prada Paradoxe | vidro incolor, colar, tampa, líquido rosa | 0,9 MB | 0,33 MB |
 

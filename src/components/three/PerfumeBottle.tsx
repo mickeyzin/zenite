@@ -47,7 +47,7 @@ function physicalFrom(src: Std, extra: THREE.MeshPhysicalMaterialParameters) {
 }
 
 /** Material do líquido: físico, com recorte por plano e menisco nas faces internas. */
-function liquidMaterial(look: BottleLook["liquid"]) {
+function liquidMaterial(look: NonNullable<BottleLook["liquid"]>) {
   const uniforms = {
     uPlanePoint: { value: new THREE.Vector3() },
     uPlaneNormal: { value: new THREE.Vector3(0, 1, 0) },
@@ -118,12 +118,29 @@ export const PerfumeBottle = forwardRef<THREE.Group, Props>(function PerfumeBott
       const part = (mesh.name || mesh.parent?.name || "").toLowerCase();
       const src = mesh.material as Std;
       if (part.startsWith("liquid")) {
+        if (!look.liquid) {
+          mesh.visible = false;
+          return;
+        }
         const lm = liquidMaterial(look.liquid);
         mesh.material = lm.material;
         mesh.renderOrder = 1;
         mesh.geometry.computeBoundingBox();
         liquid = { mesh, uniforms: lm.uniforms, box: mesh.geometry.boundingBox!.clone() };
-      } else if (part.startsWith("glass")) {
+      } else if (part.startsWith("body")) {
+        const b = look.body ?? { color: "#2b4c97", roughness: 0.4, clearcoat: 0.3 };
+        // Corpo opaco: cor sólida (sem a textura, cujo verso o Meshy "inventou").
+        mesh.material = new THREE.MeshPhysicalMaterial({
+          color: b.color,
+          roughness: b.roughness,
+          metalness: 0,
+          clearcoat: b.clearcoat,
+          clearcoatRoughness: 0.25,
+          sheen: 0.3,
+          sheenColor: new THREE.Color(b.color).multiplyScalar(1.6),
+          envMapIntensity: 1.1,
+        });
+      } else if (part.startsWith("glass") && look.glass) {
         const g = look.glass;
         mesh.material = physicalFrom(src, {
           map: g.useTexture ? src.map : null,
@@ -141,11 +158,16 @@ export const PerfumeBottle = forwardRef<THREE.Group, Props>(function PerfumeBott
           specularIntensity: 1,
           color: new THREE.Color(g.tint).multiplyScalar(g.brightness),
         });
-      } else if (part.startsWith("gem")) {
-        mesh.material = physicalFrom(src, { metalness: 0.1, roughness: 0.04, roughnessMap: null, clearcoat: 1, clearcoatRoughness: 0.02, iridescence: 0.25, envMapIntensity: 1.6 });
       } else {
-        // plate, cap, medallion e GLB de malha única
-        mesh.material = physicalFrom(src, { clearcoat: part.startsWith("medallion") ? 1 : 0.6, clearcoatRoughness: 0.06, side: src.side });
+        // plate, cap, gem/medallion (impressões) e GLB de malha única
+        const print = part.startsWith("medallion") || part.startsWith("gem");
+        const plate = (part.startsWith("plate") || print) && look.plate;
+        mesh.material = physicalFrom(src, {
+          clearcoat: print ? 0.8 : 0.6,
+          clearcoatRoughness: 0.06,
+          side: src.side,
+          ...(plate ? { metalness: look.plate!.metalness, roughness: look.plate!.roughness } : {}),
+        });
       }
     });
     liquidRef.current = liquid;
@@ -214,7 +236,8 @@ export const PerfumeBottle = forwardRef<THREE.Group, Props>(function PerfumeBott
 
   useFrame((state, delta) => {
     const L = liquidRef.current;
-    if (!L) return;
+    if (!L || !look.liquid) return;
+    const fill = look.liquid.fill;
     const dt = Math.min(Math.max(delta, 1 / 240), 1 / 20);
     const S = sim.current;
     model.updateWorldMatrix(true, false);
@@ -270,14 +293,14 @@ export const PerfumeBottle = forwardRef<THREE.Group, Props>(function PerfumeBott
         S.dots[i] = wx * tmp.n.x + wy * tmp.n.y + wz * tmp.n.z;
       }
       S.dots.sort();
-      offset = S.dots[Math.min(n - 1, Math.floor(look.liquid.fill * n))];
+      offset = S.dots[Math.min(n - 1, Math.floor(fill * n))];
     } else {
       // Sem pontos: aproximação pela caixa do líquido.
       L.mesh.updateWorldMatrix(true, false);
       tmp.c.copy(L.box.min).lerp(L.box.max, 0.5).applyMatrix4(L.mesh.matrixWorld);
       const lowY = tmp.pt.copy(L.box.min).applyMatrix4(L.mesh.matrixWorld).y;
       const highY = tmp.pt.copy(L.box.max).applyMatrix4(L.mesh.matrixWorld).y;
-      offset = tmp.c.dot(tmp.n) + (Math.min(lowY, highY) + Math.abs(highY - lowY) * look.liquid.fill - tmp.c.y);
+      offset = tmp.c.dot(tmp.n) + (Math.min(lowY, highY) + Math.abs(highY - lowY) * fill - tmp.c.y);
     }
     L.uniforms.uPlaneNormal.value.copy(tmp.n);
     L.uniforms.uPlanePoint.value.copy(tmp.n).multiplyScalar(offset);

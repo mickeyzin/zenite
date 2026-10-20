@@ -42,6 +42,6 @@ const isMobile = window.innerWidth / window.innerHeight < 0.85 || window.innerWi
 const file = isMobile ? "models/art-of-universe.parts.mobile.glb.txt" : "models/art-of-universe.parts.glb.txt";
 const root = createRoot(document.getElementById("root")!);
 glbUrl(file).then((url) => {
-  const perfume = { ...artOfUniverse, model: { desktop: url, mobile: url, liquid: "models/art-of-universe.liquid.json" } };
+  const perfume = { ...artOfUniverse, model: { desktop: url, mobile: url, liquid: undefined } };
   root.render(<App perfume={perfume} />);
 });

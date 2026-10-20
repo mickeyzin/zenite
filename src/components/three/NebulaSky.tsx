@@ -27,6 +27,7 @@ export function NebulaSky({ theme, octaves = 6, resolution = 1024 }: { theme: Un
       uAccent: { value: new THREE.Color(theme.accent) },
       uViolet: { value: new THREE.Color("#5a2bd6") },
     }),
+    // As cores são atualizadas no efeito de "bake" abaixo.
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [],
   );
@@ -39,6 +40,11 @@ export function NebulaSky({ theme, octaves = 6, resolution = 1024 }: { theme: Un
   useLayoutEffect(() => {
     const m = mesh.current;
     if (!m) return;
+    // Atualiza as cores do universo antes de "fotografar" o céu (troca de perfume).
+    uniforms.uDeep.value.set(theme.deep);
+    uniforms.uMid.value.set(theme.mid);
+    uniforms.uGlow.value.set(theme.glow);
+    uniforms.uAccent.value.set(theme.accent);
     const parent = m.parent;
     const bake = new THREE.Scene();
     bake.add(m);
@@ -46,7 +52,7 @@ export function NebulaSky({ theme, octaves = 6, resolution = 1024 }: { theme: Un
     new THREE.CubeCamera(0.1, 200, rt).update(gl, bake);
     m.visible = false;
     parent?.add(m);
-  }, [gl, rt, octaves]);
+  }, [gl, rt, octaves, uniforms, theme.deep, theme.mid, theme.glow, theme.accent]);
 
   useLayoutEffect(() => () => rt.dispose(), [rt]);
 

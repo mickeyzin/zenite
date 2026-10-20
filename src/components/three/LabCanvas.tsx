@@ -1,10 +1,10 @@
 "use client";
 
-import { Environment, Lightformer, PresentationControls } from "@react-three/drei";
+import { Environment, Lightformer, PresentationControls, useGLTF } from "@react-three/drei";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Bloom, EffectComposer, ToneMapping } from "@react-three/postprocessing";
 import { ToneMappingMode } from "postprocessing";
-import { Suspense, useRef, useState } from "react";
+import { Suspense, useEffect, useRef, useState } from "react";
 import * as THREE from "three";
 import { bottles } from "@/data/perfumes";
 import { NebulaSky } from "./NebulaSky";
@@ -32,7 +32,7 @@ function Bottle({ angle, spin, slug, tilt }: { angle: number; spin: boolean; slu
   return (
     <>
       <NebulaSky theme={p.theme} resolution={512} octaves={5} />
-      <Environment resolution={256} frames={1}>
+      <Environment key={p.slug} resolution={256} frames={1}>
         <Lightformer form="rect" intensity={3.2} color={p.theme.keyLight} position={[0, 5, 4]} scale={[6, 2.5, 1]} target={[0, 0, 0]} />
         <Lightformer form="rect" intensity={4} color={p.theme.rimLight} position={[-5, 1, -2]} scale={[1.2, 7, 1]} target={[0, 0, 0]} />
         <Lightformer form="rect" intensity={3} color={p.theme.fillLight} position={[5, 0.5, -1]} scale={[1.2, 7, 1]} target={[0, 0, 0]} />
@@ -45,7 +45,9 @@ function Bottle({ angle, spin, slug, tilt }: { angle: number; spin: boolean; slu
       {/* Arrastar gira e inclina o PRÓPRIO frasco (não a câmera), então o líquido reage. */}
       <PresentationControls global cursor snap speed={1.4} polar={[-0.7, 0.7]} azimuth={[-Infinity, Infinity]} damping={0.25}>
         <group ref={g}>
-          <PerfumeBottle url={p.model.desktop} liquidPoints={p.model.liquid} look={p.look} />
+          <Suspense fallback={null}>
+            <PerfumeBottle url={p.model.desktop} liquidPoints={p.model.liquid} look={p.look} />
+          </Suspense>
         </group>
       </PresentationControls>
     </>
@@ -58,9 +60,23 @@ interface LabProps {
   spin?: boolean;
   dist?: number;
   tilt?: number;
+  /** false quando quem usa já cuida do pré-carregamento (prévia estática). */
+  preload?: boolean;
 }
 
 export default function LabCanvas(props: LabProps) {
+  // Pré-carrega os outros frascos depois do primeiro: a troca fica imediata.
+  const preload = props.preload ?? true;
+  useEffect(() => {
+    if (!preload) return;
+    const id = window.setTimeout(() => {
+      bottles.forEach((b) => {
+        useGLTF.preload(b.model.desktop);
+        if (b.model.liquid) fetch(b.model.liquid).catch(() => {});
+      });
+    }, 1500);
+    return () => window.clearTimeout(id);
+  }, [preload]);
   const [params] = useState(() => (typeof window === "undefined" ? new URLSearchParams() : new URLSearchParams(window.location.search)));
   const angle = props.angle ?? Number(params.get("angle") ?? 0);
   const spin = props.spin ?? params.get("spin") === "1";

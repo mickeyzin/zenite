@@ -32,7 +32,11 @@ export interface UniverseTheme {
 
 /** Ajustes visuais das peças separadas do frasco (ver scripts/models). */
 export interface BottleLook {
-  glass: {
+  /** Corpo opaco (frascos laqueados/pintados, ex.: Art of Universe). */
+  body?: { color: string; roughness: number; clearcoat: number };
+  /** Placa metálica: <1 deixa o metal mais acetinado/claro (menos espelho). */
+  plate?: { metalness: number; roughness: number };
+  glass?: {
     /**
      * true: o vidro usa a cor da textura (vidro tingido).
      * false: vidro incolor com `tint`; útil quando a cor da textura é do líquido
@@ -49,7 +53,7 @@ export interface BottleLook {
     /** Multiplica a cor da textura no vidro (>1 clareia o tom transmitido). */
     brightness: number;
   };
-  liquid: {
+  liquid?: {
     color: string;
     surfaceColor: string;
     /** Fração do volume interno ocupada pelo líquido (0–1). */

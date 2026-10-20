@@ -1,22 +1,23 @@
 {
   "art-of-universe": {
     "labels": [
-      "glass",
+      "body",
       "plate",
       "cap",
       "gem",
       "medallion"
     ],
-    "default": "glass",
+    "default": "body",
     "smooth": 4,
+    "_note": "Frasco real: corpo azul opaco acetinado; placa prateada só na frente, arte impressa (plana); verso todo azul.",
     "rules": [
       {
         "label": "plate",
-        "when": "(metal > 0.45) & (y < 0.56)"
+        "when": "(metal > 0.45) & (y < 0.56) & (nz > 0.35) & (z > 0)"
       },
       {
         "label": "plate",
-        "when": "(np.abs(x) < 0.40) & (y < 0.47) & (y > -0.86) & (np.abs(nz) > 0.35)"
+        "when": "(np.abs(x) < 0.40) & (y < 0.47) & (y > -0.86) & (nz > 0.35) & (z > 0)"
       },
       {
         "label": "medallion",
@@ -34,20 +35,11 @@
         "lock": true
       }
     ],
-    "liquid": {
-      "wall": 0.045,
-      "bottom": -0.8,
-      "top": 0.5,
-      "pitch": 0.008,
-      "smooth": 1.6,
-      "faces": 6000,
-      "color": [
-        0.25,
-        0.45,
-        1.0,
-        1.0
-      ]
-    }
+    "flatten": [
+      "gem",
+      "medallion"
+    ],
+    "liquid": null
   },
   "creed-wild-vetiver": {
     "labels": [

@@ -15,7 +15,6 @@ export const artOfUniverse: Perfume = {
   model: {
     desktop: "/models/art-of-universe.parts.glb",
     mobile: "/models/art-of-universe.parts.mobile.glb",
-    liquid: "/models/art-of-universe.liquid.json",
   },
   frontRotationY: 0,
   concentration: { value: "Eau de Parfum", status: "verificado", sources: retailSources },
@@ -68,7 +67,7 @@ export const artOfUniverse: Perfume = {
     pros: {
       value: [
         "Pirâmide cítrico-aromática com fundo amadeirado, de perfil versátil",
-        "Frasco colecionável com placa metálica e planetas em relevo",
+        "Frasco colecionável com placa metálica ilustrada com planetas",
       ],
       status: "provisorio",
     },
@@ -97,9 +96,10 @@ export const artOfUniverse: Perfume = {
     fillLight: "#7d5cff",
   },
   look: {
-    // Transparência do vidro a confirmar com o frasco real.
-    glass: { useTexture: true, tint: "#ffffff", transmission: 0.82, thickness: 0.45, roughness: 0.06, attenuationColor: "#5a86ff", attenuationDistance: 2.2, brightness: 2.6 },
-    liquid: { color: "#2448d8", surfaceColor: "#cfe6ff", fill: 0.72 },
+    // Frasco real (fotos enviadas): corpo azul opaco acetinado, líquido não aparece.
+    body: { color: "#2f4f8c", roughness: 0.45, clearcoat: 0.25 },
+    // Placa real: prata clara acetinada, com a arte impressa.
+    plate: { metalness: 0.5, roughness: 1 },
   },
 };
 
