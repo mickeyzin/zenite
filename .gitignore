@@ -45,3 +45,4 @@ next-env.d.ts
 /.venv3d/
 /scripts/db/.build-seed.mjs
 scripts/db/.test-roundtrip.mjs
+scripts/db/.check-live.mjs

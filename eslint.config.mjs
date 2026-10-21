@@ -16,6 +16,7 @@ const eslintConfig = defineConfig([
     "preview/dist/**",
     "scripts/db/.build-seed.mjs",
     "scripts/db/.test-roundtrip.mjs",
+    "scripts/db/.check-live.mjs",
   ]),
 ]);
 

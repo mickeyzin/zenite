@@ -10,7 +10,8 @@
     "import:lattafa": "NODE_USE_ENV_PROXY=1 node scripts/importers/lattafa.mjs",
     "db:seed:build": "esbuild scripts/db/build-seed.ts --bundle --platform=node --format=esm --outfile=scripts/db/.build-seed.mjs --log-level=warning && node scripts/db/.build-seed.mjs",
     "db:test": "node scripts/db/test-rls.mjs --seed",
-    "db:test:roundtrip": "esbuild scripts/db/test-roundtrip.ts --bundle --platform=node --format=esm --external:@electric-sql/pglite --external:@supabase/supabase-js --alias:@=./src --alias:next/cache=./scripts/db/stub-next-cache.mjs --outfile=scripts/db/.test-roundtrip.mjs --log-level=warning && node scripts/db/.test-roundtrip.mjs"
+    "db:test:roundtrip": "esbuild scripts/db/test-roundtrip.ts --bundle --platform=node --format=esm --external:@electric-sql/pglite --external:@supabase/supabase-js --alias:@=./src --alias:next/cache=./scripts/db/stub-next-cache.mjs --outfile=scripts/db/.test-roundtrip.mjs --log-level=warning && node scripts/db/.test-roundtrip.mjs",
+    "db:check": "esbuild scripts/db/check-live.ts --bundle --platform=node --format=esm --external:@supabase/supabase-js --alias:@=./src --alias:next/cache=./scripts/db/stub-next-cache.mjs --outfile=scripts/db/.check-live.mjs --log-level=warning && node scripts/db/.check-live.mjs"
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",
