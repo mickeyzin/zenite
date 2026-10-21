@@ -23,7 +23,7 @@ const STATUS_LABEL = { rascunho: "Rascunho", publicado: "Publicado", arquivado: 
 export function PerfumesTab({ sb, refreshSite }: TabProps) {
   const [filter, setFilter] = useState<PerfumeListRow["status"] | "todos">("todos");
   const [q, setQ] = useState("");
-  const [editing, setEditing] = useState<string | null>(null);
+  const [editing, setEditing] = useState<{ id: string; focus?: "poster" } | null>(null);
   const [busy, setBusy] = useState<string | null>(null);
   const { data, error, loading, reload } = useLoad<PerfumeListRow[]>(
     () =>
@@ -53,7 +53,8 @@ export function PerfumesTab({ sb, refreshSite }: TabProps) {
       <PerfumeEditor
         sb={sb}
         refreshSite={refreshSite}
-        id={editing}
+        id={editing.id}
+        focus={editing.focus}
         onClose={() => {
           setEditing(null);
           reload();
@@ -108,7 +109,7 @@ export function PerfumesTab({ sb, refreshSite }: TabProps) {
             {rows.map((p) => (
               <tr key={p.id}>
                 <td>
-                  <button className="admin-link admin-strong" onClick={() => setEditing(p.id)}>
+                  <button className="admin-link admin-strong" onClick={() => setEditing({ id: p.id })}>
                     {p.full_name}
                   </button>
                   {p.featured && <span className="admin-tag">destaque</span>}
@@ -117,7 +118,11 @@ export function PerfumesTab({ sb, refreshSite }: TabProps) {
                   <span className={`admin-tag admin-tag-${p.status}`}>{STATUS_LABEL[p.status]}</span>
                 </td>
                 <td>{p.perfume_notes.length || <span className="admin-tag admin-tag-warn">sem notas</span>}</td>
-                <td>{p.perfume_images.length ? "✓" : <span className="admin-muted">—</span>}</td>
+                <td>
+                  <button className="admin-link" onClick={() => setEditing({ id: p.id, focus: "poster" })}>
+                    {p.perfume_images.length ? "Trocar" : "Enviar pôster"}
+                  </button>
+                </td>
                 <td className="admin-row-actions">
                   {p.status !== "publicado" ? (
                     <button

@@ -1,6 +1,6 @@
 "use client";
 
-import { useId, useState } from "react";
+import { useEffect, useId, useState } from "react";
 import type { DataStatus, Metric } from "@/data/types";
 import type { TabProps } from "./AdminApp";
 import { useLoad } from "./useLoad";
@@ -74,7 +74,7 @@ const list = (s: string, sep: RegExp = /,/) =>
     .filter(Boolean);
 const nul = (s: string) => (s.trim() ? s.trim() : null);
 
-export function PerfumeEditor({ sb, refreshSite, id, onClose }: TabProps & { id: string; onClose: () => void }) {
+export function PerfumeEditor({ sb, refreshSite, id, onClose, focus }: TabProps & { id: string; onClose: () => void; focus?: "poster" }) {
   const { data, error, loading } = useLoad<{ p: PerfumeRow; r: ReviewRow | null }>(
     async () => {
       const [p, r] = await Promise.all([
@@ -94,7 +94,7 @@ export function PerfumeEditor({ sb, refreshSite, id, onClose }: TabProps & { id:
 
   if (loading) return <p className="admin-muted">Carregando…</p>;
   if (error || !data) return <p className="admin-error">{error ?? "Perfume não encontrado."}</p>;
-  return <EditorForm key={id} sb={sb} refreshSite={refreshSite} initial={data} onClose={onClose} />;
+  return <EditorForm key={id} sb={sb} refreshSite={refreshSite} initial={data} onClose={onClose} focus={focus} />;
 }
 
 function EditorForm({
@@ -102,7 +102,12 @@ function EditorForm({
   refreshSite,
   initial,
   onClose,
-}: TabProps & { initial: { p: PerfumeRow; r: ReviewRow | null }; onClose: () => void }) {
+  focus,
+}: TabProps & { initial: { p: PerfumeRow; r: ReviewRow | null }; onClose: () => void; focus?: "poster" }) {
+  // Atalho "Enviar pôster" da lista: rola direto até a seção.
+  useEffect(() => {
+    if (focus === "poster") document.getElementById("poster")?.scrollIntoView({ block: "start" });
+  }, [focus]);
   const { p, r } = initial;
   const tierText = (t: "top" | "heart" | "base") =>
     p.perfume_notes
@@ -365,22 +370,54 @@ function EditorForm({
 }
 
 /* ——— Pôster ——— */
+const POSTER_W = 900;
+const POSTER_H = 1100;
+
+/** Recorta no centro em 9:11 e reduz para 900×1100 WebP (fotos de celular ficam leves). */
+async function toPoster(file: File): Promise<Blob> {
+  const img = await createImageBitmap(file);
+  const scale = Math.max(POSTER_W / img.width, POSTER_H / img.height);
+  const w = img.width * scale;
+  const h = img.height * scale;
+  const canvas = document.createElement("canvas");
+  canvas.width = POSTER_W;
+  canvas.height = POSTER_H;
+  const ctx = canvas.getContext("2d");
+  if (!ctx) throw new Error("Navegador sem suporte a canvas.");
+  ctx.drawImage(img, (POSTER_W - w) / 2, (POSTER_H - h) / 2, w, h);
+  img.close();
+  return new Promise((resolve, reject) =>
+    canvas.toBlob((b) => (b ? resolve(b) : reject(new Error("Não foi possível converter a imagem."))), "image/webp", 0.86),
+  );
+}
+
 function PosterUpload({ sb, refreshSite, perfume }: TabProps & { perfume: PerfumeRow }) {
   const [poster, setPoster] = useState(perfume.perfume_images.find((i) => i.kind === "poster") ?? null);
-  const [file, setFile] = useState<File | null>(null);
+  const [blob, setBlob] = useState<{ data: Blob; preview: string } | null>(null);
   const [credit, setCredit] = useState("");
   const [busy, setBusy] = useState(false);
   const [msg, setMsg] = useState<string | null>(null);
 
-  const upload = async () => {
+  const pick = async (file: File | undefined) => {
+    setMsg(null);
     if (!file) return;
+    if (file.size > 25 * 1024 * 1024) return setMsg("Imagem acima de 25 MB.");
+    try {
+      const data = await toPoster(file);
+      if (blob) URL.revokeObjectURL(blob.preview);
+      setBlob({ data, preview: URL.createObjectURL(data) });
+    } catch (e) {
+      setMsg(`Erro: ${(e as Error).message}`);
+    }
+  };
+
+  const upload = async () => {
+    if (!blob) return;
     if (!credit.trim()) return setMsg("Informe o crédito ou a licença da imagem.");
-    if (file.size > 3 * 1024 * 1024) return setMsg("Imagem acima de 3 MB — reduza antes de enviar.");
     setBusy(true);
     setMsg(null);
-    const ext = (file.name.split(".").pop() ?? "jpg").toLowerCase();
-    const path = `${perfume.slug}/poster-${Date.now()}.${ext}`;
-    const up = await sb.storage.from("perfumes").upload(path, file, { contentType: file.type, upsert: false });
+    const path = `${perfume.slug}/poster-${Date.now()}.webp`;
+    const up = await sb.storage.from("perfumes").upload(path, blob.data, { contentType: "image/webp", upsert: false });
     if (up.error) {
       setBusy(false);
       return setMsg(`Erro no envio: ${up.error.message}`);
@@ -395,27 +432,46 @@ function PosterUpload({ sb, refreshSite, perfume }: TabProps & { perfume: Perfum
     setBusy(false);
     if (ins.error) return setMsg(`Erro: ${ins.error.message}`);
     setPoster(ins.data);
-    setFile(null);
+    URL.revokeObjectURL(blob.preview);
+    setBlob(null);
     setMsg("Pôster atualizado.");
     await refreshSite();
   };
 
+  const remove = async () => {
+    if (!poster || !confirm("Remover o pôster? O site volta a mostrar a arte automática.")) return;
+    setBusy(true);
+    const { error } = await sb.from("perfume_images").delete().eq("id", poster.id);
+    setBusy(false);
+    if (error) return setMsg(`Erro: ${error.message}`);
+    setPoster(null);
+    setMsg("Pôster removido.");
+    await refreshSite();
+  };
+
   return (
-    <fieldset className="admin-fieldset">
+    <fieldset className="admin-fieldset" id="poster">
       <legend>Pôster</legend>
       <div className="admin-poster">
-        {poster ? (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img src={poster.url} alt="" width={135} height={165} />
-        ) : (
-          <span className="poster-empty admin-poster-empty" aria-hidden>
-            ✦
-          </span>
-        )}
+        <figure>
+          {blob ? (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img src={blob.preview} alt="Pré-visualização do novo pôster" width={135} height={165} />
+          ) : poster ? (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img src={poster.url} alt="Pôster atual" width={135} height={165} />
+          ) : (
+            <span className="poster-empty admin-poster-empty" aria-hidden>
+              ✦
+            </span>
+          )}
+          <figcaption className="admin-muted">{blob ? "Novo (não enviado)" : poster ? "Atual" : "Sem pôster: o site usa a arte automática"}</figcaption>
+        </figure>
         <div className="admin-grid">
           <label className="admin-field">
-            Nova imagem (JPG, PNG ou WebP, até 3 MB, vertical 9:11)
-            <input type="file" accept="image/jpeg,image/png,image/webp" onChange={(e) => setFile(e.target.files?.[0] ?? null)} />
+            Escolher imagem (JPG, PNG, WebP ou foto do celular). Ela é recortada no centro em formato vertical e reduzida
+            automaticamente.
+            <input type="file" accept="image/jpeg,image/png,image/webp,image/heic" onChange={(e) => pick(e.target.files?.[0])} />
           </label>
           <Text
             label="Crédito / licença (obrigatório)"
@@ -423,11 +479,16 @@ function PosterUpload({ sb, refreshSite, perfume }: TabProps & { perfume: Perfum
             value={credit}
             onChange={(e) => setCredit(e.target.value)}
           />
-          {poster?.credit && <p className="admin-muted">Atual: {poster.credit}</p>}
-          <div>
-            <button className="btn-ghost" disabled={!file || busy} onClick={upload}>
+          {poster?.credit && <p className="admin-muted">Crédito atual: {poster.credit}</p>}
+          <div className="admin-actions">
+            <button className="btn-ghost" disabled={!blob || busy} onClick={upload}>
               {busy ? "Enviando…" : "Enviar pôster"}
             </button>
+            {poster && (
+              <button className="admin-link" disabled={busy} onClick={remove}>
+                Remover pôster
+              </button>
+            )}
           </div>
         </div>
       </div>

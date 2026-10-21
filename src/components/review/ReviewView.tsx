@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { CompareBars, MeterList, ProfileBars } from "@/components/charts/Charts";
+import { PerfumeArt } from "@/components/ui/PerfumeArt";
 import { StatusBadge } from "@/components/ui/StatusBadge";
 import type { Perfume } from "@/data/types";
 import { accordProfile, ACCORDS, derivedMetrics, NOTE_ACCORDS, normalize, topAccords } from "@/lib/olfactory";
@@ -55,9 +56,7 @@ export function ReviewView({ perfume: p, catalog }: { perfume: Perfume; catalog:
           {p.poster ? (
             <Image src={p.poster} alt={`Frasco do ${p.fullName}`} width={900} height={1100} priority />
           ) : (
-            <span className="poster-empty" aria-hidden>
-              ✦
-            </span>
+            <PerfumeArt perfume={p} className="poster-art" />
           )}
         </div>
         <div className="review-head">

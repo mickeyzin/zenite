@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { PerfumeArt } from "@/components/ui/PerfumeArt";
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import type { Perfume } from "@/data/types";
@@ -203,31 +204,21 @@ export function CatalogView({ perfumes }: { perfumes: Perfume[] }) {
         <ul className="catalog-grid">
           {results.map(({ p, accords }, i) => (
             <li key={p.slug} className="perfume-card">
-              <Link href={`/perfumes/${p.slug}`} className="perfume-card-link" aria-label={`Ver resenha do ${p.fullName}`}>
+              <Link href={`/perfumes/${p.slug}`} className="perfume-card-link">
                 <div className="perfume-card-img">
                   {p.poster ? (
-                    <Image src={p.poster} alt="" width={450} height={550} loading={i < 4 ? "eager" : "lazy"} />
+                    <Image src={p.poster} alt="" width={360} height={440} sizes="(max-width: 640px) 33vw, (max-width: 1024px) 25vw, 20vw" loading={i < 6 ? "eager" : "lazy"} />
                   ) : (
-                    <span className="poster-empty" aria-hidden>
-                      ✦
-                    </span>
+                    <PerfumeArt perfume={p} className="poster-art" />
                   )}
                 </div>
+                <div className="perfume-card-body">
+                  <p className="perfume-card-brand">{p.brand}</p>
+                  <h2 className="perfume-card-name">{p.name}</h2>
+                  <p className="perfume-card-accords">{accords.slice(0, 2).map((a) => a.label).join(" · ")}</p>
+                  {p.verdict.rating.value !== null && <p className="perfume-card-rating">Nota {p.verdict.rating.value}/10</p>}
+                </div>
               </Link>
-              <div className="perfume-card-body">
-                <p className="perfume-card-brand">{p.brand}</p>
-                <h2 className="perfume-card-name">{p.name}</h2>
-                <p className="perfume-card-family">{p.family.value}</p>
-                <ul className="chips" aria-label="Perfil olfativo estimado">
-                  {accords.map((a) => (
-                    <li key={a.key}>{a.label}</li>
-                  ))}
-                </ul>
-                <p className="perfume-card-rating">{p.verdict.rating.value === null ? "Avaliação editorial em produção" : `Nota ${p.verdict.rating.value}/10`}</p>
-                <Link href={`/perfumes/${p.slug}`} className="btn-ghost perfume-card-cta">
-                  Ver resenha
-                </Link>
-              </div>
             </li>
           ))}
         </ul>
