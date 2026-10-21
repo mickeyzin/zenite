@@ -2,7 +2,7 @@
 
 Portal editorial de perfumaria com apresentação cinematográfica em 3D. **Não é uma loja**: sem carrinho, checkout ou estoque. A monetização futura será por links de afiliado identificados.
 
-Estado atual: **Fases 1 a 6** — três perfumes (Lattafa Pride Art of Universe, Creed Wild Vetiver, Prada Paradoxe Intense) numa rolagem contínua, cada um com quatro etapas e universo próprio, e transições reversíveis entre eles.
+Estado atual: **Fases 1 a 6 e parte da 8** — três perfumes (Lattafa Pride Art of Universe, Creed Wild Vetiver, Prada Paradoxe Intense) numa rolagem contínua, cada um com quatro etapas e universo próprio, e transições reversíveis entre eles.
 
 ## Rodar localmente
 
@@ -106,6 +106,13 @@ Passo a passo para ligar: [`docs/supabase-setup.md`](docs/supabase-setup.md).
 - **Leitura no site** (`src/data/catalog.ts`): em cache, com etiqueta `perfumes`. Sem as variáveis do Supabase, ou se o banco falhar, usa os dados locais.
 - **Painel** `/admin`: aprovar importados (a função `approve_draft` liga as notas pelos apelidos e cria as que faltam), publicar e editar perfumes, classificar notas, cadastrar ofertas e pôsteres. Ao salvar, `/api/revalidar` atualiza o cache (só para admins).
 - **Testes**: `npm run db:test` (28 verificações de permissão) e `npm run db:test:roundtrip` (dados locais → banco → site, sem perdas).
+
+## Ofertas e afiliados
+
+- Resenha: ofertas da mais barata para a mais cara, botão **"Ver melhor oferta"**, etiqueta **"Link de afiliado"** e aviso de comissão. Preço só com data de conferência; com mais de 3 dias, deixa de aparecer.
+- `/oferta/[id]`: conta o clique (oferta, horário e página; sem dados pessoais) e redireciona com `rel="sponsored"`.
+- Alternativas mais baratas: semelhantes (afinidade ≥ 35%) com preço confirmado menor.
+- **API do Mercado Livre** (testado em out/2026): o token do app é gerado, mas anúncios, busca e até `/currencies/BRL` respondem 403 (`PolicyAgent`), também no navegador sem token. Por isso os preços são conferidos à mão no painel (aba Ofertas: "Preços para conferir" e "Confirmar preço"), e o link de afiliado vem do painel de afiliados do Mercado Livre. Nada de raspagem.
 
 ## Dados e transparência
 

@@ -490,3 +490,6 @@ body {
 }
 .cheaper-list { display: grid; gap: .4rem; font-size: .92rem; }
 .cheaper-list a { color: var(--z-cyan); }
+.admin-pricecheck { display: flex; flex-wrap: wrap; gap: .5rem; align-items: center; margin-top: .4rem; }
+.admin-pricecheck input { max-width: 10rem; }
+.admin-pricecheck .btn-ghost { padding: .45rem .9rem; font-size: .7rem; }

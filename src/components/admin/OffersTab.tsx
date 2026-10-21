@@ -52,10 +52,22 @@ export function OffersTab({ sb, refreshSite }: TabProps) {
     perfumeId,
   );
 
+  // Ofertas ativas sem conferência recente (o site já não mostra o preço delas).
+  const stale = useLoad<StaleOffer[]>(async () => {
+    const r = await sb
+      .from("offers")
+      .select("id, title, checked_at, perfume_id, perfume:perfumes(full_name), store:stores(name)")
+      .eq("active", true)
+      .order("checked_at", { ascending: true, nullsFirst: true });
+    const limit = Date.now() - STALE_HOURS * 3600_000;
+    return { data: (r.data as StaleOffer[] | null)?.filter((o) => !o.checked_at || Date.parse(o.checked_at) < limit) ?? null, error: r.error };
+  }, String(perfumeId));
+
   const update = async (id: string, patch: Partial<Offer>) => {
     const { error } = await sb.from("offers").update(patch).eq("id", id);
     if (error) return alert(error.message);
     offers.reload();
+    stale.reload();
     await refreshSite();
   };
   const remove = async (id: string) => {
@@ -72,8 +84,9 @@ export function OffersTab({ sb, refreshSite }: TabProps) {
         <div>
           <h2 id="offers-title">Ofertas</h2>
           <p className="admin-muted">
-            Cadastro manual por enquanto. Na fase de afiliados, preços e disponibilidade do Mercado Livre virão da API oficial.
-            As ofertas ainda não aparecem no site.
+            Preços conferidos à mão: o Mercado Livre bloqueia a leitura de anúncios pela API oficial (testado em out/2026). Confira
+            o preço na loja e confirme aqui — no site, preço com mais de 3 dias deixa de aparecer. Link de afiliado: gere no painel
+            de afiliados do Mercado Livre e cole no cadastro.
           </p>
         </div>
         <label className="admin-field admin-select-wide">
@@ -88,6 +101,22 @@ export function OffersTab({ sb, refreshSite }: TabProps) {
           </select>
         </label>
       </header>
+
+      {!!stale.data?.length && (
+        <details className="admin-log" open={!perfumeId}>
+          <summary>Preços para conferir ({stale.data.length})</summary>
+          <ul>
+            {stale.data.map((o) => (
+              <li key={o.id}>
+                <button className="admin-link" onClick={() => setPerfumeId(o.perfume_id)}>
+                  {o.perfume?.full_name}
+                </button>{" "}
+                · {o.store?.name} · {o.checked_at ? `conferido em ${new Date(o.checked_at).toLocaleDateString("pt-BR")}` : "nunca conferido"}
+              </li>
+            ))}
+          </ul>
+        </details>
+      )}
 
       {perfumeId && (
         <>
@@ -110,6 +139,7 @@ export function OffersTab({ sb, refreshSite }: TabProps) {
                       link ↗
                     </a>
                   </p>
+                  {o.active && <PriceCheck offer={o} onSave={(patch) => update(o.id, patch)} />}
                 </div>
                 <div className="admin-item-actions">
                   <button className="admin-link" onClick={() => update(o.id, { active: !o.active })}>
@@ -139,6 +169,64 @@ export function OffersTab({ sb, refreshSite }: TabProps) {
   );
 }
 
+const STALE_HOURS = 72;
+
+/** "1.249,90" → 1249.9 · "249,90" → 249.9 · "249.90" → 249.9 (ponto só como decimal se não houver vírgula). */
+export function parsePrice(s: string) {
+  const t = s.replace(/[^\d.,]/g, "");
+  if (t.includes(",")) return Number(t.replace(/\./g, "").replace(",", "."));
+  return /^\d+\.\d{1,2}$/.test(t) ? Number(t) : Number(t.replace(/\./g, ""));
+}
+
+interface StaleOffer {
+  id: string;
+  title: string;
+  checked_at: string | null;
+  perfume_id: string;
+  perfume: { full_name: string } | null;
+  store: { name: string } | null;
+}
+
+/** Confirma o preço visto agora na loja (ou que está esgotado). */
+function PriceCheck({ offer, onSave }: { offer: Offer; onSave: (patch: Partial<Offer>) => Promise<void> }) {
+  const [price, setPrice] = useState(offer.price != null ? String(offer.price).replace(".", ",") : "");
+  const [busy, setBusy] = useState(false);
+  const [err, setErr] = useState<string | null>(null);
+  const save = async (patch: Partial<Offer>) => {
+    setBusy(true);
+    await onSave({ ...patch, checked_at: new Date().toISOString() });
+    setBusy(false);
+  };
+  return (
+    <div className="admin-pricecheck">
+      <input
+        type="text"
+        inputMode="decimal"
+        aria-label={`Preço atual em ${offer.store?.name ?? "loja"}`}
+        placeholder="Preço agora (R$)"
+        value={price}
+        onChange={(e) => setPrice(e.target.value)}
+      />
+      <button
+        className="btn-ghost"
+        disabled={busy}
+        onClick={() => {
+          const v = parsePrice(price);
+          if (!price.trim() || !(v >= 0)) return setErr("Preço inválido.");
+          setErr(null);
+          save({ price: v, available: true });
+        }}
+      >
+        Confirmar preço
+      </button>
+      <button className="admin-link" disabled={busy} onClick={() => save({ available: false })}>
+        Esgotado
+      </button>
+      {err && <span className="admin-error">{err}</span>}
+    </div>
+  );
+}
+
 function NewOffer({
   sb,
   perfumeId,
@@ -152,7 +240,7 @@ function NewOffer({
 
   const save = async () => {
     setMsg(null);
-    const price = f.price.trim() ? Number(f.price.replace(/\./g, "").replace(",", ".")) : null;
+    const price = f.price.trim() ? parsePrice(f.price) : null;
     const isUrl = (u: string) => /^https:\/\/\S+$/.test(u.trim());
     if (!f.title.trim() || !isUrl(f.url)) return setMsg("Informe o título e um link https da oferta.");
     if (f.affiliate.trim() && !isUrl(f.affiliate)) return setMsg("O link de afiliado precisa começar com https://.");
