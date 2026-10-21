@@ -3,7 +3,7 @@ import { supabaseEnabled } from "@/lib/supabase/config";
 import { normalize } from "@/lib/olfactory";
 import { anonClient } from "@/lib/supabase/server";
 import { featuredPerfumes } from "./perfumes";
-import type { BottleLook, DataStatus, Metric, Perfume, UniverseTheme } from "./types";
+import type { BottleLook, DataStatus, Metric, Offer, Perfume, UniverseTheme } from "./types";
 
 /**
  * Fonte dos perfumes do site.
@@ -28,8 +28,12 @@ const SELECT = `
   perfume_sources(field, label, url),
   perfume_images(url, kind, position),
   models_3d(desktop_url, mobile_url, liquid_points_url),
-  similar_overrides!perfume_id(reason, similar:similar_id(full_name))
+  similar_overrides!perfume_id(reason, similar:similar_id(full_name)),
+  offers(id, title, volume_ml, price, currency, is_affiliate, available, active, checked_at, store:stores(name))
 `;
+
+/** Preço conferido há mais que isso não é exibido (pode ter mudado). */
+export const PRICE_FRESH_HOURS = 72;
 
 /* Linhas como o PostgREST devolve (só os campos usados). */
 type One<T> = T | T[] | null;
@@ -86,6 +90,18 @@ interface Row {
   perfume_images: { url: string; kind: string; position: number }[];
   models_3d: One<{ desktop_url: string; mobile_url: string; liquid_points_url: string | null }>;
   similar_overrides: { reason: string; similar: One<{ full_name: string }> }[];
+  offers?: {
+    id: string;
+    title: string;
+    volume_ml: number | string | null;
+    price: number | string | null;
+    currency: string;
+    is_affiliate: boolean;
+    available: boolean;
+    active: boolean;
+    checked_at: string | null;
+    store: One<{ name: string }>;
+  }[];
 }
 
 const one = <T,>(v: One<T>): T | null => (Array.isArray(v) ? (v[0] ?? null) : v);
@@ -95,7 +111,7 @@ const opt = (s: string | null | undefined) => s ?? undefined;
 const DEFAULT_THEME = featuredPerfumes[0].theme;
 const SIMILAR_NOTE = "Comparações em curadoria — serão geradas a partir do catálogo.";
 
-export function rowToPerfume(r: Row): Perfume {
+export function rowToPerfume(r: Row, now = Date.now()): Perfume {
   const review = one(r.reviews);
   const model = one(r.models_3d);
   const rs: DataStatus = review?.status ?? "provisorio";
@@ -119,6 +135,22 @@ export function rowToPerfume(r: Row): Perfume {
     .map((s) => ({ name: one(s.similar)?.full_name ?? "", reason: s.reason }))
     .filter((s) => s.name);
   const rating = review?.rating == null ? null : Number(review.rating);
+  const fresh = (t: string | null) => t !== null && now - Date.parse(t) < PRICE_FRESH_HOURS * 3600_000;
+  const offers: Offer[] = (r.offers ?? [])
+    .filter((o) => o.active)
+    .map((o) => ({
+      id: o.id,
+      store: one(o.store)?.name ?? "",
+      title: o.title,
+      volumeMl: o.volume_ml == null ? null : Number(o.volume_ml),
+      price: o.price != null && fresh(o.checked_at) ? Number(o.price) : null,
+      currency: o.currency,
+      isAffiliate: o.is_affiliate,
+      available: o.available,
+      checkedAt: o.checked_at,
+    }))
+    // Disponíveis com preço primeiro, do mais barato; depois as demais.
+    .sort((a, b) => Number(b.available) - Number(a.available) || (a.price ?? Infinity) - (b.price ?? Infinity));
 
   return {
     slug: r.slug,
@@ -152,6 +184,7 @@ export function rowToPerfume(r: Row): Perfume {
     theme: r.theme ?? DEFAULT_THEME,
     look: r.look ?? {},
     noteWeights,
+    ...(offers.length ? { offers } : {}),
   };
 }
 
@@ -175,7 +208,8 @@ export async function getCatalog(): Promise<Catalog> {
     if (error) throw new Error(error.message);
     const rows = (data ?? []) as unknown as Row[];
     if (!rows.length) throw new Error("nenhum perfume publicado");
-    const all = rows.map(rowToPerfume);
+    const now = Date.now();
+    const all = rows.map((r) => rowToPerfume(r, now));
     // A apresentação 3D só recebe perfumes em destaque com modelo e pôster.
     const featured = rows
       .map((r, i) => ({ r, p: all[i] }))

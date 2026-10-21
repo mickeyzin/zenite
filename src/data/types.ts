@@ -127,4 +127,19 @@ export interface Perfume {
    * normalizado). Sem isso, vale o dicionário local data/note-accords.json.
    */
   noteWeights?: Record<string, Record<string, number>>;
+  /** Ofertas ativas (só com o banco ligado), da mais barata para a mais cara. */
+  offers?: Offer[];
+}
+
+export interface Offer {
+  id: string;
+  store: string;
+  title: string;
+  volumeMl: number | null;
+  /** Só preenchido quando o preço foi conferido há pouco (ver PRICE_FRESH_HOURS). */
+  price: number | null;
+  currency: string;
+  isAffiliate: boolean;
+  available: boolean;
+  checkedAt: string | null;
 }

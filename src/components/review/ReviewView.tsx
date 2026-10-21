@@ -5,6 +5,7 @@ import { StatusBadge } from "@/components/ui/StatusBadge";
 import type { Perfume } from "@/data/types";
 import { accordProfile, ACCORDS, derivedMetrics, NOTE_ACCORDS, normalize, topAccords } from "@/lib/olfactory";
 import { SIMILAR_THRESHOLD, similarTo } from "@/lib/similarity";
+import { bestPrice, OffersSection } from "./OffersSection";
 
 const TIERS = [
   ["top", "Saída"],
@@ -33,6 +34,15 @@ export function ReviewView({ perfume: p, catalog }: { perfume: Perfume; catalog:
   const derived = derivedMetrics(profile);
   const accords = topAccords(profile, 3);
   const { close, others } = similarTo(p, catalog);
+  // Alternativas mais baratas: semelhantes (afinidade ≥ 35%) com preço confirmado menor.
+  const myBest = bestPrice(p)?.price ?? null;
+  const cheaper =
+    myBest === null
+      ? []
+      : close
+          .map((s) => ({ s, price: bestPrice(s.perfume)?.price ?? null }))
+          .filter((x): x is { s: (typeof close)[number]; price: number } => x.price !== null && x.price < myBest)
+          .sort((a, b) => a.price - b.price);
   const allSources = [...(p.notes.sources ?? []), ...(p.concentration.sources ?? []), ...(p.year.sources ?? []), ...(p.perfumers.sources ?? [])].filter(
     (s, i, arr) => arr.findIndex((x) => x.url === s.url) === i,
   );
@@ -283,16 +293,25 @@ export function ReviewView({ perfume: p, catalog }: { perfume: Perfume; catalog:
           })}
         </ul>
         <h3 className="review-h3">Alternativas mais baratas</h3>
-        <p className="text-[var(--z-muted)]">Dependem de preços verificados de lojas parceiras, que entram na Fase 8. Não sugerimos alternativas sem preço confirmado.</p>
+        {cheaper.length ? (
+          <ul className="cheaper-list">
+            {cheaper.map(({ s, price }) => (
+              <li key={s.perfume.slug}>
+                <Link href={`/perfumes/${s.perfume.slug}`}>{s.perfume.fullName}</Link> — a partir de{" "}
+                {price.toLocaleString("pt-BR", { style: "currency", currency: "BRL" })}, afinidade {Math.round(s.score * 100)}%
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <p className="text-[var(--z-muted)]">
+            {myBest
+              ? "Nenhum perfume com perfil próximo tem preço confirmado menor no momento."
+              : "Só sugerimos alternativas quando há preço confirmado deste perfume e do semelhante."}
+          </p>
+        )}
       </section>
 
-      {/* ——— Ofertas ——— */}
-      <section id="ofertas" className="review-section" aria-labelledby="ofertas-t">
-        <h2 id="ofertas-t">Ofertas</h2>
-        <p className="text-[var(--z-muted)]">
-          Ainda não há ofertas cadastradas. Quando houver, mostraremos lojas parceiras com links de afiliado identificados e a data da última atualização de preço.
-        </p>
-      </section>
+      <OffersSection perfume={p} />
 
       {allSources.length > 0 && (
         <section className="review-section" aria-labelledby="fontes-t">

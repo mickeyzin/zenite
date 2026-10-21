@@ -470,3 +470,23 @@ body {
 .admin-poster .admin-grid { flex: 1; min-width: min(100%, 16rem); }
 .admin-editor .admin-section-head { position: sticky; top: 4.5rem; z-index: 5; padding: .75rem 0; background: linear-gradient(var(--z-void) 80%, transparent); }
 .review-loading { min-height: 60vh; padding-top: 4rem; color: var(--z-muted); }
+
+/* ——— Ofertas ——— */
+.offers-disclosure { font-size: .85rem; color: var(--z-muted); padding: .75rem 1rem; border-left: 2px solid var(--z-cyan); background: rgba(49,199,243,.05); margin-bottom: 1rem; }
+.offers-list { display: grid; gap: .6rem; margin-bottom: 1rem; }
+.offer { display: grid; grid-template-columns: 1fr auto auto; gap: 1rem; align-items: center; padding: 1rem 1.1rem; border: 1px solid var(--z-line); border-radius: 12px; background: rgba(255,255,255,.02); }
+.offer.is-best { border-color: color-mix(in oklab, var(--z-cyan) 55%, transparent); background: rgba(49,199,243,.05); }
+.offer.is-off { opacity: .6; }
+.offer-store { font-weight: 600; display: flex; flex-wrap: wrap; gap: .5rem; align-items: center; }
+.offer-title { font-size: .85rem; color: var(--z-muted); }
+.offer-tag { white-space: nowrap; font-size: .66rem; font-weight: 500; letter-spacing: .06em; text-transform: uppercase; padding: .12rem .5rem; border-radius: 999px; border: 1px solid var(--z-line); color: var(--z-muted); }
+.offer-tag-best { border-color: var(--z-cyan); color: var(--z-cyan); }
+.offer-price { display: grid; text-align: right; font-size: .78rem; color: var(--z-muted); }
+.offer-price strong { font-size: 1.15rem; color: var(--z-white); font-weight: 600; }
+.offer .btn-primary, .offer .btn-ghost { padding: .65rem 1.1rem; font-size: .72rem; white-space: nowrap; }
+@media (max-width: 640px) {
+  .offer { grid-template-columns: 1fr auto; }
+  .offer > a { grid-column: 1 / -1; text-align: center; }
+}
+.cheaper-list { display: grid; gap: .4rem; font-size: .92rem; }
+.cheaper-list a { color: var(--z-cyan); }
