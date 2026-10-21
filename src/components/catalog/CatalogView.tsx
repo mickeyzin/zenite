@@ -201,12 +201,12 @@ export function CatalogView({ perfumes }: { perfumes: Perfume[] }) {
         </div>
       ) : (
         <ul className="catalog-grid">
-          {results.map(({ p, accords }) => (
+          {results.map(({ p, accords }, i) => (
             <li key={p.slug} className="perfume-card">
               <Link href={`/perfumes/${p.slug}`} className="perfume-card-link" aria-label={`Ver resenha do ${p.fullName}`}>
                 <div className="perfume-card-img">
                   {p.poster ? (
-                    <Image src={p.poster} alt="" width={450} height={550} />
+                    <Image src={p.poster} alt="" width={450} height={550} loading={i < 4 ? "eager" : "lazy"} />
                   ) : (
                     <span className="poster-empty" aria-hidden>
                       ✦

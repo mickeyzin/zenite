@@ -8,6 +8,7 @@ import fs from "node:fs";
 import { PGlite } from "@electric-sql/pglite";
 import { rowToPerfume } from "../../src/data/catalog";
 import { featuredPerfumes } from "../../src/data/perfumes";
+import { NOTE_ACCORDS } from "../../src/lib/olfactory";
 import { prepare } from "./pglite-supabase.mjs";
 
 const db = new PGlite();
@@ -17,7 +18,7 @@ await db.exec(fs.readFileSync("supabase/seed.sql", "utf8"));
 const { rows } = await db.query<{ row: unknown }>(`
   select to_jsonb(p) || jsonb_build_object(
     'brand', (select jsonb_build_object('name', b.name) from brands b where b.id = p.brand_id),
-    'perfume_notes', coalesce((select jsonb_agg(jsonb_build_object('tier', pn.tier, 'position', pn.position, 'note', jsonb_build_object('name_pt', n.name_pt)))
+    'perfume_notes', coalesce((select jsonb_agg(jsonb_build_object('tier', pn.tier, 'position', pn.position, 'note', jsonb_build_object('name_pt', n.name_pt, 'note_accords', coalesce((select jsonb_agg(jsonb_build_object('accord_key', na.accord_key, 'weight', na.weight)) from note_accords na where na.note_id = n.id), '[]'))))
                                from perfume_notes pn join notes n on n.id = pn.note_id where pn.perfume_id = p.id), '[]'),
     'reviews', (select to_jsonb(r) from reviews r where r.perfume_id = p.id),
     'perfume_sources', coalesce((select jsonb_agg(jsonb_build_object('field', s.field, 'label', s.label, 'url', s.url) order by s.ctid) from perfume_sources s where s.perfume_id = p.id), '[]'),
@@ -38,7 +39,12 @@ const walk = (a: unknown, b: unknown, path: string) => {
   }
   diffs.push(`${path}: local=${JSON.stringify(a)?.slice(0, 90)} banco=${JSON.stringify(b)?.slice(0, 90)}`);
 };
-featuredPerfumes.forEach((p, i) => walk(clean(p), clean(rowToPerfume(rows[i].row as never)), p.slug));
+featuredPerfumes.forEach((p, i) => {
+  const { noteWeights, ...fromDb } = rowToPerfume(rows[i].row as never);
+  walk(clean(p), clean(fromDb), p.slug);
+  // Os pesos vindos do banco devem bater com o dicionário local.
+  for (const [k, w] of Object.entries(noteWeights ?? {})) walk(clean(NOTE_ACCORDS[k]), clean(w), `${p.slug}.noteWeights.${k}`);
+});
 if (diffs.length) {
   console.log(diffs.join("\n"));
   console.log(`\n✘ ${diffs.length} diferenças`);

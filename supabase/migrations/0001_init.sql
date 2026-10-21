@@ -421,3 +421,111 @@ drop policy if exists perfumes_bucket_admin on storage.objects;
 create policy perfumes_bucket_admin on storage.objects for all to authenticated
   using (bucket_id = 'perfumes' and public.is_admin())
   with check (bucket_id = 'perfumes' and public.is_admin());
+
+-- ——— Funções do painel ——————————————————————————————————————————————————————
+-- Normaliza nomes de notas como o site (minúsculas, sem acentos, sem ™/®).
+create or replace function public.norm_note(s text)
+returns text language sql immutable set search_path = public as $$
+  select trim(regexp_replace(translate(lower(s), 'áàâãäåéèêëíìîïóòôõöúùûüçñ™®', 'aaaaaaeeeeiiiiooooouuuucn'), '\s+', ' ', 'g'));
+$$;
+
+create or replace function public.slugify(s text)
+returns text language sql immutable set search_path = public as $$
+  select trim(both '-' from regexp_replace(public.norm_note(s), '[^a-z0-9]+', '-', 'g'));
+$$;
+
+-- Encontra a nota pelo nome (ou apelido); cria se não existir, sem acordes,
+-- para ser classificada no painel.
+create or replace function public.resolve_note(name text)
+returns uuid language plpgsql security invoker set search_path = public as $$
+declare nid uuid;
+begin
+  if coalesce(trim(name), '') = '' then return null; end if;
+  select note_id into nid from public.note_aliases where alias = public.norm_note(name);
+  if nid is not null then return nid; end if;
+  insert into public.notes (slug, name_pt) values (public.slugify(name), trim(name))
+  on conflict (slug) do update set slug = excluded.slug
+  returning id into nid;
+  insert into public.note_aliases (alias, note_id) values (public.norm_note(name), nid) on conflict do nothing;
+  return nid;
+end;
+$$;
+
+-- Substitui a pirâmide de um perfume.
+create or replace function public.set_perfume_notes(pid uuid, top text[], heart text[], base text[])
+returns void language plpgsql security invoker set search_path = public as $$
+declare t text; list text[]; i int; nid uuid;
+begin
+  if not public.is_admin() then raise exception 'acesso negado'; end if;
+  delete from public.perfume_notes where perfume_id = pid;
+  foreach t in array array['top', 'heart', 'base'] loop
+    list := case t when 'top' then top when 'heart' then heart else base end;
+    for i in 1 .. coalesce(array_length(list, 1), 0) loop
+      nid := public.resolve_note(list[i]);
+      if nid is not null then
+        insert into public.perfume_notes (perfume_id, note_id, tier, position)
+        values (pid, nid, t::public.note_tier, i - 1) on conflict do nothing;
+      end if;
+    end loop;
+  end loop;
+end;
+$$;
+
+-- Aprova um rascunho importado: cria o perfume (como rascunho, não publicado),
+-- liga as notas pelos apelidos e cria as notas que faltarem (sem acordes, para
+-- classificar no painel). Roda com as permissões de quem chama (RLS vale).
+create or replace function public.approve_draft(draft uuid)
+returns uuid language plpgsql security invoker set search_path = public as $$
+declare
+  d public.import_drafts;
+  b public.brands;
+  pid uuid;
+  size_ml numeric;
+begin
+  if not public.is_admin() then raise exception 'acesso negado'; end if;
+  select * into d from public.import_drafts where id = draft for update;
+  if not found then raise exception 'rascunho não encontrado'; end if;
+  if d.perfume_id is not null then return d.perfume_id; end if;
+  if coalesce(d.payload->>'name', '') = '' then raise exception 'rascunho sem nome'; end if;
+
+  select * into b from public.brands where slug = d.brand_slug;
+  if not found then
+    insert into public.brands (slug, name) values (d.brand_slug, initcap(replace(d.brand_slug, '-', ' '))) returning * into b;
+  end if;
+
+  size_ml := nullif(replace(regexp_replace(coalesce(d.payload->>'size', ''), '[^0-9.,]', '', 'g'), ',', '.'), '')::numeric;
+
+  insert into public.perfumes (slug, brand_id, name, full_name, sku, volume_ml, gender, gender_status,
+                               notes_status, notes_note, status)
+  values (public.slugify(b.name || ' ' || (d.payload->>'name')), b.id, d.payload->>'name', b.name || ' ' || (d.payload->>'name'),
+          d.payload->>'sku', size_ml, d.payload->>'gender',
+          case when d.payload->>'gender' is not null then 'verificado'::public.data_status else 'a-confirmar' end,
+          case when d.payload->'notes' is not null and d.payload->'notes' <> 'null' then 'verificado'::public.data_status else 'a-confirmar' end,
+          'Pirâmide do site oficial da marca.', 'rascunho')
+  on conflict (slug) do update set updated_at = now()
+  returning id into pid;
+
+  insert into public.perfume_sources (perfume_id, field, label, url)
+  select pid, 'notas', 'Site oficial (' || b.name || ')', d.url
+  where not exists (select 1 from public.perfume_sources where perfume_id = pid and url = d.url);
+
+  if jsonb_typeof(d.payload->'notes') = 'object' then
+    perform public.set_perfume_notes(pid,
+      array(select jsonb_array_elements_text(coalesce(d.payload->'notes'->'top', '[]'))),
+      array(select jsonb_array_elements_text(coalesce(d.payload->'notes'->'heart', '[]'))),
+      array(select jsonb_array_elements_text(coalesce(d.payload->'notes'->'base', '[]'))));
+  end if;
+
+  update public.import_drafts
+     set status = 'aprovado', perfume_id = pid, reviewed_by = auth.uid(), reviewed_at = now()
+   where id = draft;
+  return pid;
+end;
+$$;
+
+revoke execute on function public.approve_draft(uuid) from public, anon;
+revoke execute on function public.resolve_note(text) from public, anon;
+revoke execute on function public.set_perfume_notes(uuid, text[], text[], text[]) from public, anon;
+grant execute on function public.approve_draft(uuid) to authenticated;
+grant execute on function public.resolve_note(text) to authenticated;
+grant execute on function public.set_perfume_notes(uuid, text[], text[], text[]) to authenticated;

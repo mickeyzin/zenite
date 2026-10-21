@@ -46,7 +46,7 @@ for (const [en, pt] of Object.entries(notesPt as Record<string, string>)) {
   if (pt.includes("|")) continue; // notas combinadas são expandidas na importação
   const target = NA[normalize(pt)];
   if (!target) continue;
-  out.push(`insert into public.note_aliases (alias, note_id) values (${q(en.toLowerCase())}, ${noteRef(target.name)}) on conflict do nothing;`);
+  out.push(`insert into public.note_aliases (alias, note_id) values (${q(normalize(en).replace(/\s+/g, " "))}, ${noteRef(target.name)}) on conflict do nothing;`);
 }
 
 // ——— Marcas ———

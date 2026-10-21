@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { Suspense } from "react";
 import { ReviewView } from "@/components/review/ReviewView";
 import { getPerfumeBySlug, getPerfumes } from "@/data/catalog";
 
@@ -19,7 +20,19 @@ export async function generateMetadata({ params }: PageProps<"/perfumes/[slug]">
   };
 }
 
-export default async function PerfumePage({ params }: PageProps<"/perfumes/[slug]">) {
+export default function PerfumePage(props: PageProps<"/perfumes/[slug]">) {
+  // O slug é lido dentro do Suspense: perfumes publicados depois do build
+  // abrem na hora com a moldura da página e a resenha chega em seguida.
+  return (
+    <main id="conteudo" className="review-page">
+      <Suspense fallback={<p className="review-loading">Carregando resenha…</p>}>
+        <PerfumeReview params={props.params} />
+      </Suspense>
+    </main>
+  );
+}
+
+async function PerfumeReview({ params }: Pick<PageProps<"/perfumes/[slug]">, "params">) {
   const { slug } = await params;
   const p = await getPerfumeBySlug(slug);
   if (!p) notFound();
@@ -36,9 +49,9 @@ export default async function PerfumePage({ params }: PageProps<"/perfumes/[slug
   };
 
   return (
-    <main id="conteudo" className="review-page">
+    <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <ReviewView perfume={p} catalog={await getPerfumes()} />
-    </main>
+    </>
   );
 }

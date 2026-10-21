@@ -122,4 +122,9 @@ export interface Perfume {
   };
   theme: UniverseTheme;
   look: BottleLook;
+  /**
+   * Pesos de acordes das notas deste perfume vindos do banco (chave = nome
+   * normalizado). Sem isso, vale o dicionário local data/note-accords.json.
+   */
+  noteWeights?: Record<string, Record<string, number>>;
 }

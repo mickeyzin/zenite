@@ -96,5 +96,40 @@ await as("authenticated", ADMIN, async () => {
   check("link de afiliado exige marcação de afiliado", !!bad.error);
 });
 
+// ——— aprovação de rascunhos ———
+const pending = (await db.query("select id, payload->>'name' as name from import_drafts where status = 'pendente' and payload->>'name' is not null order by url limit 1")).rows[0];
+if (pending) {
+  await as("anon", null, async () => {
+    const r = await tryq(`select public.approve_draft('${pending.id}')`);
+    check("anon não aprova rascunho", !!r.error, r.error?.slice(0, 50));
+  });
+  await as("authenticated", USER, async () => {
+    const r = await tryq(`select public.approve_draft('${pending.id}')`);
+    check("usuário comum não aprova rascunho", !!r.error, r.error?.slice(0, 50));
+    const n = await tryq(`select public.set_perfume_notes((select id from perfumes limit 1), array['x'], array[]::text[], array[]::text[])`);
+    check("usuário comum não altera pirâmide", !!n.error, n.error?.slice(0, 50));
+  });
+  await as("authenticated", ADMIN, async () => {
+    const r = await tryq(`select public.approve_draft('${pending.id}') as id`);
+    check("admin aprova rascunho", !r.error, r.error ?? pending.name);
+    if (r.error) return;
+    const pid = r.rows[0].id;
+    const p = (await db.query(`select status, full_name, (select count(*)::int from perfume_notes where perfume_id = '${pid}') n from perfumes where id = '${pid}'`)).rows[0];
+    check("perfume aprovado nasce como rascunho, com notas", p.status === "rascunho" && p.n > 0, `${p.full_name}: ${p.n} notas`);
+    const again = await tryq(`select public.approve_draft('${pending.id}') as id`);
+    check("aprovar de novo não duplica", !again.error && again.rows[0].id === pid);
+    const d = (await db.query(`select status from import_drafts where id = '${pending.id}'`)).rows[0];
+    check("rascunho marcado como aprovado", d.status === "aprovado");
+    const sn = await tryq(`select public.set_perfume_notes('${pid}', array['Bergamota', 'bergamot'], array['Nota Inventada Teste'], array[]::text[])`);
+    const after = (await db.query(`select n.name_pt, pn.tier from perfume_notes pn join notes n on n.id = pn.note_id where pn.perfume_id = '${pid}' order by tier, position`)).rows;
+    check("pirâmide substituída; apelido em inglês vira a mesma nota; nota nova criada",
+      !sn.error && after.length === 2 && after.some((r) => r.name_pt === "Nota Inventada Teste"), sn.error ?? after.map((r) => r.name_pt).join(", "));
+  });
+  await as("anon", null, async () => {
+    const r = await tryq("select count(*)::int n from perfumes where status <> 'publicado'");
+    check("perfume aprovado não aparece para o público", !r.error && r.rows[0].n === 0);
+  });
+}
+
 console.log(`\n${pass} ok, ${fail} falhas`);
 process.exit(fail ? 1 : 0);

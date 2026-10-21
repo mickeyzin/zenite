@@ -55,7 +55,7 @@ export function accordProfile(p: Perfume): { profile: Profile; unknown: string[]
   const unknown: string[] = [];
   (Object.keys(TIER_WEIGHT) as (keyof typeof TIER_WEIGHT)[]).forEach((tier) => {
     p.notes.value[tier].forEach((note) => {
-      const w = NOTE_ACCORDS[normalize(note)];
+      const w = p.noteWeights?.[normalize(note)] ?? NOTE_ACCORDS[normalize(note)];
       if (!w) {
         unknown.push(note);
         return;

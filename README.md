@@ -2,7 +2,7 @@
 
 Portal editorial de perfumaria com apresentação cinematográfica em 3D. **Não é uma loja**: sem carrinho, checkout ou estoque. A monetização futura será por links de afiliado identificados.
 
-Estado atual: **Fases 1 a 5** — três perfumes (Lattafa Pride Art of Universe, Creed Wild Vetiver, Prada Paradoxe Intense) numa rolagem contínua, cada um com quatro etapas e universo próprio, e transições reversíveis entre eles.
+Estado atual: **Fases 1 a 6** — três perfumes (Lattafa Pride Art of Universe, Creed Wild Vetiver, Prada Paradoxe Intense) numa rolagem contínua, cada um com quatro etapas e universo próprio, e transições reversíveis entre eles.
 
 ## Rodar localmente
 
@@ -97,6 +97,16 @@ Para adicionar um perfume à apresentação, basta incluí-lo em `featuredPerfum
 - **Semelhantes** (`src/lib/similarity.ts`): 55% acordes, 35% notas em comum, 5% estações, 5% ocasiões. Abaixo de 35% aparece como "pouca semelhança"; o texto nunca afirma que são iguais.
 - Gráficos (`src/components/charts`): medidores e barras em HTML/CSS, renderizados no servidor, com valor em texto; a comparação usa duas cores validadas contra o fundo escuro.
 
+## Banco de dados e painel (Supabase)
+
+Passo a passo para ligar: [`docs/supabase-setup.md`](docs/supabase-setup.md).
+
+- **Esquema** (`supabase/migrations/0001_init.sql`): perfumes com situação por campo (verificado, a confirmar, provisório), notas e acordes, avaliação editorial separada dos fatos, fontes, imagens, modelos 3D, lojas e ofertas (link de afiliado exige marcação de afiliado), histórico de preços e de alterações, fila de rascunhos importados.
+- **Segurança**: regras RLS no próprio banco. Visitantes leem só o que está publicado; só contas na tabela `admins` escrevem. O site usa apenas a chave pública — nenhuma chave secreta no código.
+- **Leitura no site** (`src/data/catalog.ts`): em cache, com etiqueta `perfumes`. Sem as variáveis do Supabase, ou se o banco falhar, usa os dados locais.
+- **Painel** `/admin`: aprovar importados (a função `approve_draft` liga as notas pelos apelidos e cria as que faltam), publicar e editar perfumes, classificar notas, cadastrar ofertas e pôsteres. Ao salvar, `/api/revalidar` atualiza o cache (só para admins).
+- **Testes**: `npm run db:test` (28 verificações de permissão) e `npm run db:test:roundtrip` (dados locais → banco → site, sem perdas).
+
 ## Dados e transparência
 
 Cada informação tem um status exibido ao leitor: **Verificado**, **A confirmar** ou **Provisório**.
@@ -107,4 +117,4 @@ Cada informação tem um status exibido ao leitor: **Verificado**, **A confirmar
 
 ## Próximas fases
 
-3. Creed Wild Vetiver e Prada Paradoxe + transições entre universos · 4. Linha Zênite · 5. Catálogo e resenhas · 6. Supabase e painel administrativo · 7. IA de mapeamento olfativo (precisa do código da integração anterior) · 8. Afiliados Mercado Livre · 9. Otimização e deploy.
+7. IA de mapeamento olfativo (precisa do código da integração anterior) · 8. Afiliados Mercado Livre · 9. Otimização e deploy.

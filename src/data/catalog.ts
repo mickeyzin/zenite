@@ -1,5 +1,6 @@
 import { cacheLife, cacheTag } from "next/cache";
 import { supabaseEnabled } from "@/lib/supabase/config";
+import { normalize } from "@/lib/olfactory";
 import { anonClient } from "@/lib/supabase/server";
 import { featuredPerfumes } from "./perfumes";
 import type { BottleLook, DataStatus, Metric, Perfume, UniverseTheme } from "./types";
@@ -22,7 +23,7 @@ const SELECT = `
   notes_status, notes_note, intro, intro_status, intro_note, universe, theme, look, scene_scale, front_rotation,
   featured, featured_order,
   brand:brands(name),
-  perfume_notes(tier, position, note:notes(name_pt)),
+  perfume_notes(tier, position, note:notes(name_pt, note_accords(accord_key, weight))),
   reviews(*),
   perfume_sources(field, label, url),
   perfume_images(url, kind, position),
@@ -64,7 +65,7 @@ interface Row {
   featured: boolean;
   featured_order: number | null;
   brand: One<{ name: string }>;
-  perfume_notes: { tier: "top" | "heart" | "base"; position: number; note: One<{ name_pt: string }> }[];
+  perfume_notes: { tier: "top" | "heart" | "base"; position: number; note: One<{ name_pt: string; note_accords: { accord_key: string; weight: number | string }[] }> }[];
   reviews: One<{
     status: DataStatus;
     status_note: string | null;
@@ -103,11 +104,15 @@ export function rowToPerfume(r: Row): Perfume {
     return list.length ? list : undefined;
   };
   const notes = { top: [] as string[], heart: [] as string[], base: [] as string[] };
+  const noteWeights: NonNullable<Perfume["noteWeights"]> = {};
   [...r.perfume_notes]
     .sort((a, b) => a.position - b.position)
     .forEach((pn) => {
       const n = one(pn.note);
-      if (n) notes[pn.tier].push(n.name_pt);
+      if (!n) return;
+      notes[pn.tier].push(n.name_pt);
+      if (n.note_accords?.length)
+        noteWeights[normalize(n.name_pt)] = Object.fromEntries(n.note_accords.map((a) => [a.accord_key, Number(a.weight)]));
     });
   const poster = [...r.perfume_images].filter((i) => i.kind === "poster").sort((a, b) => a.position - b.position)[0];
   const similar = r.similar_overrides
@@ -146,6 +151,7 @@ export function rowToPerfume(r: Row): Perfume {
     },
     theme: r.theme ?? DEFAULT_THEME,
     look: r.look ?? {},
+    noteWeights,
   };
 }
 
