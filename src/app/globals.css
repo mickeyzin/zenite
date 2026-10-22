@@ -545,3 +545,9 @@ body {
 .quiz-match-rank { font-size: .7rem; letter-spacing: .16em; text-transform: uppercase; color: var(--z-cyan); }
 .quiz-match h4 { font-family: var(--font-serif); font-weight: 400; font-size: 1.3rem; line-height: 1.15; }
 .quiz-match p { font-size: .88rem; color: var(--z-muted); }
+.quiz-describe { display: grid; gap: .7rem; }
+.quiz-describe textarea { width: 100%; padding: .8rem 1rem; border-radius: 12px; border: 1px solid var(--z-line); background: rgba(3,6,18,.7); color: var(--z-white); font: inherit; font-size: .95rem; resize: vertical; }
+.quiz-describe textarea:focus { border-color: var(--z-cyan); outline: none; }
+.quiz-describe-row { display: flex; justify-content: space-between; align-items: center; gap: .75rem; }
+.quiz-ai { padding: .9rem 1rem; border-left: 2px solid var(--z-violet); background: rgba(166,92,255,.07); display: grid; gap: .6rem; border-radius: 0 10px 10px 0; }
+.quiz-chip-static { display: inline-block; font-size: .8rem; padding: .3rem .7rem; border-radius: 999px; border: 1px solid var(--z-violet); }

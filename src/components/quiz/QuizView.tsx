@@ -6,7 +6,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { ProfileBars } from "@/components/charts/Charts";
 import { PerfumeArt } from "@/components/ui/PerfumeArt";
 import type { Perfume } from "@/data/types";
-import { normalize, topAccords } from "@/lib/olfactory";
+import { normalize, topAccords, type AccordKey } from "@/lib/olfactory";
 import {
   ALL_NOTES,
   AVOID_SUGGESTIONS,
@@ -21,8 +21,9 @@ import {
   type Moment,
 } from "@/lib/quiz";
 
-type StepKey = "families" | "loved" | "avoided" | "intensity" | "moment" | "climate" | "reference";
-const STEPS: { key: StepKey; title: string; help: string; optional?: boolean }[] = [
+type StepKey = "describe" | "families" | "loved" | "avoided" | "intensity" | "moment" | "climate" | "reference";
+const ALL_STEPS: { key: StepKey; title: string; help: string; optional?: boolean }[] = [
+  { key: "describe", title: "Descreva com suas palavras", help: "Opcional: a IA da Zênite traduz em famílias e notas, e você ajusta nas próximas etapas.", optional: true },
   { key: "families", title: "Quais famílias te atraem?", help: "Escolha até 3.", optional: true },
   { key: "loved", title: "Notas que você ama", help: "Toque nas que reconhece ou busque outras.", optional: true },
   { key: "avoided", title: "Alguma nota que você evita?", help: "Perfumes com elas descem no resultado.", optional: true },
@@ -51,7 +52,8 @@ const CLIMATE: { v: Climate; label: string }[] = [
 const toggle = <T,>(list: T[], v: T, max = Infinity) =>
   list.includes(v) ? list.filter((x) => x !== v) : list.length >= max ? list : [...list, v];
 
-export function QuizView({ catalog }: { catalog: Perfume[] }) {
+export function QuizView({ catalog, aiEnabled = false }: { catalog: Perfume[]; aiEnabled?: boolean }) {
+  const STEPS = aiEnabled ? ALL_STEPS : ALL_STEPS.filter((x) => x.key !== "describe");
   const [a, setA] = useState<Answers>(EMPTY_ANSWERS);
   const [step, setStep] = useState(0);
   const [done, setDone] = useState(false);
@@ -90,6 +92,7 @@ export function QuizView({ catalog }: { catalog: Perfume[] }) {
       {s.help && <p className="quiz-help">{s.help}</p>}
 
       <div className="quiz-body">
+        {s.key === "describe" && <Describe answers={a} onApply={setA} />}
         {s.key === "families" && (
           <div className="quiz-grid">
             {FAMILIES.map((f) => (
@@ -192,7 +195,77 @@ export function QuizView({ catalog }: { catalog: Perfume[] }) {
   );
 }
 
+function Describe({ answers, onApply }: { answers: Answers; onApply: (a: Answers) => void }) {
+  const [text, setText] = useState("");
+  const [state, setState] = useState<{ busy: boolean; error?: string; summary?: string; added?: string[] }>({ busy: false });
+  const run = async () => {
+    setState({ busy: true });
+    try {
+      const res = await fetch("/api/mapa-ia", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ text }) });
+      const data = await res.json();
+      if (!res.ok) return setState({ busy: false, error: data.error ?? "Não foi possível interpretar agora." });
+      const fams = (Object.entries(data.accords as Record<string, number>) as [AccordKey, number][])
+        .filter(([, v]) => v >= 0.4)
+        .sort((x, y) => y[1] - x[1])
+        .slice(0, 3)
+        .map(([k]) => k);
+      const loved = [...new Set([...answers.loved, ...(data.notes as string[])])];
+      onApply({ ...answers, families: fams.length ? fams : answers.families, loved });
+      setState({
+        busy: false,
+        summary: data.summary,
+        added: [...fams.map((f) => FAMILIES.find((x) => x.key === f)?.label ?? f), ...(data.notes as string[])],
+      });
+    } catch {
+      setState({ busy: false, error: "Sem conexão com a IA agora. Siga pelas perguntas." });
+    }
+  };
+  return (
+    <div className="quiz-describe">
+      <label htmlFor="quiz-describe" className="sr-only">
+        Descreva o cheiro que você procura
+      </label>
+      <textarea
+        id="quiz-describe"
+        rows={3}
+        maxLength={300}
+        placeholder="Ex.: cheiro de praia no fim da tarde, algo fresco mas aconchegante"
+        value={text}
+        onChange={(e) => setText(e.target.value)}
+      />
+      <div className="quiz-describe-row">
+        <button type="button" className="btn-ghost" disabled={state.busy || text.trim().length < 3} onClick={run}>
+          {state.busy ? "Interpretando…" : "Interpretar com IA"}
+        </button>
+        <span className="quiz-help">{text.length}/300</span>
+      </div>
+      {state.error && (
+        <p className="admin-error" role="alert">
+          {state.error}
+        </p>
+      )}
+      {state.summary && (
+        <div className="quiz-ai" role="status">
+          <p>{state.summary}</p>
+          {!!state.added?.length && (
+            <ul className="quiz-chips">
+              {state.added.map((n) => (
+                <li key={n}>
+                  <span className="quiz-chip-static">{n}</span>
+                </li>
+              ))}
+            </ul>
+          )}
+          <p className="quiz-help">Já marquei isso nas próximas etapas — confira e ajuste.</p>
+        </div>
+      )}
+      <p className="quiz-help">O texto é enviado à OpenAI só para essa interpretação e não fica guardado pela Zênite.</p>
+    </div>
+  );
+}
+
 function isEmptyStep(k: StepKey, a: Answers) {
+  if (k === "describe") return !a.families.length && !a.loved.length;
   if (k === "families") return !a.families.length;
   if (k === "loved") return !a.loved.length;
   if (k === "avoided") return !a.avoided.length;

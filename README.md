@@ -107,6 +107,11 @@ Passo a passo para ligar: [`docs/supabase-setup.md`](docs/supabase-setup.md).
 - **Painel** `/admin`: aprovar importados (a função `approve_draft` liga as notas pelos apelidos e cria as que faltam), publicar e editar perfumes, classificar notas, cadastrar ofertas e pôsteres. Ao salvar, `/api/revalidar` atualiza o cache (só para admins).
 - **Testes**: `npm run db:test` (28 verificações de permissão) e `npm run db:test:roundtrip` (dados locais → banco → site, sem perdas).
 
+## Mapa olfativo (`/mapa-olfativo`)
+
+- Quiz: famílias, notas que ama/evita (busca nas 209 notas), intensidade, momento, clima e um perfume de referência. As respostas viram um perfil de acordes (`src/lib/quiz.ts`); afinidade = 75% cosseno do perfil + até 21% por notas amadas − até 36% por notas evitadas + 4% por estação. Roda no navegador.
+- IA opcional (`/api/mapa-ia`): "descreva com suas palavras" → OpenAI (Chat Completions, JSON com esquema estrito) devolve pesos de acordes e até 6 notas **só do dicionário**. Chave `OPENAI_API_KEY` apenas no servidor; modelo em `OPENAI_MODEL` (padrão `gpt-4o-mini`); limite de 8 consultas/hora por IP; aceita só chamadas do próprio site. Sem a chave, a etapa não aparece.
+
 ## Ofertas e afiliados
 
 - Resenha: ofertas da mais barata para a mais cara, botão **"Ver melhor oferta"**, etiqueta **"Link de afiliado"** e aviso de comissão. Preço só com data de conferência; com mais de 3 dias, deixa de aparecer.
