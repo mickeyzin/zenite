@@ -551,3 +551,13 @@ body {
 .quiz-describe-row { display: flex; justify-content: space-between; align-items: center; gap: .75rem; }
 .quiz-ai { padding: .9rem 1rem; border-left: 2px solid var(--z-violet); background: rgba(166,92,255,.07); display: grid; gap: .6rem; border-radius: 0 10px 10px 0; }
 .quiz-chip-static { display: inline-block; font-size: .8rem; padding: .3rem .7rem; border-radius: 999px; border: 1px solid var(--z-violet); }
+.site-footer-nav { display: flex; flex-wrap: wrap; gap: .5rem 1.25rem; }
+.site-footer-nav a { color: var(--z-white); text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--z-line); }
+.site-footer-nav a:hover { text-decoration-color: var(--z-cyan); }
+.legal-page { max-width: 52rem; }
+.legal-page section { display: grid; gap: .75rem; padding: 1.5rem 0; border-top: 1px solid var(--z-line); }
+.legal-page h2 { font-family: var(--font-serif); font-weight: 400; font-size: 1.6rem; }
+.legal-page ul { display: grid; gap: .6rem; padding-left: 1.1rem; list-style: disc; color: var(--z-muted); line-height: 1.55; }
+.legal-page li strong { color: var(--z-white); }
+.legal-page p { color: var(--z-muted); line-height: 1.6; }
+.notfound-page { min-height: 70vh; display: grid; align-content: center; gap: 1rem; }

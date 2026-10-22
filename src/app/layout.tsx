@@ -1,6 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import { Cormorant_Garamond, Manrope } from "next/font/google";
+import { SiteFooter } from "@/components/ui/SiteFooter";
 import { SiteHeader } from "@/components/ui/SiteHeader";
+import { SITE_URL } from "@/lib/site";
 import "./globals.css";
 
 const display = Cormorant_Garamond({
@@ -13,7 +15,7 @@ const display = Cormorant_Garamond({
 const sans = Manrope({ variable: "--font-ui", subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"),
+  metadataBase: new URL(SITE_URL),
   title: { default: "Zênite — Perfumes Cósmicos", template: "%s · Zênite" },
   description:
     "Resenhas, descoberta e análise de perfumes com experiências 3D, mapeamento olfativo e comparações editoriais.",
@@ -31,6 +33,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         </a>
         <SiteHeader />
         {children}
+        <SiteFooter />
         <noscript>
           <style>{`.cinema{height:auto!important}.cinema-stage{position:relative!important;height:auto!important}.stage-panel{position:relative!important;opacity:1!important;visibility:visible!important;inset:auto!important;transform:none!important;margin:2rem auto}`}</style>
         </noscript>
