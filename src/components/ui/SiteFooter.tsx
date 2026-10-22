@@ -9,7 +9,9 @@ export function SiteFooter() {
       </p>
       <nav aria-label="Rodapé" className="site-footer-nav">
         <Link href="/catalogo">Catálogo</Link>
+        <Link href="/comparar">Comparar</Link>
         <Link href="/mapa-olfativo">Mapa olfativo</Link>
+        <Link href="/guias">Guias</Link>
         <Link href="/privacidade">Privacidade e afiliados</Link>
       </nav>
       <p>© {2026} Zênite — Perfumes Cósmicos</p>

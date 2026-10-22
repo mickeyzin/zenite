@@ -1,10 +1,10 @@
 import Link from "next/link";
 
-const NAV: { label: string; short?: string; href?: string }[] = [
+const NAV: { label: string; short?: string; href?: string; desktopOnly?: boolean }[] = [
   { label: "Catálogo", href: "/catalogo" },
-  { label: "Comparar", href: "/comparar" },
+  { label: "Comparar", href: "/comparar", desktopOnly: true },
   { label: "Mapeamento olfativo", short: "Mapa", href: "/mapa-olfativo" },
-  { label: "Guias" },
+  { label: "Guias", href: "/guias" },
 ];
 
 export function SiteHeader() {
@@ -20,7 +20,7 @@ export function SiteHeader() {
       <nav aria-label="Principal">
         <ul className="flex gap-4 md:gap-8">
           {NAV.map((n) => (
-            <li key={n.label} className={n.href ? "" : "hidden md:block"}>
+            <li key={n.label} className={n.href && !n.desktopOnly ? "" : "hidden md:block"}>
               {n.href ? (
                 <Link href={n.href} className="nav-link" aria-label={n.short ? n.label : undefined}>
                   {n.short ? (

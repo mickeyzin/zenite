@@ -561,3 +561,49 @@ body {
 .legal-page li strong { color: var(--z-white); }
 .legal-page p { color: var(--z-muted); line-height: 1.6; }
 .notfound-page { min-height: 70vh; display: grid; align-content: center; gap: 1rem; }
+
+/* ——— Guias ——— */
+.guides-list { display: grid; gap: .8rem; max-width: 52rem; }
+.guide-card { display: grid; grid-template-columns: auto 1fr; gap: 1.1rem; padding: 1.2rem 1.3rem; border: 1px solid var(--z-line); border-radius: 12px; background: rgba(255,255,255,.02); transition: border-color .25s, transform .25s; }
+.guide-card:hover, .guide-card:focus-visible { border-color: rgba(49,199,243,.5); transform: translateY(-2px); }
+.guide-card-n { font-family: var(--font-serif); font-size: 2rem; line-height: 1; color: var(--z-cyan); }
+.guide-card-body { display: grid; gap: .35rem; }
+.guide-card-body strong { font-family: var(--font-serif); font-weight: 400; font-size: 1.4rem; line-height: 1.15; }
+.guide-card-body span { font-size: .88rem; color: var(--z-muted); line-height: 1.5; }
+.guide-card-meta { font-size: .72rem !important; letter-spacing: .14em; text-transform: uppercase; }
+.guide { max-width: 46rem; display: grid; gap: 1rem; }
+.guide .eyebrow a { color: var(--z-cyan); }
+.guide-lead { font-size: 1.1rem; line-height: 1.55; color: var(--z-white); }
+.guide-meta { font-size: .75rem; letter-spacing: .08em; color: var(--z-muted); }
+.guide-section { display: grid; gap: .85rem; padding-top: 1.75rem; margin-top: .5rem; border-top: 1px solid var(--z-line); }
+.guide-section h2 { font-family: var(--font-serif); font-weight: 400; font-size: 1.75rem; line-height: 1.15; }
+.guide-section p { line-height: 1.7; color: #d6d9ea; }
+.guide-section ul { display: grid; gap: .6rem; padding-left: 1.1rem; list-style: disc; line-height: 1.6; color: #d6d9ea; }
+.guide-section li strong { color: var(--z-white); }
+.guide-tip { padding: .9rem 1.1rem; border-left: 2px solid var(--z-cyan); background: rgba(49,199,243,.06); border-radius: 0 10px 10px 0; font-size: .95rem; }
+.guide-table-wrap { overflow-x: auto; border: 1px solid var(--z-line); border-radius: 10px; }
+.guide-table { width: 100%; border-collapse: collapse; font-size: .9rem; }
+.guide-table caption { caption-side: bottom; text-align: left; padding: .6rem .9rem; font-size: .78rem; color: var(--z-muted); }
+.guide-table th, .guide-table td { padding: .65rem .9rem; border-bottom: 1px solid var(--z-line); text-align: left; vertical-align: top; }
+.guide-table thead th { font-size: .72rem; letter-spacing: .1em; text-transform: uppercase; color: var(--z-muted); font-weight: 500; }
+.guide-table tbody th { font-weight: 600; white-space: nowrap; }
+.guide-examples { padding: 1rem 1.1rem; border: 1px solid var(--z-line); border-radius: 10px; background: rgba(255,255,255,.02); }
+.guide-examples-title { font-size: .72rem !important; letter-spacing: .16em; text-transform: uppercase; color: var(--z-cyan) !important; margin-bottom: .5rem; }
+.guide-examples ul { list-style: none; padding-left: 0; gap: .35rem; }
+.guide-examples a { color: var(--z-cyan); }
+.guide-related { margin-top: 1.5rem; padding: 1.25rem; border: 1px solid var(--z-line); border-radius: 12px; display: grid; gap: .6rem; }
+.guide-related h2 { font-size: .75rem; letter-spacing: .2em; text-transform: uppercase; color: var(--z-muted); font-weight: 500; }
+.guide-related ul { display: grid; gap: .45rem; }
+.guide-related a { color: var(--z-white); }
+.guide-related a:hover { color: var(--z-cyan); }
+/* Tabela dos guias vira cartões no celular */
+@media (max-width: 640px) {
+  .guide-table-wrap { overflow: visible; border: 0; }
+  .guide-table thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+  .guide-table, .guide-table tbody, .guide-table tr, .guide-table th, .guide-table td { display: block; }
+  .guide-table tr { border: 1px solid var(--z-line); border-radius: 10px; padding: .7rem .9rem; margin-bottom: .5rem; }
+  .guide-table th, .guide-table td { border: 0; padding: .15rem 0; white-space: normal; }
+  .guide-table tbody th { font-size: 1rem; margin-bottom: .2rem; }
+  .guide-table td::before { content: attr(data-label) ": "; color: var(--z-muted); font-size: .8rem; }
+  .guide-table caption { display: block; padding: .2rem 0 0; }
+}

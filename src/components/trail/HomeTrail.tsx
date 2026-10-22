@@ -48,14 +48,18 @@ const SECTIONS: { id: string; label: string; title: string; text: string; phase:
     label: "Guias de perfumaria",
     title: "Aprenda a escolher melhor",
     text: "Concentrações, famílias olfativas, como testar na pele e como fazer um perfume durar mais.",
-    phase: "Em planejamento",
+    phase: "Guias",
+    href: "/guias",
+    cta: "Ler os guias",
   },
   {
     id: "ofertas",
     label: "Ofertas de parceiros",
     title: "Onde encontrar, com transparência",
-    text: "Ofertas de lojas parceiras com links de afiliado identificados, critérios de ordenação claros e a data da última atualização de preço.",
-    phase: "Fase 8",
+    text: "Em cada resenha: ofertas de lojas parceiras com links de afiliado identificados, da mais barata para a mais cara, sempre com a data do preço.",
+    phase: "Ofertas",
+    href: "/catalogo",
+    cta: "Escolher um perfume",
   },
 ];
 
