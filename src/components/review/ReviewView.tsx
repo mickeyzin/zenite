@@ -1,26 +1,33 @@
 import Image from "next/image";
 import Link from "next/link";
 import { CompareBars, MeterList, ProfileBars } from "@/components/charts/Charts";
+import { Icon, normSeason, occasionIcon, SEASONS, type IconName } from "@/components/ui/Icons";
 import { PerfumeArt } from "@/components/ui/PerfumeArt";
 import { StatusBadge } from "@/components/ui/StatusBadge";
 import type { Perfume } from "@/data/types";
-import { accordProfile, ACCORDS, derivedMetrics, NOTE_ACCORDS, normalize, topAccords } from "@/lib/olfactory";
+import { accordProfile, derivedMetrics, topAccords } from "@/lib/olfactory";
 import { SIMILAR_THRESHOLD, similarTo } from "@/lib/similarity";
+import { NoteOrb } from "./NoteOrb";
 import { bestPrice, OffersSection } from "./OffersSection";
 
 const TIERS = [
-  ["top", "Saída"],
-  ["heart", "Coração"],
-  ["base", "Fundo"],
+  ["top", "Saída", "up", "Os primeiros minutos"],
+  ["heart", "Coração", "core", "Depois de 15 a 30 minutos"],
+  ["base", "Fundo", "roots", "O que fica por horas"],
 ] as const;
 
-function noteAccords(note: string) {
-  const w = NOTE_ACCORDS[normalize(note)];
-  if (!w) return [];
-  return Object.entries(w)
-    .sort((a, b) => (b[1] ?? 0) - (a[1] ?? 0))
-    .slice(0, 2)
-    .map(([k]) => ACCORDS.find((a) => a.key === k)!.label);
+const PHASE_ICON: Record<string, IconName> = { "Saída": "up", "Coração": "core", "Fundo": "roots" };
+
+function Spec({ icon, label, children, wide }: { icon: IconName; label: string; children: React.ReactNode; wide?: boolean }) {
+  return (
+    <div className={`spec ${wide ? "span-2" : ""}`}>
+      <span className="spec-icon" aria-hidden>
+        <Icon name={icon} size={20} />
+      </span>
+      <dt>{label}</dt>
+      <dd>{children}</dd>
+    </div>
+  );
 }
 
 /**
@@ -95,60 +102,40 @@ export function ReviewView({ perfume: p, catalog }: { perfume: Perfume; catalog:
       <section id="dados" className="review-section" aria-labelledby="dados-t">
         <h2 id="dados-t">Dados do perfume</h2>
         <dl className="spec-grid review-specs">
-          <div>
-            <dt>Marca</dt>
-            <dd>{p.brand}</dd>
-          </div>
-          <div>
-            <dt>Nome oficial</dt>
-            <dd>{p.fullName}</dd>
-          </div>
-          <div>
-            <dt>Concentração</dt>
-            <dd>
-              {p.concentration.value} <StatusBadge status={p.concentration.status} note={p.concentration.note} />
-            </dd>
-          </div>
-          <div>
-            <dt>Ano de lançamento</dt>
-            <dd>
-              {p.year.value ?? "Não confirmado"} <StatusBadge status={p.year.status} note={p.year.note} />
-            </dd>
-          </div>
-          <div>
-            <dt>Perfumista</dt>
-            <dd>
-              {p.perfumers.value?.join(", ") ?? "Não divulgado"} <StatusBadge status={p.perfumers.status} note={p.perfumers.note} />
-            </dd>
-          </div>
-          <div>
-            <dt>Público</dt>
-            <dd>
-              {p.gender.value} <StatusBadge status={p.gender.status} note={p.gender.note} />
-            </dd>
-          </div>
-          <div className="span-2">
-            <dt>Família olfativa</dt>
-            <dd>
-              {p.family.value} <StatusBadge status={p.family.status} note={p.family.note} />
-            </dd>
-          </div>
+          <Spec icon="tag" label="Marca">{p.brand}</Spec>
+          <Spec icon="sparkle" label="Nome oficial">{p.fullName}</Spec>
+          <Spec icon="bottle" label="Concentração">
+            {p.concentration.value} <StatusBadge status={p.concentration.status} note={p.concentration.note} />
+          </Spec>
+          <Spec icon="calendar" label="Ano de lançamento">
+            {p.year.value ?? "Não confirmado"} <StatusBadge status={p.year.status} note={p.year.note} />
+          </Spec>
+          <Spec icon="user" label="Perfumista">
+            {p.perfumers.value?.join(", ") ?? "Não divulgado"} <StatusBadge status={p.perfumers.status} note={p.perfumers.note} />
+          </Spec>
+          <Spec icon="users" label="Público">
+            {p.gender.value} <StatusBadge status={p.gender.status} note={p.gender.note} />
+          </Spec>
+          <Spec icon="layers" label="Família olfativa" wide>
+            {p.family.value} <StatusBadge status={p.family.status} note={p.family.note} />
+          </Spec>
         </dl>
       </section>
 
       {/* ——— Pirâmide ——— */}
       <section id="piramide" className="review-section" aria-labelledby="piramide-t">
         <h2 id="piramide-t">Pirâmide olfativa</h2>
-        <div className="pyramid review-pyramid">
-          {TIERS.map(([tier, label]) => (
-            <div key={tier} className="pyramid-row">
-              <h3>{label}</h3>
-              <ul className="note-list">
+        <div className="orb-pyramid">
+          {TIERS.map(([tier, label, icon, hint]) => (
+            <div key={tier} className={`orb-tier orb-tier-${tier}`}>
+              <h3>
+                <Icon name={icon} size={18} />
+                <span>{label}</span>
+                <small>{hint}</small>
+              </h3>
+              <ul className="orb-list">
                 {p.notes.value[tier].map((n) => (
-                  <li key={n}>
-                    <span className="note-name">{n}</span>
-                    {noteAccords(n).length > 0 && <span className="note-acc">{noteAccords(n).join(" · ")}</span>}
-                  </li>
+                  <NoteOrb key={n} note={n} override={p.noteWeights} />
                 ))}
               </ul>
             </div>
@@ -161,7 +148,12 @@ export function ReviewView({ perfume: p, catalog }: { perfume: Perfume; catalog:
         <ol className="evolution">
           {p.evolution.value.map((e) => (
             <li key={e.phase}>
-              <strong>{e.phase}</strong> {e.text}
+              <span className="evolution-icon" aria-hidden>
+                <Icon name={PHASE_ICON[e.phase] ?? "sparkle"} size={18} />
+              </span>
+              <span>
+                <strong>{e.phase}</strong> {e.text}
+              </span>
             </li>
           ))}
         </ol>
@@ -184,7 +176,7 @@ export function ReviewView({ perfume: p, catalog }: { perfume: Perfume; catalog:
           </div>
           <div>
             <h3 className="review-h3">Características (0–10)</h3>
-            <MeterList items={derived} caption={`Doçura, frescor, presença amadeirada e especiada estimadas do ${p.fullName}`} />
+            <MeterList rich items={derived} caption={`Doçura, frescor, presença amadeirada e especiada estimadas do ${p.fullName}`} />
             {unknown.length > 0 && <p className="data-note">Notas ainda sem classificação: {unknown.join(", ")}.</p>}
           </div>
         </div>
@@ -199,19 +191,29 @@ export function ReviewView({ perfume: p, catalog }: { perfume: Perfume; catalog:
         <div className="review-two">
           <div>
             <h3 className="review-h3">Desempenho (0–10)</h3>
-            <MeterList items={p.performance.value} provisional={p.performance.status === "provisorio"} caption={`Desempenho do ${p.fullName}`} />
+            <MeterList rich items={p.performance.value} provisional={p.performance.status === "provisorio"} caption={`Desempenho do ${p.fullName}`} />
           </div>
           <div className="review-when">
             <h3 className="review-h3">Estações</h3>
-            <ul className="chips">
-              {p.seasons.value.map((s) => (
-                <li key={s}>{s}</li>
-              ))}
+            <ul className="season-tiles">
+              {SEASONS.map((x) => {
+                const on = p.seasons.value.some((v) => normSeason(v) === x.key);
+                return (
+                  <li key={x.key} className={on ? "is-on" : ""}>
+                    <Icon name={x.icon} size={26} />
+                    <span>{x.label}</span>
+                    <span className="sr-only">{on ? ": indicada" : ": menos indicada"}</span>
+                  </li>
+                );
+              })}
             </ul>
             <h3 className="review-h3">Ocasiões</h3>
-            <ul className="chips">
-              {p.occasions.value.map((s) => (
-                <li key={s}>{s}</li>
+            <ul className="occasion-chips">
+              {p.occasions.value.map((o) => (
+                <li key={o}>
+                  <Icon name={occasionIcon(o)} size={18} />
+                  {o}
+                </li>
               ))}
             </ul>
           </div>

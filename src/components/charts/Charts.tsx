@@ -1,3 +1,4 @@
+import { ACCORD_COLOR, Icon, METRIC_ICON } from "@/components/ui/Icons";
 import { ACCORDS, type Profile } from "@/lib/olfactory";
 
 /**
@@ -15,18 +16,38 @@ export interface MeterItem {
   value: number | null;
 }
 
-export function MeterList({ items, provisional, caption }: { items: MeterItem[]; provisional?: boolean; caption: string }) {
+/** Palavra que resume um valor de 0 a 10. */
+export const levelWord = (v: number) => (v < 2.5 ? "Muito baixa" : v < 4.5 ? "Baixa" : v < 6.5 ? "Moderada" : v < 8.5 ? "Alta" : "Muito alta");
+
+export function MeterList({
+  items,
+  provisional,
+  caption,
+  rich,
+}: {
+  items: MeterItem[];
+  provisional?: boolean;
+  caption: string;
+  /** Com ícone e palavra-resumo (resenha). */
+  rich?: boolean;
+}) {
   return (
     <figure className="chart">
       <figcaption className="sr-only">{caption}</figcaption>
-      <ul className={`meters ${provisional ? "is-provisional" : ""}`}>
+      <ul className={`meters ${provisional ? "is-provisional" : ""} ${rich ? "is-rich" : ""}`}>
         {items.map((m) => (
           <li key={m.key} className="meter" tabIndex={0} data-tip={m.value === null ? `${m.label}: em avaliação` : `${m.label}: ${m.value} de 10`}>
-            <span className="meter-label">{m.label}</span>
+            <span className="meter-label">
+              {rich && METRIC_ICON[m.key] && <Icon name={METRIC_ICON[m.key]} size={18} />}
+              {m.label}
+            </span>
             <span className="meter-track" aria-hidden>
               {m.value !== null && <span className="meter-fill" style={{ width: `${(m.value / 10) * 100}%` }} />}
             </span>
-            <span className="meter-value">{m.value === null ? "—" : m.value.toLocaleString("pt-BR")}</span>
+            <span className="meter-value">
+              {m.value === null ? "—" : m.value.toLocaleString("pt-BR")}
+              {rich && m.value !== null && <small>{levelWord(m.value)}</small>}
+            </span>
           </li>
         ))}
       </ul>
@@ -46,8 +67,17 @@ export function ProfileBars({ profile, caption }: { profile: Profile; caption: s
         {rows.map((r) => {
           const pct = Math.round(r.v * 100);
           return (
-            <li key={r.key} className="pbar" tabIndex={0} data-tip={`${r.label}: ${pct}% do perfil estimado`}>
-              <span className="pbar-label">{r.label}</span>
+            <li
+              key={r.key}
+              className="pbar"
+              tabIndex={0}
+              data-tip={`${r.label}: ${pct}% do perfil estimado`}
+              style={{ ["--acc" as string]: ACCORD_COLOR[r.key] }}
+            >
+              <span className="pbar-label">
+                <Icon name={r.key} size={18} />
+                {r.label}
+              </span>
               <span className="pbar-track" aria-hidden>
                 <span className="pbar-fill" style={{ width: `${(r.v / max) * 100}%` }} />
               </span>
