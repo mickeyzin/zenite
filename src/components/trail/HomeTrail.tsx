@@ -28,9 +28,11 @@ const SECTIONS: { id: string; label: string; title: string; text: string; phase:
   {
     id: "mapeamento",
     label: "Mapeamento olfativo",
-    title: "Converse com a IA da Zênite",
-    text: "Diga o que procura — “um fresco para o verão”, “algo que lembre o meu favorito” — e receba recomendações explicadas, a partir do catálogo.",
+    title: "Descubra o seu mapa olfativo",
+    text: "Sete perguntas sobre famílias, notas que você ama e evita, intensidade e ocasião. O resultado mostra o seu perfil e os perfumes do catálogo mais compatíveis, com a justificativa.",
     phase: "Fase 7",
+    href: "/mapa-olfativo",
+    cta: "Fazer o quiz",
   },
   {
     id: "comparacoes",

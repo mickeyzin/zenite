@@ -1,9 +1,9 @@
 import Link from "next/link";
 
-const NAV: { label: string; href?: string }[] = [
+const NAV: { label: string; short?: string; href?: string }[] = [
   { label: "Catálogo", href: "/catalogo" },
   { label: "Comparar", href: "/comparar" },
-  { label: "Mapeamento olfativo" },
+  { label: "Mapeamento olfativo", short: "Mapa", href: "/mapa-olfativo" },
   { label: "Guias" },
 ];
 
@@ -18,12 +18,19 @@ export function SiteHeader() {
         <span className="brand-sub">Perfumes Cósmicos</span>
       </Link>
       <nav aria-label="Principal">
-        <ul className="flex gap-5 md:gap-8">
+        <ul className="flex gap-4 md:gap-8">
           {NAV.map((n) => (
             <li key={n.label} className={n.href ? "" : "hidden md:block"}>
               {n.href ? (
-                <Link href={n.href} className="nav-link">
-                  {n.label}
+                <Link href={n.href} className="nav-link" aria-label={n.short ? n.label : undefined}>
+                  {n.short ? (
+                    <>
+                      <span className="md:hidden">{n.short}</span>
+                      <span className="hidden md:inline">{n.label}</span>
+                    </>
+                  ) : (
+                    n.label
+                  )}
                 </Link>
               ) : (
                 <span className="nav-soon" aria-disabled="true" title="Em breve">
