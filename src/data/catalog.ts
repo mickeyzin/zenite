@@ -23,7 +23,7 @@ const SELECT = `
   notes_status, notes_note, intro, intro_status, intro_note, universe, theme, look, scene_scale, front_rotation,
   featured, featured_order,
   brand:brands(name),
-  perfume_notes(tier, position, note:notes(name_pt, note_accords(accord_key, weight))),
+  perfume_notes(tier, position, note:notes(name_pt, image_url, note_accords(accord_key, weight))),
   reviews(*),
   perfume_sources(field, label, url),
   perfume_images(url, kind, position),
@@ -69,7 +69,7 @@ interface Row {
   featured: boolean;
   featured_order: number | null;
   brand: One<{ name: string }>;
-  perfume_notes: { tier: "top" | "heart" | "base"; position: number; note: One<{ name_pt: string; note_accords: { accord_key: string; weight: number | string }[] }> }[];
+  perfume_notes: { tier: "top" | "heart" | "base"; position: number; note: One<{ name_pt: string; image_url?: string | null; note_accords: { accord_key: string; weight: number | string }[] }> }[];
   reviews: One<{
     status: DataStatus;
     status_note: string | null;
@@ -121,12 +121,14 @@ export function rowToPerfume(r: Row, now = Date.now()): Perfume {
   };
   const notes = { top: [] as string[], heart: [] as string[], base: [] as string[] };
   const noteWeights: NonNullable<Perfume["noteWeights"]> = {};
+  const noteImages: Record<string, string> = {};
   [...r.perfume_notes]
     .sort((a, b) => a.position - b.position)
     .forEach((pn) => {
       const n = one(pn.note);
       if (!n) return;
       notes[pn.tier].push(n.name_pt);
+      if (n.image_url) noteImages[normalize(n.name_pt)] = n.image_url;
       if (n.note_accords?.length)
         noteWeights[normalize(n.name_pt)] = Object.fromEntries(n.note_accords.map((a) => [a.accord_key, Number(a.weight)]));
     });
@@ -185,6 +187,7 @@ export function rowToPerfume(r: Row, now = Date.now()): Perfume {
     look: r.look ?? {},
     noteWeights,
     ...(offers.length ? { offers } : {}),
+    ...(Object.keys(noteImages).length ? { noteImages } : {}),
   };
 }
 
@@ -204,7 +207,10 @@ export async function getCatalog(): Promise<Catalog> {
     return local();
   }
   try {
-    const { data, error } = await anonClient().from("perfumes").select(SELECT).eq("status", "publicado").order("name");
+    const query = (select: string) => anonClient().from("perfumes").select(select).eq("status", "publicado").order("name");
+    let { data, error } = await query(SELECT);
+    // Banco ainda sem a migração 0002 (imagens das notas): segue sem as imagens.
+    if (error && /image_url/.test(error.message)) ({ data, error } = await query(SELECT.replace("name_pt, image_url,", "name_pt,")));
     if (error) throw new Error(error.message);
     const rows = (data ?? []) as unknown as Row[];
     if (!rows.length) throw new Error("nenhum perfume publicado");

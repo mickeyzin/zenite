@@ -18,6 +18,9 @@ No painel do Supabase: **SQL Editor → New query**.
    Carrega os 10 acordes, 209 notas com seus apelidos, as marcas, os 3 perfumes da apresentação
    e os 64 rascunhos importados do site da Lattafa (para revisar no painel).
 
+3. Atualizações do banco: rode também, na ordem, os arquivos seguintes de `supabase/migrations/`
+   (por exemplo `0002_note_images.sql`, que adiciona as imagens das notas). Todos podem rodar mais de uma vez.
+
 ## 2. Criar a sua conta de administrador
 
 1. **Authentication → Users → Add user → Create new user**: seu e-mail e uma senha forte.

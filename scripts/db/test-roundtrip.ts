@@ -41,6 +41,7 @@ const walk = (a: unknown, b: unknown, path: string) => {
 };
 featuredPerfumes.forEach((p, i) => {
   const { noteWeights, ...fromDb } = rowToPerfume(rows[i].row as never);
+  delete fromDb.noteImages;
   walk(clean(p), clean(fromDb), p.slug);
   // Os pesos vindos do banco devem bater com o dicionário local.
   for (const [k, w] of Object.entries(noteWeights ?? {})) walk(clean(NOTE_ACCORDS[k]), clean(w), `${p.slug}.noteWeights.${k}`);

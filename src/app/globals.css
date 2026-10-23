@@ -683,3 +683,12 @@ body {
   .meters.is-rich .meter-value { display: flex; align-items: baseline; gap: .45rem; }
   .meters.is-rich .meter-value small { margin-top: 0; }
 }
+.note-orb-ball.has-img { overflow: hidden; padding: 0; box-shadow: 0 0 0 2px color-mix(in oklab, var(--c1) 70%, transparent), 0 0 26px -4px var(--c1); }
+.note-orb-ball.has-img img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
+.admin-note-row { display: inline-flex; align-items: center; gap: .6rem; flex-wrap: wrap; }
+.admin-note-thumb { width: 32px; height: 32px; border-radius: 50%; object-fit: cover; flex: none; }
+.admin-note-thumb-empty { display: inline-block; border: 1px dashed var(--z-line); border-radius: 50%; width: 32px; height: 32px; }
+.admin-note-big { width: 96px; height: 96px; }
+.admin-note-image { display: flex; gap: 1rem; align-items: flex-start; flex-wrap: wrap; width: 100%; padding: .8rem 0; border-bottom: 1px solid var(--z-line); }
+.admin-note-image > img { width: 96px; height: 96px; border-radius: 50%; object-fit: cover; flex: none; }
+.admin-note-image .admin-grid { flex: 1; min-width: min(100%, 16rem); }

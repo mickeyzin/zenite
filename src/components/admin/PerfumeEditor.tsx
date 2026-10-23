@@ -2,6 +2,7 @@
 
 import { useEffect, useId, useState } from "react";
 import type { DataStatus, Metric } from "@/data/types";
+import { cropToWebp } from "@/lib/image-resize";
 import type { TabProps } from "./AdminApp";
 import { useLoad } from "./useLoad";
 
@@ -373,24 +374,6 @@ function EditorForm({
 const POSTER_W = 900;
 const POSTER_H = 1100;
 
-/** Recorta no centro em 9:11 e reduz para 900×1100 WebP (fotos de celular ficam leves). */
-async function toPoster(file: File): Promise<Blob> {
-  const img = await createImageBitmap(file);
-  const scale = Math.max(POSTER_W / img.width, POSTER_H / img.height);
-  const w = img.width * scale;
-  const h = img.height * scale;
-  const canvas = document.createElement("canvas");
-  canvas.width = POSTER_W;
-  canvas.height = POSTER_H;
-  const ctx = canvas.getContext("2d");
-  if (!ctx) throw new Error("Navegador sem suporte a canvas.");
-  ctx.drawImage(img, (POSTER_W - w) / 2, (POSTER_H - h) / 2, w, h);
-  img.close();
-  return new Promise((resolve, reject) =>
-    canvas.toBlob((b) => (b ? resolve(b) : reject(new Error("Não foi possível converter a imagem."))), "image/webp", 0.86),
-  );
-}
-
 function PosterUpload({ sb, refreshSite, perfume }: TabProps & { perfume: PerfumeRow }) {
   const [poster, setPoster] = useState(perfume.perfume_images.find((i) => i.kind === "poster") ?? null);
   const [blob, setBlob] = useState<{ data: Blob; preview: string } | null>(null);
@@ -403,7 +386,7 @@ function PosterUpload({ sb, refreshSite, perfume }: TabProps & { perfume: Perfum
     if (!file) return;
     if (file.size > 25 * 1024 * 1024) return setMsg("Imagem acima de 25 MB.");
     try {
-      const data = await toPoster(file);
+      const data = await cropToWebp(file, POSTER_W, POSTER_H);
       if (blob) URL.revokeObjectURL(blob.preview);
       setBlob({ data, preview: URL.createObjectURL(data) });
     } catch (e) {

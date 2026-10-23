@@ -5,7 +5,7 @@ import { Icon, normSeason, occasionIcon, SEASONS, type IconName } from "@/compon
 import { PerfumeArt } from "@/components/ui/PerfumeArt";
 import { StatusBadge } from "@/components/ui/StatusBadge";
 import type { Perfume } from "@/data/types";
-import { accordProfile, derivedMetrics, topAccords } from "@/lib/olfactory";
+import { accordProfile, derivedMetrics, normalize, topAccords } from "@/lib/olfactory";
 import { SIMILAR_THRESHOLD, similarTo } from "@/lib/similarity";
 import { NoteOrb } from "./NoteOrb";
 import { bestPrice, OffersSection } from "./OffersSection";
@@ -135,7 +135,7 @@ export function ReviewView({ perfume: p, catalog }: { perfume: Perfume; catalog:
               </h3>
               <ul className="orb-list">
                 {p.notes.value[tier].map((n) => (
-                  <NoteOrb key={n} note={n} override={p.noteWeights} />
+                  <NoteOrb key={n} note={n} override={p.noteWeights} image={p.noteImages?.[normalize(n)]} />
                 ))}
               </ul>
             </div>

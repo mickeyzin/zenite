@@ -127,6 +127,8 @@ export interface Perfume {
    * normalizado). Sem isso, vale o dicionário local data/note-accords.json.
    */
   noteWeights?: Record<string, Record<string, number>>;
+  /** Imagens das notas enviadas pelo painel (chave = nome normalizado). */
+  noteImages?: Record<string, string>;
   /** Ofertas ativas (só com o banco ligado), da mais barata para a mais cara. */
   offers?: Offer[];
 }

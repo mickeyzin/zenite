@@ -15,8 +15,16 @@ const SUPABASE_MOCK = `
   alter table storage.objects enable row level security;
 `;
 
+// Todas as migrações, em ordem.
+const DIR = new URL("../../supabase/migrations/", import.meta.url);
 export const migration = () =>
-  fs.readFileSync(new URL("../../supabase/migrations/0001_init.sql", import.meta.url), "utf8").replace(/create extension[^;]+;/, "");
+  fs
+    .readdirSync(DIR)
+    .filter((f) => f.endsWith(".sql"))
+    .sort()
+    .map((f) => fs.readFileSync(new URL(f, DIR), "utf8"))
+    .join("\n")
+    .replace(/create extension[^;]+;/, "");
 
 /** PGlite não tem pgcrypto; gen_random_uuid() já é nativo no Postgres 13+. */
 export async function prepare(db) {

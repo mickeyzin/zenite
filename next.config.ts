@@ -10,7 +10,12 @@ const nextConfig: NextConfig = {
   // Imagens enviadas pelo painel ficam no Storage do Supabase.
   images: {
     ...(staticExport ? { unoptimized: true } : {}),
-    remotePatterns: [{ protocol: "https", hostname: "*.supabase.co", pathname: "/storage/v1/object/public/**" }],
+    remotePatterns: [
+      { protocol: "https", hostname: "*.supabase.co", pathname: "/storage/v1/object/public/**" },
+      // Só nos testes locais (banco de teste em 127.0.0.1).
+      ...(process.env.ZENITE_LOCAL_IMAGES === "1" ? [{ protocol: "http" as const, hostname: "127.0.0.1", port: "54321", pathname: "/storage/**" }] : []),
+    ],
+    ...(process.env.ZENITE_LOCAL_IMAGES === "1" ? { dangerouslyAllowLocalIP: true } : {}),
   },
   // Cabeçalhos de segurança (CSP fica para depois: a cena 3D usa shaders e workers).
   ...(staticExport
