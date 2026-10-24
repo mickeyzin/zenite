@@ -8,7 +8,7 @@ import type { Perfume } from "@/data/types";
 import { accordProfile, derivedMetrics, topAccords } from "@/lib/olfactory";
 import { SIMILAR_THRESHOLD, similarTo } from "@/lib/similarity";
 import { NoteConstellation } from "./NoteConstellation";
-import { bestPrice, OffersSection } from "./OffersSection";
+import { BestOfferHighlight, bestPrice, OffersSection } from "./OffersSection";
 
 const TIERS = [
   ["top", "Saída", "up", "Os primeiros minutos"],
@@ -82,13 +82,14 @@ export function ReviewView({ perfume: p, catalog }: { perfume: Perfume; catalog:
           <p className="data-note">
             <StatusBadge status={p.intro.status} note={p.intro.note} /> <span>{p.intro.note}</span>
           </p>
+          <BestOfferHighlight perfume={p} />
           <nav className="review-toc" aria-label="Nesta resenha">
             <a href="#dados">Dados</a>
             <a href="#piramide">Pirâmide</a>
+            <a href="#ofertas">Ofertas</a>
             <a href="#perfil">Perfil olfativo</a>
             <a href="#avaliacao">Avaliação</a>
             <a href="#semelhantes">Semelhantes</a>
-            <a href="#ofertas">Ofertas</a>
           </nav>
         </div>
       </header>
@@ -153,6 +154,8 @@ export function ReviewView({ perfume: p, catalog }: { perfume: Perfume; catalog:
           <StatusBadge status={p.evolution.status} note={p.evolution.note} /> <span>{p.evolution.note}</span>
         </p>
       </section>
+
+      <OffersSection perfume={p} />
 
       {/* ——— 2. Perfil estimado ——— */}
       <section id="perfil" className="review-section" aria-labelledby="perfil-t">
@@ -304,7 +307,6 @@ export function ReviewView({ perfume: p, catalog }: { perfume: Perfume; catalog:
         )}
       </section>
 
-      <OffersSection perfume={p} />
 
       {allSources.length > 0 && (
         <section className="review-section" aria-labelledby="fontes-t">

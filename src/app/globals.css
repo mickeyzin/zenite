@@ -773,3 +773,52 @@ body {
   .offer.is-best .offer-price strong { font-size: 1.3rem; }
   .offer-price { display: flex; flex-wrap: wrap; align-items: baseline; gap: .2rem .6rem; }
 }
+
+/* ——— Melhor oferta no topo + fotos maiores ——— */
+.best-offer { display: grid; grid-template-columns: 9.5rem 1fr; gap: 1.1rem; align-items: center; padding: 1rem; border-radius: 16px;
+  border: 1px solid color-mix(in oklab, var(--z-cyan) 50%, transparent);
+  background: radial-gradient(circle at 0% 0%, rgba(49,199,243,.14), transparent 60%), rgba(255,255,255,.03);
+  box-shadow: 0 0 40px -18px var(--z-cyan); }
+.best-offer-img { aspect-ratio: 1; border-radius: 12px; overflow: hidden; background: #fff; }
+.best-offer-img img, .best-offer-img .poster-art { width: 100%; height: 100%; object-fit: cover; display: block; }
+.best-offer-body { display: grid; gap: .45rem; min-width: 0; }
+.best-offer-kicker { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem; font-size: .68rem; letter-spacing: .2em; text-transform: uppercase; color: var(--z-cyan); }
+.best-offer-kicker .offer-badge { letter-spacing: 0; text-transform: none; }
+.best-offer-title { font-size: .92rem; color: #d6dbf3; line-height: 1.35; }
+.best-offer-price { display: flex; flex-wrap: wrap; align-items: baseline; gap: .2rem .7rem; }
+.best-offer-price strong { font-size: 1.7rem; font-weight: 600; color: #fff; text-shadow: 0 0 18px rgba(49,199,243,.5); }
+.best-offer-price span { font-size: .76rem; color: var(--z-muted); }
+.best-offer-actions { display: flex; flex-wrap: wrap; align-items: center; gap: .6rem 1rem; margin-top: .2rem; }
+.best-offer-actions .btn-primary { padding: .75rem 1.3rem; font-size: .75rem; }
+@media (max-width: 640px) {
+  .best-offer { grid-template-columns: 1fr; }
+  .best-offer-img { max-width: 16rem; width: 100%; justify-self: center; }
+  .best-offer-actions .btn-primary { width: 100%; text-align: center; }
+}
+/* Fotos maiores na lista de ofertas */
+.offer { grid-template-columns: 8.5rem 1fr auto; }
+.offer-img { width: 8.5rem; }
+.offer.is-best { grid-template-columns: 11rem 1fr auto; }
+.offer.is-best .offer-img { width: 11rem; }
+@media (max-width: 640px) {
+  .offer, .offer.is-best { grid-template-columns: 1fr; }
+  .offer-img, .offer.is-best .offer-img { width: 100%; max-width: 15rem; justify-self: center; }
+  .offer:not(.is-best) .offer-img { max-width: 9rem; }
+}
+/* Topo da resenha mais compacto: a melhor oferta aparece antes */
+.review-page { padding-top: 6rem; }
+.review-hero { align-items: start; }
+@media (max-width: 899px) {
+  .review-hero { gap: 1.25rem; }
+  .review-poster { max-width: 12.5rem; justify-self: center; }
+}
+.review-page .review { padding-top: 0; }
+@media (max-width: 640px) {
+  .best-offer { grid-template-columns: 6.5rem 1fr; gap: .8rem; padding: .8rem; }
+  .best-offer-img { max-width: none; justify-self: stretch; }
+  .best-offer-body { display: contents; }
+  .best-offer-kicker, .best-offer-title, .best-offer-price { grid-column: 2; }
+  .best-offer-img { grid-row: 1 / span 3; align-self: start; }
+  .best-offer .offer-facts, .best-offer-actions { grid-column: 1 / -1; }
+  .best-offer-price strong { font-size: 1.4rem; }
+}

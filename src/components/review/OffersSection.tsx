@@ -111,3 +111,53 @@ function OfferRow({ offer: o, isBest, perfume: p }: { offer: Offer; isBest: bool
     </li>
   );
 }
+
+/** Destaque da melhor oferta no topo da resenha (só com preço conferido). */
+export function BestOfferHighlight({ perfume: p }: { perfume: Perfume }) {
+  const o = bestPrice(p);
+  if (!o || o.price === null) return null;
+  const img = o.image ?? p.poster;
+  const count = (p.offers ?? []).filter((x) => x.available).length;
+  return (
+    <aside className="best-offer" aria-label="Melhor oferta">
+      <div className="best-offer-img">
+        {img ? <Image src={img} alt="" width={400} height={400} priority /> : <PerfumeArt perfume={p} className="poster-art" />}
+      </div>
+      <div className="best-offer-body">
+        <p className="best-offer-kicker">
+          <span className={`offer-badge ${isML(o) ? "is-ml" : ""}`}>{o.store}</span>
+          <span>Melhor oferta</span>
+          {o.isAffiliate && <span className="offer-tag">Link de afiliado</span>}
+        </p>
+        <p className="best-offer-title">
+          {o.title}
+          {o.volumeMl ? ` · ${o.volumeMl} ml` : ""}
+        </p>
+        <p className="best-offer-price">
+          <strong>{money(o.price, o.currency)}</strong>
+          {o.checkedAt && <span>conferido em {when(o.checkedAt)}</span>}
+        </p>
+        {(o.shipping || o.seller) && (
+          <ul className="offer-facts">
+            {o.shipping && (
+              <li>
+                <Icon name="truck" size={14} /> {o.shipping}
+              </li>
+            )}
+            {o.seller && (
+              <li>
+                <Icon name="medal" size={14} /> {o.seller}
+              </li>
+            )}
+          </ul>
+        )}
+        <div className="best-offer-actions">
+          <a href={`/oferta/${o.id}`} className="btn-primary" rel={`nofollow noopener${o.isAffiliate ? " sponsored" : ""}`} target="_blank">
+            Ver melhor oferta<span className="sr-only"> em {o.store} (abre em nova aba)</span>
+          </a>
+          {count > 1 && <a href="#ofertas" className="admin-link">Ver as {count} ofertas</a>}
+        </div>
+      </div>
+    </aside>
+  );
+}
