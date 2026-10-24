@@ -5,9 +5,9 @@ import { Icon, normSeason, occasionIcon, SEASONS, type IconName } from "@/compon
 import { PerfumeArt } from "@/components/ui/PerfumeArt";
 import { StatusBadge } from "@/components/ui/StatusBadge";
 import type { Perfume } from "@/data/types";
-import { accordProfile, derivedMetrics, normalize, topAccords } from "@/lib/olfactory";
+import { accordProfile, derivedMetrics, topAccords } from "@/lib/olfactory";
 import { SIMILAR_THRESHOLD, similarTo } from "@/lib/similarity";
-import { NoteOrb } from "./NoteOrb";
+import { NoteConstellation } from "./NoteConstellation";
 import { bestPrice, OffersSection } from "./OffersSection";
 
 const TIERS = [
@@ -125,20 +125,12 @@ export function ReviewView({ perfume: p, catalog }: { perfume: Perfume; catalog:
       {/* ——— Pirâmide ——— */}
       <section id="piramide" className="review-section" aria-labelledby="piramide-t">
         <h2 id="piramide-t">Pirâmide olfativa</h2>
-        <div className="orb-pyramid">
-          {TIERS.map(([tier, label, icon, hint]) => (
-            <div key={tier} className={`orb-tier orb-tier-${tier}`}>
-              <h3>
-                <Icon name={icon} size={18} />
-                <span>{label}</span>
-                <small>{hint}</small>
-              </h3>
-              <ul className="orb-list">
-                {p.notes.value[tier].map((n) => (
-                  <NoteOrb key={n} note={n} override={p.noteWeights} image={p.noteImages?.[normalize(n)]} />
-                ))}
-              </ul>
-            </div>
+        <NoteConstellation perfume={p} />
+        <div className="sr-only">
+          {TIERS.map(([tier, label]) => (
+            <p key={tier}>
+              {label}: {p.notes.value[tier].join(", ")}.
+            </p>
           ))}
         </div>
         <p className="data-note">
