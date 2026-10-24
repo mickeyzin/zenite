@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { cropToWebp } from "@/lib/image-resize";
 import type { TabProps } from "./AdminApp";
 import { useLoad } from "./useLoad";
 
@@ -20,6 +21,10 @@ interface Offer {
   available: boolean;
   active: boolean;
   checked_at: string | null;
+  shipping?: string | null;
+  seller_reputation?: string | null;
+  image_url?: string | null;
+  image_credit?: string | null;
   store: { name: string } | null;
 }
 
@@ -43,11 +48,13 @@ export function OffersTab({ sb, refreshSite }: TabProps) {
   const offers = useLoad<Offer[]>(
     () =>
       perfumeId
-        ? sb
-            .from("offers")
-            .select("id, title, volume_ml, price, url, affiliate_url, is_affiliate, available, active, checked_at, store:stores(name)")
-            .eq("perfume_id", perfumeId)
-            .order("price", { ascending: true, nullsFirst: false })
+        ? (async () => {
+            const base = "id, title, volume_ml, price, url, affiliate_url, is_affiliate, available, active, checked_at, shipping, seller_reputation, store:stores(name)";
+            const q = (cols: string) => sb.from("offers").select(cols).eq("perfume_id", perfumeId).order("price", { ascending: true, nullsFirst: false });
+            const r = await q(`${base}, image_url, image_credit`);
+            // Sem a migração 0003, a foto da oferta ainda não existe.
+            return r.error && /image_url/.test(r.error.message) ? q(base) : r;
+          })()
         : Promise.resolve({ data: [], error: null }),
     perfumeId,
   );
@@ -124,6 +131,10 @@ export function OffersTab({ sb, refreshSite }: TabProps) {
           <ul className="admin-list">
             {(offers.data ?? []).map((o) => (
               <li key={o.id} className="admin-item">
+                <OfferPhoto sb={sb} offer={o} onSaved={async () => {
+                  offers.reload();
+                  await refreshSite();
+                }} />
                 <div className="admin-item-body">
                   <p className="admin-item-title">
                     <strong>{o.store?.name}</strong> · {o.title}
@@ -134,7 +145,9 @@ export function OffersTab({ sb, refreshSite }: TabProps) {
                   </p>
                   <p className="admin-muted">
                     {o.price != null ? brl(Number(o.price)) : "Sem preço"}
-                    {o.checked_at ? ` · conferido em ${new Date(o.checked_at).toLocaleDateString("pt-BR")}` : ""} ·{" "}
+                    {o.checked_at ? ` · conferido em ${new Date(o.checked_at).toLocaleDateString("pt-BR")}` : ""}
+                    {o.shipping ? ` · ${o.shipping}` : ""}
+                    {o.seller_reputation ? ` · ${o.seller_reputation}` : ""} ·{" "}
                     <a href={o.affiliate_url ?? o.url} target="_blank" rel="noreferrer">
                       link ↗
                     </a>
@@ -233,7 +246,8 @@ function NewOffer({
   stores,
   onSaved,
 }: Pick<TabProps, "sb"> & { perfumeId: string; stores: Store[]; onSaved: () => Promise<void> }) {
-  const empty = { store: "", newStore: "", title: "", volume: "", price: "", url: "", affiliate: "", isAffiliate: false };
+  const empty = { store: "", newStore: "", title: "", volume: "", price: "", url: "", affiliate: "", isAffiliate: false, shipping: "", seller: "", credit: "" };
+  const [photo, setPhoto] = useState<{ data: Blob; preview: string } | null>(null);
   const [f, setF] = useState(empty);
   const [msg, setMsg] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
@@ -246,7 +260,18 @@ function NewOffer({
     if (f.affiliate.trim() && !isUrl(f.affiliate)) return setMsg("O link de afiliado precisa começar com https://.");
     if (price !== null && !(price >= 0)) return setMsg("Preço inválido.");
     if (!f.store && !f.newStore.trim()) return setMsg("Escolha ou cadastre a loja.");
+    if (photo && !f.credit.trim()) return setMsg("Informe o crédito da foto (ex.: material do programa de afiliados).");
     setBusy(true);
+    let imageUrl: string | null = null;
+    if (photo) {
+      const path = `ofertas/${perfumeId}-${Date.now()}.webp`;
+      const up = await sb.storage.from("perfumes").upload(path, photo.data, { contentType: "image/webp", upsert: false });
+      if (up.error) {
+        setBusy(false);
+        return setMsg(`Erro no envio da foto: ${up.error.message}`);
+      }
+      imageUrl = sb.storage.from("perfumes").getPublicUrl(path).data.publicUrl;
+    }
     let storeId = f.store;
     if (!storeId) {
       // Loja com o mesmo nome já cadastrada: reaproveita.
@@ -272,15 +297,20 @@ function NewOffer({
       affiliate_url: affiliate,
       is_affiliate: Boolean(affiliate) || f.isAffiliate,
       checked_at: price !== null ? new Date().toISOString() : null,
+      shipping: f.shipping.trim() || null,
+      seller_reputation: f.seller.trim() || null,
+      ...(imageUrl ? { image_url: imageUrl, image_credit: f.credit.trim() } : {}),
     });
     setBusy(false);
     if (error) return setMsg(`Erro: ${error.message}`);
     setF(empty);
+    if (photo) URL.revokeObjectURL(photo.preview);
+    setPhoto(null);
     setMsg("Oferta salva.");
     await onSaved();
   };
 
-  const bind = (k: "newStore" | "title" | "volume" | "price" | "url" | "affiliate") => ({
+  const bind = (k: "newStore" | "title" | "volume" | "price" | "url" | "affiliate" | "shipping" | "seller" | "credit") => ({
     value: f[k],
     onChange: (e: { target: { value: string } }) => setF({ ...f, [k]: e.target.value }),
   });
@@ -326,6 +356,54 @@ function NewOffer({
           Link de afiliado (opcional)
           <input type="url" placeholder="https://" {...bind("affiliate")} />
         </label>
+        <label className="admin-field">
+          Frete (opcional)
+          <input type="text" list="frete-opcoes" placeholder="Ex.: Frete grátis" {...bind("shipping")} />
+          <datalist id="frete-opcoes">
+            <option value="Frete grátis" />
+            <option value="Frete grátis acima de R$ 79" />
+            <option value="Chega amanhã" />
+            <option value="Full (envio pelo Mercado Livre)" />
+          </datalist>
+        </label>
+        <label className="admin-field">
+          Reputação do vendedor (opcional)
+          <input type="text" list="reputacao-opcoes" placeholder="Ex.: MercadoLíder Platinum" {...bind("seller")} />
+          <datalist id="reputacao-opcoes">
+            <option value="Loja oficial" />
+            <option value="MercadoLíder Platinum" />
+            <option value="MercadoLíder Gold" />
+            <option value="MercadoLíder" />
+          </datalist>
+        </label>
+        <label className="admin-field">
+          Foto do anúncio (opcional; sem ela, usa o pôster do perfume)
+          <input
+            type="file"
+            accept="image/jpeg,image/png,image/webp"
+            onChange={async (e) => {
+              const file = e.target.files?.[0];
+              if (!file) return;
+              try {
+                const data = await cropToWebp(file, 480, 480);
+                if (photo) URL.revokeObjectURL(photo.preview);
+                setPhoto({ data, preview: URL.createObjectURL(data) });
+              } catch (err) {
+                setMsg(`Erro: ${(err as Error).message}`);
+              }
+            }}
+          />
+        </label>
+        {photo && (
+          <>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={photo.preview} alt="Pré-visualização da foto da oferta" width={96} height={96} className="admin-offer-thumb" />
+            <label className="admin-field">
+              Crédito da foto (obrigatório)
+              <input type="text" placeholder="Ex.: Material do programa de afiliados" {...bind("credit")} />
+            </label>
+          </>
+        )}
         <label className="admin-check">
           <input type="checkbox" checked={f.isAffiliate || Boolean(f.affiliate.trim())} disabled={Boolean(f.affiliate.trim())} onChange={(e) => setF({ ...f, isAffiliate: e.target.checked })} />
           É link de afiliado (será identificado no site)
@@ -338,5 +416,57 @@ function NewOffer({
         {msg && <span className={msg.startsWith("Oferta") ? "admin-notice" : "admin-error"}>{msg}</span>}
       </div>
     </fieldset>
+  );
+}
+
+/** Foto de uma oferta já cadastrada: trocar ou remover. */
+function OfferPhoto({ sb, offer, onSaved }: Pick<TabProps, "sb"> & { offer: Offer; onSaved: () => Promise<void> }) {
+  const [busy, setBusy] = useState(false);
+  const pick = async (file: File | undefined) => {
+    if (!file) return;
+    const credit = prompt("Crédito da foto (ex.: Material do programa de afiliados):", offer.image_credit ?? "");
+    if (!credit?.trim()) return;
+    setBusy(true);
+    try {
+      const data = await cropToWebp(file, 480, 480);
+      const path = `ofertas/${offer.id}-${Date.now()}.webp`;
+      const up = await sb.storage.from("perfumes").upload(path, data, { contentType: "image/webp", upsert: false });
+      if (up.error) throw new Error(up.error.message);
+      const url = sb.storage.from("perfumes").getPublicUrl(path).data.publicUrl;
+      const { error } = await sb.from("offers").update({ image_url: url, image_credit: credit.trim() }).eq("id", offer.id);
+      if (error) throw new Error(error.message);
+      await onSaved();
+    } catch (e) {
+      alert(`Erro: ${(e as Error).message}`);
+    } finally {
+      setBusy(false);
+    }
+  };
+  const remove = async () => {
+    if (!confirm("Remover a foto? A resenha volta a usar o pôster do perfume.")) return;
+    setBusy(true);
+    const { error } = await sb.from("offers").update({ image_url: null, image_credit: null }).eq("id", offer.id);
+    setBusy(false);
+    if (error) return alert(error.message);
+    await onSaved();
+  };
+  return (
+    <div className="admin-offer-photo">
+      {offer.image_url ? (
+        // eslint-disable-next-line @next/next/no-img-element
+        <img src={offer.image_url} alt="" width={72} height={72} className="admin-offer-thumb" />
+      ) : (
+        <span className="admin-offer-thumb admin-note-thumb-empty" aria-hidden />
+      )}
+      <label className="admin-link">
+        {busy ? "Enviando…" : offer.image_url ? "Trocar foto" : "Adicionar foto"}
+        <input type="file" accept="image/jpeg,image/png,image/webp" className="sr-only" disabled={busy} onChange={(e) => pick(e.target.files?.[0])} />
+      </label>
+      {offer.image_url && (
+        <button className="admin-link" disabled={busy} onClick={remove}>
+          Remover
+        </button>
+      )}
+    </div>
   );
 }

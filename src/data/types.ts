@@ -136,6 +136,11 @@ export interface Perfume {
 export interface Offer {
   id: string;
   store: string;
+  storeSlug: string;
+  /** Foto enviada pelo painel (sem ela, a resenha usa o pôster do perfume). */
+  image: string | null;
+  shipping: string | null;
+  seller: string | null;
   title: string;
   volumeMl: number | null;
   /** Só preenchido quando o preço foi conferido há pouco (ver PRICE_FRESH_HOURS). */

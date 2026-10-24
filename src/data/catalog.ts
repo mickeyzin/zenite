@@ -29,7 +29,7 @@ const SELECT = `
   perfume_images(url, kind, position),
   models_3d(desktop_url, mobile_url, liquid_points_url),
   similar_overrides!perfume_id(reason, similar:similar_id(full_name)),
-  offers(id, title, volume_ml, price, currency, is_affiliate, available, active, checked_at, store:stores(name))
+  offers(id, title, volume_ml, price, currency, is_affiliate, available, active, checked_at, shipping, seller_reputation, image_url, store:stores(name, slug))
 `;
 
 /** Preço conferido há mais que isso não é exibido (pode ter mudado). */
@@ -100,7 +100,10 @@ interface Row {
     available: boolean;
     active: boolean;
     checked_at: string | null;
-    store: One<{ name: string }>;
+    shipping?: string | null;
+    seller_reputation?: string | null;
+    image_url?: string | null;
+    store: One<{ name: string; slug?: string }>;
   }[];
 }
 
@@ -143,6 +146,10 @@ export function rowToPerfume(r: Row, now = Date.now()): Perfume {
     .map((o) => ({
       id: o.id,
       store: one(o.store)?.name ?? "",
+      storeSlug: one(o.store)?.slug ?? "",
+      image: o.image_url ?? null,
+      shipping: o.shipping ?? null,
+      seller: o.seller_reputation ?? null,
       title: o.title,
       volumeMl: o.volume_ml == null ? null : Number(o.volume_ml),
       price: o.price != null && fresh(o.checked_at) ? Number(o.price) : null,
@@ -210,7 +217,8 @@ export async function getCatalog(): Promise<Catalog> {
     const query = (select: string) => anonClient().from("perfumes").select(select).eq("status", "publicado").order("name");
     let { data, error } = await query(SELECT);
     // Banco ainda sem a migração 0002 (imagens das notas): segue sem as imagens.
-    if (error && /image_url/.test(error.message)) ({ data, error } = await query(SELECT.replace("name_pt, image_url,", "name_pt,")));
+    // Banco ainda sem as migrações 0002/0003 (imagens de notas e ofertas): segue sem as imagens.
+    if (error && /image_url/.test(error.message)) ({ data, error } = await query(SELECT.replace(/,? ?image_url,?/g, (m) => (m.startsWith(",") && m.endsWith(",") ? "," : ""))));
     if (error) throw new Error(error.message);
     const rows = (data ?? []) as unknown as Row[];
     if (!rows.length) throw new Error("nenhum perfume publicado");
