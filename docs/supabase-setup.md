@@ -109,3 +109,18 @@ que só aceita administradores). Se não conseguir, o site se atualiza sozinho e
 4. (Recomendado) **Authentication → Emails:** traduza o e-mail “Magic Link” para português.
    O envio padrão do Supabase tem limite baixo de e-mails por hora; para muitos usuários, configure um SMTP próprio
    (ex.: Resend, Brevo) em **Authentication → SMTP Settings**.
+
+## Novas marcas importadas (Afnan, Swiss Arabian, Khadlaj)
+
+Cada marca tem um arquivo próprio em `supabase/imports/` com as notas necessárias, a marca e os
+rascunhos dela. Pode rodar mais de uma vez: rascunhos já aprovados ou rejeitados não mudam; os
+pendentes são atualizados com a tradução mais recente.
+
+1. No GitHub, abra o arquivo (ex.: `supabase/imports/afnan.sql`) e use **Copy raw file**.
+2. **SQL Editor → New query**, cole e clique em **Run**. Repita para cada marca
+   (`afnan.sql`, `swiss-arabian.sql`, `khadlaj.sql` e, para atualizar as traduções, `lattafa.sql`).
+3. No painel: **Importados** → escolha a marca no filtro → **Selecionar completos** → confira com a
+   página de origem → **Aprovar selecionados**. Depois publique em **Perfumes**.
+
+Rascunhos "sem pirâmide" vieram de páginas sem a lista de notas (ou com texto corrido): confira à mão
+na página da marca antes de aprovar, ou rejeite.

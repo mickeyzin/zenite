@@ -1377,5 +1377,332 @@
    "amadeirado": 0.2,
    "citrico": 0.2
   }
+ },
+ "acucar mascavo": {
+  "name": "Açúcar mascavo",
+  "weights": {
+   "doce": 1
+  }
+ },
+ "akigalawood": {
+  "name": "Akigalawood",
+  "weights": {
+   "amadeirado": 0.7,
+   "especiado": 0.3
+  }
+ },
+ "alcacuz": {
+  "name": "Alcaçuz",
+  "weights": {
+   "doce": 0.6,
+   "especiado": 0.4
+  }
+ },
+ "amberxtreme": {
+  "name": "Amberxtreme",
+  "weights": {
+   "ambarado": 0.7,
+   "amadeirado": 0.3
+  }
+ },
+ "balsamo de gurjum": {
+  "name": "Bálsamo de gurjum",
+  "weights": {
+   "amadeirado": 0.5,
+   "ambarado": 0.5
+  }
+ },
+ "balsamo-do-peru": {
+  "name": "Bálsamo-do-peru",
+  "weights": {
+   "ambarado": 0.7,
+   "doce": 0.3
+  }
+ },
+ "camelia": {
+  "name": "Camélia",
+  "weights": {
+   "floral": 1
+  }
+ },
+ "castanha": {
+  "name": "Castanha",
+  "weights": {
+   "doce": 0.6,
+   "amadeirado": 0.4
+  }
+ },
+ "champanhe": {
+  "name": "Champanhe",
+  "weights": {
+   "frutado": 0.5,
+   "citrico": 0.3,
+   "doce": 0.2
+  }
+ },
+ "ciclame": {
+  "name": "Cíclame",
+  "weights": {
+   "floral": 0.8,
+   "verde": 0.2
+  }
+ },
+ "eucalipto": {
+  "name": "Eucalipto",
+  "weights": {
+   "aromatico": 0.7,
+   "verde": 0.3
+  }
+ },
+ "flor de ameixeira": {
+  "name": "Flor de ameixeira",
+  "weights": {
+   "floral": 0.8,
+   "frutado": 0.2
+  }
+ },
+ "flor de pereira": {
+  "name": "Flor de pereira",
+  "weights": {
+   "floral": 0.7,
+   "frutado": 0.3
+  }
+ },
+ "flor de pessegueiro": {
+  "name": "Flor de pessegueiro",
+  "weights": {
+   "floral": 0.7,
+   "frutado": 0.3
+  }
+ },
+ "flor de sabugueiro": {
+  "name": "Flor de sabugueiro",
+  "weights": {
+   "floral": 0.7,
+   "verde": 0.3
+  }
+ },
+ "flor de tiare": {
+  "name": "Flor de tiaré",
+  "weights": {
+   "floral": 1
+  }
+ },
+ "frangipani": {
+  "name": "Frangipani",
+  "weights": {
+   "floral": 1
+  }
+ },
+ "georgywood": {
+  "name": "Georgywood",
+  "weights": {
+   "amadeirado": 1
+  }
+ },
+ "goiaba": {
+  "name": "Goiaba",
+  "weights": {
+   "frutado": 1
+  }
+ },
+ "groselha": {
+  "name": "Groselha",
+  "weights": {
+   "frutado": 1
+  }
+ },
+ "hibisco": {
+  "name": "Hibisco",
+  "weights": {
+   "floral": 0.8,
+   "frutado": 0.2
+  }
+ },
+ "jacinto": {
+  "name": "Jacinto",
+  "weights": {
+   "floral": 0.7,
+   "verde": 0.3
+  }
+ },
+ "kiwi": {
+  "name": "Kiwi",
+  "weights": {
+   "frutado": 1
+  }
+ },
+ "licor de cereja": {
+  "name": "Licor de cereja",
+  "weights": {
+   "frutado": 0.6,
+   "doce": 0.4
+  }
+ },
+ "lilas": {
+  "name": "Lilás",
+  "weights": {
+   "floral": 1
+  }
+ },
+ "loukoum": {
+  "name": "Loukoum",
+  "weights": {
+   "doce": 0.7,
+   "floral": 0.3
+  }
+ },
+ "louro": {
+  "name": "Louro",
+  "weights": {
+   "aromatico": 0.6,
+   "especiado": 0.4
+  }
+ },
+ "madeira de figueira": {
+  "name": "Madeira de figueira",
+  "weights": {
+   "amadeirado": 0.6,
+   "verde": 0.4
+  }
+ },
+ "madeira de teca": {
+  "name": "Madeira de teca",
+  "weights": {
+   "amadeirado": 1
+  }
+ },
+ "mahonia": {
+  "name": "Mahonia",
+  "weights": {
+   "floral": 0.7,
+   "frutado": 0.3
+  }
+ },
+ "mamao": {
+  "name": "Mamão",
+  "weights": {
+   "frutado": 1
+  }
+ },
+ "melaco": {
+  "name": "Melaço",
+  "weights": {
+   "doce": 1
+  }
+ },
+ "narciso": {
+  "name": "Narciso",
+  "weights": {
+   "floral": 0.8,
+   "verde": 0.2
+  }
+ },
+ "nectarina": {
+  "name": "Nectarina",
+  "weights": {
+   "frutado": 1
+  }
+ },
+ "notas aromaticas": {
+  "name": "Notas aromáticas",
+  "weights": {
+   "aromatico": 1
+  }
+ },
+ "notas citricas": {
+  "name": "Notas cítricas",
+  "weights": {
+   "citrico": 1
+  }
+ },
+ "notas doces": {
+  "name": "Notas doces",
+  "weights": {
+   "doce": 1
+  }
+ },
+ "notas frescas": {
+  "name": "Notas frescas",
+  "weights": {
+   "citrico": 0.5,
+   "aromatico": 0.3,
+   "verde": 0.2
+  }
+ },
+ "notas licorosas": {
+  "name": "Notas licorosas",
+  "weights": {
+   "doce": 0.5,
+   "frutado": 0.3,
+   "ambarado": 0.2
+  }
+ },
+ "nozes": {
+  "name": "Nozes",
+  "weights": {
+   "doce": 0.5,
+   "amadeirado": 0.5
+  }
+ },
+ "oregano": {
+  "name": "Orégano",
+  "weights": {
+   "aromatico": 0.6,
+   "especiado": 0.4
+  }
+ },
+ "palo santo": {
+  "name": "Palo santo",
+  "weights": {
+   "amadeirado": 0.7,
+   "ambarado": 0.3
+  }
+ },
+ "pau-rosa": {
+  "name": "Pau-rosa",
+  "weights": {
+   "amadeirado": 0.6,
+   "floral": 0.4
+  }
+ },
+ "pederneira": {
+  "name": "Pederneira",
+  "weights": {
+   "amadeirado": 0.5,
+   "aromatico": 0.5
+  }
+ },
+ "petalia": {
+  "name": "Petalia",
+  "weights": {
+   "floral": 1
+  }
+ },
+ "pipoca": {
+  "name": "Pipoca",
+  "weights": {
+   "doce": 0.7,
+   "amadeirado": 0.3
+  }
+ },
+ "pitaia": {
+  "name": "Pitaia",
+  "weights": {
+   "frutado": 1
+  }
+ },
+ "rosyfolia": {
+  "name": "Rosyfolia",
+  "weights": {
+   "floral": 1
+  }
+ },
+ "verbena": {
+  "name": "Verbena",
+  "weights": {
+   "citrico": 0.6,
+   "verde": 0.4
+  }
  }
 }

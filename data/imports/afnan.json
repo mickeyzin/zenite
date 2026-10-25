@@ -27,7 +27,7 @@
       "notes": {
         "top": [
           "Vetiver",
-          "Ambrofix"
+          "Ambrofix™"
         ],
         "heart": [
           "Açafrão",
@@ -39,10 +39,8 @@
           "Madeira de cashmere"
         ]
       },
-      "unknownNotes": [
-        "Ambrofix"
-      ],
-      "review": "notas sem tradução",
+      "unknownNotes": [],
+      "review": "ok",
       "fetchedAt": "2026-10-25T21:42:35.417Z"
     },
     {
@@ -74,7 +72,7 @@
           "Caramelo"
         ],
         "heart": [
-          "Wood",
+          "Notas amadeiradas",
           "Oud"
         ],
         "base": [
@@ -82,10 +80,8 @@
           "Cedro"
         ]
       },
-      "unknownNotes": [
-        "Wood"
-      ],
-      "review": "notas sem tradução",
+      "unknownNotes": [],
+      "review": "ok",
       "fetchedAt": "2026-10-25T21:42:46.185Z"
     },
     {
@@ -126,15 +122,13 @@
           "Vetiver"
         ],
         "base": [
-          "Sweet Amber",
+          "Âmbar",
           "Baunilha",
           "Almíscar"
         ]
       },
-      "unknownNotes": [
-        "Sweet Amber"
-      ],
-      "review": "notas sem tradução",
+      "unknownNotes": [],
+      "review": "ok",
       "fetchedAt": "2026-10-25T21:42:56.919Z"
     },
     {
@@ -164,7 +158,7 @@
       "notes": {
         "top": [
           "Maçã",
-          "Lavandin",
+          "Lavanda",
           "Gerânio"
         ],
         "heart": [
@@ -178,10 +172,8 @@
           "Musgo de carvalho"
         ]
       },
-      "unknownNotes": [
-        "Lavandin"
-      ],
-      "review": "notas sem tradução",
+      "unknownNotes": [],
+      "review": "ok",
       "fetchedAt": "2026-10-25T21:43:07.658Z"
     },
     {
@@ -270,14 +262,12 @@
         ],
         "base": [
           "Sândalo",
-          "Citrus",
+          "Notas cítricas",
           "Âmbar"
         ]
       },
-      "unknownNotes": [
-        "Citrus"
-      ],
-      "review": "notas sem tradução",
+      "unknownNotes": [],
+      "review": "ok",
       "fetchedAt": "2026-10-25T21:43:29.214Z"
     },
     {
@@ -313,7 +303,7 @@
         ],
         "heart": [
           "Rosa",
-          "Muguet",
+          "Lírio-do-vale",
           "Peônia",
           "Baunilha"
         ],
@@ -323,10 +313,8 @@
           "Âmbar"
         ]
       },
-      "unknownNotes": [
-        "Muguet"
-      ],
-      "review": "notas sem tradução",
+      "unknownNotes": [],
+      "review": "ok",
       "fetchedAt": "2026-10-25T21:43:40.050Z"
     },
     {
@@ -406,13 +394,11 @@
         "base": [
           "Almíscar",
           "Sândalo",
-          "Wood"
+          "Notas amadeiradas"
         ]
       },
-      "unknownNotes": [
-        "Wood"
-      ],
-      "review": "notas sem tradução",
+      "unknownNotes": [],
+      "review": "ok",
       "fetchedAt": "2026-10-25T21:44:01.622Z"
     },
     {
@@ -443,7 +429,7 @@
       "notes": {
         "top": [
           "Bergamota",
-          "Oregano",
+          "Orégano",
           "Pimenta"
         ],
         "heart": [
@@ -458,10 +444,8 @@
           "Oud"
         ]
       },
-      "unknownNotes": [
-        "Oregano"
-      ],
-      "review": "notas sem tradução",
+      "unknownNotes": [],
+      "review": "ok",
       "fetchedAt": "2026-10-25T21:44:12.695Z"
     },
     {
@@ -494,17 +478,15 @@
         "heart": [
           "Rosa",
           "Peônia",
-          "Muguet"
+          "Lírio-do-vale"
         ],
         "base": [
           "Almíscar",
           "Âmbar seco"
         ]
       },
-      "unknownNotes": [
-        "Muguet"
-      ],
-      "review": "notas sem tradução",
+      "unknownNotes": [],
+      "review": "ok",
       "fetchedAt": "2026-10-25T21:44:23.349Z"
     },
     {
@@ -537,7 +519,7 @@
           "Pêssego"
         ],
         "heart": [
-          "Sweet Amber",
+          "Âmbar",
           "Almíscar branco"
         ],
         "base": [
@@ -546,10 +528,8 @@
           "Baunilha"
         ]
       },
-      "unknownNotes": [
-        "Sweet Amber"
-      ],
-      "review": "notas sem tradução",
+      "unknownNotes": [],
+      "review": "ok",
       "fetchedAt": "2026-10-25T21:44:34.105Z"
     },
     {
@@ -568,7 +548,7 @@
         "heart": [
           "Pineapple",
           "Patchouli",
-          "JasmineÂ"
+          "Jasmine"
         ],
         "base": [
           "Musk",
@@ -580,12 +560,12 @@
         "top": [
           "Maçã",
           "Bergamota",
-          "Oak Moss"
+          "Musgo de carvalho"
         ],
         "heart": [
           "Abacaxi",
           "Patchouli",
-          "JasmineÂ"
+          "Jasmim"
         ],
         "base": [
           "Almíscar",
@@ -593,11 +573,8 @@
           "Bétula"
         ]
       },
-      "unknownNotes": [
-        "Oak Moss",
-        "JasmineÂ"
-      ],
-      "review": "notas sem tradução",
+      "unknownNotes": [],
+      "review": "ok",
       "fetchedAt": "2026-10-25T21:44:44.853Z"
     },
     {
@@ -678,20 +655,16 @@
           "Caramelo",
           "Âmbar",
           "Laranja",
-          "Citrus Peel"
+          "Notas cítricas"
         ],
         "base": [
           "Âmbar-gris",
-          "Oak Moss",
-          "Ancient Woods"
+          "Musgo de carvalho",
+          "Notas amadeiradas"
         ]
       },
-      "unknownNotes": [
-        "Citrus Peel",
-        "Oak Moss",
-        "Ancient Woods"
-      ],
-      "review": "notas sem tradução",
+      "unknownNotes": [],
+      "review": "ok",
       "fetchedAt": "2026-10-25T21:45:06.232Z"
     },
     {
@@ -715,21 +688,19 @@
       },
       "notes": {
         "top": [
-          "Floral Musk",
+          "Almíscar",
+          "Notas florais",
           "Almíscar branco"
         ],
         "heart": [
           "Almíscar"
         ],
         "base": [
-          "Sweet Musk"
+          "Almíscar"
         ]
       },
-      "unknownNotes": [
-        "Floral Musk",
-        "Sweet Musk"
-      ],
-      "review": "notas sem tradução",
+      "unknownNotes": [],
+      "review": "ok",
       "fetchedAt": "2026-10-25T21:45:17.027Z"
     },
     {
@@ -759,26 +730,22 @@
       "notes": {
         "top": [
           "Laranja",
-          "Wood Lemon",
+          "Limão",
           "Cassis"
         ],
         "heart": [
-          "Wood",
+          "Notas amadeiradas",
           "Ylang-ylang",
           "Âmbar"
         ],
         "base": [
-          "Powder",
+          "Notas atalcadas",
           "Almíscar",
           "Fava-tonka"
         ]
       },
-      "unknownNotes": [
-        "Wood Lemon",
-        "Wood",
-        "Powder"
-      ],
-      "review": "notas sem tradução",
+      "unknownNotes": [],
+      "review": "ok",
       "fetchedAt": "2026-10-25T21:45:27.907Z"
     },
     {
@@ -800,7 +767,7 @@
           "Jasmine"
         ],
         "base": [
-          "s: Virginia Cedar",
+          "Virginia Cedar",
           "Patchouli",
           "White Musk"
         ]
@@ -817,15 +784,13 @@
           "Jasmim"
         ],
         "base": [
-          "s: Virginia Cedar",
+          "Cedro",
           "Patchouli",
           "Almíscar branco"
         ]
       },
-      "unknownNotes": [
-        "s: Virginia Cedar"
-      ],
-      "review": "notas sem tradução",
+      "unknownNotes": [],
+      "review": "ok",
       "fetchedAt": "2026-10-25T21:45:38.821Z"
     },
     {
@@ -854,14 +819,14 @@
       },
       "notes": {
         "top": [
-          "Calabrian Bergamot",
+          "Bergamota",
           "Pimenta",
           "Lavanda"
         ],
         "heart": [
           "Pimenta-rosa",
           "Gerânio",
-          "Elemis"
+          "Elemi"
         ],
         "base": [
           "Ambroxan",
@@ -869,11 +834,8 @@
           "Patchouli"
         ]
       },
-      "unknownNotes": [
-        "Calabrian Bergamot",
-        "Elemis"
-      ],
-      "review": "notas sem tradução",
+      "unknownNotes": [],
+      "review": "ok",
       "fetchedAt": "2026-10-25T21:45:49.535Z"
     },
     {
@@ -948,7 +910,7 @@
         "heart": [
           "Lavanda",
           "Patchouli",
-          "Oak Moss"
+          "Musgo de carvalho"
         ],
         "base": [
           "Açafrão",
@@ -956,10 +918,8 @@
           "Âmbar-gris"
         ]
       },
-      "unknownNotes": [
-        "Oak Moss"
-      ],
-      "review": "notas sem tradução",
+      "unknownNotes": [],
+      "review": "ok",
       "fetchedAt": "2026-10-25T21:46:11.033Z"
     },
     {
@@ -992,20 +952,2496 @@
         ],
         "heart": [
           "Oud",
-          "Sweet"
+          "Notas doces"
         ],
         "base": [
           "Almíscar",
           "Patchouli"
         ]
       },
-      "unknownNotes": [
-        "Sweet"
-      ],
-      "review": "notas sem tradução",
+      "unknownNotes": [],
+      "review": "ok",
       "fetchedAt": "2026-10-25T21:46:21.805Z"
+    },
+    {
+      "url": "https://afnan.com/products/la-fleur-bouquet",
+      "name": "La Fleur Bouquet",
+      "sku": "7742180491357",
+      "size": "80 ML",
+      "gender": null,
+      "notesRaw": "Top Notes:\nOrange Blossom, Jasmine and Peony\nMiddle Notes:\nLitchi, Peach and Bergamot\nBase Notes:\nMusk, Moss and Petalia\nLA FLEUR BOUQUET\nSale price\nDhs. 65.00\nAdd to cart\nChoose options\nClose\nPrevious\nNext\nGo to item 1\nGo to item 2\nLA FLEUR BOUQUET\nSale price\nDhs. 65.00\nAFNAN PERFUMES\nLA FLEUR BOUQUET\nType:\nEau De Perfum\nVolume:\n80 ML\nOrientation:\nPour Femme\nEau De Perfum / 80 ML / Pour Femme - Dhs. 65.00\nVariant\nView details\nOFFICIAL AFNAN STORES\nAVAILABLE IN REGIONS\nAfnan Perfumes UAE\nAfnan Perfumes USA\nAfnan Perfumes UK\nAfnan Perfumes Qatar\nAfnan Perfumes India\nAfnan Perfumes Egypt\nAfnan P",
+      "notesEn": {
+        "top": [
+          "Orange Blossom",
+          "Jasmine",
+          "Peony"
+        ],
+        "heart": [
+          "Litchi",
+          "Peach",
+          "Bergamot"
+        ],
+        "base": [
+          "Musk",
+          "Moss",
+          "Petalia"
+        ]
+      },
+      "notes": {
+        "top": [
+          "Flor de laranjeira",
+          "Jasmim",
+          "Peônia"
+        ],
+        "heart": [
+          "Lichia",
+          "Pêssego",
+          "Bergamota"
+        ],
+        "base": [
+          "Almíscar",
+          "Musgo",
+          "Petalia"
+        ]
+      },
+      "unknownNotes": [],
+      "review": "ok",
+      "fetchedAt": "2026-10-25T21:46:32.595Z"
+    },
+    {
+      "url": "https://afnan.com/products/ornament-purple",
+      "name": "Ornament Purple",
+      "sku": "7742180720733",
+      "size": "100 ML",
+      "gender": null,
+      "notesRaw": "Top Notes:\nMandarin, Raspberry and Grapefruit\nMiddle Notes:\nToffee, White Flower, Anis and Cardamom\nBase Notes:\nMusk, Vanilla and Pachouli\nORNAMENT PURPLE\nSale price\nDhs. 50.00\nAdd to cart\nChoose options\nClose\nPrevious\nNext\nGo to item 1\nGo to item 2\nGo to item 3\nGo to item 4\nGo to item 5\nGo to item 6\nORNAMENT PURPLE\nSale price\nDhs. 50.00\nAFNAN PERFUMES\nORNAMENT PURPLE\nType::\nEau De Perfum\nVolume::\n100 ML\nOrientation::\nPour Femme\nEau De Perfum / 100 ML / Pour Femme - Dhs. 50.00\nVariant\nView details\nOFFICIAL AFNAN STORES\nAVAILABLE IN REGIONS\nAfnan Perfumes UAE\nAfnan Perfumes USA\nAfnan Perfumes U",
+      "notesEn": {
+        "top": [
+          "Mandarin",
+          "Raspberry",
+          "Grapefruit"
+        ],
+        "heart": [
+          "Toffee",
+          "White Flower",
+          "Anis",
+          "Cardamom"
+        ],
+        "base": [
+          "Musk",
+          "Vanilla",
+          "Pachouli"
+        ]
+      },
+      "notes": {
+        "top": [
+          "Tangerina",
+          "Framboesa",
+          "Toranja"
+        ],
+        "heart": [
+          "Toffee",
+          "Flores brancas",
+          "Anis",
+          "Cardamomo"
+        ],
+        "base": [
+          "Almíscar",
+          "Baunilha",
+          "Patchouli"
+        ]
+      },
+      "unknownNotes": [],
+      "review": "ok",
+      "fetchedAt": "2026-10-25T21:46:43.295Z"
+    },
+    {
+      "url": "https://afnan.com/products/tribute-pink",
+      "name": "Tribute Pink",
+      "sku": "7742182064221",
+      "size": "100 ML",
+      "gender": null,
+      "notesRaw": "Top Notes:\nPepper Pink, Mandarin and Pineapple\nMiddle Notes:\nJasmine, Rose and Violet\nBase Notes:\nPatchouli, Musk and Sandalwood\nTRIBUTE PINK\nSale price\nDhs. 65.00\nAdd to cart\nChoose options\nClose\nPrevious\nNext\nGo to item 1\nGo to item 2\nGo to item 3\nGo to item 4\nTRIBUTE PINK\nSale price\nDhs. 65.00\nAFNAN PERFUMES\nTRIBUTE PINK\nType::\nEau De Perfum\nVolume::\n100 ML\nOrientation::\nPour Femme\nEau De Perfum / 100 ML / Pour Femme - Dhs. 65.00\nVariant\nView details\nOFFICIAL AFNAN STORES\nAVAILABLE IN REGIONS\nAfnan Perfumes UAE\nAfnan Perfumes USA\nAfnan Perfumes UK\nAfnan Perfumes Qatar\nAfnan Perfumes India\nA",
+      "notesEn": {
+        "top": [
+          "Pepper Pink",
+          "Mandarin",
+          "Pineapple"
+        ],
+        "heart": [
+          "Jasmine",
+          "Rose",
+          "Violet"
+        ],
+        "base": [
+          "Patchouli",
+          "Musk",
+          "Sandalwood"
+        ]
+      },
+      "notes": {
+        "top": [
+          "Pimenta-rosa",
+          "Tangerina",
+          "Abacaxi"
+        ],
+        "heart": [
+          "Jasmim",
+          "Rosa",
+          "Violeta"
+        ],
+        "base": [
+          "Patchouli",
+          "Almíscar",
+          "Sândalo"
+        ]
+      },
+      "unknownNotes": [],
+      "review": "ok",
+      "fetchedAt": "2026-10-25T21:47:30.440Z"
+    },
+    {
+      "url": "https://afnan.com/products/turathi-purple-femme",
+      "name": "Turathi  Purple",
+      "sku": "TURATHIPURPLE",
+      "size": null,
+      "gender": null,
+      "notesRaw": "Top Notes:\nCardamom and Black Pepper\nMiddle Notes:\nPineapple and Jasmine\nBase Notes:\nVanilla, Moss and Patchouli\nTURATHI  PURPLE\nSale price\nDhs. 65.00\nAdd to cart\nChoose options\nClose\nPrevious\nNext\nGo to item 1\nGo to item 2\nTURATHI  PURPLE\nSale price\nDhs. 65.00\nAFNAN PERFUMES\nTURATHI  PURPLE\nView details\nOFFICIAL AFNAN STORES\nAVAILABLE IN REGIONS\nAfnan Perfumes UAE\nAfnan Perfumes USA\nAfnan Perfumes UK\nAfnan Perfumes Qatar\nAfnan Perfumes India\nAfnan Perfumes Egypt\nAfnan Perfumes Lebanon\nAfnan Perfumes Czech\nAfnan Perfumes Spain\nAfnan Perfumes Germany\nAfnan Perfumes Italy\nAfnan Perfumes Oman\nAfn",
+      "notesEn": {
+        "top": [
+          "Cardamom",
+          "Black Pepper"
+        ],
+        "heart": [
+          "Pineapple",
+          "Jasmine"
+        ],
+        "base": [
+          "Vanilla",
+          "Moss",
+          "Patchouli"
+        ]
+      },
+      "notes": {
+        "top": [
+          "Cardamomo",
+          "Pimenta-preta"
+        ],
+        "heart": [
+          "Abacaxi",
+          "Jasmim"
+        ],
+        "base": [
+          "Baunilha",
+          "Musgo",
+          "Patchouli"
+        ]
+      },
+      "unknownNotes": [],
+      "review": "ok",
+      "fetchedAt": "2026-10-25T21:47:41.128Z"
+    },
+    {
+      "url": "https://afnan.com/products/turathi-blue-homme",
+      "name": "Turathi Blue",
+      "sku": "TURATHIBLUE",
+      "size": null,
+      "gender": null,
+      "notesRaw": "Top Notes:\nBergamot and Mandarin\nMiddle Notes:\nAmber and Woody\nBase Notes:\nMusk, Patchouli and Fresh Spicy\nFragrance Care & Storage\nKeep your fragrance in a cool, dry place away from direct sunlight and extreme temperatures. Always close the bottle tightly when not in use.\nTips for Best Experience\nLayer with matching body products for enhanced effect, experiment with different application spots for day or evening wear, and rotate fragrances to keep your senses engaged.\nTURATHI BLUE\nSale price\nDhs. 65.00\nAdd to cart\nChoose options\nClose\nPrevious\nNext\nGo to item 1\nGo to item 2\nGo to item 3\nTURAT",
+      "notesEn": {
+        "top": [
+          "Bergamot",
+          "Mandarin"
+        ],
+        "heart": [
+          "Amber",
+          "Woody"
+        ],
+        "base": [
+          "Musk",
+          "Patchouli",
+          "Fresh Spicy"
+        ]
+      },
+      "notes": {
+        "top": [
+          "Bergamota",
+          "Tangerina"
+        ],
+        "heart": [
+          "Âmbar",
+          "Notas amadeiradas"
+        ],
+        "base": [
+          "Almíscar",
+          "Patchouli",
+          "Notas especiadas"
+        ]
+      },
+      "unknownNotes": [],
+      "review": "ok",
+      "fetchedAt": "2026-10-25T21:47:51.759Z"
+    },
+    {
+      "url": "https://afnan.com/products/turathi-brown-homme",
+      "name": "Turathi Brown Homme",
+      "sku": "TURATHIBROWN",
+      "size": null,
+      "gender": "Masculino",
+      "notesRaw": "Top Notes:\nPatchouli, Amber, Ozonic and Woody\nMiddle Notes:\nFresh Spicy, Vanilla and Warm Spicy\nBase Notes:\nBalsamic, Rose and Aquatic\nTURATHI BROWN HOMME\nSale price\nDhs. 65.00\nAdd to cart\nChoose options\nClose\nPrevious\nNext\nGo to item 1\nGo to item 2\nGo to item 3\nGo to item 4\nGo to item 5\nTURATHI BROWN HOMME\nSale price\nDhs. 65.00\nAFNAN PERFUMES\nTURATHI BROWN HOMME\nView details\nOFFICIAL AFNAN STORES\nAVAILABLE IN REGIONS\nAfnan Perfumes UAE\nAfnan Perfumes USA\nAfnan Perfumes UK\nAfnan Perfumes Qatar\nAfnan Perfumes India\nAfnan Perfumes Egypt\nAfnan Perfumes Lebanon\nAfnan Perfumes Czech\nAfnan Perfumes ",
+      "notesEn": {
+        "top": [
+          "Patchouli",
+          "Amber",
+          "Ozonic",
+          "Woody"
+        ],
+        "heart": [
+          "Fresh Spicy",
+          "Vanilla",
+          "Warm Spicy"
+        ],
+        "base": [
+          "Balsamic",
+          "Rose",
+          "Aquatic"
+        ]
+      },
+      "notes": {
+        "top": [
+          "Patchouli",
+          "Âmbar",
+          "Notas ozônicas",
+          "Notas amadeiradas"
+        ],
+        "heart": [
+          "Notas especiadas",
+          "Baunilha",
+          "Notas especiadas"
+        ],
+        "base": [
+          "Notas balsâmicas",
+          "Rosa",
+          "Notas aquáticas"
+        ]
+      },
+      "unknownNotes": [],
+      "review": "ok",
+      "fetchedAt": "2026-10-25T21:48:02.509Z"
+    },
+    {
+      "url": "https://afnan.com/products/turathi-red-femme",
+      "name": "Turathi Red",
+      "sku": "TURATHIRED",
+      "size": null,
+      "gender": null,
+      "notesRaw": "Top Notes:\nRose, Musk and Floral\nMiddle Notes:\nWood, Rose and Jasmine\nBase Notes:\nApricot, Musk and Peony\nTURATHI RED\nSale price\nDhs. 65.00\nAdd to cart\nChoose options\nClose\nPrevious\nNext\nGo to item 1\nGo to item 2\nGo to item 3\nGo to item 4\nTURATHI RED\nSale price\nDhs. 65.00\nAFNAN PERFUMES\nTURATHI RED\nView details\nOFFICIAL AFNAN STORES\nAVAILABLE IN REGIONS\nAfnan Perfumes UAE\nAfnan Perfumes USA\nAfnan Perfumes UK\nAfnan Perfumes Qatar\nAfnan Perfumes India\nAfnan Perfumes Egypt\nAfnan Perfumes Lebanon\nAfnan Perfumes Czech\nAfnan Perfumes Spain\nAfnan Perfumes Germany\nAfnan Perfumes Italy\nAfnan Perfumes O",
+      "notesEn": {
+        "top": [
+          "Rose",
+          "Musk",
+          "Floral"
+        ],
+        "heart": [
+          "Wood",
+          "Rose",
+          "Jasmine"
+        ],
+        "base": [
+          "Apricot",
+          "Musk",
+          "Peony"
+        ]
+      },
+      "notes": {
+        "top": [
+          "Rosa",
+          "Almíscar",
+          "Notas florais"
+        ],
+        "heart": [
+          "Notas amadeiradas",
+          "Rosa",
+          "Jasmim"
+        ],
+        "base": [
+          "Damasco",
+          "Almíscar",
+          "Peônia"
+        ]
+      },
+      "unknownNotes": [],
+      "review": "ok",
+      "fetchedAt": "2026-10-25T21:48:13.225Z"
+    },
+    {
+      "url": "https://afnan.com/products/patchouli-on-fire",
+      "name": "Patchouli On Fire",
+      "sku": "7742184587357",
+      "size": "80 ML",
+      "gender": null,
+      "notesRaw": "Top Notes:\nFresh spicy, Aromatic and Woody\nMiddle Notes:\nPatchouli, Lavender and Citrus\nBase Notes:\nWarm Spicy and Patchouli\nPATCHOULI ON FIRE\nSale price\nDhs. 75.00\nAdd to cart\nChoose options\nClose\nPrevious\nNext\nGo to item 1\nGo to item 2\nGo to item 3\nGo to item 4\nGo to item 5\nGo to item 6\nPATCHOULI ON FIRE\nSale price\nDhs. 75.00\nAfnan Perfumes\nPATCHOULI ON FIRE\nType::\nEau De Perfum\nVolume::\n80 ML\nOrientation::\nUnisex\nEau De Perfum / 80 ML / Unisex - Dhs. 75.00\nVariant\nView details\nOFFICIAL AFNAN STORES\nAVAILABLE IN REGIONS\nAfnan Perfumes UAE\nAfnan Perfumes USA\nAfnan Perfumes UK\nAfnan Perfumes Q",
+      "notesEn": {
+        "top": [
+          "Fresh spicy",
+          "Aromatic",
+          "Woody"
+        ],
+        "heart": [
+          "Patchouli",
+          "Lavender",
+          "Citrus"
+        ],
+        "base": [
+          "Warm Spicy",
+          "Patchouli"
+        ]
+      },
+      "notes": {
+        "top": [
+          "Notas especiadas",
+          "Notas aromáticas",
+          "Notas amadeiradas"
+        ],
+        "heart": [
+          "Patchouli",
+          "Lavanda",
+          "Notas cítricas"
+        ],
+        "base": [
+          "Notas especiadas",
+          "Patchouli"
+        ]
+      },
+      "unknownNotes": [],
+      "review": "ok",
+      "fetchedAt": "2026-10-25T21:48:23.941Z"
+    },
+    {
+      "url": "https://afnan.com/products/tobacco-rush",
+      "name": "Tobacco Rush",
+      "sku": "7742185013341",
+      "size": "80 ML",
+      "gender": null,
+      "notesRaw": "Top Notes:\nWarm Spicy, Tobacco and Woody\nMiddle Notes:\nSweet, Fresh Spicy and Lavender\nBase Notes:\nAmber, Cedarwood and Oud\nTOBACCO RUSH\nSale price\nDhs. 75.00\nAdd to cart\nChoose options\nClose\nPrevious\nNext\nGo to item 1\nGo to item 2\nGo to item 3\nGo to item 4\nGo to item 5\nGo to item 6\nGo to item 7\nGo to item 8\nTOBACCO RUSH\nSale price\nDhs. 75.00\nAFNAN PERFUMES\nTOBACCO RUSH\nType::\nEau De Perfum\nVolume::\n80 ML\nOrientation::\nUnisex\nEau De Perfum / 80 ML / Unisex - Dhs. 75.00\nVariant\nView details\nOFFICIAL AFNAN STORES\nAVAILABLE IN REGIONS\nAfnan Perfumes UAE\nAfnan Perfumes USA\nAfnan Perfumes UK\nAfnan ",
+      "notesEn": {
+        "top": [
+          "Warm Spicy",
+          "Tobacco",
+          "Woody"
+        ],
+        "heart": [
+          "Sweet",
+          "Fresh Spicy",
+          "Lavender"
+        ],
+        "base": [
+          "Amber",
+          "Cedarwood",
+          "Oud"
+        ]
+      },
+      "notes": {
+        "top": [
+          "Notas especiadas",
+          "Tabaco",
+          "Notas amadeiradas"
+        ],
+        "heart": [
+          "Notas doces",
+          "Notas especiadas",
+          "Lavanda"
+        ],
+        "base": [
+          "Âmbar",
+          "Cedro",
+          "Oud"
+        ]
+      },
+      "unknownNotes": [],
+      "review": "ok",
+      "fetchedAt": "2026-10-25T21:48:34.702Z"
+    },
+    {
+      "url": "https://afnan.com/products/historic-doria",
+      "name": "Historic Doria",
+      "sku": "7742185472093",
+      "size": "100 ML",
+      "gender": null,
+      "notesRaw": "Top Notes:\nOrange Blossom, Lemon Zest Bitter and Raspberry\nMiddle Notes:\nTuberose, Mandarin, Jasmine and Ambroxan\nBase Notes:\nMusk, Woody and Jasmine Sambac\nHISTORIC DORIA\nSale price\nDhs. 65.00\nAdd to cart\nChoose options\nClose\nPrevious\nNext\nGo to item 1\nGo to item 2\nGo to item 3\nGo to item 4\nGo to item 5\nHISTORIC DORIA\nSale price\nDhs. 65.00\nAFNAN PERFUMES\nHISTORIC DORIA\nType::\nEau De Perfum\nVolume::\n100 ML\nOrientation::\nUnisex\nEau De Perfum / 100 ML / Unisex - Dhs. 65.00\nVariant\nView details\nOFFICIAL AFNAN STORES\nAVAILABLE IN REGIONS\nAfnan Perfumes UAE\nAfnan Perfumes USA\nAfnan Perfumes UK\nAfna",
+      "notesEn": {
+        "top": [
+          "Orange Blossom",
+          "Lemon Zest Bitter",
+          "Raspberry"
+        ],
+        "heart": [
+          "Tuberose",
+          "Mandarin",
+          "Jasmine",
+          "Ambroxan"
+        ],
+        "base": [
+          "Musk",
+          "Woody",
+          "Jasmine Sambac"
+        ]
+      },
+      "notes": {
+        "top": [
+          "Flor de laranjeira",
+          "Limão",
+          "Framboesa"
+        ],
+        "heart": [
+          "Tuberosa",
+          "Tangerina",
+          "Jasmim",
+          "Ambroxan"
+        ],
+        "base": [
+          "Almíscar",
+          "Notas amadeiradas",
+          "Jasmim sambac"
+        ]
+      },
+      "unknownNotes": [],
+      "review": "ok",
+      "fetchedAt": "2026-10-25T21:48:45.368Z"
+    },
+    {
+      "url": "https://afnan.com/products/historic-olmeda",
+      "name": "Historic Olmeda",
+      "sku": "7742185799773",
+      "size": "100 ML",
+      "gender": null,
+      "notesRaw": "Top Notes:\nPink Pepper, Cardamom, Juniper and Grapefruit\nMiddle Notes:\nCalabrian Bergamot, Cedar, Nutmeg and Jasmine\nBase Notes:\nPatchouli, Apple, Ambergris and Musk\nHISTORIC OLMEDA\nSale price\nDhs. 65.00\nAdd to cart\nChoose options\nClose\nPrevious\nNext\nGo to item 1\nGo to item 2\nGo to item 3\nGo to item 4\nHISTORIC OLMEDA\nSale price\nDhs. 65.00\nAFNAN PERFUMES\nHISTORIC OLMEDA\nType::\nEau De Perfum\nVolume::\n100 ML\nOrientation::\nUnisex\nEau De Perfum / 100 ML / Unisex - Dhs. 65.00\nVariant\nView details\nOFFICIAL AFNAN STORES\nAVAILABLE IN REGIONS\nAfnan Perfumes UAE\nAfnan Perfumes USA\nAfnan Perfumes UK\nAfnan",
+      "notesEn": {
+        "top": [
+          "Pink Pepper",
+          "Cardamom",
+          "Juniper",
+          "Grapefruit"
+        ],
+        "heart": [
+          "Calabrian Bergamot",
+          "Cedar",
+          "Nutmeg",
+          "Jasmine"
+        ],
+        "base": [
+          "Patchouli",
+          "Apple",
+          "Ambergris",
+          "Musk"
+        ]
+      },
+      "notes": {
+        "top": [
+          "Pimenta-rosa",
+          "Cardamomo",
+          "Zimbro",
+          "Toranja"
+        ],
+        "heart": [
+          "Bergamota",
+          "Cedro",
+          "Noz-moscada",
+          "Jasmim"
+        ],
+        "base": [
+          "Patchouli",
+          "Maçã",
+          "Âmbar-gris",
+          "Almíscar"
+        ]
+      },
+      "unknownNotes": [],
+      "review": "ok",
+      "fetchedAt": "2026-10-25T21:48:56.071Z"
+    },
+    {
+      "url": "https://afnan.com/products/edict-amberythme",
+      "name": "Edict Amberythme",
+      "sku": "7742186160221",
+      "size": "80 ML",
+      "gender": null,
+      "notesRaw": "Top Notes:\nAmber, Cinnamon and Tonka Bean\nMiddle Notes:\nSaffron, Jasmine and Vanilla\nBase Notes:\nAmber Gris, Cedar and Sandalwood\nEDICT AMBERYTHME\nSale price\nDhs. 125.00\nAdd to cart\nChoose options\nClose\nPrevious\nNext\nGo to item 1\nGo to item 2\nGo to item 3\nGo to item 4\nGo to item 5\nGo to item 6\nEDICT AMBERYTHME\nSale price\nDhs. 125.00\nAFNAN PERFUMES\nEDICT AMBERYTHME\nType::\nEau De Parfum\nVolume::\n80 ML\nOrientation::\nUnisex\nEau De Parfum / 80 ML / Unisex - Dhs. 125.00\nVariant\nView details\nOFFICIAL AFNAN STORES\nAVAILABLE IN REGIONS\nAfnan Perfumes UAE\nAfnan Perfumes USA\nAfnan Perfumes UK\nAfnan Perfu",
+      "notesEn": {
+        "top": [
+          "Amber",
+          "Cinnamon",
+          "Tonka Bean"
+        ],
+        "heart": [
+          "Saffron",
+          "Jasmine",
+          "Vanilla"
+        ],
+        "base": [
+          "Amber Gris",
+          "Cedar",
+          "Sandalwood"
+        ]
+      },
+      "notes": {
+        "top": [
+          "Âmbar",
+          "Canela",
+          "Fava-tonka"
+        ],
+        "heart": [
+          "Açafrão",
+          "Jasmim",
+          "Baunilha"
+        ],
+        "base": [
+          "Âmbar-gris",
+          "Cedro",
+          "Sândalo"
+        ]
+      },
+      "unknownNotes": [],
+      "review": "ok",
+      "fetchedAt": "2026-10-25T21:49:06.838Z"
+    },
+    {
+      "url": "https://afnan.com/products/edict-musctique",
+      "name": "Edict Musctique",
+      "sku": "7742186422365",
+      "size": "80 ML",
+      "gender": null,
+      "notesRaw": "Top Notes:\nMusk, Cardamom and Saffron\nMiddle Notes:\nLily of the Valley and Vanilla\nBase Notes:\nMint, Musk and Oud\nEDICT MUSCTIQUE\nSale price\nDhs. 125.00\nAdd to cart\nChoose options\nClose\nPrevious\nNext\nGo to item 1\nGo to item 2\nGo to item 3\nEDICT MUSCTIQUE\nSale price\nDhs. 125.00\nAFNAN PERFUMES\nEDICT MUSCTIQUE\nType::\nEau De Perfum\nVolume::\n80 ML\nOrientation::\nUnisex\nEau De Perfum / 80 ML / Unisex - Dhs. 125.00\nVariant\nView details\nOFFICIAL AFNAN STORES\nAVAILABLE IN REGIONS\nAfnan Perfumes UAE\nAfnan Perfumes USA\nAfnan Perfumes UK\nAfnan Perfumes Qatar\nAfnan Perfumes India\nAfnan Perfumes Egypt\nAfnan ",
+      "notesEn": {
+        "top": [
+          "Musk",
+          "Cardamom",
+          "Saffron"
+        ],
+        "heart": [
+          "Lily of the Valley",
+          "Vanilla"
+        ],
+        "base": [
+          "Mint",
+          "Musk",
+          "Oud"
+        ]
+      },
+      "notes": {
+        "top": [
+          "Almíscar",
+          "Cardamomo",
+          "Açafrão"
+        ],
+        "heart": [
+          "Lírio-do-vale",
+          "Baunilha"
+        ],
+        "base": [
+          "Menta",
+          "Almíscar",
+          "Oud"
+        ]
+      },
+      "unknownNotes": [],
+      "review": "ok",
+      "fetchedAt": "2026-10-25T21:49:17.528Z"
+    },
+    {
+      "url": "https://afnan.com/products/edict-ouddiction",
+      "name": "Edict Ouddiction",
+      "sku": "7742186717277",
+      "size": "80 ML",
+      "gender": null,
+      "notesRaw": "Top Notes:\nAgarwood, Saffron, Lavender and Bergamot\nMiddle Notes:\nTonka Bean, Sandalwood, Cedar, Geranium and Tobacco\nBase Notes:\nLeather, Patchouli, Amber, Brazilian Rosewood and Vetiver\nEDICT OUDDICTION\nSale price\nDhs. 125.00\nAdd to cart\nChoose options\nClose\nPrevious\nNext\nGo to item 1\nGo to item 2\nGo to item 3\nGo to item 4\nGo to item 5\nEDICT OUDDICTION\nSale price\nDhs. 125.00\nAFNAN PERFUMES\nEDICT OUDDICTION\nType::\nEau De Perfum\nVolume::\n80 ML\nOrientation::\nUnisex\nEau De Perfum / 80 ML / Unisex - Dhs. 125.00\nVariant\nView details\nOFFICIAL AFNAN STORES\nAVAILABLE IN REGIONS\nAfnan Perfumes UAE\nAfn",
+      "notesEn": {
+        "top": [
+          "Agarwood",
+          "Saffron",
+          "Lavender",
+          "Bergamot"
+        ],
+        "heart": [
+          "Tonka Bean",
+          "Sandalwood",
+          "Cedar",
+          "Geranium",
+          "Tobacco"
+        ],
+        "base": [
+          "Leather",
+          "Patchouli",
+          "Amber",
+          "Brazilian Rosewood",
+          "Vetiver"
+        ]
+      },
+      "notes": {
+        "top": [
+          "Oud",
+          "Açafrão",
+          "Lavanda",
+          "Bergamota"
+        ],
+        "heart": [
+          "Fava-tonka",
+          "Sândalo",
+          "Cedro",
+          "Gerânio",
+          "Tabaco"
+        ],
+        "base": [
+          "Couro",
+          "Patchouli",
+          "Âmbar",
+          "Pau-rosa",
+          "Vetiver"
+        ]
+      },
+      "unknownNotes": [],
+      "review": "ok",
+      "fetchedAt": "2026-10-25T21:49:28.223Z"
+    },
+    {
+      "url": "https://afnan.com/products/9-pm-pour-femme",
+      "name": "9 PM - Pour Femme",
+      "sku": "7742187274333",
+      "size": "100 ML",
+      "gender": "Feminino",
+      "notesRaw": "Top Notes:\nRaspberry, Apple, Violet and Orange\nMiddle Notes:\nRose, Peony, Iris and Jasmine\nBase Notes:\nCedar, Cypress, Pine Tree and Amber\n9 PM - Pour Femme\nSale price\nDhs. 60.00\nAdd to cart\nChoose options\nClose\nPrevious\nNext\nGo to item 1\nGo to item 2\nGo to item 3\nGo to item 4\nGo to item 5\n9 PM - Pour Femme\nSale price\nDhs. 60.00\nAFNAN PERFUMES\n9 PM - Pour Femme\nType:\nEau De Perfum\nVolume:\n100 ML\nOrientation:\nPour Femme\nEau De Perfum / 100 ML / Pour Femme - Dhs. 60.00\nVariant\nView details\nOFFICIAL AFNAN STORES\nAVAILABLE IN REGIONS\nAfnan Perfumes UAE\nAfnan Perfumes USA\nAfnan Perfumes UK\nAfnan Pe",
+      "notesEn": {
+        "top": [
+          "Raspberry",
+          "Apple",
+          "Violet",
+          "Orange"
+        ],
+        "heart": [
+          "Rose",
+          "Peony",
+          "Iris",
+          "Jasmine"
+        ],
+        "base": [
+          "Cedar",
+          "Cypress",
+          "Pine Tree",
+          "Amber"
+        ]
+      },
+      "notes": {
+        "top": [
+          "Framboesa",
+          "Maçã",
+          "Violeta",
+          "Laranja"
+        ],
+        "heart": [
+          "Rosa",
+          "Peônia",
+          "Íris",
+          "Jasmim"
+        ],
+        "base": [
+          "Cedro",
+          "Cipreste",
+          "Pinho",
+          "Âmbar"
+        ]
+      },
+      "unknownNotes": [],
+      "review": "ok",
+      "fetchedAt": "2026-10-25T21:49:38.886Z"
+    },
+    {
+      "url": "https://afnan.com/products/9-am-pour-femme",
+      "name": "9 AM - Pour Femme",
+      "sku": "7742187634781",
+      "size": "100 ML",
+      "gender": "Feminino",
+      "notesRaw": "Top Notes:\nMandarin, Bergamot and Grapefruit\nMiddle Notes:\nBlack Currant and Raspberry\nBase Notes:\nMusk, Orange and Amber\nFragrance Care & Storage\nKeep your fragrance in a cool, dry place away from direct sunlight and extreme temperatures. Always close the bottle tightly when not in use.\nTips for Best Experience\nLayer with matching body products for enhanced effect, experiment with different application spots for day or evening wear, and rotate fragrances to keep your senses engaged.\n9 AM - Pour Femme\nSale price\nDhs. 60.00\nAdd to cart\nChoose options\nClose\nPrevious\nNext\nGo to item 1\nGo to item ",
+      "notesEn": {
+        "top": [
+          "Mandarin",
+          "Bergamot",
+          "Grapefruit"
+        ],
+        "heart": [
+          "Black Currant",
+          "Raspberry"
+        ],
+        "base": [
+          "Musk",
+          "Orange",
+          "Amber"
+        ]
+      },
+      "notes": {
+        "top": [
+          "Tangerina",
+          "Bergamota",
+          "Toranja"
+        ],
+        "heart": [
+          "Cassis",
+          "Framboesa"
+        ],
+        "base": [
+          "Almíscar",
+          "Laranja",
+          "Âmbar"
+        ]
+      },
+      "unknownNotes": [],
+      "review": "ok",
+      "fetchedAt": "2026-10-25T21:49:49.564Z"
+    },
+    {
+      "url": "https://afnan.com/products/rare-passion",
+      "name": "Rare Passion",
+      "sku": "7742189043805",
+      "size": "100 ML",
+      "gender": null,
+      "notesRaw": "Top Notes:\nOrange, Musk and Rose\nMiddle Notes:\nAmber, Woods and Vanilla\nBase Notes:\nRose, Musk and Orange Blossom\nRARE PASSION\nSale price\nDhs. 50.00\nAdd to cart\nChoose options\nClose\nPrevious\nNext\nGo to item 1\nGo to item 2\nRARE PASSION\nSale price\nDhs. 50.00\nAFNAN PERFUMES\nRARE PASSION\nType:\nEau De Perfum\nVolume:\n100 ML\nOrientation:\nPour Femme\nEau De Perfum / 100 ML / Pour Femme - Dhs. 50.00\nVariant\nView details\nOFFICIAL AFNAN STORES\nAVAILABLE IN REGIONS\nAfnan Perfumes UAE\nAfnan Perfumes USA\nAfnan Perfumes UK\nAfnan Perfumes Qatar\nAfnan Perfumes India\nAfnan Perfumes Egypt\nAfnan Perfumes Lebanon\nA",
+      "notesEn": {
+        "top": [
+          "Orange",
+          "Musk",
+          "Rose"
+        ],
+        "heart": [
+          "Amber",
+          "Woods",
+          "Vanilla"
+        ],
+        "base": [
+          "Rose",
+          "Musk",
+          "Orange Blossom"
+        ]
+      },
+      "notes": {
+        "top": [
+          "Laranja",
+          "Almíscar",
+          "Rosa"
+        ],
+        "heart": [
+          "Âmbar",
+          "Notas amadeiradas",
+          "Baunilha"
+        ],
+        "base": [
+          "Rosa",
+          "Almíscar",
+          "Flor de laranjeira"
+        ]
+      },
+      "unknownNotes": [],
+      "review": "ok",
+      "fetchedAt": "2026-10-25T21:50:00.216Z"
+    },
+    {
+      "url": "https://afnan.com/products/portrait-abstract",
+      "name": "Portrait Abstract",
+      "sku": "7742191698013",
+      "size": "100 ML",
+      "gender": null,
+      "notesRaw": "Top Notes:\nVetiver, Rhubarb and Incense\nMiddle Notes:\nRose and Tonka Bean\nBase Notes:\nSandalwood, Leather, Cedarwood and Amber\nPORTRAIT ABSTRACT\nSale price\nDhs. 65.00\nAdd to cart\nChoose options\nClose\nPrevious\nNext\nGo to item 1\nGo to item 2\nPORTRAIT ABSTRACT\nSale price\nDhs. 65.00\nAFNAN PERFUMES\nPORTRAIT ABSTRACT\nType:\nEau De Perfum\nVolume:\n100 ML\nOrientation:\nUnisex\nEau De Perfum / 100 ML / Unisex - Dhs. 65.00\nVariant\nView details\nOFFICIAL AFNAN STORES\nAVAILABLE IN REGIONS\nAfnan Perfumes UAE\nAfnan Perfumes USA\nAfnan Perfumes UK\nAfnan Perfumes Qatar\nAfnan Perfumes India\nAfnan Perfumes Egypt\nAfna",
+      "notesEn": {
+        "top": [
+          "Vetiver",
+          "Rhubarb",
+          "Incense"
+        ],
+        "heart": [
+          "Rose",
+          "Tonka Bean"
+        ],
+        "base": [
+          "Sandalwood",
+          "Leather",
+          "Cedarwood",
+          "Amber"
+        ]
+      },
+      "notes": {
+        "top": [
+          "Vetiver",
+          "Ruibarbo",
+          "Incenso"
+        ],
+        "heart": [
+          "Rosa",
+          "Fava-tonka"
+        ],
+        "base": [
+          "Sândalo",
+          "Couro",
+          "Cedro",
+          "Âmbar"
+        ]
+      },
+      "unknownNotes": [],
+      "review": "ok",
+      "fetchedAt": "2026-10-25T21:50:11.019Z"
+    },
+    {
+      "url": "https://afnan.com/products/portrait-revival",
+      "name": "Portrait Revival",
+      "sku": "7742192123997",
+      "size": "100 ML",
+      "gender": null,
+      "notesRaw": "Top Notes:\nCinnamon, Honey, Saffron and Incense\nMiddle Notes:\nTonka Bean, Oak and Praline\nBase Notes:\nDates, Sandalwood, Caramel and Dark Chocolate\nPORTRAIT REVIVAL\nSale price\nDhs. 65.00\nAdd to cart\nChoose options\nClose\nPrevious\nNext\nGo to item 1\nGo to item 2\nPORTRAIT REVIVAL\nSale price\nDhs. 65.00\nAFNAN PERFUMES\nPORTRAIT REVIVAL\nType:\nEau De Perfum\nVolume:\n100 ML\nOrientation:\nUnisex\nEau De Perfum / 100 ML / Unisex - Dhs. 65.00\nVariant\nView details\nOFFICIAL AFNAN STORES\nAVAILABLE IN REGIONS\nAfnan Perfumes UAE\nAfnan Perfumes USA\nAfnan Perfumes UK\nAfnan Perfumes Qatar\nAfnan Perfumes India\nAfnan P",
+      "notesEn": {
+        "top": [
+          "Cinnamon",
+          "Honey",
+          "Saffron",
+          "Incense"
+        ],
+        "heart": [
+          "Tonka Bean",
+          "Oak",
+          "Praline"
+        ],
+        "base": [
+          "Dates",
+          "Sandalwood",
+          "Caramel",
+          "Dark Chocolate"
+        ]
+      },
+      "notes": {
+        "top": [
+          "Canela",
+          "Mel",
+          "Açafrão",
+          "Incenso"
+        ],
+        "heart": [
+          "Fava-tonka",
+          "Carvalho",
+          "Praliné"
+        ],
+        "base": [
+          "Tâmara",
+          "Sândalo",
+          "Caramelo",
+          "Chocolate"
+        ]
+      },
+      "unknownNotes": [],
+      "review": "ok",
+      "fetchedAt": "2026-10-25T21:50:21.685Z"
+    },
+    {
+      "url": "https://afnan.com/products/oud-rising",
+      "name": "Oud Rising",
+      "sku": "7742192517213",
+      "size": "80 ML",
+      "gender": null,
+      "notesRaw": "Top Notes:\nAgarwood, Cypress and Orange Blossom\nMiddle Notes:\nBrazilian Rosewood, Cardamom and Amber\nBase Notes:\nVetiver, Musk and Tonka Bean\nOUD RISING\nSale price\nDhs. 75.00\nAdd to cart\nChoose options\nClose\nPrevious\nNext\nGo to item 1\nGo to item 2\nOUD RISING\nSale price\nDhs. 75.00\nAFNAN PERFUMES\nOUD RISING\nType:\nEau De Perfum\nVolume:\n80 ML\nOrientation:\nUnisex\nEau De Perfum / 80 ML / Unisex - Dhs. 75.00\nVariant\nView details\nOFFICIAL AFNAN STORES\nAVAILABLE IN REGIONS\nAfnan Perfumes UAE\nAfnan Perfumes USA\nAfnan Perfumes UK\nAfnan Perfumes Qatar\nAfnan Perfumes India\nAfnan Perfumes Egypt\nAfnan Perfum",
+      "notesEn": {
+        "top": [
+          "Agarwood",
+          "Cypress",
+          "Orange Blossom"
+        ],
+        "heart": [
+          "Brazilian Rosewood",
+          "Cardamom",
+          "Amber"
+        ],
+        "base": [
+          "Vetiver",
+          "Musk",
+          "Tonka Bean"
+        ]
+      },
+      "notes": {
+        "top": [
+          "Oud",
+          "Cipreste",
+          "Flor de laranjeira"
+        ],
+        "heart": [
+          "Pau-rosa",
+          "Cardamomo",
+          "Âmbar"
+        ],
+        "base": [
+          "Vetiver",
+          "Almíscar",
+          "Fava-tonka"
+        ]
+      },
+      "unknownNotes": [],
+      "review": "ok",
+      "fetchedAt": "2026-10-25T21:50:32.406Z"
+    },
+    {
+      "url": "https://afnan.com/products/mystique-bouquet",
+      "name": "Mystique Bouquet",
+      "sku": "7742192910429",
+      "size": "80 ML",
+      "gender": null,
+      "notesRaw": "Top Notes:\nWhite Peach, Mandarin Orange, Bergamot and Litchi\nMiddle Notes:\nOrange Blossom, Vetiver, Mahonia and Peony\nBase Notes:\nAmbroxan, Musk, Vanilla and Oak Moss\nFragrance Care & Storage\nKeep your fragrance in a cool, dry place away from direct sunlight and extreme temperatures. Always close the bottle tightly when not in use.\nTips for Best Experience\nLayer with matching body products for enhanced effect, experiment with different application spots for day or evening wear, and rotate fragrances to keep your senses engaged.\nMYSTIQUE BOUQUET\nSale price\nDhs. 85.00\nAdd to cart\nChoose options\n",
+      "notesEn": {
+        "top": [
+          "White Peach",
+          "Mandarin Orange",
+          "Bergamot",
+          "Litchi"
+        ],
+        "heart": [
+          "Orange Blossom",
+          "Vetiver",
+          "Mahonia",
+          "Peony"
+        ],
+        "base": [
+          "Ambroxan",
+          "Musk",
+          "Vanilla",
+          "Oak Moss"
+        ]
+      },
+      "notes": {
+        "top": [
+          "Pêssego",
+          "Tangerina",
+          "Bergamota",
+          "Lichia"
+        ],
+        "heart": [
+          "Flor de laranjeira",
+          "Vetiver",
+          "Mahonia",
+          "Peônia"
+        ],
+        "base": [
+          "Ambroxan",
+          "Almíscar",
+          "Baunilha",
+          "Musgo de carvalho"
+        ]
+      },
+      "unknownNotes": [],
+      "review": "ok",
+      "fetchedAt": "2026-10-25T21:50:43.137Z"
+    },
+    {
+      "url": "https://afnan.com/products/supremacy-tapis-rouge",
+      "name": "Supremacy Tapis Rouge -  Luxury Collection",
+      "sku": "7742193270877",
+      "size": "90 ML",
+      "gender": null,
+      "notesRaw": "Top Notes:\nBlack Cherry, White Peach, and Litchi\nMiddle Notes:\nPlum, Rose, Mahonia, and Jasmine\nBase Notes:\nCloves, Vetiver, and Peony\nSUPREMACY TAPIS ROUGE -  LUXURY COLLECTION\nSale price\nDhs. 80.00\nAdd to cart\nChoose options\nClose\nPrevious\nNext\nGo to item 1\nGo to item 2\nSUPREMACY TAPIS ROUGE -  LUXURY COLLECTION\nSale price\nDhs. 80.00\nAFNAN PERFUMES\nSUPREMACY TAPIS ROUGE -  LUXURY COLLECTION\nType:\nEau De Perfum\nVolume:\n90 ML\nOrientation:\nPour Femme\nEau De Perfum / 90 ML / Pour Femme - Dhs. 80.00\nVariant\nView details\nOFFICIAL AFNAN STORES\nAVAILABLE IN REGIONS\nAfnan Perfumes UAE\nAfnan Perfumes ",
+      "notesEn": {
+        "top": [
+          "Black Cherry",
+          "White Peach",
+          "Litchi"
+        ],
+        "heart": [
+          "Plum",
+          "Rose",
+          "Mahonia",
+          "Jasmine"
+        ],
+        "base": [
+          "Cloves",
+          "Vetiver",
+          "Peony"
+        ]
+      },
+      "notes": {
+        "top": [
+          "Cereja-negra",
+          "Pêssego",
+          "Lichia"
+        ],
+        "heart": [
+          "Ameixa",
+          "Rosa",
+          "Mahonia",
+          "Jasmim"
+        ],
+        "base": [
+          "Cravo-da-índia",
+          "Vetiver",
+          "Peônia"
+        ]
+      },
+      "unknownNotes": [],
+      "review": "ok",
+      "fetchedAt": "2026-10-25T21:50:53.839Z"
+    },
+    {
+      "url": "https://afnan.com/products/supremacy-gala-luxury-collection",
+      "name": "Supremacy Gala - Luxury Collection",
+      "sku": "7742193631325",
+      "size": "90 ML",
+      "gender": null,
+      "notesRaw": "Top Notes:\nÂ Pear Blossom, Red Berries and Mandarin Orange\nMiddle Notes:\nGardenia, Frangipani and Honeysuckle\nBase Notes:\nVanilla, Brown Sugar, Caramel, Praline and Patchouli\nSUPREMACY GALA - LUXURY COLLECTION\nSale price\nDhs. 80.00\nAdd to cart\nChoose options\nClose\nPrevious\nNext\nGo to item 1\nGo to item 2\nSUPREMACY GALA - LUXURY COLLECTION\nSale price\nDhs. 80.00\nAFNAN PERFUMES\nSUPREMACY GALA - LUXURY COLLECTION\nType:\nEau De Perfum\nVolume:\n90 ML\nOrientation:\nPour Femme\nEau De Perfum / 90 ML / Pour Femme - Dhs. 80.00\nVariant\nView details\nOFFICIAL AFNAN STORES\nAVAILABLE IN REGIONS\nAfnan Perfumes UAE",
+      "notesEn": {
+        "top": [
+          "Pear Blossom",
+          "Red Berries",
+          "Mandarin Orange"
+        ],
+        "heart": [
+          "Gardenia",
+          "Frangipani",
+          "Honeysuckle"
+        ],
+        "base": [
+          "Vanilla",
+          "Brown Sugar",
+          "Caramel",
+          "Praline",
+          "Patchouli"
+        ]
+      },
+      "notes": {
+        "top": [
+          "Flor de pereira",
+          "Frutas vermelhas",
+          "Tangerina"
+        ],
+        "heart": [
+          "Gardênia",
+          "Frangipani",
+          "Madressilva"
+        ],
+        "base": [
+          "Baunilha",
+          "Açúcar mascavo",
+          "Caramelo",
+          "Praliné",
+          "Patchouli"
+        ]
+      },
+      "unknownNotes": [],
+      "review": "ok",
+      "fetchedAt": "2026-10-25T21:51:04.518Z"
+    },
+    {
+      "url": "https://afnan.com/products/supremacy-silver-150ml",
+      "name": "Supremacy Silver",
+      "sku": "7742194024541",
+      "size": "150 ML",
+      "gender": null,
+      "notesRaw": "Top Notes:\nApple, Bergamot and Oak Moss\nMiddle Notes:\nPineapple, Patchouli and Jasmine\nBase Notes:\nMusk, Ambergris and Birch\nSUPREMACY SILVER - 150 ML\nSale price\nDhs. 50.00\nAdd to cart\nChoose options\nClose\nPrevious\nNext\nGo to item 1\nGo to item 2\nSUPREMACY SILVER - 150 ML\nSale price\nDhs. 50.00\nAFNAN PERFUMES\nSUPREMACY SILVER - 150 ML\nType:\nEau De Perfum\nVolume:\n150 ML\nOrientation:\nPour Homme\nEau De Perfum / 150 ML / Pour Homme - Dhs. 50.00\nVariant\nView details\nOFFICIAL AFNAN STORES\nAVAILABLE IN REGIONS\nAfnan Perfumes UAE\nAfnan Perfumes USA\nAfnan Perfumes UK\nAfnan Perfumes Qatar\nAfnan Perfumes I",
+      "notesEn": {
+        "top": [
+          "Apple",
+          "Bergamot",
+          "Oak Moss"
+        ],
+        "heart": [
+          "Pineapple",
+          "Patchouli",
+          "Jasmine"
+        ],
+        "base": [
+          "Musk",
+          "Ambergris",
+          "Birch"
+        ]
+      },
+      "notes": {
+        "top": [
+          "Maçã",
+          "Bergamota",
+          "Musgo de carvalho"
+        ],
+        "heart": [
+          "Abacaxi",
+          "Patchouli",
+          "Jasmim"
+        ],
+        "base": [
+          "Almíscar",
+          "Âmbar-gris",
+          "Bétula"
+        ]
+      },
+      "unknownNotes": [],
+      "review": "ok",
+      "fetchedAt": "2026-10-25T21:51:15.251Z"
+    },
+    {
+      "url": "https://afnan.com/products/supremacy-not-only-intense-luxury-collection-150-ml",
+      "name": "Supremacy Not Only Intense - Luxury Collection",
+      "sku": "7742194450525",
+      "size": "150 ML",
+      "gender": null,
+      "notesRaw": "Top Notes:\nBergamot, Apple and Black Currant\nMiddle Notes:\nLavender, Patchouli and Oak Moss\nBase Notes:\nSaffron, Musk and Ambergris\nSUPREMACY NOT ONLY INTENSE - LUXURY COLLECTION - 150 ML\nSale price\nDhs. 80.00\nAdd to cart\nChoose options\nClose\nPrevious\nNext\nGo to item 1\nGo to item 2\nSUPREMACY NOT ONLY INTENSE - LUXURY COLLECTION - 150 ML\nSale price\nDhs. 80.00\nAFNAN PERFUMES\nSUPREMACY NOT ONLY INTENSE - LUXURY COLLECTION - 150 ML\nType:\nEXTRAIT DE PARFUM\nVolume:\n150 ML\nOrientation:\nPour Homme\nEXTRAIT DE PARFUM / 150 ML / Pour Homme - Dhs. 80.00\nVariant\nView details\nOFFICIAL AFNAN STORES\nAVAILABLE",
+      "notesEn": {
+        "top": [
+          "Bergamot",
+          "Apple",
+          "Black Currant"
+        ],
+        "heart": [
+          "Lavender",
+          "Patchouli",
+          "Oak Moss"
+        ],
+        "base": [
+          "Saffron",
+          "Musk",
+          "Ambergris"
+        ]
+      },
+      "notes": {
+        "top": [
+          "Bergamota",
+          "Maçã",
+          "Cassis"
+        ],
+        "heart": [
+          "Lavanda",
+          "Patchouli",
+          "Musgo de carvalho"
+        ],
+        "base": [
+          "Açafrão",
+          "Almíscar",
+          "Âmbar-gris"
+        ]
+      },
+      "unknownNotes": [],
+      "review": "ok",
+      "fetchedAt": "2026-10-25T21:51:25.891Z"
+    },
+    {
+      "url": "https://afnan.com/products/supremacy-in-oud-luxury-collection-150ml",
+      "name": "Supremacy In Oud -  Luxury Collection",
+      "sku": "7742194778205",
+      "size": "150 ML",
+      "gender": null,
+      "notesRaw": "Top Notes:\nSaffron, Lavender and Nutmeg\nMiddle Notes:\nAgarwood and Sweet\nBase Notes:\nMusk and Patchouli\nSUPREMACY IN OUD -  LUXURY COLLECTION - 150ML\nSale price\nDhs. 80.00\nAdd to cart\nChoose options\nClose\nPrevious\nNext\nGo to item 1\nGo to item 2\nSUPREMACY IN OUD -  LUXURY COLLECTION - 150ML\nSale price\nDhs. 80.00\nAFNAN PERFUMES\nSUPREMACY IN OUD -  LUXURY COLLECTION - 150ML\nType:\nEXTRAIT DE PARFUM\nVolume:\n150 ML\nOrientation:\nUnisex\nEXTRAIT DE PARFUM / 150 ML / Unisex - Dhs. 80.00\nVariant\nView details\nOFFICIAL AFNAN STORES\nAVAILABLE IN REGIONS\nAfnan Perfumes UAE\nAfnan Perfumes USA\nAfnan Perfumes U",
+      "notesEn": {
+        "top": [
+          "Saffron",
+          "Lavender",
+          "Nutmeg"
+        ],
+        "heart": [
+          "Agarwood",
+          "Sweet"
+        ],
+        "base": [
+          "Musk",
+          "Patchouli"
+        ]
+      },
+      "notes": {
+        "top": [
+          "Açafrão",
+          "Lavanda",
+          "Noz-moscada"
+        ],
+        "heart": [
+          "Oud",
+          "Notas doces"
+        ],
+        "base": [
+          "Almíscar",
+          "Patchouli"
+        ]
+      },
+      "unknownNotes": [],
+      "review": "ok",
+      "fetchedAt": "2026-10-25T21:51:36.587Z"
+    },
+    {
+      "url": "https://afnan.com/products/cherry-bouquet",
+      "name": "Cherry Bouquet",
+      "sku": "7742195073117",
+      "size": "80 ML",
+      "gender": null,
+      "notesRaw": "Top Notes:\nBlack Cherry, Cherry Liqueur, Almond, and Sour Cherry\nMiddle Notes:\nPlum, Damask Rose, Jasmine Sambac, and Raspberry\nBase Notes:\nCloves, Cedar, Patchouli, Vetiver, and Vanilla\nCHERRY BOUQUET\nSale price\nDhs. 65.00\nAdd to cart\nChoose options\nClose\nPrevious\nNext\nGo to item 1\nGo to item 2\nCHERRY BOUQUET\nSale price\nDhs. 65.00\nAFNAN PERFUMES\nCHERRY BOUQUET\nType:\nEau De Perfume\nOrientation:\nPour Femme\nVolume:\n80 ML\nEau De Perfume / Pour Femme / 80 ML - Dhs. 65.00\nVariant\nView details\nOFFICIAL AFNAN STORES\nAVAILABLE IN REGIONS\nAfnan Perfumes UAE\nAfnan Perfumes USA\nAfnan Perfumes UK\nAfnan Pe",
+      "notesEn": {
+        "top": [
+          "Black Cherry",
+          "Cherry Liqueur",
+          "Almond",
+          "Sour Cherry"
+        ],
+        "heart": [
+          "Plum",
+          "Damask Rose",
+          "Jasmine Sambac",
+          "Raspberry"
+        ],
+        "base": [
+          "Cloves",
+          "Cedar",
+          "Patchouli",
+          "Vetiver",
+          "Vanilla"
+        ]
+      },
+      "notes": {
+        "top": [
+          "Cereja-negra",
+          "Licor de cereja",
+          "Amêndoa",
+          "Cereja"
+        ],
+        "heart": [
+          "Ameixa",
+          "Rosa damascena",
+          "Jasmim sambac",
+          "Framboesa"
+        ],
+        "base": [
+          "Cravo-da-índia",
+          "Cedro",
+          "Patchouli",
+          "Vetiver",
+          "Baunilha"
+        ]
+      },
+      "unknownNotes": [],
+      "review": "ok",
+      "fetchedAt": "2026-10-25T21:51:47.205Z"
+    },
+    {
+      "url": "https://afnan.com/products/souvenir-blooming-bliss",
+      "name": "Souvenir Blooming Bliss",
+      "sku": "7742195695709",
+      "size": "100 ML",
+      "gender": null,
+      "notesRaw": "Top Notes:\nVanilla\nMiddle Notes:\nCoconut, Palo Santo and Caramel\nBase Notes:\nWhite Musk and Sandalwood\nSOUVENIR BLOOMING BLISS\nSale price\nDhs. 65.00\nAdd to cart\nChoose options\nClose\nPrevious\nNext\nGo to item 1\nGo to item 2\nSOUVENIR BLOOMING BLISS\nSale price\nDhs. 65.00\nAFNAN PERFUMES\nSOUVENIR BLOOMING BLISS\nType::\nEau De Perfum\nVolume:\n100 ML\nOrientation::\nPour Femme\nEau De Perfum / 100 ML / Pour Femme - Dhs. 65.00\nVariant\nView details\nOFFICIAL AFNAN STORES\nAVAILABLE IN REGIONS\nAfnan Perfumes UAE\nAfnan Perfumes USA\nAfnan Perfumes UK\nAfnan Perfumes Qatar\nAfnan Perfumes India\nAfnan Perfumes Egypt\n",
+      "notesEn": {
+        "top": [
+          "Vanilla"
+        ],
+        "heart": [
+          "Coconut",
+          "Palo Santo",
+          "Caramel"
+        ],
+        "base": [
+          "White Musk",
+          "Sandalwood"
+        ]
+      },
+      "notes": {
+        "top": [
+          "Baunilha"
+        ],
+        "heart": [
+          "Coco",
+          "Palo santo",
+          "Caramelo"
+        ],
+        "base": [
+          "Almíscar branco",
+          "Sândalo"
+        ]
+      },
+      "unknownNotes": [],
+      "review": "ok",
+      "fetchedAt": "2026-10-25T21:51:57.828Z"
+    },
+    {
+      "url": "https://afnan.com/products/9-am",
+      "name": "9 Am",
+      "sku": "7742197629021",
+      "size": "100 ML",
+      "gender": null,
+      "notesRaw": "Top Notes:\nMandarin, Cedrat, Cardamom and Pink Pepper\nMiddle Notes:\nLavender, Orange Blossom, Rose and Green Apple\nBase Notes:\nCedarwood, Moss, Patchouli and Musk\n9 AM\nSale price\nDhs. 60.00\nAdd to cart\nChoose options\nClose\nPrevious\nNext\nGo to item 1\nGo to item 2\nGo to item 3\nGo to item 4\nGo to item 5\nGo to item 6\nGo to item 7\nGo to item 8\n9 AM\nSale price\nDhs. 60.00\nAFNAN PERFUMES\n9 AM\nType:\nEau De Perfum\nVolume:\n100 ML\nOrientation:\nUnisex\nEau De Perfum / 100 ML / Unisex - Dhs. 60.00\nVariant\nView details\nOFFICIAL AFNAN STORES\nAVAILABLE IN REGIONS\nAfnan Perfumes UAE\nAfnan Perfumes USA\nAfnan Perf",
+      "notesEn": {
+        "top": [
+          "Mandarin",
+          "Cedrat",
+          "Cardamom",
+          "Pink Pepper"
+        ],
+        "heart": [
+          "Lavender",
+          "Orange Blossom",
+          "Rose",
+          "Green Apple"
+        ],
+        "base": [
+          "Cedarwood",
+          "Moss",
+          "Patchouli",
+          "Musk"
+        ]
+      },
+      "notes": {
+        "top": [
+          "Tangerina",
+          "Cidra",
+          "Cardamomo",
+          "Pimenta-rosa"
+        ],
+        "heart": [
+          "Lavanda",
+          "Flor de laranjeira",
+          "Rosa",
+          "Maçã verde"
+        ],
+        "base": [
+          "Cedro",
+          "Musgo",
+          "Patchouli",
+          "Almíscar"
+        ]
+      },
+      "unknownNotes": [],
+      "review": "ok",
+      "fetchedAt": "2026-10-25T21:52:08.490Z"
+    },
+    {
+      "url": "https://afnan.com/products/9-am-dive",
+      "name": "9 AM Dive",
+      "sku": "7742198317149",
+      "size": "100 ML",
+      "gender": null,
+      "notesRaw": "Top Notes:\nLemon, Pink Pepper, Mint and Black Currant\nMiddle Notes:\nApple, Incense and Cedar\nBase Notes:\nPatchouli, Jasmine, Ginger and Sandalwood\nFragrance Care & Storage\nKeep your fragrance in a cool, dry place away from direct sunlight and extreme temperatures. Always close the bottle tightly when not in use.\nTips for Best Experience\nLayer with matching body products for enhanced effect, experiment with different application spots for day or evening wear, and rotate fragrances to keep your senses engaged.\n9 AM Dive\nSale price\nDhs. 60.00\nAdd to cart\nChoose options\nClose\nPrevious\nNext\nGo to i",
+      "notesEn": {
+        "top": [
+          "Lemon",
+          "Pink Pepper",
+          "Mint",
+          "Black Currant"
+        ],
+        "heart": [
+          "Apple",
+          "Incense",
+          "Cedar"
+        ],
+        "base": [
+          "Patchouli",
+          "Jasmine",
+          "Ginger",
+          "Sandalwood"
+        ]
+      },
+      "notes": {
+        "top": [
+          "Limão-siciliano",
+          "Pimenta-rosa",
+          "Menta",
+          "Cassis"
+        ],
+        "heart": [
+          "Maçã",
+          "Incenso",
+          "Cedro"
+        ],
+        "base": [
+          "Patchouli",
+          "Jasmim",
+          "Gengibre",
+          "Sândalo"
+        ]
+      },
+      "unknownNotes": [],
+      "review": "ok",
+      "fetchedAt": "2026-10-25T21:52:19.179Z"
+    },
+    {
+      "url": "https://afnan.com/products/9-pm",
+      "name": "9 Pm",
+      "sku": "7742198808669",
+      "size": "100 ML",
+      "gender": null,
+      "notesRaw": "Top Notes:\nBergamot, Lavandin, Cinnamon and Apple\nMiddle Notes:\nMuguet and Orange Blossom\nBase Notes:\nPatchouli, Amber, Vanilla and Tonka Bean\nFragrance Care & Storage\nKeep your fragrance in a cool, dry place away from direct sunlight and extreme temperatures. Always close the bottle tightly when not in use.\nTips for Best Experience\nLayer with matching body products for enhanced effect, experiment with different application spots for day or evening wear, and rotate fragrances to keep your senses engaged.\n9 PM\nSale price\nDhs. 60.00\nAdd to cart\nChoose options\nClose\nPrevious\nNext\nGo to item 1\nGo ",
+      "notesEn": {
+        "top": [
+          "Bergamot",
+          "Lavandin",
+          "Cinnamon",
+          "Apple"
+        ],
+        "heart": [
+          "Muguet",
+          "Orange Blossom"
+        ],
+        "base": [
+          "Patchouli",
+          "Amber",
+          "Vanilla",
+          "Tonka Bean"
+        ]
+      },
+      "notes": {
+        "top": [
+          "Bergamota",
+          "Lavanda",
+          "Canela",
+          "Maçã"
+        ],
+        "heart": [
+          "Lírio-do-vale",
+          "Flor de laranjeira"
+        ],
+        "base": [
+          "Patchouli",
+          "Âmbar",
+          "Baunilha",
+          "Fava-tonka"
+        ]
+      },
+      "unknownNotes": [],
+      "review": "ok",
+      "fetchedAt": "2026-10-25T21:52:29.997Z"
+    },
+    {
+      "url": "https://afnan.com/products/sandal-abiyad",
+      "name": "Abiyad Sandal",
+      "sku": "ABIYAD005",
+      "size": null,
+      "gender": null,
+      "notesRaw": "Top Notes:\nSandalwood and Balsamic\nMiddle Notes:\nAmber and Aromatic\nBase Notes:\nSandalwood and Powder\nABIYAD SANDAL\nSale price\nDhs. 50.00\nAdd to cart\nChoose options\nClose\nPrevious\nNext\nGo to item 1\nGo to item 2\nABIYAD SANDAL\nSale price\nDhs. 50.00\nAFNAN PERFUMES\nABIYAD SANDAL\nView details\nOFFICIAL AFNAN STORES\nAVAILABLE IN REGIONS\nAfnan Perfumes UAE\nAfnan Perfumes USA\nAfnan Perfumes UK\nAfnan Perfumes Qatar\nAfnan Perfumes India\nAfnan Perfumes Egypt\nAfnan Perfumes Czech\nAfnan Perfumes Spain\nAfnan Perfumes Germany\nAfnan Perfumes Italy\nAfnan Perfumes Oman\nAfnan Perfumes Austria\nAfnan Perfumes Franc",
+      "notesEn": {
+        "top": [
+          "Sandalwood",
+          "Balsamic"
+        ],
+        "heart": [
+          "Amber",
+          "Aromatic"
+        ],
+        "base": [
+          "Sandalwood",
+          "Powder"
+        ]
+      },
+      "notes": {
+        "top": [
+          "Sândalo",
+          "Notas balsâmicas"
+        ],
+        "heart": [
+          "Âmbar",
+          "Notas aromáticas"
+        ],
+        "base": [
+          "Sândalo",
+          "Notas atalcadas"
+        ]
+      },
+      "unknownNotes": [],
+      "review": "ok",
+      "fetchedAt": "2026-10-25T21:52:40.755Z"
+    },
+    {
+      "url": "https://afnan.com/products/musk-abiyad-cpo",
+      "name": "Abiyad Musk",
+      "sku": "ABIYAD004",
+      "size": null,
+      "gender": null,
+      "notesRaw": "Top Notes:\nRose and Musky\nMiddle Notes:\nMusky, Balsamic and Powder\nBase Notes:\nMusk and Sandalwood\nABIYAD MUSK\nSale price\nDhs. 40.00\nAdd to cart\nChoose options\nClose\nPrevious\nNext\nGo to item 1\nGo to item 2\nABIYAD MUSK\nSale price\nDhs. 40.00\nAFNAN PERFUMES\nABIYAD MUSK\nView details\nOFFICIAL AFNAN STORES\nAVAILABLE IN REGIONS\nAfnan Perfumes UAE\nAfnan Perfumes USA\nAfnan Perfumes UK\nAfnan Perfumes Qatar\nAfnan Perfumes India\nAfnan Perfumes Egypt\nAfnan Perfumes Lebanon\nAfnan Perfumes Czech\nAfnan Perfumes Spain\nAfnan Perfumes Germany\nAfnan Perfumes Italy\nAfnan Perfumes Oman\nAfnan Perfumes Austria\nAfnan ",
+      "notesEn": {
+        "top": [
+          "Rose",
+          "Musky"
+        ],
+        "heart": [
+          "Musky",
+          "Balsamic",
+          "Powder"
+        ],
+        "base": [
+          "Musk",
+          "Sandalwood"
+        ]
+      },
+      "notes": {
+        "top": [
+          "Rosa",
+          "Almíscar"
+        ],
+        "heart": [
+          "Almíscar",
+          "Notas balsâmicas",
+          "Notas atalcadas"
+        ],
+        "base": [
+          "Almíscar",
+          "Sândalo"
+        ]
+      },
+      "unknownNotes": [],
+      "review": "ok",
+      "fetchedAt": "2026-10-25T21:52:51.324Z"
+    },
+    {
+      "url": "https://afnan.com/products/fakhar-al-jamaal",
+      "name": "Fakhar Al Jamaal",
+      "sku": null,
+      "size": null,
+      "gender": null,
+      "notesRaw": "Top Notes:\nMango, Musk and Camelia\nMiddle Notes:\nPink Pepper, Sandalwood and Amber\nBase Notes:\nJasmine and Sweet.\nChoose options\nClose\nPrevious\nNext\nGo to item 1\nGo to item 2\nFAKHAR AL JAMAAL\nSale price\nDhs. 0.00\nAFNAN PERFUMES\nFAKHAR AL JAMAAL\nView details\nOFFICIAL AFNAN STORES\nAVAILABLE IN REGIONS\nAfnan Perfumes UAE\nAfnan Perfumes USA\nAfnan Perfumes UK\nAfnan Perfumes Qatar\nAfnan Perfumes India\nAfnan Perfumes Egypt\nAfnan Perfumes Czech\nAfnan Perfumes Spain\nAfnan Perfumes Germany\nAfnan Perfumes Italy\nAfnan Perfumes Oman\nAfnan Perfumes Austria\nAfnan Perfumes France\nAfnan Perfumes Jordan\nAfnan P",
+      "notesEn": {
+        "top": [
+          "Mango",
+          "Musk",
+          "Camelia"
+        ],
+        "heart": [
+          "Pink Pepper",
+          "Sandalwood",
+          "Amber"
+        ],
+        "base": [
+          "Jasmine",
+          "Sweet"
+        ]
+      },
+      "notes": {
+        "top": [
+          "Manga",
+          "Almíscar",
+          "Camélia"
+        ],
+        "heart": [
+          "Pimenta-rosa",
+          "Sândalo",
+          "Âmbar"
+        ],
+        "base": [
+          "Jasmim",
+          "Notas doces"
+        ]
+      },
+      "unknownNotes": [],
+      "review": "ok",
+      "fetchedAt": "2026-10-25T21:53:02.102Z"
+    },
+    {
+      "url": "https://afnan.com/products/adwaa-al-sharq",
+      "name": "Adwaa Al Sharq",
+      "sku": "ADWAA001",
+      "size": null,
+      "gender": null,
+      "notesRaw": "Top Notes:\nSaffron, Jasmine and Caramel\nMiddle Notes:\nAmberwood, Ambergris and Musk\nBase Notes:\nFir Resin, Cedar and Musk\nADWAA AL SHARQ\nSale price\nDhs. 50.00\nAdd to cart\nChoose options\nClose\nPrevious\nNext\nGo to item 1\nGo to item 2\nADWAA AL SHARQ\nSale price\nDhs. 50.00\nAFNAN PERFUMES\nADWAA AL SHARQ\nView details\nOFFICIAL AFNAN STORES\nAVAILABLE IN REGIONS\nAfnan Perfumes UAE\nAfnan Perfumes USA\nAfnan Perfumes UK\nAfnan Perfumes Qatar\nAfnan Perfumes India\nAfnan Perfumes Egypt\nAfnan Perfumes Czech\nAfnan Perfumes Spain\nAfnan Perfumes Germany\nAfnan Perfumes Italy\nAfnan Perfumes Oman\nAfnan Perfumes Austr",
+      "notesEn": {
+        "top": [
+          "Saffron",
+          "Jasmine",
+          "Caramel"
+        ],
+        "heart": [
+          "Amberwood",
+          "Ambergris",
+          "Musk"
+        ],
+        "base": [
+          "Fir Resin",
+          "Cedar",
+          "Musk"
+        ]
+      },
+      "notes": {
+        "top": [
+          "Açafrão",
+          "Jasmim",
+          "Caramelo"
+        ],
+        "heart": [
+          "Amberwood",
+          "Âmbar-gris",
+          "Almíscar"
+        ],
+        "base": [
+          "Bálsamo de abeto",
+          "Cedro",
+          "Almíscar"
+        ]
+      },
+      "unknownNotes": [],
+      "review": "ok",
+      "fetchedAt": "2026-10-25T21:53:12.760Z"
+    },
+    {
+      "url": "https://afnan.com/products/lilia",
+      "name": "Lilia",
+      "sku": null,
+      "size": null,
+      "gender": null,
+      "notesRaw": "Top Notes:\nJasmine and Amber\nMiddle Notes:\nTuberose and Musky\nBase Notes:\nBalsamic and Fruity\nChoose options\nClose\nPrevious\nNext\nGo to item 1\nGo to item 2\nLILIA\nSale price\nDhs. 0.00\nAFNAN PERFUMES\nLILIA\nView details\nOFFICIAL AFNAN STORES\nAVAILABLE IN REGIONS\nAfnan Perfumes UAE\nAfnan Perfumes USA\nAfnan Perfumes UK\nAfnan Perfumes Qatar\nAfnan Perfumes India\nAfnan Perfumes Egypt\nAfnan Perfumes Czech\nAfnan Perfumes Spain\nAfnan Perfumes Germany\nAfnan Perfumes Italy\nAfnan Perfumes Oman\nAfnan Perfumes Austria\nAfnan Perfumes France\nAfnan Perfumes Jordan\nAfnan Perfumes Kuwait\nAfnan Perfumes Romania\nAfna",
+      "notesEn": {
+        "top": [
+          "Jasmine",
+          "Amber"
+        ],
+        "heart": [
+          "Tuberose",
+          "Musky"
+        ],
+        "base": [
+          "Balsamic",
+          "Fruity"
+        ]
+      },
+      "notes": {
+        "top": [
+          "Jasmim",
+          "Âmbar"
+        ],
+        "heart": [
+          "Tuberosa",
+          "Almíscar"
+        ],
+        "base": [
+          "Notas balsâmicas",
+          "Notas frutadas"
+        ]
+      },
+      "unknownNotes": [],
+      "review": "ok",
+      "fetchedAt": "2026-10-25T21:53:23.397Z"
+    },
+    {
+      "url": "https://afnan.com/products/wardat-al-ushaq",
+      "name": "Ward Al Usshaq",
+      "sku": "wardat",
+      "size": null,
+      "gender": null,
+      "notesRaw": "Top Notes:\nFruity and Sweet\nMiddle Notes:\nAmber and Jasmine\nBase Notes:\nMusk and Floral\nWARD AL USSHAQ\nSale price\nDhs. 40.00\nAdd to cart\nChoose options\nClose\nPrevious\nNext\nGo to item 1\nGo to item 2\nWARD AL USSHAQ\nSale price\nDhs. 40.00\nAFNAN PERFUMES\nWARD AL USSHAQ\nView details\nOFFICIAL AFNAN STORES\nAVAILABLE IN REGIONS\nAfnan Perfumes UAE\nAfnan Perfumes USA\nAfnan Perfumes UK\nAfnan Perfumes Qatar\nAfnan Perfumes India\nAfnan Perfumes Egypt\nAfnan Perfumes Czech\nAfnan Perfumes Spain\nAfnan Perfumes Germany\nAfnan Perfumes Italy\nAfnan Perfumes Oman\nAfnan Perfumes Austria\nAfnan Perfumes France\nAfnan Per",
+      "notesEn": {
+        "top": [
+          "Fruity",
+          "Sweet"
+        ],
+        "heart": [
+          "Amber",
+          "Jasmine"
+        ],
+        "base": [
+          "Musk",
+          "Floral"
+        ]
+      },
+      "notes": {
+        "top": [
+          "Notas frutadas",
+          "Notas doces"
+        ],
+        "heart": [
+          "Âmbar",
+          "Jasmim"
+        ],
+        "base": [
+          "Almíscar",
+          "Notas florais"
+        ]
+      },
+      "unknownNotes": [],
+      "review": "ok",
+      "fetchedAt": "2026-10-25T21:53:34.123Z"
+    },
+    {
+      "url": "https://afnan.com/products/zarberjad",
+      "name": "Zabarjad",
+      "sku": "APZA0001",
+      "size": null,
+      "gender": null,
+      "notesRaw": "Top Notes:\nFresh, Sweet and Amber\nMiddle Notes:\nPeach, Woody and Musky\nBase Notes:\nHoney, Powder and Cedarwood\nZABARJAD\nSale price\nDhs. 50.00\nAdd to cart\nChoose options\nClose\nPrevious\nNext\nGo to item 1\nGo to item 2\nZABARJAD\nSale price\nDhs. 50.00\nAFNAN PERFUMES\nZABARJAD\nView details\nOFFICIAL AFNAN STORES\nAVAILABLE IN REGIONS\nAfnan Perfumes UAE\nAfnan Perfumes USA\nAfnan Perfumes UK\nAfnan Perfumes Qatar\nAfnan Perfumes India\nAfnan Perfumes Egypt\nAfnan Perfumes Czech\nAfnan Perfumes Spain\nAfnan Perfumes Germany\nAfnan Perfumes Italy\nAfnan Perfumes Oman\nAfnan Perfumes Austria\nAfnan Perfumes France\nAfna",
+      "notesEn": {
+        "top": [
+          "Fresh",
+          "Sweet",
+          "Amber"
+        ],
+        "heart": [
+          "Peach",
+          "Woody",
+          "Musky"
+        ],
+        "base": [
+          "Honey",
+          "Powder",
+          "Cedarwood"
+        ]
+      },
+      "notes": {
+        "top": [
+          "Notas frescas",
+          "Notas doces",
+          "Âmbar"
+        ],
+        "heart": [
+          "Pêssego",
+          "Notas amadeiradas",
+          "Almíscar"
+        ],
+        "base": [
+          "Mel",
+          "Notas atalcadas",
+          "Cedro"
+        ]
+      },
+      "unknownNotes": [],
+      "review": "ok",
+      "fetchedAt": "2026-10-25T21:53:44.758Z"
+    },
+    {
+      "url": "https://afnan.com/products/tasneem",
+      "name": "Tasneem",
+      "sku": "TASEEM001",
+      "size": null,
+      "gender": null,
+      "notesRaw": "Top Notes:\nPeach Blossom and Musk\nMiddle Notes:\nSweet and Amber\nBase Notes:\nMusky and Vanilla\nTASNEEM\nSale price\nDhs. 40.00\nAdd to cart\nChoose options\nClose\nPrevious\nNext\nGo to item 1\nGo to item 2\nTASNEEM\nSale price\nDhs. 40.00\nAFNAN PERFUMES\nTASNEEM\nView details\nOFFICIAL AFNAN STORES\nAVAILABLE IN REGIONS\nAfnan Perfumes UAE\nAfnan Perfumes USA\nAfnan Perfumes UK\nAfnan Perfumes Qatar\nAfnan Perfumes India\nAfnan Perfumes Egypt\nAfnan Perfumes Czech\nAfnan Perfumes Spain\nAfnan Perfumes Germany\nAfnan Perfumes Italy\nAfnan Perfumes Oman\nAfnan Perfumes Austria\nAfnan Perfumes France\nAfnan Perfumes Jordan\nAf",
+      "notesEn": {
+        "top": [
+          "Peach Blossom",
+          "Musk"
+        ],
+        "heart": [
+          "Sweet",
+          "Amber"
+        ],
+        "base": [
+          "Musky",
+          "Vanilla"
+        ]
+      },
+      "notes": {
+        "top": [
+          "Flor de pessegueiro",
+          "Almíscar"
+        ],
+        "heart": [
+          "Notas doces",
+          "Âmbar"
+        ],
+        "base": [
+          "Almíscar",
+          "Baunilha"
+        ]
+      },
+      "unknownNotes": [],
+      "review": "ok",
+      "fetchedAt": "2026-10-25T21:53:55.430Z"
+    },
+    {
+      "url": "https://afnan.com/products/musk-silver",
+      "name": "Silver Musk",
+      "sku": null,
+      "size": null,
+      "gender": null,
+      "notesRaw": "Top Notes:\nMusk\nMiddle Notes:\nM\nusk\nBase Notes:\nMusk and Powder\nChoose options\nClose\nPrevious\nNext\nGo to item 1\nGo to item 2\nSILVER MUSK\nSale price\nDhs. 0.00\nAfnan Perfumes\nSILVER MUSK\nView details\nOFFICIAL AFNAN STORES\nAVAILABLE IN REGIONS\nAfnan Perfumes UAE\nAfnan Perfumes USA\nAfnan Perfumes UK\nAfnan Perfumes Qatar\nAfnan Perfumes India\nAfnan Perfumes Egypt\nAfnan Perfumes Czech\nAfnan Perfumes Spain\nAfnan Perfumes Germany\nAfnan Perfumes Italy\nAfnan Perfumes Oman\nAfnan Perfumes Austria\nAfnan Perfumes France\nAfnan Perfumes Jordan\nAfnan Perfumes Kuwait\nAfnan Perfumes Romania\nAfnan Perfumes Saudi\nA",
+      "notesEn": {
+        "top": [
+          "Musk"
+        ],
+        "heart": [],
+        "base": [
+          "Musk",
+          "Powder"
+        ]
+      },
+      "notes": {
+        "top": [
+          "Almíscar"
+        ],
+        "heart": [],
+        "base": [
+          "Almíscar",
+          "Notas atalcadas"
+        ]
+      },
+      "unknownNotes": [],
+      "review": "ok",
+      "fetchedAt": "2026-10-25T21:54:06.231Z"
+    },
+    {
+      "url": "https://afnan.com/products/supremacy-collectors-edition",
+      "name": "Supremacy Collector'S Edition",
+      "sku": "7762647449693",
+      "size": "100 ML",
+      "gender": null,
+      "notesRaw": "Top Notes:\nPineapple, Bergamot, Apple and White Floral\nMiddle Notes:\nOrange Blossom, Birch and Amber\nBase Notes:\nOak Moss, Musk and Ambergris\nFragrance Care & Storage\nKeep your fragrance in a cool, dry place away from direct sunlight and extreme temperatures. Always close the bottle tightly when not in use.\nTips for Best Experience\nLayer with matching body products for enhanced effect, experiment with different application spots for day or evening wear, and rotate fragrances to keep your senses engaged.\nSUPREMACY COLLECTOR'S EDITION\nSale price\nDhs. 0.00\nAdd to cart\nChoose options\nClose\nPreviou",
+      "notesEn": {
+        "top": [
+          "Pineapple",
+          "Bergamot",
+          "Apple",
+          "White Floral"
+        ],
+        "heart": [
+          "Orange Blossom",
+          "Birch",
+          "Amber"
+        ],
+        "base": [
+          "Oak Moss",
+          "Musk",
+          "Ambergris"
+        ]
+      },
+      "notes": {
+        "top": [
+          "Abacaxi",
+          "Bergamota",
+          "Maçã",
+          "Flores brancas"
+        ],
+        "heart": [
+          "Flor de laranjeira",
+          "Bétula",
+          "Âmbar"
+        ],
+        "base": [
+          "Musgo de carvalho",
+          "Almíscar",
+          "Âmbar-gris"
+        ]
+      },
+      "unknownNotes": [],
+      "review": "ok",
+      "fetchedAt": "2026-10-25T21:54:16.920Z"
+    },
+    {
+      "url": "https://afnan.com/products/kiaana-angel",
+      "name": "Kiaana Angel",
+      "sku": "7762648694877",
+      "size": "100 ML",
+      "gender": null,
+      "notesRaw": "Top Notes:\nPistachio Gelato, and Italian Bergamot\nMiddle Notes:\nJasmine, Raspberry, White Peach, and Pear\nBase Notes:\nCedarwood, Sandalwood, and Tonka\nKiaana Angel\nSale price\nDhs. 150.00\nAdd to cart\nChoose options\nClose\nPrevious\nNext\nGo to item 1\nGo to item 2\nGo to item 3\nGo to item 4\nGo to item 5\nKiaana Angel\nSale price\nDhs. 150.00\nAFNAN PERFUMES\nKiaana Angel\nTYPE:\nEau De Parfum\nVolume:\n100 ML\nOrientation:\nPour Femme\nEau De Parfum / 100 ML / Pour Femme - Dhs. 150.00\nVariant\nView details\nOFFICIAL AFNAN STORES\nAVAILABLE IN REGIONS\nAfnan Perfumes UAE\nAfnan Perfumes USA\nAfnan Perfumes UK\nAfnan Pe",
+      "notesEn": {
+        "top": [
+          "Pistachio Gelato",
+          "Italian Bergamot"
+        ],
+        "heart": [
+          "Jasmine",
+          "Raspberry",
+          "White Peach",
+          "Pear"
+        ],
+        "base": [
+          "Cedarwood",
+          "Sandalwood",
+          "Tonka"
+        ]
+      },
+      "notes": {
+        "top": [
+          "Pistache",
+          "Bergamota"
+        ],
+        "heart": [
+          "Jasmim",
+          "Framboesa",
+          "Pêssego",
+          "Pera"
+        ],
+        "base": [
+          "Cedro",
+          "Sândalo",
+          "Fava-tonka"
+        ]
+      },
+      "unknownNotes": [],
+      "review": "ok",
+      "fetchedAt": "2026-10-25T21:54:27.603Z"
+    },
+    {
+      "url": "https://afnan.com/products/kiaana-crush",
+      "name": "Kiaana Crush",
+      "sku": "7762648924253",
+      "size": "100 ML",
+      "gender": null,
+      "notesRaw": "Top Notes:\nSaffron\nMiddle Notes:\nPassionfruit, Patchouli and Agarwood\nBase Notes:\nMadagascar Vanilla, Ambroxan, Musk, Cedarwood and Incense\nKiaana Crush\nSale price\nDhs. 150.00\nAdd to cart\nChoose options\nClose\nPrevious\nNext\nGo to item 1\nGo to item 2\nGo to item 3\nGo to item 4\nGo to item 5\nKiaana Crush\nSale price\nDhs. 150.00\nAFNAN PERFUMES\nKiaana Crush\nTYPE:\nEau De Parfum\nVolume:\n100 ML\nOrientation:\nPour Femme\nEau De Parfum / 100 ML / Pour Femme - Dhs. 150.00\nVariant\nView details\nOFFICIAL AFNAN STORES\nAVAILABLE IN REGIONS\nAfnan Perfumes UAE\nAfnan Perfumes USA\nAfnan Perfumes UK\nAfnan Perfumes Qata",
+      "notesEn": {
+        "top": [
+          "Saffron"
+        ],
+        "heart": [
+          "Passionfruit",
+          "Patchouli",
+          "Agarwood"
+        ],
+        "base": [
+          "Madagascar Vanilla",
+          "Ambroxan",
+          "Musk",
+          "Cedarwood",
+          "Incense"
+        ]
+      },
+      "notes": {
+        "top": [
+          "Açafrão"
+        ],
+        "heart": [
+          "Maracujá",
+          "Patchouli",
+          "Oud"
+        ],
+        "base": [
+          "Baunilha de Madagascar",
+          "Ambroxan",
+          "Almíscar",
+          "Cedro",
+          "Incenso"
+        ]
+      },
+      "unknownNotes": [],
+      "review": "ok",
+      "fetchedAt": "2026-10-25T21:54:38.346Z"
+    },
+    {
+      "url": "https://afnan.com/products/9-pm-rebel",
+      "name": "9 PM Rebel",
+      "sku": "7766613000285",
+      "size": "100 ML",
+      "gender": null,
+      "notesRaw": "Top Notes:\nMandarin, Pineapple and Granny Smith\nMiddle Notes:\nCedarwood, Oakmoss and Vanilla\nBase Notes:\nCaramel, Dry woods, Ambergris and Musk\nFragrance Care & Storage\nKeep your fragrance in a cool, dry place away from direct sunlight and extreme temperatures. Always close the bottle tightly when not in use.\nTips for Best Experience\nLayer with matching body products for enhanced effect, experiment with different application spots for day or evening wear, and rotate fragrances to keep your senses engaged.\n9 PM Rebel\nSale price\nDhs. 120.00\nAdd to cart\nChoose options\nClose\nPrevious\nNext\nGo to it",
+      "notesEn": {
+        "top": [
+          "Mandarin",
+          "Pineapple",
+          "Granny Smith"
+        ],
+        "heart": [
+          "Cedarwood",
+          "Oakmoss",
+          "Vanilla"
+        ],
+        "base": [
+          "Caramel",
+          "Dry woods",
+          "Ambergris",
+          "Musk"
+        ]
+      },
+      "notes": {
+        "top": [
+          "Tangerina",
+          "Abacaxi",
+          "Maçã verde"
+        ],
+        "heart": [
+          "Cedro",
+          "Musgo de carvalho",
+          "Baunilha"
+        ],
+        "base": [
+          "Caramelo",
+          "Notas amadeiradas",
+          "Âmbar-gris",
+          "Almíscar"
+        ]
+      },
+      "unknownNotes": [],
+      "review": "ok",
+      "fetchedAt": "2026-10-25T21:54:49.029Z"
+    },
+    {
+      "url": "https://afnan.com/products/delicious-bouquet",
+      "name": "Delicious Bouquet",
+      "sku": "7871986532445",
+      "size": "80 ML",
+      "gender": null,
+      "notesRaw": "Top Notes:\nLemon, Vanilla, White Floral, Bergamot\nMiddle Notes:\nOrange Blossom, Sugar, Rum, Panna cotta,  Honey\nBase Notes:\nTonka Beans, Musk, Caramel, Vanilla\nDelicious Bouquet\nSale price\nDhs. 120.00\nAdd to cart\nChoose options\nClose\nPrevious\nNext\nGo to item 1\nGo to item 2\nGo to item 3\nGo to item 4\nGo to item 5\nGo to item 6\nGo to item 7\nDelicious Bouquet\nSale price\nDhs. 120.00\nAfnan Perfumes\nDelicious Bouquet\nType:\nEau De Parfum\nVolume:\n80 ML\nOrientation:\nPour Femme\nEau De Parfum / 80 ML / Pour Femme - Dhs. 120.00\nVariant\nView details\nOFFICIAL AFNAN STORES\nAVAILABLE IN REGIONS\nAfnan Perfumes U",
+      "notesEn": {
+        "top": [
+          "Lemon",
+          "Vanilla",
+          "White Floral",
+          "Bergamot"
+        ],
+        "heart": [
+          "Orange Blossom",
+          "Sugar",
+          "Rum",
+          "Panna cotta",
+          "Honey"
+        ],
+        "base": [
+          "Tonka Beans",
+          "Musk",
+          "Caramel",
+          "Vanilla"
+        ]
+      },
+      "notes": {
+        "top": [
+          "Limão-siciliano",
+          "Baunilha",
+          "Flores brancas",
+          "Bergamota"
+        ],
+        "heart": [
+          "Flor de laranjeira",
+          "Açúcar",
+          "Rum",
+          "Notas cremosas",
+          "Mel"
+        ],
+        "base": [
+          "Fava-tonka",
+          "Almíscar",
+          "Caramelo",
+          "Baunilha"
+        ]
+      },
+      "unknownNotes": [],
+      "review": "ok",
+      "fetchedAt": "2026-10-25T21:54:59.809Z"
+    },
+    {
+      "url": "https://afnan.com/products/turathi-electric",
+      "name": "Turathi Electric",
+      "sku": "7888321282141",
+      "size": "90 ML",
+      "gender": null,
+      "notesRaw": "Top Notes:\nBergamot, Pink Grapefruit, Pear, Mandarin Orange\nMiddle Notes:\nApple, Cedarwood, Orange Blossom\nBase Notes:\nVanilla, Amber Dry, Musk, Ambroxan\nFragrance Care & Storage\nKeep your fragrance in a cool, dry place away from direct sunlight and extreme temperatures. Always close the bottle tightly when not in use.\nTips for Best Experience\nLayer with matching body products for enhanced effect, experiment with different application spots for day or evening wear, and rotate fragrances to keep your senses engaged.\nTurathi Electric\nSale price\nDhs. 150.00\nAdd to cart\nChoose options\nClose\nPrevio",
+      "notesEn": {
+        "top": [
+          "Bergamot",
+          "Pink Grapefruit",
+          "Pear",
+          "Mandarin Orange"
+        ],
+        "heart": [
+          "Apple",
+          "Cedarwood",
+          "Orange Blossom"
+        ],
+        "base": [
+          "Vanilla",
+          "Amber Dry",
+          "Musk",
+          "Ambroxan"
+        ]
+      },
+      "notes": {
+        "top": [
+          "Bergamota",
+          "Toranja rosa",
+          "Pera",
+          "Tangerina"
+        ],
+        "heart": [
+          "Maçã",
+          "Cedro",
+          "Flor de laranjeira"
+        ],
+        "base": [
+          "Baunilha",
+          "Âmbar seco",
+          "Almíscar",
+          "Ambroxan"
+        ]
+      },
+      "unknownNotes": [],
+      "review": "ok",
+      "fetchedAt": "2026-10-25T21:55:10.488Z"
+    },
+    {
+      "url": "https://afnan.com/products/rare-reef",
+      "name": "Rare Reef",
+      "sku": "7888321314909",
+      "size": "100 ML",
+      "gender": null,
+      "notesRaw": "Top Notes:\nBlack currant, Orange, Citron, Mint, Coriander, Grapefruit\nMiddle Notes:\nApricot, Basil, Rose, Violet Leaf\nBase Notes:\nFig, Dates, Ambrette, Amberwood\nFragrance Care & Storage\nKeep your fragrance in a cool, dry place away from direct sunlight and extreme temperatures. Always close the bottle tightly when not in use.\nTips for Best Experience\nLayer with matching body products for enhanced effect, experiment with different application spots for day or evening wear, and rotate fragrances to keep your senses engaged.\nRare Reef\nSale price\nDhs. 120.00\nAdd to cart\nChoose options\nClose\nPrevi",
+      "notesEn": {
+        "top": [
+          "Black currant",
+          "Orange",
+          "Citron",
+          "Mint",
+          "Coriander",
+          "Grapefruit"
+        ],
+        "heart": [
+          "Apricot",
+          "Basil",
+          "Rose",
+          "Violet Leaf"
+        ],
+        "base": [
+          "Fig",
+          "Dates",
+          "Ambrette",
+          "Amberwood"
+        ]
+      },
+      "notes": {
+        "top": [
+          "Cassis",
+          "Laranja",
+          "Cidra",
+          "Menta",
+          "Coentro",
+          "Toranja"
+        ],
+        "heart": [
+          "Damasco",
+          "Manjericão",
+          "Rosa",
+          "Folha de violeta"
+        ],
+        "base": [
+          "Figo",
+          "Tâmara",
+          "Ambreta",
+          "Amberwood"
+        ]
+      },
+      "unknownNotes": [],
+      "review": "ok",
+      "fetchedAt": "2026-10-25T21:55:21.109Z"
+    },
+    {
+      "url": "https://afnan.com/products/historic-sahara",
+      "name": "Historic Sahara",
+      "sku": "7888321347677",
+      "size": "100 ML",
+      "gender": null,
+      "notesRaw": "Top Notes:\nBergamot, Cinnamon, Cardamom\nMiddle Notes:\nElemi, Vanilla, Sugar\nBase Notes:\nMusk, Almond, Tonka, Wood, Praline, Ambroxan\nFragrance Care & Storage\nKeep your fragrance in a cool, dry place away from direct sunlight and extreme temperatures. Always close the bottle tightly when not in use.\nTips for Best Experience\nLayer with matching body products for enhanced effect, experiment with different application spots for day or evening wear, and rotate fragrances to keep your senses engaged.\nHistoric Sahara\nSale price\nDhs. 180.00\nAdd to cart\nChoose options\nClose\nPrevious\nNext\nGo to item 1\nG",
+      "notesEn": {
+        "top": [
+          "Bergamot",
+          "Cinnamon",
+          "Cardamom"
+        ],
+        "heart": [
+          "Elemi",
+          "Vanilla",
+          "Sugar"
+        ],
+        "base": [
+          "Musk",
+          "Almond",
+          "Tonka",
+          "Wood",
+          "Praline",
+          "Ambroxan"
+        ]
+      },
+      "notes": {
+        "top": [
+          "Bergamota",
+          "Canela",
+          "Cardamomo"
+        ],
+        "heart": [
+          "Elemi",
+          "Baunilha",
+          "Açúcar"
+        ],
+        "base": [
+          "Almíscar",
+          "Amêndoa",
+          "Fava-tonka",
+          "Notas amadeiradas",
+          "Praliné",
+          "Ambroxan"
+        ]
+      },
+      "unknownNotes": [],
+      "review": "ok",
+      "fetchedAt": "2026-10-25T21:55:32.094Z"
+    },
+    {
+      "url": "https://afnan.com/products/9-pm-elixir",
+      "name": "9 PM Elixir",
+      "sku": "7942702596189",
+      "size": "100 ML",
+      "gender": null,
+      "notesRaw": "Top Notes:\nNutmeg, Elemi, Cardamome\nMiddle Notes:\nPimento, Lavandin, Leather\nBase Notes:\nCiste, Labdanum, Patchouli, Vanilla\nFragrance Care & Storage\nKeep your fragrance in a cool, dry place away from direct sunlight and extreme temperatures. Always close the bottle tightly when not in use.\nTips for Best Experience\nLayer with matching body products for enhanced effect, experiment with different application spots for day or evening wear, and rotate fragrances to keep your senses engaged.\n9 PM Elixir\nSale price\nDhs. 120.00\nAdd to cart\nChoose options\nClose\nPrevious\nNext\nGo to item 1\nGo to item 2\n",
+      "notesEn": {
+        "top": [
+          "Nutmeg",
+          "Elemi",
+          "Cardamome"
+        ],
+        "heart": [
+          "Pimento",
+          "Lavandin",
+          "Leather"
+        ],
+        "base": [
+          "Ciste",
+          "Labdanum",
+          "Patchouli",
+          "Vanilla"
+        ]
+      },
+      "notes": {
+        "top": [
+          "Noz-moscada",
+          "Elemi",
+          "Cardamomo"
+        ],
+        "heart": [
+          "Pimenta-da-jamaica",
+          "Lavanda",
+          "Couro"
+        ],
+        "base": [
+          "Ládano",
+          "Ládano",
+          "Patchouli",
+          "Baunilha"
+        ]
+      },
+      "unknownNotes": [],
+      "review": "ok",
+      "fetchedAt": "2026-10-25T21:55:42.849Z"
+    },
+    {
+      "url": "https://afnan.com/products/lynked-forever",
+      "name": "Lynked Forever",
+      "sku": "8012011012189",
+      "size": "100 ML",
+      "gender": null,
+      "notesRaw": "Top Notes:\nMandarin, Berries\nMiddle Notes:\nGardenia, Tuberose, Ylang\nBase Notes:\nCoconut, Sandalwood, Musk, Dry woods\nFragrance Care & Storage\nKeep your fragrance in a cool, dry place away from direct sunlight and extreme temperatures. Always close the bottle tightly when not in use.\nTips for Best Experience\nLayer with matching body products for enhanced effect, experiment with different application spots for day or evening wear, and rotate fragrances to keep your senses engaged.\nLynked Forever\nSale price\nDhs. 150.00\nAdd to cart\nChoose options\nClose\nPrevious\nNext\nGo to item 1\nGo to item 2\nGo t",
+      "notesEn": {
+        "top": [
+          "Mandarin",
+          "Berries"
+        ],
+        "heart": [
+          "Gardenia",
+          "Tuberose",
+          "Ylang"
+        ],
+        "base": [
+          "Coconut",
+          "Sandalwood",
+          "Musk",
+          "Dry woods"
+        ]
+      },
+      "notes": {
+        "top": [
+          "Tangerina",
+          "Frutas vermelhas"
+        ],
+        "heart": [
+          "Gardênia",
+          "Tuberosa",
+          "Ylang-ylang"
+        ],
+        "base": [
+          "Coco",
+          "Sândalo",
+          "Almíscar",
+          "Notas amadeiradas"
+        ]
+      },
+      "unknownNotes": [],
+      "review": "ok",
+      "fetchedAt": "2026-10-25T21:55:53.645Z"
+    },
+    {
+      "url": "https://afnan.com/products/lynked-freedom",
+      "name": "Lynked Freedom",
+      "sku": "8012011044957",
+      "size": "100 ML",
+      "gender": null,
+      "notesRaw": "Top Notes:\nBergamot, Grapefruit, Sage\nMiddle Notes:\nLavender, Cardamome, Juniper Berry\nBase Notes:\nVetiver, Oriental, Caramel\nFragrance Care & Storage\nKeep your fragrance in a cool, dry place away from direct sunlight and extreme temperatures. Always close the bottle tightly when not in use.\nTips for Best Experience\nLayer with matching body products for enhanced effect, experiment with different application spots for day or evening wear, and rotate fragrances to keep your senses engaged.\nLynked Freedom\nSale price\nDhs. 150.00\nAdd to cart\nChoose options\nClose\nPrevious\nNext\nGo to item 1\nGo to ite",
+      "notesEn": {
+        "top": [
+          "Bergamot",
+          "Grapefruit",
+          "Sage"
+        ],
+        "heart": [
+          "Lavender",
+          "Cardamome",
+          "Juniper Berry"
+        ],
+        "base": [
+          "Vetiver",
+          "Oriental",
+          "Caramel"
+        ]
+      },
+      "notes": {
+        "top": [
+          "Bergamota",
+          "Toranja",
+          "Sálvia"
+        ],
+        "heart": [
+          "Lavanda",
+          "Cardamomo",
+          "Zimbro"
+        ],
+        "base": [
+          "Vetiver",
+          "Caramelo"
+        ]
+      },
+      "unknownNotes": [],
+      "review": "ok",
+      "fetchedAt": "2026-10-25T21:56:04.410Z"
+    },
+    {
+      "url": "https://afnan.com/products/9pm-night-out",
+      "name": "9 PM Night Out",
+      "sku": "8056291852381",
+      "size": "100 ML",
+      "gender": null,
+      "notesRaw": "Top Notes:\nDragon Fruit, Bergamot, Cognac, Lavender, Apple\nMiddle Notes:\nCardamom, Mahonial, Suede, Toffee, Cedar\nBase Notes:\nTonka Bean, Akigalawood, Ambrofix, Patchouli\nNOTES\nTop Notes:\nDragon Fruit, Bergamot, Cognac, Lavender, Apple\nMiddle Notes:\nCardamom, Mahonial, Suede, Toffee, Cedar\nBase Notes:\nTonka Bean, Akigalawood, Ambrofix, Patchouli\nFragrance Care & Storage\nKeep your fragrance in a cool, dry place away from direct sunlight and extreme temperatures. Always close the bottle tightly when not in use.\nTips for Best Experience\nLayer with matching body products for enhanced effect, exper",
+      "notesEn": {
+        "top": [
+          "Dragon Fruit",
+          "Bergamot",
+          "Cognac",
+          "Lavender",
+          "Apple"
+        ],
+        "heart": [
+          "Cardamom",
+          "Mahonial",
+          "Suede",
+          "Toffee",
+          "Cedar"
+        ],
+        "base": [
+          "Tonka Bean",
+          "Akigalawood",
+          "Ambrofix",
+          "Patchouli"
+        ]
+      },
+      "notes": {
+        "top": [
+          "Pitaia",
+          "Bergamota",
+          "Conhaque",
+          "Lavanda",
+          "Maçã"
+        ],
+        "heart": [
+          "Cardamomo",
+          "Mahonia",
+          "Camurça",
+          "Toffee",
+          "Cedro"
+        ],
+        "base": [
+          "Fava-tonka",
+          "Akigalawood",
+          "Ambrofix™",
+          "Patchouli"
+        ]
+      },
+      "unknownNotes": [],
+      "review": "ok",
+      "fetchedAt": "2026-10-25T21:56:14.895Z"
+    },
+    {
+      "url": "https://afnan.com/products/kiaana-vibes-perfume",
+      "name": "Kiaana Vibes",
+      "sku": "8117306196061",
+      "size": "100 ML",
+      "gender": null,
+      "notesRaw": "Top Notes:\nPitahaya – Pear\nMiddle Notes:\nPeony – Frangipani - Musk\nBase Notes:\nPatchouli – Vanilla - Amber\nFragrance Care & Storage\nKeep your fragrance in a cool, dry place away from direct sunlight and extreme temperatures. Always close the bottle tightly when not in use.\nTips for Best Experience\nLayer with matching body products for enhanced effect, experiment with different application spots for day or evening wear, and rotate fragrances to keep your senses engaged.\nKiaana Vibes\nSale price\nDhs. 150.00\nAdd to cart\nChoose options\nClose\nPrevious\nNext\nGo to item 1\nGo to item 2\nGo to item 3\nGo t",
+      "notesEn": {
+        "top": [
+          "Pitahaya",
+          "Pear"
+        ],
+        "heart": [
+          "Peony",
+          "Frangipani",
+          "Musk"
+        ],
+        "base": [
+          "Patchouli",
+          "Vanilla",
+          "Amber"
+        ]
+      },
+      "notes": {
+        "top": [
+          "Pitaia",
+          "Pera"
+        ],
+        "heart": [
+          "Peônia",
+          "Frangipani",
+          "Almíscar"
+        ],
+        "base": [
+          "Patchouli",
+          "Baunilha",
+          "Âmbar"
+        ]
+      },
+      "unknownNotes": [],
+      "review": "ok",
+      "fetchedAt": "2026-10-25T21:56:25.587Z"
+    },
+    {
+      "url": "https://afnan.com/products/stardust",
+      "name": "Stardust",
+      "sku": "8245054046301",
+      "size": "100 ML",
+      "gender": null,
+      "notesRaw": "Top Notes:\nBergamot – Mandarin – Grapefruit – Orange – Aldehydes\nMiddle Notes:\nCaramel – Cinnamon - Cognac\nBase Notes:\nWood – Amber - Sandalwood – Myrrh - Tonka beans– Oak - Musk\nFragrance Care & Storage\nKeep your fragrance in a cool, dry place away from direct sunlight and extreme temperatures. Always close the bottle tightly when not in use.\nTips for Best Experience\nLayer with matching body products for enhanced effect, experiment with different application spots for day or evening wear, and rotate fragrances to keep your senses engaged.\nStardust\nSale price\nDhs. 150.00\nAdd to cart\nChoose opt",
+      "notesEn": {
+        "top": [
+          "Bergamot",
+          "Mandarin",
+          "Grapefruit",
+          "Orange",
+          "Aldehydes"
+        ],
+        "heart": [
+          "Caramel",
+          "Cinnamon",
+          "Cognac"
+        ],
+        "base": [
+          "Wood",
+          "Amber",
+          "Sandalwood",
+          "Myrrh",
+          "Tonka beans– Oak",
+          "Musk"
+        ]
+      },
+      "notes": {
+        "top": [
+          "Bergamota",
+          "Tangerina",
+          "Toranja",
+          "Laranja",
+          "Aldeídos"
+        ],
+        "heart": [
+          "Caramelo",
+          "Canela",
+          "Conhaque"
+        ],
+        "base": [
+          "Notas amadeiradas",
+          "Âmbar",
+          "Sândalo",
+          "Mirra",
+          "Fava-tonka",
+          "Carvalho",
+          "Almíscar"
+        ]
+      },
+      "unknownNotes": [],
+      "review": "ok",
+      "fetchedAt": "2026-10-25T21:56:36.271Z"
     }
   ],
   "skipped": [],
-  "updatedAt": "2026-10-25T21:46:21.805Z"
+  "updatedAt": "2026-10-25T21:56:36.272Z"
 }

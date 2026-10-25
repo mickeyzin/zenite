@@ -70,31 +70,51 @@ export function translate(list, unknown) {
   });
 }
 
-/** "Top Notes: A, B and C" / "Middle Note:\nD, E" / "Base - F" → listas. */
+// Palavras que denunciam texto corrido de marketing, não uma lista de notas.
+const PROSE = /\b(the|of|with|creates?|creating|evoking|reminiscent|leaving|adding|as|its|this|these|that|while|into|an?|is|your|unfolds?|settles?|lingers?|opens?|emerge|journey|introduction|opening|finish|touch|blend|burst|trail|depth|elegan\w*|sophistication|romantic)\b/i;
+const LABEL = /^(?:top|head|heart|middle|base)\s*notes?\s*:?\s*/i;
+
+/**
+ * "Top Notes: A, B and C" / "Middle Note:\nD, E" / "Base - F" → listas.
+ * Devolve null quando não há pirâmide confiável (campos vazios ou texto corrido);
+ * nesses casos o rascunho fica "sem pirâmide" para conferência manual.
+ */
 export function parseNotes(s) {
+  let prose = false;
   const split = (v) =>
     v
       .replace(/[\u00c2\u00a0]/g, " ") // espaço não separável mal codificado ("Â")
       .replace(/([a-z])([A-Z])/g, "$1, $2") // notas grudadas ("WoodyOrange Blossom")
-      .split(/,|\band\b|&|\//)
+      .split(/,|\band\b|&|\/|\s[–-]\s/)
       .map((x) =>
         x
           .trim()
+          .replace(LABEL, "") // rótulo repetido ("Base notes: Vanilla")
           .replace(/^[a-z]{1,2}:\s*/i, "") // sobra de rótulo ("s: Virginia Cedar")
-          .replace(/\.$/, "")
+          .replace(/[\s:.]+$/, "")
           .replace(/\s+/g, " ")
           .trim(),
       )
-      .filter((x) => x.length >= 2 && x.length <= 40 && !/[<>]/.test(x));
+      .filter((x) => x.length >= 2 && x.length <= 40 && !/[<>]/.test(x))
+      .filter((x) => {
+        const known = DICT[x.toLowerCase()] !== undefined;
+        if (!known && (x.split(" ").length > 4 || PROSE.test(x))) prose = true;
+        return true;
+      });
   const grab = (label) => {
     const m = s.match(new RegExp(`(?:^|\\n|\\s)${label}\\s*(?:notes?)?\\s*(?:[-–:]\\s*\\n?|\\n)\\s*([^\\n]+)`, "i"));
-    return m ? split(m[1]) : null;
+    if (!m) return null;
+    // Campo vazio no site: a "nota" lida seria o próximo rótulo ou um título da página.
+    if (/\bnotes?\s*:?\s*$/i.test(m[1]) || /^(shipping|delivery|share|reviews?|description|size)\b/i.test(m[1].trim())) return [];
+    return split(m[1]);
   };
   const top = grab("(?:top|head)");
   const heart = grab("(?:heart|middle)");
   const base = grab("base");
-  if (top || heart || base) return { top: top ?? [], heart: heart ?? [], base: base ?? [] };
-  return null;
+  if (prose) return null;
+  const n = (top?.length ?? 0) + (heart?.length ?? 0) + (base?.length ?? 0);
+  if (!n) return null;
+  return { top: top ?? [], heart: heart ?? [], base: base ?? [] };
 }
 
 /** Aplica tradução e marca a situação de revisão de um item. */

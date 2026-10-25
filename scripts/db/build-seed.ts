@@ -113,7 +113,8 @@ for (const file of fs.readdirSync("data/imports").filter((f) => f.endsWith(".jso
   for (const it of d.items) {
     const linked = featuredPerfumes.find((p) => p.model.desktop && normalize(p.name) === normalize(it.name ?? "") && slugOf(p.brand) === brandSlug);
     out.push(`insert into public.import_drafts (source, url, brand_slug, payload, status, perfume_id, fetched_at) values (${q(brandSlug)}, ${q(it.url)}, ${q(brandSlug)}, ${q(it)},
-  ${linked ? "'aprovado'" : "'pendente'"}, ${linked ? `(select id from public.perfumes where slug = ${q(linked.slug)})` : "null"}, ${q(it.fetchedAt ?? null)}) on conflict (url) do nothing;`);
+  ${linked ? "'aprovado'" : "'pendente'"}, ${linked ? `(select id from public.perfumes where slug = ${q(linked.slug)})` : "null"}, ${q(it.fetchedAt ?? null)})
+  on conflict (url) do update set payload = excluded.payload, fetched_at = excluded.fetched_at where public.import_drafts.status = 'pendente';`);
   }
   perBrand.set(brandSlug, out.slice(start));
 }

@@ -34,7 +34,7 @@
           "Abacaxi",
           "Cassis",
           "Gerânio",
-          "Jasmin"
+          "Jasmim"
         ],
         "heart": [
           "Amberwood",
@@ -46,14 +46,11 @@
           "Âmbar branco",
           "Sândalo",
           "Cedro",
-          "Oak Moss"
+          "Musgo de carvalho"
         ]
       },
-      "unknownNotes": [
-        "Jasmin",
-        "Oak Moss"
-      ],
-      "review": "notas sem tradução",
+      "unknownNotes": [],
+      "review": "ok",
       "fetchedAt": "2026-10-25T21:42:35.255Z"
     },
     {
@@ -174,7 +171,7 @@
       "notes": {
         "top": [
           "Maçã",
-          "Grapes"
+          "Uva"
         ],
         "heart": [
           "Patchouli",
@@ -187,10 +184,8 @@
           "Baunilha"
         ]
       },
-      "unknownNotes": [
-        "Grapes"
-      ],
-      "review": "notas sem tradução",
+      "unknownNotes": [],
+      "review": "ok",
       "fetchedAt": "2026-10-25T21:43:07.447Z"
     },
     {
@@ -220,7 +215,7 @@
       },
       "notes": {
         "top": [
-          "Green Leaves",
+          "Notas verdes",
           "Pimenta-preta",
           "Pimenta-rosa"
         ],
@@ -236,10 +231,8 @@
           "Baunilha"
         ]
       },
-      "unknownNotes": [
-        "Green Leaves"
-      ],
-      "review": "notas sem tradução",
+      "unknownNotes": [],
+      "review": "ok",
       "fetchedAt": "2026-10-25T21:43:18.482Z"
     },
     {
@@ -315,7 +308,7 @@
         ],
         "heart": [
           "Rosa",
-          "Oud Accord",
+          "Oud",
           "Sálvia"
         ],
         "base": [
@@ -324,10 +317,8 @@
           "Baunilha"
         ]
       },
-      "unknownNotes": [
-        "Oud Accord"
-      ],
-      "review": "notas sem tradução",
+      "unknownNotes": [],
+      "review": "ok",
       "fetchedAt": "2026-10-25T21:43:40.049Z"
     },
     {
@@ -345,7 +336,8 @@
         ],
         "heart": [
           "Soft",
-          "WoodyOrange Blossom",
+          "Woody",
+          "Orange Blossom",
           "Lily",
           "Musk"
         ],
@@ -363,8 +355,8 @@
           "Elemi"
         ],
         "heart": [
-          "Soft",
-          "WoodyOrange Blossom",
+          "Notas amadeiradas",
+          "Flor de laranjeira",
           "Lírio",
           "Almíscar"
         ],
@@ -375,11 +367,8 @@
           "Sândalo"
         ]
       },
-      "unknownNotes": [
-        "Soft",
-        "WoodyOrange Blossom"
-      ],
-      "review": "notas sem tradução",
+      "unknownNotes": [],
+      "review": "ok",
       "fetchedAt": "2026-10-25T21:43:50.920Z"
     },
     {
@@ -389,44 +378,10 @@
       "size": null,
       "gender": null,
       "notesRaw": "Top Note:\nRaspberry, Violet Leaves, Cumin\nMiddle Note:\nTurkish Rose, Cardamom, Lily Of Valley\nBase Note:\nAmber, Leather, Oud\nSHIPPING AND DELIVERY\nShare\nShare on Facebook\nShare on Twitter\nPin it\nCustomer Reviews\nBased on 5 reviews\nWrite a review\n80%\n(4)\n0%\n(0)\n0%\n(0)\n0%\n(0)\n20%\n(1)\nN\nNoel Younan\nI didn’t get the order\nI didn’t get the order\nJ\nJ.C.\nBeautiful scent\nI originally bought this fragrance in Malta and get comments about how deep and soft it is. I absolutely love it. I re order it through this website and they are amazing. Thank you\nF\nFlorin Claudiu Cassianu\nOUD 1\nA Symphony of Sophist",
-      "notesEn": {
-        "top": [
-          "Raspberry",
-          "Violet Leaves",
-          "Cumin"
-        ],
-        "heart": [
-          "Turkish Rose",
-          "Cardamom",
-          "Lily Of Valley"
-        ],
-        "base": [
-          "Amber",
-          "Leather",
-          "Oud"
-        ]
-      },
-      "notes": {
-        "top": [
-          "Framboesa",
-          "Folha de violeta",
-          "Cominho"
-        ],
-        "heart": [
-          "Rosa turca",
-          "Cardamomo",
-          "Lily Of Valley"
-        ],
-        "base": [
-          "Âmbar",
-          "Couro",
-          "Oud"
-        ]
-      },
-      "unknownNotes": [
-        "Lily Of Valley"
-      ],
-      "review": "notas sem tradução",
+      "notesEn": null,
+      "notes": null,
+      "unknownNotes": [],
+      "review": "sem pirâmide",
       "fetchedAt": "2026-10-25T21:44:01.654Z"
     },
     {
@@ -468,10 +423,8 @@
           "Almíscar"
         ]
       },
-      "unknownNotes": [
-        "Akigalawood"
-      ],
-      "review": "notas sem tradução",
+      "unknownNotes": [],
+      "review": "ok",
       "fetchedAt": "2026-10-25T21:44:12.337Z"
     },
     {
@@ -502,8 +455,8 @@
       "notes": {
         "top": [
           "Almíscar",
-          "Aldehydic Notes",
-          "Ylang"
+          "Aldeídos",
+          "Ylang-ylang"
         ],
         "heart": [
           "Almíscar branco",
@@ -512,19 +465,15 @@
           "Flores brancas"
         ],
         "base": [
-          "Powdery Musk",
-          "Creamy Vanilla",
-          "Balsamic Accord"
+          "Almíscar",
+          "Notas atalcadas",
+          "Baunilha",
+          "Notas cremosas",
+          "Notas balsâmicas"
         ]
       },
-      "unknownNotes": [
-        "Aldehydic Notes",
-        "Ylang",
-        "Powdery Musk",
-        "Creamy Vanilla",
-        "Balsamic Accord"
-      ],
-      "review": "notas sem tradução",
+      "unknownNotes": [],
+      "review": "ok",
       "fetchedAt": "2026-10-25T21:44:23.055Z"
     },
     {
@@ -542,7 +491,8 @@
         ],
         "heart": [
           "Soft",
-          "WoodyBulgarian Rose",
+          "Woody",
+          "Bulgarian Rose",
           "Peony",
           "Nutmeg"
         ],
@@ -559,8 +509,8 @@
           "Pimenta-rosa"
         ],
         "heart": [
-          "Soft",
-          "WoodyBulgarian Rose",
+          "Notas amadeiradas",
+          "Rosa búlgara",
           "Peônia",
           "Noz-moscada"
         ],
@@ -570,11 +520,8 @@
           "Madeira de cashmere"
         ]
       },
-      "unknownNotes": [
-        "Soft",
-        "WoodyBulgarian Rose"
-      ],
-      "review": "notas sem tradução",
+      "unknownNotes": [],
+      "review": "ok",
       "fetchedAt": "2026-10-25T21:44:33.740Z"
     },
     {
@@ -922,7 +869,7 @@
           "Gerânio"
         ],
         "heart": [
-          "White Rose",
+          "Rosa",
           "Íris",
           "Almíscar branco",
           "Framboesa"
@@ -930,14 +877,12 @@
         "base": [
           "Madeira de cashmere",
           "Sândalo",
-          "Powdery Musk"
+          "Almíscar",
+          "Notas atalcadas"
         ]
       },
-      "unknownNotes": [
-        "White Rose",
-        "Powdery Musk"
-      ],
-      "review": "notas sem tradução",
+      "unknownNotes": [],
+      "review": "ok",
       "fetchedAt": "2026-10-25T21:45:59.696Z"
     },
     {
@@ -963,7 +908,7 @@
       },
       "notes": {
         "top": [
-          "Damascus Rose"
+          "Rosa damascena"
         ],
         "heart": [
           "Rosa",
@@ -975,10 +920,8 @@
           "Baunilha"
         ]
       },
-      "unknownNotes": [
-        "Damascus Rose"
-      ],
-      "review": "notas sem tradução",
+      "unknownNotes": [],
+      "review": "ok",
       "fetchedAt": "2026-10-25T21:46:10.495Z"
     },
     {
@@ -1023,8 +966,3699 @@
       "unknownNotes": [],
       "review": "ok",
       "fetchedAt": "2026-10-25T21:46:21.138Z"
+    },
+    {
+      "url": "https://swissarabian.com/products/rose-malaki",
+      "name": "Rose Malaki",
+      "sku": "RMAL020705",
+      "size": null,
+      "gender": null,
+      "notesRaw": "Top Note:\nBergamot, Ginger , Raspberry, Rose\nMiddle Note:\nTurkish Rose, Geranium\nBase Note:\nRose, Geranium , Indonesian Patchouli, Resins\nSHIPPING AND DELIVERY\nShare\nShare on Facebook\nShare on Twitter\nPin it\nRecently viewed\nSUBSCRIBE TO OUR NEWSLETTER\nEmail address\nSign up\nSHOP\nPerfumes\nMen's Perfumes\nWomen's Perfumes\nUnisex Perfumes\nHair Mist\nPerfume Oils\nIncense\nTraditional Items\nServices\nExchange & Return\nShipping & Delivery\nRefund Policy\nTerms & Conditions\nPrivacy Policy\nContact Us\nMore Links\nAbout Us\nFAQ's\nBlogs\nJoin Our Team\nBecome a Sales Partner\nFOLLOW US\nCopyright &copy; 2026\nSwiss Ar",
+      "notesEn": {
+        "top": [
+          "Bergamot",
+          "Ginger",
+          "Raspberry",
+          "Rose"
+        ],
+        "heart": [
+          "Turkish Rose",
+          "Geranium"
+        ],
+        "base": [
+          "Rose",
+          "Geranium",
+          "Indonesian Patchouli",
+          "Resins"
+        ]
+      },
+      "notes": {
+        "top": [
+          "Bergamota",
+          "Gengibre",
+          "Framboesa",
+          "Rosa"
+        ],
+        "heart": [
+          "Rosa turca",
+          "Gerânio"
+        ],
+        "base": [
+          "Rosa",
+          "Gerânio",
+          "Patchouli",
+          "Resinas"
+        ]
+      },
+      "unknownNotes": [],
+      "review": "ok",
+      "fetchedAt": "2026-10-25T21:46:31.751Z"
+    },
+    {
+      "url": "https://swissarabian.com/products/private-oud-2",
+      "name": "Private Oud",
+      "sku": "POUD107301N",
+      "size": null,
+      "gender": null,
+      "notesRaw": "Top Note:\nItalian Plum, Oud, Bulgarian Rose\nMiddle Note:\nJasmine, Vetiver, Tonka Bean\nBase Note:\nCaramel, Chocolate, Oud, Vanilla\nSHIPPING AND DELIVERY\nShare\nShare on Facebook\nShare on Twitter\nPin it\nCustomer Reviews\nBased on 7 reviews\nWrite a review\n71%\n(5)\n14%\n(1)\n0%\n(0)\n14%\n(1)\n0%\n(0)\nN\nNelly Howie\nPRIVATE OUD\nR\nRădița Vancea\nPRIVATE OUD\nT\nTy Brown\nPRIVATE OUD\nS\nSantiago ESCOBAR\nSmell to deep\nFirst of all I’ve got to say that the quality is top notch and the presentation is phenomenal for the price . But the reason I gave it 2 stars is because of me I’m a teenager and this scent is simply w",
+      "notesEn": {
+        "top": [
+          "Italian Plum",
+          "Oud",
+          "Bulgarian Rose"
+        ],
+        "heart": [
+          "Jasmine",
+          "Vetiver",
+          "Tonka Bean"
+        ],
+        "base": [
+          "Caramel",
+          "Chocolate",
+          "Oud",
+          "Vanilla"
+        ]
+      },
+      "notes": {
+        "top": [
+          "Ameixa",
+          "Oud",
+          "Rosa búlgara"
+        ],
+        "heart": [
+          "Jasmim",
+          "Vetiver",
+          "Fava-tonka"
+        ],
+        "base": [
+          "Caramelo",
+          "Chocolate",
+          "Oud",
+          "Baunilha"
+        ]
+      },
+      "unknownNotes": [],
+      "review": "ok",
+      "fetchedAt": "2026-10-25T21:46:42.419Z"
+    },
+    {
+      "url": "https://swissarabian.com/products/private-musk-cpo-12ml",
+      "name": "Private Musk",
+      "sku": "PMUS107301N",
+      "size": null,
+      "gender": null,
+      "notesRaw": "Top Note:\nSaffron, Orange, Jasmine\nMiddle Note:\nCaramel, Candy Floss\nBase Note:\nAmber\nSHIPPING AND DELIVERY\nShare\nShare on Facebook\nShare on Twitter\nPin it\nCustomer Reviews\nBased on 5 reviews\nWrite a review\n80%\n(4)\n0%\n(0)\n0%\n(0)\n0%\n(0)\n20%\n(1)\nA\nAngela Atkinson\nPrivate Musk Oil\nI absolutely love it!\nN\nNelly Howie\nPRIVATE MUSK\nN\nNayab Benish\nPRIVATE MUSK\nD\nDanila Paul\nNot received this order  #5270\n15 days and not received this order #5270\nD\nDarja\nBetter, softer, more enjoyable and social than Baccarat Rouge\nThis is definitely more feminine, less screaming, more delicate, than Baccarat Rouge. N",
+      "notesEn": {
+        "top": [
+          "Saffron",
+          "Orange",
+          "Jasmine"
+        ],
+        "heart": [
+          "Caramel",
+          "Candy Floss"
+        ],
+        "base": [
+          "Amber"
+        ]
+      },
+      "notes": {
+        "top": [
+          "Açafrão",
+          "Laranja",
+          "Jasmim"
+        ],
+        "heart": [
+          "Caramelo",
+          "Algodão-doce"
+        ],
+        "base": [
+          "Âmbar"
+        ]
+      },
+      "unknownNotes": [],
+      "review": "ok",
+      "fetchedAt": "2026-10-25T21:47:30.617Z"
+    },
+    {
+      "url": "https://swissarabian.com/products/rakaan-2",
+      "name": "Rakaan",
+      "sku": "RAKA039401",
+      "size": null,
+      "gender": null,
+      "notesRaw": "Top Note:\nGrapefruit, Caribbean Lime\nMiddle Note:\nLotus Flower\nBase Note:\nCedarwood, Sandalwood, Oud, Amber\nSHIPPING AND DELIVERY\nShare\nShare on Facebook\nShare on Twitter\nPin it\nCustomer Reviews\nBased on 3 reviews\nWrite a review\n100%\n(3)\n0%\n(0)\n0%\n(0)\n0%\n(0)\n0%\n(0)\nA\nAhmad Alkhatib\nRakan is my favorite\nI have been using Rakan for a decade now. It is a manly perfume with a mix between the east and west. I use it after I shower. I use a little amount and it lingers on until the next shower. I am allergic to strong perfumes but not to Rakan, and that's another reason I keep on using it.\nT\nTarik\nG",
+      "notesEn": {
+        "top": [
+          "Grapefruit",
+          "Caribbean Lime"
+        ],
+        "heart": [
+          "Lotus Flower"
+        ],
+        "base": [
+          "Cedarwood",
+          "Sandalwood",
+          "Oud",
+          "Amber"
+        ]
+      },
+      "notes": {
+        "top": [
+          "Toranja",
+          "Limão"
+        ],
+        "heart": [
+          "Lótus"
+        ],
+        "base": [
+          "Cedro",
+          "Sândalo",
+          "Oud",
+          "Âmbar"
+        ]
+      },
+      "unknownNotes": [],
+      "review": "ok",
+      "fetchedAt": "2026-10-25T21:47:41.347Z"
+    },
+    {
+      "url": "https://swissarabian.com/products/pure-instinct",
+      "name": "Pure Instinct",
+      "sku": "PINS107001",
+      "size": null,
+      "gender": null,
+      "notesRaw": "Top Note:\nGrapefruit, Pineapple, Apple, Pepper, Rosemary\nMiddle Note:\nTuberose, Green notes, Cardamom, Rose, Patchouli\nBase Note:\nAmber, Cedarwood, Leather, Vetiver, Vanilla\nSHIPPING AND DELIVERY\nShare\nShare on Facebook\nShare on Twitter\nPin it\nCustomer Reviews\nBased on 3 reviews\nWrite a review\n100%\n(3)\n0%\n(0)\n0%\n(0)\n0%\n(0)\n0%\n(0)\nA\nArtur Wróbel\nPURE INSTINCT\nA\nAdebayo Fagbayi\nNice\nGood 👍\nr\nrttetyrtuy\nrrey\nRecently viewed\nSUBSCRIBE TO OUR NEWSLETTER\nEmail address\nSign up\nSHOP\nPerfumes\nMen's Perfumes\nWomen's Perfumes\nUnisex Perfumes\nHair Mist\nPerfume Oils\nIncense\nTraditional Items\nServices\nExch",
+      "notesEn": {
+        "top": [
+          "Grapefruit",
+          "Pineapple",
+          "Apple",
+          "Pepper",
+          "Rosemary"
+        ],
+        "heart": [
+          "Tuberose",
+          "Green notes",
+          "Cardamom",
+          "Rose",
+          "Patchouli"
+        ],
+        "base": [
+          "Amber",
+          "Cedarwood",
+          "Leather",
+          "Vetiver",
+          "Vanilla"
+        ]
+      },
+      "notes": {
+        "top": [
+          "Toranja",
+          "Abacaxi",
+          "Maçã",
+          "Pimenta",
+          "Alecrim"
+        ],
+        "heart": [
+          "Tuberosa",
+          "Notas verdes",
+          "Cardamomo",
+          "Rosa",
+          "Patchouli"
+        ],
+        "base": [
+          "Âmbar",
+          "Cedro",
+          "Couro",
+          "Vetiver",
+          "Baunilha"
+        ]
+      },
+      "unknownNotes": [],
+      "review": "ok",
+      "fetchedAt": "2026-10-25T21:47:52.059Z"
+    },
+    {
+      "url": "https://swissarabian.com/products/rasheeqa",
+      "name": "Rasheeqa",
+      "sku": "RASH037201",
+      "size": null,
+      "gender": null,
+      "notesRaw": "Top Note:\nRose,Green Notes\nMiddle Note:\nAldehydic notes, Lily of the valley, Jasmine\nBase Note:\nMusk, Cedarwood, Sandalwood\nSHIPPING AND DELIVERY\nShare\nShare on Facebook\nShare on Twitter\nPin it\nCustomer Reviews\nBased on 2 reviews\nWrite a review\n100%\n(2)\n0%\n(0)\n0%\n(0)\n0%\n(0)\n0%\n(0)\nO\nOluwatoyin Thomas\nLong lasting perfume oil, recommended\nП\nПолина\nДухи\nRecently viewed\nSUBSCRIBE TO OUR NEWSLETTER\nEmail address\nSign up\nSHOP\nPerfumes\nMen's Perfumes\nWomen's Perfumes\nUnisex Perfumes\nHair Mist\nPerfume Oils\nIncense\nTraditional Items\nServices\nExchange & Return\nShipping & Delivery\nRefund Policy\nTerms & ",
+      "notesEn": {
+        "top": [],
+        "heart": [
+          "Aldehydic notes",
+          "Lily of the valley",
+          "Jasmine"
+        ],
+        "base": [
+          "Musk",
+          "Cedarwood",
+          "Sandalwood"
+        ]
+      },
+      "notes": {
+        "top": [],
+        "heart": [
+          "Aldeídos",
+          "Lírio-do-vale",
+          "Jasmim"
+        ],
+        "base": [
+          "Almíscar",
+          "Cedro",
+          "Sândalo"
+        ]
+      },
+      "unknownNotes": [],
+      "review": "ok",
+      "fetchedAt": "2026-10-25T21:48:02.821Z"
+    },
+    {
+      "url": "https://swissarabian.com/products/primal-code",
+      "name": "Primal Code",
+      "sku": "PCOD107001",
+      "size": null,
+      "gender": null,
+      "notesRaw": "Top Note:\nPink Pepper, Cardamom, Mint, Violet Leaf\nMiddle Note:\nMelon, Cinnamon, Pineapple, Lavender\nBase Note:\nVanilla, Guaiac Wood, Cedarwood, Amberwood\nSHIPPING AND DELIVERY\nShare\nShare on Facebook\nShare on Twitter\nPin it\nCustomer Reviews\nBased on 2 reviews\nWrite a review\n50%\n(1)\n50%\n(1)\n0%\n(0)\n0%\n(0)\n0%\n(0)\nP\nParesh\nVery nice\nI would recommend this to everyone accept my friends as I can’t have them smelling better than me. Honestly this has the perfect balance and just note that export duties will apply depending on where you live which usually could be around $10 per bottle\nY\nYounes K\nI l",
+      "notesEn": {
+        "top": [
+          "Pink Pepper",
+          "Cardamom",
+          "Mint",
+          "Violet Leaf"
+        ],
+        "heart": [
+          "Melon",
+          "Cinnamon",
+          "Pineapple",
+          "Lavender"
+        ],
+        "base": [
+          "Vanilla",
+          "Guaiac Wood",
+          "Cedarwood",
+          "Amberwood"
+        ]
+      },
+      "notes": {
+        "top": [
+          "Pimenta-rosa",
+          "Cardamomo",
+          "Menta",
+          "Folha de violeta"
+        ],
+        "heart": [
+          "Melão",
+          "Canela",
+          "Abacaxi",
+          "Lavanda"
+        ],
+        "base": [
+          "Baunilha",
+          "Guaiaco",
+          "Cedro",
+          "Amberwood"
+        ]
+      },
+      "unknownNotes": [],
+      "review": "ok",
+      "fetchedAt": "2026-10-25T21:48:13.444Z"
+    },
+    {
+      "url": "https://swissarabian.com/products/musk-malaki",
+      "name": "Musk Malaki",
+      "sku": "MMUS020704",
+      "size": null,
+      "gender": null,
+      "notesRaw": "Top Note:\nAmber, Musk, Pineapple\nMiddle Note:\nWhite Florals, Musk, Lily of the valley\nBase Note:\nAmber, Musk, Sandal\nSHIPPING AND DELIVERY\nShare\nShare on Facebook\nShare on Twitter\nPin it\nCustomer Reviews\nBased on 3 reviews\nWrite a review\n100%\n(3)\n0%\n(0)\n0%\n(0)\n0%\n(0)\n0%\n(0)\nN\nNikolaos Nikolaos Dimou\nMUSK MALAKI\nS\nStephanie Llewellyn\nAll time favorite\nAs soon as I wake up I put this on. It’s so subtle and beautiful\nN\nNicole H\nHoly grail\nThis is the fragrance I’ve been looking for my whole life. I can’t even say it smells like a perfume, when you’re wearing it it just smells like YOU smell incre",
+      "notesEn": {
+        "top": [
+          "Amber",
+          "Musk",
+          "Pineapple"
+        ],
+        "heart": [
+          "White Florals",
+          "Musk",
+          "Lily of the valley"
+        ],
+        "base": [
+          "Amber",
+          "Musk",
+          "Sandal"
+        ]
+      },
+      "notes": {
+        "top": [
+          "Âmbar",
+          "Almíscar",
+          "Abacaxi"
+        ],
+        "heart": [
+          "Flores brancas",
+          "Almíscar",
+          "Lírio-do-vale"
+        ],
+        "base": [
+          "Âmbar",
+          "Almíscar",
+          "Sândalo"
+        ]
+      },
+      "unknownNotes": [],
+      "review": "ok",
+      "fetchedAt": "2026-10-25T21:48:24.098Z"
+    },
+    {
+      "url": "https://swissarabian.com/products/mukhalat-malaki",
+      "name": "Mukhalat Malaki",
+      "sku": "MMAL020705",
+      "size": null,
+      "gender": null,
+      "notesRaw": "Top Note:\nTurkish Rose\nMiddle Note:\nSpanish Saffron, Cambodian Oud\nBase Note:\nSandalwood\nSHIPPING AND DELIVERY\nShare\nShare on Facebook\nShare on Twitter\nPin it\nCustomer Reviews\nBased on 4 reviews\nWrite a review\n100%\n(4)\n0%\n(0)\n0%\n(0)\n0%\n(0)\n0%\n(0)\nU\nUllash Khan\nMUKHALAT MALAKI\nA\nAmadou Tidjan NIANG\nMUKHALAT MALAKI\nM\nMohammedujef Mansuri\nSweet and spicy\nMixture of multiple notes blend with little sweetness aroma. Very balanced, smooth and last long fragrance.\nA\nArianna Williams\nFirst of my collection\nThis is the first oil perfume I've ever bought, and it is truly a wonderful experience. The long",
+      "notesEn": {
+        "top": [
+          "Turkish Rose"
+        ],
+        "heart": [
+          "Spanish Saffron",
+          "Cambodian Oud"
+        ],
+        "base": [
+          "Sandalwood"
+        ]
+      },
+      "notes": {
+        "top": [
+          "Rosa turca"
+        ],
+        "heart": [
+          "Açafrão",
+          "Oud"
+        ],
+        "base": [
+          "Sândalo"
+        ]
+      },
+      "unknownNotes": [],
+      "review": "ok",
+      "fetchedAt": "2026-10-25T21:48:34.780Z"
+    },
+    {
+      "url": "https://swissarabian.com/products/layali-2",
+      "name": "Layali",
+      "sku": "LAYA099601",
+      "size": null,
+      "gender": null,
+      "notesRaw": "Top Note:\nBlack Currant, Orange Flower, Plum\nMiddle Note:\nYlang Ylang, Rose, Jasmine\nBase Note:\nOud, Amber\nSHIPPING AND DELIVERY\nShare\nShare on Facebook\nShare on Twitter\nPin it\nCustomer Reviews\nBased on 1 review\nWrite a review\n100%\n(1)\n0%\n(0)\n0%\n(0)\n0%\n(0)\n0%\n(0)\nL\nLeah\nAmazing\nI didn't get my bottle from the website, I found it a tjx store in town. It's absolutely amazing, definitely getting more from the website this time haha. 10/10 would recommend\nRecently viewed\nSUBSCRIBE TO OUR NEWSLETTER\nEmail address\nSign up\nSHOP\nPerfumes\nMen's Perfumes\nWomen's Perfumes\nUnisex Perfumes\nHair Mist\nPerfum",
+      "notesEn": {
+        "top": [
+          "Black Currant",
+          "Orange Flower",
+          "Plum"
+        ],
+        "heart": [
+          "Ylang Ylang",
+          "Rose",
+          "Jasmine"
+        ],
+        "base": [
+          "Oud",
+          "Amber"
+        ]
+      },
+      "notes": {
+        "top": [
+          "Cassis",
+          "Flor de laranjeira",
+          "Ameixa"
+        ],
+        "heart": [
+          "Ylang-ylang",
+          "Rosa",
+          "Jasmim"
+        ],
+        "base": [
+          "Oud",
+          "Âmbar"
+        ]
+      },
+      "unknownNotes": [],
+      "review": "ok",
+      "fetchedAt": "2026-10-25T21:48:45.418Z"
+    },
+    {
+      "url": "https://swissarabian.com/products/layali-rouge",
+      "name": "Layali Rouge",
+      "sku": "LROU099601",
+      "size": null,
+      "gender": null,
+      "notesRaw": "Top Note:\nPapaya, Lemon, Pineapple, Mango\nMiddle Note:\nPeach, Rose\nBase Note:\nCoconut, Hibiscus, Sandalwood\nSHIPPING AND DELIVERY\nShare\nShare on Facebook\nShare on Twitter\nPin it\nCustomer Reviews\nBased on 2 reviews\nWrite a review\n100%\n(2)\n0%\n(0)\n0%\n(0)\n0%\n(0)\n0%\n(0)\nM\nMs. Carmen\nSo Fresh\nThis fragrance  is poetry to my nose! It smells so pretty and fresh! All of the notes blend seamlessly together. I can’t smell any one of them.\nC\nC.\nGreece\nπολύ καλό\nRecently viewed\nSUBSCRIBE TO OUR NEWSLETTER\nEmail address\nSign up\nSHOP\nPerfumes\nMen's Perfumes\nWomen's Perfumes\nUnisex Perfumes\nHair Mist\nPerfume ",
+      "notesEn": {
+        "top": [
+          "Papaya",
+          "Lemon",
+          "Pineapple",
+          "Mango"
+        ],
+        "heart": [
+          "Peach",
+          "Rose"
+        ],
+        "base": [
+          "Coconut",
+          "Hibiscus",
+          "Sandalwood"
+        ]
+      },
+      "notes": {
+        "top": [
+          "Mamão",
+          "Limão-siciliano",
+          "Abacaxi",
+          "Manga"
+        ],
+        "heart": [
+          "Pêssego",
+          "Rosa"
+        ],
+        "base": [
+          "Coco",
+          "Hibisco",
+          "Sândalo"
+        ]
+      },
+      "unknownNotes": [],
+      "review": "ok",
+      "fetchedAt": "2026-10-25T21:48:56.146Z"
+    },
+    {
+      "url": "https://swissarabian.com/products/layali",
+      "name": "Layali",
+      "sku": "LAYA106401",
+      "size": null,
+      "gender": null,
+      "notesRaw": "Top Note:\nBlack Currant, Orange Flower, Plum\nMiddle Note:\nYlang Ylang, Rose, Jasmine\nBase Note:\nOud, Amber\nSHIPPING AND DELIVERY\nShare\nShare on Facebook\nShare on Twitter\nPin it\nCustomer Reviews\nBased on 3 reviews\nWrite a review\n67%\n(2)\n0%\n(0)\n0%\n(0)\n0%\n(0)\n33%\n(1)\nS\nSelene Gumbs\nDisappointed with the ordering process\nWhy should I have to pay customs fees on items YOU chose to send me for \"free\" without my knowledge? I'm still waiting for your \"customer service\" to return my emails.\nR\nRaelo83\nNever would have guessed....\nI usually wear Coach Sunset dreams. Something just told me to try Layali. ",
+      "notesEn": {
+        "top": [
+          "Black Currant",
+          "Orange Flower",
+          "Plum"
+        ],
+        "heart": [
+          "Ylang Ylang",
+          "Rose",
+          "Jasmine"
+        ],
+        "base": [
+          "Oud",
+          "Amber"
+        ]
+      },
+      "notes": {
+        "top": [
+          "Cassis",
+          "Flor de laranjeira",
+          "Ameixa"
+        ],
+        "heart": [
+          "Ylang-ylang",
+          "Rosa",
+          "Jasmim"
+        ],
+        "base": [
+          "Oud",
+          "Âmbar"
+        ]
+      },
+      "unknownNotes": [],
+      "review": "ok",
+      "fetchedAt": "2026-10-25T21:49:06.838Z"
+    },
+    {
+      "url": "https://swissarabian.com/products/kashkha-3",
+      "name": "Kashkha",
+      "sku": "KASH032601",
+      "size": null,
+      "gender": null,
+      "notesRaw": "Top Note:\nBergamot, Apple, Cinnamon\nMiddle Note:\nSaffron, Cardamom, Oud\nBase Note:\nCedarwood, Amber, Musk\nSHIPPING AND DELIVERY\nShare\nShare on Facebook\nShare on Twitter\nPin it\nCustomer Reviews\nBased on 1 review\nWrite a review\n0%\n(0)\n0%\n(0)\n0%\n(0)\n0%\n(0)\n100%\n(1)\nA\nAhmed Mohamed\nYou are a very bad company\nI made order from your company, then suddenly after 1 week from order they said can not send your order and they they cut from me shopping fee. What your company did is abnormal. Any way I don’t forgive, they shipping fee you cut is not Halal.\nRecently viewed\nSUBSCRIBE TO OUR NEWSLETTER\nEmail ",
+      "notesEn": {
+        "top": [
+          "Bergamot",
+          "Apple",
+          "Cinnamon"
+        ],
+        "heart": [
+          "Saffron",
+          "Cardamom",
+          "Oud"
+        ],
+        "base": [
+          "Cedarwood",
+          "Amber",
+          "Musk"
+        ]
+      },
+      "notes": {
+        "top": [
+          "Bergamota",
+          "Maçã",
+          "Canela"
+        ],
+        "heart": [
+          "Açafrão",
+          "Cardamomo",
+          "Oud"
+        ],
+        "base": [
+          "Cedro",
+          "Âmbar",
+          "Almíscar"
+        ]
+      },
+      "unknownNotes": [],
+      "review": "ok",
+      "fetchedAt": "2026-10-25T21:49:17.548Z"
+    },
+    {
+      "url": "https://swissarabian.com/products/kashkha",
+      "name": "Kashkha",
+      "sku": "KASH036001",
+      "size": null,
+      "gender": null,
+      "notesRaw": "Top Note:\nBergamot, Apple, Cinnamon\nMiddle Note:\nSaffron, Cardamom, Oud\nBase Note:\nCedarwood, Amber, Musk\nSHIPPING AND DELIVERY\nShare\nShare on Facebook\nShare on Twitter\nPin it\nCustomer Reviews\nBased on 2 reviews\nWrite a review\n50%\n(1)\n0%\n(0)\n0%\n(0)\n0%\n(0)\n50%\n(1)\nS\nShipra Dixit\nKASHKHA\nM\nMax B-W\nDivine\nI got kashka cpo and shaghaf oud azraq and they are both a miracle of perfume architecture. Kashka is spicy and clean where azraq is masculine and sweet. Both gorgeous thank you\nRecently viewed\nSUBSCRIBE TO OUR NEWSLETTER\nEmail address\nSign up\nSHOP\nPerfumes\nMen's Perfumes\nWomen's Perfumes\nUnisex",
+      "notesEn": {
+        "top": [
+          "Bergamot",
+          "Apple",
+          "Cinnamon"
+        ],
+        "heart": [
+          "Saffron",
+          "Cardamom",
+          "Oud"
+        ],
+        "base": [
+          "Cedarwood",
+          "Amber",
+          "Musk"
+        ]
+      },
+      "notes": {
+        "top": [
+          "Bergamota",
+          "Maçã",
+          "Canela"
+        ],
+        "heart": [
+          "Açafrão",
+          "Cardamomo",
+          "Oud"
+        ],
+        "base": [
+          "Cedro",
+          "Âmbar",
+          "Almíscar"
+        ]
+      },
+      "unknownNotes": [],
+      "review": "ok",
+      "fetchedAt": "2026-10-25T21:49:28.237Z"
+    },
+    {
+      "url": "https://swissarabian.com/products/intense-pride",
+      "name": "Intense Pride",
+      "sku": "IPRI107001",
+      "size": null,
+      "gender": null,
+      "notesRaw": "Top Note:\nBergamot, Apple, Pineapple, Blackcurrant\nMiddle Note:\nPatchouli, Jasmine, Rose\nBase Note:\nMusk, Oakmoss, Ambergris, Vanilla\nSHIPPING AND DELIVERY\nShare\nShare on Facebook\nShare on Twitter\nPin it\nRecently viewed\nSUBSCRIBE TO OUR NEWSLETTER\nEmail address\nSign up\nSHOP\nPerfumes\nMen's Perfumes\nWomen's Perfumes\nUnisex Perfumes\nHair Mist\nPerfume Oils\nIncense\nTraditional Items\nServices\nExchange & Return\nShipping & Delivery\nRefund Policy\nTerms & Conditions\nPrivacy Policy\nContact Us\nMore Links\nAbout Us\nFAQ's\nBlogs\nJoin Our Team\nBecome a Sales Partner\nFOLLOW US\nCopyright &copy; 2026\nSwiss Arabia",
+      "notesEn": {
+        "top": [
+          "Bergamot",
+          "Apple",
+          "Pineapple",
+          "Blackcurrant"
+        ],
+        "heart": [
+          "Patchouli",
+          "Jasmine",
+          "Rose"
+        ],
+        "base": [
+          "Musk",
+          "Oakmoss",
+          "Ambergris",
+          "Vanilla"
+        ]
+      },
+      "notes": {
+        "top": [
+          "Bergamota",
+          "Maçã",
+          "Abacaxi",
+          "Cassis"
+        ],
+        "heart": [
+          "Patchouli",
+          "Jasmim",
+          "Rosa"
+        ],
+        "base": [
+          "Almíscar",
+          "Musgo de carvalho",
+          "Âmbar-gris",
+          "Baunilha"
+        ]
+      },
+      "unknownNotes": [],
+      "review": "ok",
+      "fetchedAt": "2026-10-25T21:49:38.943Z"
+    },
+    {
+      "url": "https://swissarabian.com/products/hawa-2",
+      "name": "Hawa",
+      "sku": "HAWA108001N",
+      "size": null,
+      "gender": null,
+      "notesRaw": "Top Note:\nBergamot, Mandarin, Ylang Ylang, Cardamom, Plum\nMiddle Note:\nRose, Orange Flower, White Jasmine, Cashmere\nBase Note:\nPatchouli, Sandalwood, Amber, Vanilla\nSHIPPING AND DELIVERY\nShare\nShare on Facebook\nShare on Twitter\nPin it\nCustomer Reviews\nBased on 3 reviews\nWrite a review\n100%\n(3)\n0%\n(0)\n0%\n(0)\n0%\n(0)\n0%\n(0)\nV\nVincenzo Procida\nBeautiful\nThis store is better for perfume. I was visited last november in Dubai and i've buyied parfume again on e-commerce.\nI advice it.\nThank you so much for little gift, mini size tester parfume, i very appreciated.\nWhen i will come back in Dubai, I will",
+      "notesEn": {
+        "top": [
+          "Bergamot",
+          "Mandarin",
+          "Ylang Ylang",
+          "Cardamom",
+          "Plum"
+        ],
+        "heart": [
+          "Rose",
+          "Orange Flower",
+          "White Jasmine",
+          "Cashmere"
+        ],
+        "base": [
+          "Patchouli",
+          "Sandalwood",
+          "Amber",
+          "Vanilla"
+        ]
+      },
+      "notes": {
+        "top": [
+          "Bergamota",
+          "Tangerina",
+          "Ylang-ylang",
+          "Cardamomo",
+          "Ameixa"
+        ],
+        "heart": [
+          "Rosa",
+          "Flor de laranjeira",
+          "Jasmim",
+          "Madeira de cashmere"
+        ],
+        "base": [
+          "Patchouli",
+          "Sândalo",
+          "Âmbar",
+          "Baunilha"
+        ]
+      },
+      "unknownNotes": [],
+      "review": "ok",
+      "fetchedAt": "2026-10-25T21:49:49.612Z"
+    },
+    {
+      "url": "https://swissarabian.com/products/edge-intense",
+      "name": "Edge Intense",
+      "sku": "EINT098402",
+      "size": null,
+      "gender": null,
+      "notesRaw": "Top Note:\nApple, Mandarin, Rose\nMiddle Note:\nFreesia, Peony, Magnolia\nBase Note:\nSandalwood, Iris, Musk\nSHIPPING AND DELIVERY\nShare\nShare on Facebook\nShare on Twitter\nPin it\nCustomer Reviews\nBased on 3 reviews\nWrite a review\n100%\n(3)\n0%\n(0)\n0%\n(0)\n0%\n(0)\n0%\n(0)\nJ\nJed Ephan\nRefreshing Floral\nI love its smell. It is refreshing yet captivating at the same time. I smell like I came out fresh from the shower the whole day.\nM\nManjumol Jacob\nEDGE INTENSE\nA\nAngelina\nStunning perfume\nI smelt this perfume on a nurse on evening and asked her what it was and its edge intense pink. The smell is stunning I ",
+      "notesEn": {
+        "top": [
+          "Apple",
+          "Mandarin",
+          "Rose"
+        ],
+        "heart": [
+          "Freesia",
+          "Peony",
+          "Magnolia"
+        ],
+        "base": [
+          "Sandalwood",
+          "Iris",
+          "Musk"
+        ]
+      },
+      "notes": {
+        "top": [
+          "Maçã",
+          "Tangerina",
+          "Rosa"
+        ],
+        "heart": [
+          "Frésia",
+          "Peônia",
+          "Magnólia"
+        ],
+        "base": [
+          "Sândalo",
+          "Íris",
+          "Almíscar"
+        ]
+      },
+      "unknownNotes": [],
+      "review": "ok",
+      "fetchedAt": "2026-10-25T21:50:00.198Z"
+    },
+    {
+      "url": "https://swissarabian.com/products/edge-intense-3",
+      "name": "Edge Intense",
+      "sku": "EINT098401",
+      "size": null,
+      "gender": null,
+      "notesRaw": "Top Note:\nBergamot, Apple, Pineapple, Black Currant, Ginger\nMiddle Note:\nRose, Jasmine, Geranium\nBase Note:\nOakmoss, Musk, Amber, Vanilla\nSHIPPING AND DELIVERY\nShare\nShare on Facebook\nShare on Twitter\nPin it\nRecently viewed\nSUBSCRIBE TO OUR NEWSLETTER\nEmail address\nSign up\nSHOP\nPerfumes\nMen's Perfumes\nWomen's Perfumes\nUnisex Perfumes\nHair Mist\nPerfume Oils\nIncense\nTraditional Items\nServices\nExchange & Return\nShipping & Delivery\nRefund Policy\nTerms & Conditions\nPrivacy Policy\nContact Us\nMore Links\nAbout Us\nFAQ's\nBlogs\nJoin Our Team\nBecome a Sales Partner\nFOLLOW US\nCopyright &copy; 2026\nSwiss Ar",
+      "notesEn": {
+        "top": [
+          "Bergamot",
+          "Apple",
+          "Pineapple",
+          "Black Currant",
+          "Ginger"
+        ],
+        "heart": [
+          "Rose",
+          "Jasmine",
+          "Geranium"
+        ],
+        "base": [
+          "Oakmoss",
+          "Musk",
+          "Amber",
+          "Vanilla"
+        ]
+      },
+      "notes": {
+        "top": [
+          "Bergamota",
+          "Maçã",
+          "Abacaxi",
+          "Cassis",
+          "Gengibre"
+        ],
+        "heart": [
+          "Rosa",
+          "Jasmim",
+          "Gerânio"
+        ],
+        "base": [
+          "Musgo de carvalho",
+          "Almíscar",
+          "Âmbar",
+          "Baunilha"
+        ]
+      },
+      "unknownNotes": [],
+      "review": "ok",
+      "fetchedAt": "2026-10-25T21:50:10.840Z"
+    },
+    {
+      "url": "https://swissarabian.com/products/edge-5",
+      "name": "Edge",
+      "sku": "EDGE098401",
+      "size": null,
+      "gender": null,
+      "notesRaw": "Top Note:\nLemon, Geranium, Lavender, Mint\nMiddle Note:\nCinnamon, Cardamom\nBase Note:\nCedar Wood, Patchouli, Sandalwood\nSHIPPING AND DELIVERY\nShare\nShare on Facebook\nShare on Twitter\nPin it\nCustomer Reviews\nBased on 2 reviews\nWrite a review\n50%\n(1)\n50%\n(1)\n0%\n(0)\n0%\n(0)\n0%\n(0)\nA\nAbubakar Kardame\nEDGE\nE\nEntan Willems\nyummy\nvery awesome sauce\nRecently viewed\nSUBSCRIBE TO OUR NEWSLETTER\nEmail address\nSign up\nSHOP\nPerfumes\nMen's Perfumes\nWomen's Perfumes\nUnisex Perfumes\nHair Mist\nPerfume Oils\nIncense\nTraditional Items\nServices\nExchange & Return\nShipping & Delivery\nRefund Policy\nTerms & Conditions\nP",
+      "notesEn": {
+        "top": [
+          "Lemon",
+          "Geranium",
+          "Lavender",
+          "Mint"
+        ],
+        "heart": [
+          "Cinnamon",
+          "Cardamom"
+        ],
+        "base": [
+          "Cedar Wood",
+          "Patchouli",
+          "Sandalwood"
+        ]
+      },
+      "notes": {
+        "top": [
+          "Limão-siciliano",
+          "Gerânio",
+          "Lavanda",
+          "Menta"
+        ],
+        "heart": [
+          "Canela",
+          "Cardamomo"
+        ],
+        "base": [
+          "Cedro",
+          "Patchouli",
+          "Sândalo"
+        ]
+      },
+      "unknownNotes": [],
+      "review": "ok",
+      "fetchedAt": "2026-10-25T21:50:21.554Z"
+    },
+    {
+      "url": "https://swissarabian.com/products/gharaam-2",
+      "name": "Gharaam",
+      "sku": "GHAR108001N",
+      "size": null,
+      "gender": null,
+      "notesRaw": "Top Note:\nJasmine, Saffron\nMiddle Note:\nAmber\nBase Note:\nResins, Cedarwood\nSHIPPING AND DELIVERY\nShare\nShare on Facebook\nShare on Twitter\nPin it\nCustomer Reviews\nBased on 3 reviews\nWrite a review\n100%\n(3)\n0%\n(0)\n0%\n(0)\n0%\n(0)\n0%\n(0)\nD\nDonna\nGorgeous!\nWhat a beautiful fragrance, gives its much dearer competitors a run and beats them! Stunning! Evocative, sensual and hypnotic.\nC\nCHRISTELLE LEPYRA\nGreat!! I'll purchase again\nThis has been my favorite since 2022. Really grea purchaset!! Receiving compliments everytime\nЕ\nЕлена\nЛучший аромат!\nСамый лучший аромат, что я знаю!!! Самые любимые духи!!! ",
+      "notesEn": {
+        "top": [
+          "Jasmine",
+          "Saffron"
+        ],
+        "heart": [
+          "Amber"
+        ],
+        "base": [
+          "Resins",
+          "Cedarwood"
+        ]
+      },
+      "notes": {
+        "top": [
+          "Jasmim",
+          "Açafrão"
+        ],
+        "heart": [
+          "Âmbar"
+        ],
+        "base": [
+          "Resinas",
+          "Cedro"
+        ]
+      },
+      "unknownNotes": [],
+      "review": "ok",
+      "fetchedAt": "2026-10-25T21:50:32.269Z"
+    },
+    {
+      "url": "https://swissarabian.com/products/edge-4",
+      "name": "Edge",
+      "sku": "EDGE098402",
+      "size": null,
+      "gender": null,
+      "notesRaw": "Top Note:\nRose, Freesia, Green notes\nMiddle Note:\nPeony, Jasmine, Rose\nBase Note:\nSandalwood, White Musk\nSHIPPING AND DELIVERY\nShare\nShare on Facebook\nShare on Twitter\nPin it\nCustomer Reviews\nBased on 2 reviews\nWrite a review\n100%\n(2)\n0%\n(0)\n0%\n(0)\n0%\n(0)\n0%\n(0)\nS\nShu Shu\nThis was a really great experience. All of the products arrived in perfect condition, and I will definitely shop here again. I also received some extra samples, which was a lovely surprise. Next time, I'd like to try some different products as well. Thank you\nK\nKimberly\nWoW\nLove the smell! Every time I wear this I get a lot o",
+      "notesEn": {
+        "top": [],
+        "heart": [
+          "Peony",
+          "Jasmine",
+          "Rose"
+        ],
+        "base": [
+          "Sandalwood",
+          "White Musk"
+        ]
+      },
+      "notes": {
+        "top": [],
+        "heart": [
+          "Peônia",
+          "Jasmim",
+          "Rosa"
+        ],
+        "base": [
+          "Sândalo",
+          "Almíscar branco"
+        ]
+      },
+      "unknownNotes": [],
+      "review": "ok",
+      "fetchedAt": "2026-10-25T21:50:42.990Z"
+    },
+    {
+      "url": "https://swissarabian.com/products/dukhoon-al-jazeera",
+      "name": "Dukhoon Al Jazeera",
+      "sku": "DJAZ103001",
+      "size": null,
+      "gender": null,
+      "notesRaw": "Top Note:\nRose, Oud\nMiddle Note:\nGreen notes, Amber, Saffron, Cardamom, Frankincense (Luban), Cedarwood\nBase Note:\nPatchouli, Amber, Sandalwood, Musk, Oud\nSHIPPING AND DELIVERY\nShare\nShare on Facebook\nShare on Twitter\nPin it\nCustomer Reviews\nBased on 1 review\nWrite a review\n100%\n(1)\n0%\n(0)\n0%\n(0)\n0%\n(0)\n0%\n(0)\nm\nmohammed waqar\nall good arrived on time, No drama\nRecently viewed\nSUBSCRIBE TO OUR NEWSLETTER\nEmail address\nSign up\nSHOP\nPerfumes\nMen's Perfumes\nWomen's Perfumes\nUnisex Perfumes\nHair Mist\nPerfume Oils\nIncense\nTraditional Items\nServices\nExchange & Return\nShipping & Delivery\nRefund Polic",
+      "notesEn": {
+        "top": [
+          "Rose",
+          "Oud"
+        ],
+        "heart": [
+          "Green notes",
+          "Amber",
+          "Saffron",
+          "Cardamom",
+          "Frankincense (Luban)",
+          "Cedarwood"
+        ],
+        "base": [
+          "Patchouli",
+          "Amber",
+          "Sandalwood",
+          "Musk",
+          "Oud"
+        ]
+      },
+      "notes": {
+        "top": [
+          "Rosa",
+          "Oud"
+        ],
+        "heart": [
+          "Notas verdes",
+          "Âmbar",
+          "Açafrão",
+          "Cardamomo",
+          "Olíbano",
+          "Cedro"
+        ],
+        "base": [
+          "Patchouli",
+          "Âmbar",
+          "Sândalo",
+          "Almíscar",
+          "Oud"
+        ]
+      },
+      "unknownNotes": [],
+      "review": "ok",
+      "fetchedAt": "2026-10-25T21:50:53.643Z"
+    },
+    {
+      "url": "https://swissarabian.com/products/casablanca",
+      "name": "Casablanca",
+      "sku": "CASA104301",
+      "size": null,
+      "gender": null,
+      "notesRaw": "Top Note:\nApple, Grapes\nMiddle Note:\nWhite woods , Patchouli, Iris\nBase Note:\nCaramel, Amber, Peru Balsam, Musk, Suede\nSHIPPING AND DELIVERY\nShare\nShare on Facebook\nShare on Twitter\nPin it\nCustomer Reviews\nBased on 8 reviews\nWrite a review\n63%\n(5)\n13%\n(1)\n13%\n(1)\n0%\n(0)\n13%\n(1)\nW\nWoodler Emil\nCASABLANCA\nR\nRaquel Velez Molina\nPerfume Casa Blanca\nExcelente en el servicio y entrega. Encantada con mi perfume.\nS\nSamaah Lakache\nما جاني العطر\nR\nRihab Bejaoui\nIt is a very nice smell. However it don't last long for EDP.\nA\nAbibi\nCasablanca\nThis is a beautiful fragrance, it is absolutely delightful, and ",
+      "notesEn": {
+        "top": [
+          "Apple",
+          "Grapes"
+        ],
+        "heart": [
+          "White woods",
+          "Patchouli",
+          "Iris"
+        ],
+        "base": [
+          "Caramel",
+          "Amber",
+          "Peru Balsam",
+          "Musk",
+          "Suede"
+        ]
+      },
+      "notes": {
+        "top": [
+          "Maçã",
+          "Uva"
+        ],
+        "heart": [
+          "Notas amadeiradas",
+          "Patchouli",
+          "Íris"
+        ],
+        "base": [
+          "Caramelo",
+          "Âmbar",
+          "Bálsamo-do-peru",
+          "Almíscar",
+          "Camurça"
+        ]
+      },
+      "unknownNotes": [],
+      "review": "ok",
+      "fetchedAt": "2026-10-25T21:51:04.366Z"
+    },
+    {
+      "url": "https://swissarabian.com/products/areej-al-sheila",
+      "name": "Areej Al Sheila",
+      "sku": "ARSH099001",
+      "size": null,
+      "gender": null,
+      "notesRaw": "Top Note:\nSaffron, Black Pepper, Madagascar Clove Leaf\nMiddle Note:\nTurkish Rose Absolute , Geranium, Oud\nBase Note:\nLeather, Amber, Patchouli, Musk, Vanilla, Sandalwood\nSHIPPING AND DELIVERY\nShare\nShare on Facebook\nShare on Twitter\nPin it\nCustomer Reviews\nBased on 1 review\nWrite a review\n100%\n(1)\n0%\n(0)\n0%\n(0)\n0%\n(0)\n0%\n(0)\nZ\nZamzam Ak\nIn love with this perfume it stays forever on clothes and skin\nRecently viewed\nSUBSCRIBE TO OUR NEWSLETTER\nEmail address\nSign up\nSHOP\nPerfumes\nMen's Perfumes\nWomen's Perfumes\nUnisex Perfumes\nHair Mist\nPerfume Oils\nIncense\nTraditional Items\nServices\nExchange & R",
+      "notesEn": {
+        "top": [
+          "Saffron",
+          "Black Pepper",
+          "Madagascar Clove Leaf"
+        ],
+        "heart": [
+          "Turkish Rose Absolute",
+          "Geranium",
+          "Oud"
+        ],
+        "base": [
+          "Leather",
+          "Amber",
+          "Patchouli",
+          "Musk",
+          "Vanilla",
+          "Sandalwood"
+        ]
+      },
+      "notes": {
+        "top": [
+          "Açafrão",
+          "Pimenta-preta",
+          "Cravo-da-índia"
+        ],
+        "heart": [
+          "Rosa turca",
+          "Gerânio",
+          "Oud"
+        ],
+        "base": [
+          "Couro",
+          "Âmbar",
+          "Patchouli",
+          "Almíscar",
+          "Baunilha",
+          "Sândalo"
+        ]
+      },
+      "unknownNotes": [],
+      "review": "ok",
+      "fetchedAt": "2026-10-25T21:51:15.074Z"
+    },
+    {
+      "url": "https://swissarabian.com/products/amaali",
+      "name": "Amaali",
+      "sku": "AMAA099601",
+      "size": null,
+      "gender": null,
+      "notesRaw": "Top Note:\nPineapple, Lemon, Apple\nMiddle Note:\nJasmine, Rose\nBase Note:\nCedarwood, Sandal, Musk, Vanilla, Amber, Caramel\nSHIPPING AND DELIVERY\nShare\nShare on Facebook\nShare on Twitter\nPin it\nCustomer Reviews\nBased on 4 reviews\nWrite a review\n100%\n(4)\n0%\n(0)\n0%\n(0)\n0%\n(0)\n0%\n(0)\nM\nMs. Carmen\nUnique in a good way\nIf you’re reading the fragrance notes, You're going to be surprised when it dries down! I was surprised when I experienced a pretty powdery scent on my skin! I truly didn’t expect that one! ⭐️⭐️⭐️⭐️⭐️\nC\nCecilie barbara Nyobe\nUnique smell in a positive way\nSmell amazing!\nM\nMimi. A.\nOne o",
+      "notesEn": {
+        "top": [
+          "Pineapple",
+          "Lemon",
+          "Apple"
+        ],
+        "heart": [
+          "Jasmine",
+          "Rose"
+        ],
+        "base": [
+          "Cedarwood",
+          "Sandal",
+          "Musk",
+          "Vanilla",
+          "Amber",
+          "Caramel"
+        ]
+      },
+      "notes": {
+        "top": [
+          "Abacaxi",
+          "Limão-siciliano",
+          "Maçã"
+        ],
+        "heart": [
+          "Jasmim",
+          "Rosa"
+        ],
+        "base": [
+          "Cedro",
+          "Sândalo",
+          "Almíscar",
+          "Baunilha",
+          "Âmbar",
+          "Caramelo"
+        ]
+      },
+      "unknownNotes": [],
+      "review": "ok",
+      "fetchedAt": "2026-10-25T21:51:25.751Z"
+    },
+    {
+      "url": "https://swissarabian.com/products/copy-of-essence-of-casablanca",
+      "name": "Opulence Of Dubai",
+      "sku": "ODUB140401N",
+      "size": null,
+      "gender": null,
+      "notesRaw": "Top Note:\nBergamot Italy, Ginger Nigeria, Elemi\nMiddle Note:\nRose Damacena, Cardamom, Pink Pepper, Chocolate\nBase Note:\nCedarwood Atlas, Vetyvalone, Vanilla Bourbon, Incense, Café Santos, Cypriol, Amber\nSHIPPING AND DELIVERY\nShare\nShare on Facebook\nShare on Twitter\nPin it\nCustomer Reviews\nBased on 13 reviews\nWrite a review\n92%\n(12)\n8%\n(1)\n0%\n(0)\n0%\n(0)\n0%\n(0)\n84.6\n100.0\nS\nSumaya Ahmed\nFantastic\nAmazing\nR\nRadu Josan\nLike it !\nK\nKim Carlo Gonzales\nVery luxurious\nThis is a very luxurious scent\nJ\nJosh Dunlavy\nCurly Nails It\nThis really is a hidden gym. I agree with Curlyfragrance review on YouTube",
+      "notesEn": {
+        "top": [
+          "Bergamot Italy",
+          "Ginger Nigeria",
+          "Elemi"
+        ],
+        "heart": [
+          "Rose Damacena",
+          "Cardamom",
+          "Pink Pepper",
+          "Chocolate"
+        ],
+        "base": [
+          "Cedarwood Atlas",
+          "Vetyvalone",
+          "Vanilla Bourbon",
+          "Incense",
+          "Café Santos",
+          "Cypriol",
+          "Amber"
+        ]
+      },
+      "notes": {
+        "top": [
+          "Bergamota",
+          "Gengibre",
+          "Elemi"
+        ],
+        "heart": [
+          "Rosa damascena",
+          "Cardamomo",
+          "Pimenta-rosa",
+          "Chocolate"
+        ],
+        "base": [
+          "Cedro",
+          "Vetiver",
+          "Baunilha Bourbon",
+          "Incenso",
+          "Café",
+          "Cypriol",
+          "Âmbar"
+        ]
+      },
+      "unknownNotes": [],
+      "review": "ok",
+      "fetchedAt": "2026-10-25T21:51:36.504Z"
+    },
+    {
+      "url": "https://swissarabian.com/products/shaghaf-oud-azraq-cpo",
+      "name": "Shaghaf Oud Azraq Cpo",
+      "sku": "SOAZ107301",
+      "size": null,
+      "gender": null,
+      "notesRaw": "Top Note:\nHoney, Agarwood\nMiddle Note:\nCinnamon, Amber, Madagascar Vanilla\nBase Note:\nLeather, Patchouli\nSHIPPING AND DELIVERY\nShare\nShare on Facebook\nShare on Twitter\nPin it\nCustomer Reviews\nBased on 3 reviews\nWrite a review\n100%\n(3)\n0%\n(0)\n0%\n(0)\n0%\n(0)\n0%\n(0)\nk\nkatherine Gonga\nTrès beau\nJe passe des moments agréables avec Oud to ka. Très cosy et chaud et crémeux à la fois. Je souhaiterais élargir mes acquisitions avec: aswad azraq tabacco1….. a suivre ☺️\nK\nKaram Singh\nSHAGHAF OUD AZRAQ CPO\nM\nManjot Kaur\nSHAGHAF OUD AZRAQ CPO\nRecently viewed\nSUBSCRIBE TO OUR NEWSLETTER\nEmail address\nSign up\n",
+      "notesEn": {
+        "top": [
+          "Honey",
+          "Agarwood"
+        ],
+        "heart": [
+          "Cinnamon",
+          "Amber",
+          "Madagascar Vanilla"
+        ],
+        "base": [
+          "Leather",
+          "Patchouli"
+        ]
+      },
+      "notes": {
+        "top": [
+          "Mel",
+          "Oud"
+        ],
+        "heart": [
+          "Canela",
+          "Âmbar",
+          "Baunilha de Madagascar"
+        ],
+        "base": [
+          "Couro",
+          "Patchouli"
+        ]
+      },
+      "unknownNotes": [],
+      "review": "ok",
+      "fetchedAt": "2026-10-25T21:51:47.206Z"
+    },
+    {
+      "url": "https://swissarabian.com/products/shaghaf-oud-ahmar-cpo",
+      "name": "Shaghaf Oud Ahmar Cpo",
+      "sku": "SOAH107301",
+      "size": null,
+      "gender": null,
+      "notesRaw": "Top Note:\nBergamot, Iris, Freesia, Melon, Peach\nMiddle Note:\nTonka, Amber, Apple, Rose\nBase Note:\nCedarwood, Sandalwood, Amber, Vanilla, Powdery Musk, Oud\nSHIPPING AND DELIVERY\nShare\nShare on Facebook\nShare on Twitter\nPin it\nRecently viewed\nSUBSCRIBE TO OUR NEWSLETTER\nEmail address\nSign up\nSHOP\nPerfumes\nMen's Perfumes\nWomen's Perfumes\nUnisex Perfumes\nHair Mist\nPerfume Oils\nIncense\nTraditional Items\nServices\nExchange & Return\nShipping & Delivery\nRefund Policy\nTerms & Conditions\nPrivacy Policy\nContact Us\nMore Links\nAbout Us\nFAQ's\nBlogs\nJoin Our Team\nBecome a Sales Partner\nFOLLOW US\nCopyright &co",
+      "notesEn": {
+        "top": [
+          "Bergamot",
+          "Iris",
+          "Freesia",
+          "Melon",
+          "Peach"
+        ],
+        "heart": [
+          "Tonka",
+          "Amber",
+          "Apple",
+          "Rose"
+        ],
+        "base": [
+          "Cedarwood",
+          "Sandalwood",
+          "Amber",
+          "Vanilla",
+          "Powdery Musk",
+          "Oud"
+        ]
+      },
+      "notes": {
+        "top": [
+          "Bergamota",
+          "Íris",
+          "Frésia",
+          "Melão",
+          "Pêssego"
+        ],
+        "heart": [
+          "Fava-tonka",
+          "Âmbar",
+          "Maçã",
+          "Rosa"
+        ],
+        "base": [
+          "Cedro",
+          "Sândalo",
+          "Âmbar",
+          "Baunilha",
+          "Almíscar",
+          "Notas atalcadas",
+          "Oud"
+        ]
+      },
+      "unknownNotes": [],
+      "review": "ok",
+      "fetchedAt": "2026-10-25T21:51:57.846Z"
+    },
+    {
+      "url": "https://swissarabian.com/products/shaghaf-oud-cpo",
+      "name": "Shaghaf Oud Cpo",
+      "sku": "SHAG107301",
+      "size": null,
+      "gender": null,
+      "notesRaw": "Top Note:\nSaffron, Oud\nMiddle Note:\nRose, Praline, Oud\nBase Note:\nOud, Vanilla\nSHIPPING AND DELIVERY\nShare\nShare on Facebook\nShare on Twitter\nPin it\nCustomer Reviews\nBased on 2 reviews\nWrite a review\n50%\n(1)\n0%\n(0)\n0%\n(0)\n0%\n(0)\n50%\n(1)\nB\nBadr Al-Khazaali\nAvoid\nWorst experience ever!\nNot pure Oud oil! no ingredient list on website but too many on packaging! very misleading. Unprofessional behaviour from company! refused return claiming that \"shipping company does not do return for delivered perfumes\" !\nNever again!\nY\nYong Chen Lee\nFantastic\nAmazing scent\nRecently viewed\nSUBSCRIBE TO OUR NEWSLE",
+      "notesEn": {
+        "top": [
+          "Saffron",
+          "Oud"
+        ],
+        "heart": [
+          "Rose",
+          "Praline",
+          "Oud"
+        ],
+        "base": [
+          "Oud",
+          "Vanilla"
+        ]
+      },
+      "notes": {
+        "top": [
+          "Açafrão",
+          "Oud"
+        ],
+        "heart": [
+          "Rosa",
+          "Praliné",
+          "Oud"
+        ],
+        "base": [
+          "Oud",
+          "Baunilha"
+        ]
+      },
+      "unknownNotes": [],
+      "review": "ok",
+      "fetchedAt": "2026-10-25T21:52:08.567Z"
+    },
+    {
+      "url": "https://swissarabian.com/products/shaghaf-oud-elixir",
+      "name": "Shaghaf Oud Elixir",
+      "sku": "SOEL098501N",
+      "size": null,
+      "gender": null,
+      "notesRaw": "Top Note:\nSaffron, Oud, Pink Pepper\nMiddle Note:\nRose, Praline, Oud, Sage\nBase Note:\nOud, Vanilla, Amber, Musk\nSHIPPING AND DELIVERY\nShare\nShare on Facebook\nShare on Twitter\nPin it\nCustomer Reviews\nBased on 6 reviews\nWrite a review\n100%\n(6)\n0%\n(0)\n0%\n(0)\n0%\n(0)\n0%\n(0)\nN\nNishijima Ayaka\nI love this pafume more than original one.\nK\nKim Carlo Gonzales\nGood\nUnique\nA\nAnte Ilicic\nOud Elixir and Tobacco 01\nGood quality especially with Oud Elixir and fast shipping\nZ\nZahraa\n10/10\nLong lasting and smells amazing. Much strong than shaghaf oud.\nJ\nJames Wiley\nA more refined style\nif you love Shaghaf Oud ge",
+      "notesEn": {
+        "top": [
+          "Saffron",
+          "Oud",
+          "Pink Pepper"
+        ],
+        "heart": [
+          "Rose",
+          "Praline",
+          "Oud",
+          "Sage"
+        ],
+        "base": [
+          "Oud",
+          "Vanilla",
+          "Amber",
+          "Musk"
+        ]
+      },
+      "notes": {
+        "top": [
+          "Açafrão",
+          "Oud",
+          "Pimenta-rosa"
+        ],
+        "heart": [
+          "Rosa",
+          "Praliné",
+          "Oud",
+          "Sálvia"
+        ],
+        "base": [
+          "Oud",
+          "Baunilha",
+          "Âmbar",
+          "Almíscar"
+        ]
+      },
+      "unknownNotes": [],
+      "review": "ok",
+      "fetchedAt": "2026-10-25T21:52:19.181Z"
+    },
+    {
+      "url": "https://swissarabian.com/products/shaghaf-oud-royale",
+      "name": "Shaghaf Oud Royale",
+      "sku": "SORO098501",
+      "size": null,
+      "gender": null,
+      "notesRaw": "Top Note:\nSaffron, Lavender\nMiddle Note:\nOud, Nutmeg\nBase Note:\nMusk, Patchouli\nSHIPPING AND DELIVERY\nShare\nShare on Facebook\nShare on Twitter\nPin it\nCustomer Reviews\nBased on 4 reviews\nWrite a review\n75%\n(3)\n0%\n(0)\n0%\n(0)\n0%\n(0)\n25%\n(1)\nG\nGaurav Kapur\nSHAGHAF OUD ROYALE\nS\nSalma EL AHMADI\nSHAGHAF OUD ROYALE\nN\nNazeela Ali-bakhshi\nAmazing!\nDelivery was In time! So happy with my order!\nJ\nJames Wiley\nA Strong yet Refined Oud\nYou like oud? You will love this it is a very strong but refined oud. Its very similar to Oud for Greatness. Performance and packaging so sexy. Long lasting just another WOW S",
+      "notesEn": {
+        "top": [
+          "Saffron",
+          "Lavender"
+        ],
+        "heart": [
+          "Oud",
+          "Nutmeg"
+        ],
+        "base": [
+          "Musk",
+          "Patchouli"
+        ]
+      },
+      "notes": {
+        "top": [
+          "Açafrão",
+          "Lavanda"
+        ],
+        "heart": [
+          "Oud",
+          "Noz-moscada"
+        ],
+        "base": [
+          "Almíscar",
+          "Patchouli"
+        ]
+      },
+      "unknownNotes": [],
+      "review": "ok",
+      "fetchedAt": "2026-10-25T21:52:29.839Z"
+    },
+    {
+      "url": "https://swissarabian.com/products/shaghaf-oud-tonka",
+      "name": "Shaghaf Oud Tonka",
+      "sku": "SOTO098501",
+      "size": null,
+      "gender": null,
+      "notesRaw": "Top Note:\nAlmond\nMiddle Note:\nCinnamon Bark, Tunisian Orange Flower, Turkish Rose\nBase Note:\nTonka, Vanilla, Amberwood\nSHIPPING AND DELIVERY\nShare\nShare on Facebook\nShare on Twitter\nPin it\nCustomer Reviews\nBased on 18 reviews\nWrite a review\n100%\n(18)\n0%\n(0)\n0%\n(0)\n0%\n(0)\n0%\n(0)\nM\nMarin Cvitan\nTonka\nThis scent is really unisex, going more to women scent but it has some gentle men powder scent on my skin, it last a long time approximately 8 hours on skin 2 days on clothes. I really like this perfume I would like to test lot more of other perfumes. I also bought Incese 01 it has so much more manl",
+      "notesEn": {
+        "top": [
+          "Almond"
+        ],
+        "heart": [
+          "Cinnamon Bark",
+          "Tunisian Orange Flower",
+          "Turkish Rose"
+        ],
+        "base": [
+          "Tonka",
+          "Vanilla",
+          "Amberwood"
+        ]
+      },
+      "notes": {
+        "top": [
+          "Amêndoa"
+        ],
+        "heart": [
+          "Canela",
+          "Flor de laranjeira",
+          "Rosa turca"
+        ],
+        "base": [
+          "Fava-tonka",
+          "Baunilha",
+          "Amberwood"
+        ]
+      },
+      "unknownNotes": [],
+      "review": "ok",
+      "fetchedAt": "2026-10-25T21:52:40.530Z"
+    },
+    {
+      "url": "https://swissarabian.com/products/bergamot-and-patchouli",
+      "name": "Bergamot And Patchouli",
+      "sku": "BPAT141201",
+      "size": null,
+      "gender": null,
+      "notesRaw": "Top Note:\nBergamot, Pineapple, Black Currant\nMiddle Note:\nLily of the valley\nBase Note:\nPatchouli, Musk, Amber\nSHIPPING AND DELIVERY\nShare\nShare on Facebook\nShare on Twitter\nPin it\nCustomer Reviews\nBased on 3 reviews\nWrite a review\n100%\n(3)\n0%\n(0)\n0%\n(0)\n0%\n(0)\n0%\n(0)\nB\nBRUNESON ALABASTRO\nBERGAMOT AND PATCHOULI\nD\nDeeban Krishnamurthy\nA solid version of a classic\nUnbeatable with this kid of quality and price point. But I feel bergamot and cedarwood along with vetiver and orange lead the way in this series. Eagerly awaiting for bergamot and cedarwood to be back in stock!\nJ\nJukri Jozzy\nLong-lasti",
+      "notesEn": {
+        "top": [
+          "Bergamot",
+          "Pineapple",
+          "Black Currant"
+        ],
+        "heart": [
+          "Lily of the valley"
+        ],
+        "base": [
+          "Patchouli",
+          "Musk",
+          "Amber"
+        ]
+      },
+      "notes": {
+        "top": [
+          "Bergamota",
+          "Abacaxi",
+          "Cassis"
+        ],
+        "heart": [
+          "Lírio-do-vale"
+        ],
+        "base": [
+          "Patchouli",
+          "Almíscar",
+          "Âmbar"
+        ]
+      },
+      "unknownNotes": [],
+      "review": "ok",
+      "fetchedAt": "2026-10-25T21:52:51.189Z"
+    },
+    {
+      "url": "https://swissarabian.com/products/jasmine-and-honey",
+      "name": "Jasmine And Honey",
+      "sku": "JHON141301",
+      "size": null,
+      "gender": null,
+      "notesRaw": "Top Note:\nWhite floral, Honey\nMiddle Note:\nJasmine\nBase Note:\nHoney, Rose, Patchouli, Cedar\nSHIPPING AND DELIVERY\nShare\nShare on Facebook\nShare on Twitter\nPin it\nRecently viewed\nSUBSCRIBE TO OUR NEWSLETTER\nEmail address\nSign up\nSHOP\nPerfumes\nMen's Perfumes\nWomen's Perfumes\nUnisex Perfumes\nHair Mist\nPerfume Oils\nIncense\nTraditional Items\nServices\nExchange & Return\nShipping & Delivery\nRefund Policy\nTerms & Conditions\nPrivacy Policy\nContact Us\nMore Links\nAbout Us\nFAQ's\nBlogs\nJoin Our Team\nBecome a Sales Partner\nFOLLOW US\nCopyright &copy; 2026\nSwiss Arabian Global\n.\nPayment methods accepted\nAmeric",
+      "notesEn": {
+        "top": [
+          "White floral",
+          "Honey"
+        ],
+        "heart": [
+          "Jasmine"
+        ],
+        "base": [
+          "Honey",
+          "Rose",
+          "Patchouli",
+          "Cedar"
+        ]
+      },
+      "notes": {
+        "top": [
+          "Flores brancas",
+          "Mel"
+        ],
+        "heart": [
+          "Jasmim"
+        ],
+        "base": [
+          "Mel",
+          "Rosa",
+          "Patchouli",
+          "Cedro"
+        ]
+      },
+      "unknownNotes": [],
+      "review": "ok",
+      "fetchedAt": "2026-10-25T21:53:01.734Z"
+    },
+    {
+      "url": "https://swissarabian.com/products/amber-and-apricot",
+      "name": "Amber And Apricot",
+      "sku": "AAPR141301",
+      "size": null,
+      "gender": null,
+      "notesRaw": "Top Note:\nOrange, Lemon, Bergamot\nMiddle Note:\nFigs, Apricot, Grapes, Pomegranate\nBase Note:\nAmber, Musk, Vanilla\nSHIPPING AND DELIVERY\nShare\nShare on Facebook\nShare on Twitter\nPin it\nCustomer Reviews\nBased on 2 reviews\nWrite a review\n0%\n(0)\n50%\n(1)\n0%\n(0)\n0%\n(0)\n50%\n(1)\nC\nCisem Balli\nAMBER AND APRICOT\nM\nMelania Mudzingwa\nDid not receive my order\nDespite multiple attempts to contact Swiss Arabian, they did not respond and did not send my perfumes. Thieves. Now waiting for my credit card to retrieve my money.\nRecently viewed\nSUBSCRIBE TO OUR NEWSLETTER\nEmail address\nSign up\nSHOP\nPerfumes\nMen's ",
+      "notesEn": {
+        "top": [
+          "Orange",
+          "Lemon",
+          "Bergamot"
+        ],
+        "heart": [
+          "Figs",
+          "Apricot",
+          "Grapes",
+          "Pomegranate"
+        ],
+        "base": [
+          "Amber",
+          "Musk",
+          "Vanilla"
+        ]
+      },
+      "notes": {
+        "top": [
+          "Laranja",
+          "Limão-siciliano",
+          "Bergamota"
+        ],
+        "heart": [
+          "Figo",
+          "Damasco",
+          "Uva",
+          "Romã"
+        ],
+        "base": [
+          "Âmbar",
+          "Almíscar",
+          "Baunilha"
+        ]
+      },
+      "unknownNotes": [],
+      "review": "ok",
+      "fetchedAt": "2026-10-25T21:53:12.393Z"
+    },
+    {
+      "url": "https://swissarabian.com/products/cardamom-and-apple",
+      "name": "Cardamom And Apple",
+      "sku": "CAPP141201",
+      "size": null,
+      "gender": null,
+      "notesRaw": "Top Note:\nGreen Mandarin, Green Apple, Cardamom\nMiddle Note:\nOrange Blossom, Lavender, Nutmeg\nBase Note:\nTonka Bean, Amber, Leather\nSHIPPING AND DELIVERY\nShare\nShare on Facebook\nShare on Twitter\nPin it\nCustomer Reviews\nBased on 4 reviews\nWrite a review\n75%\n(3)\n0%\n(0)\n0%\n(0)\n0%\n(0)\n25%\n(1)\nF\nFernando De la fuente\nNunca me llegó\nHace muchísimos días que lo compré y no tengo respuestas sobre el producto. Ni del envío. Pónganse en contacto para poder rastrearlo\nK\nKerrith Davis\nTimely Delivery. Great Fragrance.\nNice Fragrance. Exceptional service. The samples provided were a nice addition to the pa",
+      "notesEn": {
+        "top": [
+          "Green Mandarin",
+          "Green Apple",
+          "Cardamom"
+        ],
+        "heart": [
+          "Orange Blossom",
+          "Lavender",
+          "Nutmeg"
+        ],
+        "base": [
+          "Tonka Bean",
+          "Amber",
+          "Leather"
+        ]
+      },
+      "notes": {
+        "top": [
+          "Tangerina",
+          "Maçã verde",
+          "Cardamomo"
+        ],
+        "heart": [
+          "Flor de laranjeira",
+          "Lavanda",
+          "Noz-moscada"
+        ],
+        "base": [
+          "Fava-tonka",
+          "Âmbar",
+          "Couro"
+        ]
+      },
+      "unknownNotes": [],
+      "review": "ok",
+      "fetchedAt": "2026-10-25T21:53:23.141Z"
+    },
+    {
+      "url": "https://swissarabian.com/products/bergamot-and-cedarwood",
+      "name": "Bergamot And Cedarwood",
+      "sku": "BCED141201",
+      "size": null,
+      "gender": null,
+      "notesRaw": "Top Note:\nLavender, Bergamot, Lemon\nMiddle Note:\nCinnamon, Carnation, Jasmine, Coriander\nBase Note:\nPatchouli, Cedarwood, Sandalwood, Amber\nSHIPPING AND DELIVERY\nShare\nShare on Facebook\nShare on Twitter\nPin it\nCustomer Reviews\nBased on 1 review\nWrite a review\n100%\n(1)\n0%\n(0)\n0%\n(0)\n0%\n(0)\n0%\n(0)\nJ\nJernej Cesar\nLong lasting masculine scent\nI've been a fan of Swiss Arabian for many years, back when I still had to purchase them on my stopovers in Dubai. While I normally prefer Arabian oud scents, I decided to give Bergamot and Cedarwood a try. The scent is masculine and classic, suitable for any ",
+      "notesEn": {
+        "top": [
+          "Lavender",
+          "Bergamot",
+          "Lemon"
+        ],
+        "heart": [
+          "Cinnamon",
+          "Carnation",
+          "Jasmine",
+          "Coriander"
+        ],
+        "base": [
+          "Patchouli",
+          "Cedarwood",
+          "Sandalwood",
+          "Amber"
+        ]
+      },
+      "notes": {
+        "top": [
+          "Lavanda",
+          "Bergamota",
+          "Limão-siciliano"
+        ],
+        "heart": [
+          "Canela",
+          "Cravo (flor)",
+          "Jasmim",
+          "Coentro"
+        ],
+        "base": [
+          "Patchouli",
+          "Cedro",
+          "Sândalo",
+          "Âmbar"
+        ]
+      },
+      "unknownNotes": [],
+      "review": "ok",
+      "fetchedAt": "2026-10-25T21:53:33.783Z"
+    },
+    {
+      "url": "https://swissarabian.com/products/mint-and-wood",
+      "name": "Mint And Wood",
+      "sku": "MWOO141201",
+      "size": null,
+      "gender": null,
+      "notesRaw": "Top Note:\nLemon, Ginger, Lavender, Mint\nMiddle Note:\nCardamom, Juniper, Apple, Geranium\nBase Note:\nVetiver, Tonka Bean, Amber Wood\nSHIPPING AND DELIVERY\nShare\nShare on Facebook\nShare on Twitter\nPin it\nCustomer Reviews\nBased on 4 reviews\nWrite a review\n50%\n(2)\n50%\n(2)\n0%\n(0)\n0%\n(0)\n0%\n(0)\nC\nCisem Balli\nMINT AND WOOD\nK\nKurt Awai\nMINT AND WOOD\nA\nALAN RONALD RAMIREZ BELTRE\nMINT AND WOOD\nM\nMOHD NASRI MOHD NASIR\nSatisfaction\nExcellent\nRecently viewed\nSUBSCRIBE TO OUR NEWSLETTER\nEmail address\nSign up\nSHOP\nPerfumes\nMen's Perfumes\nWomen's Perfumes\nUnisex Perfumes\nHair Mist\nPerfume Oils\nIncense\nTraditio",
+      "notesEn": {
+        "top": [
+          "Lemon",
+          "Ginger",
+          "Lavender",
+          "Mint"
+        ],
+        "heart": [
+          "Cardamom",
+          "Juniper",
+          "Apple",
+          "Geranium"
+        ],
+        "base": [
+          "Vetiver",
+          "Tonka Bean",
+          "Amber Wood"
+        ]
+      },
+      "notes": {
+        "top": [
+          "Limão-siciliano",
+          "Gengibre",
+          "Lavanda",
+          "Menta"
+        ],
+        "heart": [
+          "Cardamomo",
+          "Zimbro",
+          "Maçã",
+          "Gerânio"
+        ],
+        "base": [
+          "Vetiver",
+          "Fava-tonka",
+          "Amberwood"
+        ]
+      },
+      "unknownNotes": [],
+      "review": "ok",
+      "fetchedAt": "2026-10-25T21:53:44.427Z"
+    },
+    {
+      "url": "https://swissarabian.com/products/rose-and-patchouli",
+      "name": "Rose And Patchouli",
+      "sku": "RPAT141301",
+      "size": null,
+      "gender": null,
+      "notesRaw": "Top Note:\nBergamot, Mandarin\nMiddle Note:\nRose, Peach, Cassis, Jasmine\nBase Note:\nSandalwood, Cedar, Resins, Patchouli, Musk\nSHIPPING AND DELIVERY\nShare\nShare on Facebook\nShare on Twitter\nPin it\nCustomer Reviews\nBased on 1 review\nWrite a review\n0%\n(0)\n0%\n(0)\n100%\n(1)\n0%\n(0)\n0%\n(0)\nR\nRahaf Al Hamidi\nROSE AND PATCHOULI\nRecently viewed\nSUBSCRIBE TO OUR NEWSLETTER\nEmail address\nSign up\nSHOP\nPerfumes\nMen's Perfumes\nWomen's Perfumes\nUnisex Perfumes\nHair Mist\nPerfume Oils\nIncense\nTraditional Items\nServices\nExchange & Return\nShipping & Delivery\nRefund Policy\nTerms & Conditions\nPrivacy Policy\nContact U",
+      "notesEn": {
+        "top": [
+          "Bergamot",
+          "Mandarin"
+        ],
+        "heart": [
+          "Rose",
+          "Peach",
+          "Cassis",
+          "Jasmine"
+        ],
+        "base": [
+          "Sandalwood",
+          "Cedar",
+          "Resins",
+          "Patchouli",
+          "Musk"
+        ]
+      },
+      "notes": {
+        "top": [
+          "Bergamota",
+          "Tangerina"
+        ],
+        "heart": [
+          "Rosa",
+          "Pêssego",
+          "Cassis",
+          "Jasmim"
+        ],
+        "base": [
+          "Sândalo",
+          "Cedro",
+          "Resinas",
+          "Patchouli",
+          "Almíscar"
+        ]
+      },
+      "unknownNotes": [],
+      "review": "ok",
+      "fetchedAt": "2026-10-25T21:53:55.065Z"
+    },
+    {
+      "url": "https://swissarabian.com/products/iris-and-berry",
+      "name": "Iris And Berry",
+      "sku": "IBER141301",
+      "size": null,
+      "gender": null,
+      "notesRaw": "Top Note:\nBergamot, Orange Blossom\nMiddle Note:\nBlackberry, Champagne, Rose\nBase Note:\nMusk, Iris, Patchouli\nSHIPPING AND DELIVERY\nShare\nShare on Facebook\nShare on Twitter\nPin it\nCustomer Reviews\nBased on 1 review\nWrite a review\n100%\n(1)\n0%\n(0)\n0%\n(0)\n0%\n(0)\n0%\n(0)\nI\nIngridw\nWow\nStunning, sophisticated & classy I'm addicted\nRecently viewed\nSUBSCRIBE TO OUR NEWSLETTER\nEmail address\nSign up\nSHOP\nPerfumes\nMen's Perfumes\nWomen's Perfumes\nUnisex Perfumes\nHair Mist\nPerfume Oils\nIncense\nTraditional Items\nServices\nExchange & Return\nShipping & Delivery\nRefund Policy\nTerms & Conditions\nPrivacy Policy\nCo",
+      "notesEn": {
+        "top": [
+          "Bergamot",
+          "Orange Blossom"
+        ],
+        "heart": [
+          "Blackberry",
+          "Champagne",
+          "Rose"
+        ],
+        "base": [
+          "Musk",
+          "Iris",
+          "Patchouli"
+        ]
+      },
+      "notes": {
+        "top": [
+          "Bergamota",
+          "Flor de laranjeira"
+        ],
+        "heart": [
+          "Amora",
+          "Champanhe",
+          "Rosa"
+        ],
+        "base": [
+          "Almíscar",
+          "Íris",
+          "Patchouli"
+        ]
+      },
+      "unknownNotes": [],
+      "review": "ok",
+      "fetchedAt": "2026-10-25T21:54:05.746Z"
+    },
+    {
+      "url": "https://swissarabian.com/products/jasmine-and-vanilla",
+      "name": "Jasmine And Vanilla",
+      "sku": "JVAN141301",
+      "size": null,
+      "gender": null,
+      "notesRaw": "Top Note:\nMandarin, Pear, Pink Peppercorn\nMiddle Note:\nOrange flower, Rose, Jasmine\nBase Note:\nVanilla, Musk, Caramel\nSHIPPING AND DELIVERY\nShare\nShare on Facebook\nShare on Twitter\nPin it\nCustomer Reviews\nBased on 1 review\nWrite a review\n100%\n(1)\n0%\n(0)\n0%\n(0)\n0%\n(0)\n0%\n(0)\nВ\nВладислав\nТранзитом в Дубай\nПроездом в аэропорте, купил ,проходя мимо прилавка. Надо было брать две, супер вода, не приторная, сладкая со свежестью.\nRecently viewed\nSUBSCRIBE TO OUR NEWSLETTER\nEmail address\nSign up\nSHOP\nPerfumes\nMen's Perfumes\nWomen's Perfumes\nUnisex Perfumes\nHair Mist\nPerfume Oils\nIncense\nTraditional Ite",
+      "notesEn": {
+        "top": [
+          "Mandarin",
+          "Pear",
+          "Pink Peppercorn"
+        ],
+        "heart": [
+          "Orange flower",
+          "Rose",
+          "Jasmine"
+        ],
+        "base": [
+          "Vanilla",
+          "Musk",
+          "Caramel"
+        ]
+      },
+      "notes": {
+        "top": [
+          "Tangerina",
+          "Pera",
+          "Pimenta-rosa"
+        ],
+        "heart": [
+          "Flor de laranjeira",
+          "Rosa",
+          "Jasmim"
+        ],
+        "base": [
+          "Baunilha",
+          "Almíscar",
+          "Caramelo"
+        ]
+      },
+      "unknownNotes": [],
+      "review": "ok",
+      "fetchedAt": "2026-10-25T21:54:16.398Z"
+    },
+    {
+      "url": "https://swissarabian.com/products/vetiver-and-orange",
+      "name": "Vetiver And Orange",
+      "sku": "VORA141201",
+      "size": null,
+      "gender": null,
+      "notesRaw": "Top Note:\nOrange, Grapefruit\nMiddle Note:\nPepper, Pelargonium, Flint\nBase Note:\nVetiver, Cedar, Patchouli, Benzoin\nSHIPPING AND DELIVERY\nShare\nShare on Facebook\nShare on Twitter\nPin it\nCustomer Reviews\nBased on 8 reviews\nWrite a review\n63%\n(5)\n13%\n(1)\n13%\n(1)\n0%\n(0)\n13%\n(1)\nC\nCarlos Antonio Reynoso Morales\nI haven't received the product\nI haven't received any order status updates since the 14th. The tracking link you sent via email hasn't shown any status updates since the 14th of this month. I would appreciate it if you could look into this, because it appears my item has been lost; if that i",
+      "notesEn": {
+        "top": [
+          "Orange",
+          "Grapefruit"
+        ],
+        "heart": [
+          "Pepper",
+          "Pelargonium",
+          "Flint"
+        ],
+        "base": [
+          "Vetiver",
+          "Cedar",
+          "Patchouli",
+          "Benzoin"
+        ]
+      },
+      "notes": {
+        "top": [
+          "Laranja",
+          "Toranja"
+        ],
+        "heart": [
+          "Pimenta",
+          "Gerânio",
+          "Pederneira"
+        ],
+        "base": [
+          "Vetiver",
+          "Cedro",
+          "Patchouli",
+          "Benjoim"
+        ]
+      },
+      "unknownNotes": [],
+      "review": "ok",
+      "fetchedAt": "2026-10-25T21:54:27.173Z"
+    },
+    {
+      "url": "https://swissarabian.com/products/shaghaf-oud-tonka-cpo",
+      "name": "Shaghaf Oud Tonka Cpo",
+      "sku": "SOTO107301",
+      "size": null,
+      "gender": null,
+      "notesRaw": "Top Note:\nAlmond\nMiddle Note:\nCinnamon Bark, Tunisian Orange Flower, Turkish Rose\nBase Note:\nTonka, Vanilla, Amberwood\nSHIPPING AND DELIVERY\nShare\nShare on Facebook\nShare on Twitter\nPin it\nCustomer Reviews\nBased on 1 review\nWrite a review\n0%\n(0)\n100%\n(1)\n0%\n(0)\n0%\n(0)\n0%\n(0)\nB\nBhavini Solanki\nStunning\nJust mind blowing. I haven’t had time to wear them all yet as they are my Christmas present. But can’t wait to buy Vanilla 01 in the new year.\nRecently viewed\nSUBSCRIBE TO OUR NEWSLETTER\nEmail address\nSign up\nSHOP\nPerfumes\nMen's Perfumes\nWomen's Perfumes\nUnisex Perfumes\nHair Mist\nPerfume Oils\nInc",
+      "notesEn": {
+        "top": [
+          "Almond"
+        ],
+        "heart": [
+          "Cinnamon Bark",
+          "Tunisian Orange Flower",
+          "Turkish Rose"
+        ],
+        "base": [
+          "Tonka",
+          "Vanilla",
+          "Amberwood"
+        ]
+      },
+      "notes": {
+        "top": [
+          "Amêndoa"
+        ],
+        "heart": [
+          "Canela",
+          "Flor de laranjeira",
+          "Rosa turca"
+        ],
+        "base": [
+          "Fava-tonka",
+          "Baunilha",
+          "Amberwood"
+        ]
+      },
+      "unknownNotes": [],
+      "review": "ok",
+      "fetchedAt": "2026-10-25T21:54:37.816Z"
+    },
+    {
+      "url": "https://swissarabian.com/products/secret-rose",
+      "name": "Secret Rose",
+      "sku": "SROS107301",
+      "size": null,
+      "gender": null,
+      "notesRaw": "Top Note:\nLemon, Plum, Pink Pepper\nMiddle Note:\nCinnamon, Chocolate, Turkish Rose\nBase Note:\nCitrus, Tobacco, Patchouli\nSHIPPING AND DELIVERY\nShare\nShare on Facebook\nShare on Twitter\nPin it\nRecently viewed\nSUBSCRIBE TO OUR NEWSLETTER\nEmail address\nSign up\nSHOP\nPerfumes\nMen's Perfumes\nWomen's Perfumes\nUnisex Perfumes\nHair Mist\nPerfume Oils\nIncense\nTraditional Items\nServices\nExchange & Return\nShipping & Delivery\nRefund Policy\nTerms & Conditions\nPrivacy Policy\nContact Us\nMore Links\nAbout Us\nFAQ's\nBlogs\nJoin Our Team\nBecome a Sales Partner\nFOLLOW US\nCopyright &copy; 2026\nSwiss Arabian Global\n.\nPay",
+      "notesEn": {
+        "top": [
+          "Lemon",
+          "Plum",
+          "Pink Pepper"
+        ],
+        "heart": [
+          "Cinnamon",
+          "Chocolate",
+          "Turkish Rose"
+        ],
+        "base": [
+          "Citrus",
+          "Tobacco",
+          "Patchouli"
+        ]
+      },
+      "notes": {
+        "top": [
+          "Limão-siciliano",
+          "Ameixa",
+          "Pimenta-rosa"
+        ],
+        "heart": [
+          "Canela",
+          "Chocolate",
+          "Rosa turca"
+        ],
+        "base": [
+          "Notas cítricas",
+          "Tabaco",
+          "Patchouli"
+        ]
+      },
+      "unknownNotes": [],
+      "review": "ok",
+      "fetchedAt": "2026-10-25T21:54:48.531Z"
+    },
+    {
+      "url": "https://swissarabian.com/products/essence-of-casablanca-cpo",
+      "name": "Essence Of Casablanca",
+      "sku": "ECAS107301",
+      "size": null,
+      "gender": null,
+      "notesRaw": "Top Note:\nApple, Grapes\nMiddle Note:\nPatchouli, Orris\nBase Note:\nAmber, Balsam, Musk, Vanilla\nSHIPPING AND DELIVERY\nShare\nShare on Facebook\nShare on Twitter\nPin it\nCustomer Reviews\nBased on 5 reviews\nWrite a review\n20%\n(1)\n0%\n(0)\n0%\n(0)\n0%\n(0)\n80%\n(4)\nM\nMarzouq Almohammed\nESSENCE OF CASABLANCA\nR\nReginald Clark\nHeavenly scent\nThis scent is wonderful and my wife really loves it. I’m eager to purchase the perfume spray of this scent because I know it’ll be great!\nM\nMelania Mudzingwa\nDid not get the order\nMy order never arrived despite multiple attempts to contact them. Fraud. Now waiting for my c",
+      "notesEn": {
+        "top": [
+          "Apple",
+          "Grapes"
+        ],
+        "heart": [
+          "Patchouli",
+          "Orris"
+        ],
+        "base": [
+          "Amber",
+          "Balsam",
+          "Musk",
+          "Vanilla"
+        ]
+      },
+      "notes": {
+        "top": [
+          "Maçã",
+          "Uva"
+        ],
+        "heart": [
+          "Patchouli",
+          "Íris"
+        ],
+        "base": [
+          "Âmbar",
+          "Bálsamo",
+          "Almíscar",
+          "Baunilha"
+        ]
+      },
+      "unknownNotes": [],
+      "review": "ok",
+      "fetchedAt": "2026-10-25T21:54:59.234Z"
+    },
+    {
+      "url": "https://swissarabian.com/products/hawa-copy",
+      "name": "Hawa",
+      "sku": "HAWA107301",
+      "size": null,
+      "gender": null,
+      "notesRaw": "Top Note:\nBergamot, Mandarin, Ylang Ylang, Cardamom, Plum\nMiddle Note:\nRose, Orange Flower, White Jasmine, Cashmere\nBase Note:\nPatchouli, Sandalwood, Amber, Vanilla\nSHIPPING AND DELIVERY\nShare\nShare on Facebook\nShare on Twitter\nPin it\nCustomer Reviews\nBased on 3 reviews\nWrite a review\n67%\n(2)\n33%\n(1)\n0%\n(0)\n0%\n(0)\n0%\n(0)\nE\nEmmanuella Ochuehi\nSmells lovely\nReally good! I wish it lasted a bit longer than a few hours though\nM\nMaureen Osuji\nAmazing and long lasting scent; its a yes for me. Please Swiss Arabian keep these long lasting; unique perfumes coming.\nM\nMitul Thakkar\nHAWA\nRecently viewed\nSU",
+      "notesEn": {
+        "top": [
+          "Bergamot",
+          "Mandarin",
+          "Ylang Ylang",
+          "Cardamom",
+          "Plum"
+        ],
+        "heart": [
+          "Rose",
+          "Orange Flower",
+          "White Jasmine",
+          "Cashmere"
+        ],
+        "base": [
+          "Patchouli",
+          "Sandalwood",
+          "Amber",
+          "Vanilla"
+        ]
+      },
+      "notes": {
+        "top": [
+          "Bergamota",
+          "Tangerina",
+          "Ylang-ylang",
+          "Cardamomo",
+          "Ameixa"
+        ],
+        "heart": [
+          "Rosa",
+          "Flor de laranjeira",
+          "Jasmim",
+          "Madeira de cashmere"
+        ],
+        "base": [
+          "Patchouli",
+          "Sândalo",
+          "Âmbar",
+          "Baunilha"
+        ]
+      },
+      "unknownNotes": [],
+      "review": "ok",
+      "fetchedAt": "2026-10-25T21:55:09.915Z"
+    },
+    {
+      "url": "https://swissarabian.com/products/gharaam-copy-1",
+      "name": "Gharaam",
+      "sku": "GHAR107301",
+      "size": null,
+      "gender": null,
+      "notesRaw": "Top Note:\nJasmine, Saffron\nMiddle Note:\nAmber\nBase Note:\nResins, Cedarwood\nSHIPPING AND DELIVERY\nShare\nShare on Facebook\nShare on Twitter\nPin it\nRecently viewed\nSUBSCRIBE TO OUR NEWSLETTER\nEmail address\nSign up\nSHOP\nPerfumes\nMen's Perfumes\nWomen's Perfumes\nUnisex Perfumes\nHair Mist\nPerfume Oils\nIncense\nTraditional Items\nServices\nExchange & Return\nShipping & Delivery\nRefund Policy\nTerms & Conditions\nPrivacy Policy\nContact Us\nMore Links\nAbout Us\nFAQ's\nBlogs\nJoin Our Team\nBecome a Sales Partner\nFOLLOW US\nCopyright &copy; 2026\nSwiss Arabian Global\n.\nPayment methods accepted\nAmerican Express\nApple ",
+      "notesEn": {
+        "top": [
+          "Jasmine",
+          "Saffron"
+        ],
+        "heart": [
+          "Amber"
+        ],
+        "base": [
+          "Resins",
+          "Cedarwood"
+        ]
+      },
+      "notes": {
+        "top": [
+          "Jasmim",
+          "Açafrão"
+        ],
+        "heart": [
+          "Âmbar"
+        ],
+        "base": [
+          "Resinas",
+          "Cedro"
+        ]
+      },
+      "unknownNotes": [],
+      "review": "ok",
+      "fetchedAt": "2026-10-25T21:55:20.633Z"
+    },
+    {
+      "url": "https://swissarabian.com/products/leather-and-oud",
+      "name": "Leather And Oud",
+      "sku": "LOUD141201",
+      "size": null,
+      "gender": null,
+      "notesRaw": "Top Note:\nLavender, Bergamot, Lemon\nMiddle Note:\nCinnamon, Carnation, Jasmine, Coriander\nBase Note:\nPatchouli, Cedarwood, Sandalwood, Amber\nSHIPPING AND DELIVERY\nShare\nShare on Facebook\nShare on Twitter\nPin it\nRecently viewed\nSUBSCRIBE TO OUR NEWSLETTER\nEmail address\nSign up\nSHOP\nPerfumes\nMen's Perfumes\nWomen's Perfumes\nUnisex Perfumes\nHair Mist\nPerfume Oils\nIncense\nTraditional Items\nServices\nExchange & Return\nShipping & Delivery\nRefund Policy\nTerms & Conditions\nPrivacy Policy\nContact Us\nMore Links\nAbout Us\nFAQ's\nBlogs\nJoin Our Team\nBecome a Sales Partner\nFOLLOW US\nCopyright &copy; 2026\nSwiss ",
+      "notesEn": {
+        "top": [
+          "Lavender",
+          "Bergamot",
+          "Lemon"
+        ],
+        "heart": [
+          "Cinnamon",
+          "Carnation",
+          "Jasmine",
+          "Coriander"
+        ],
+        "base": [
+          "Patchouli",
+          "Cedarwood",
+          "Sandalwood",
+          "Amber"
+        ]
+      },
+      "notes": {
+        "top": [
+          "Lavanda",
+          "Bergamota",
+          "Limão-siciliano"
+        ],
+        "heart": [
+          "Canela",
+          "Cravo (flor)",
+          "Jasmim",
+          "Coentro"
+        ],
+        "base": [
+          "Patchouli",
+          "Cedro",
+          "Sândalo",
+          "Âmbar"
+        ]
+      },
+      "unknownNotes": [],
+      "review": "ok",
+      "fetchedAt": "2026-10-25T21:55:31.283Z"
+    },
+    {
+      "url": "https://swissarabian.com/products/oud-and-lychee",
+      "name": "Oud And Lychee",
+      "sku": "OLYC141301",
+      "size": null,
+      "gender": null,
+      "notesRaw": "Top Note:\nSaffron, Lychee\nMiddle Note:\nRose, Peach, Raspberry\nBase Note:\nVanilla, Oud, Teak Wood\nSHIPPING AND DELIVERY\nShare\nShare on Facebook\nShare on Twitter\nPin it\nCustomer Reviews\nBased on 3 reviews\nWrite a review\n0%\n(0)\n33%\n(1)\n0%\n(0)\n33%\n(1)\n33%\n(1)\nC\nCisem Balli\nOUD AND LYCHEE\nS\nSoana Hala\nHaven’t Received\nStill yet to receive my order\nS\nSarah Macleod\nOud and lychee\nNice smell, lovely once it settles but doesn't lay on the skin unfortunately\nRecently viewed\nSUBSCRIBE TO OUR NEWSLETTER\nEmail address\nSign up\nSHOP\nPerfumes\nMen's Perfumes\nWomen's Perfumes\nUnisex Perfumes\nHair Mist\nPerfume O",
+      "notesEn": {
+        "top": [
+          "Saffron",
+          "Lychee"
+        ],
+        "heart": [
+          "Rose",
+          "Peach",
+          "Raspberry"
+        ],
+        "base": [
+          "Vanilla",
+          "Oud",
+          "Teak Wood"
+        ]
+      },
+      "notes": {
+        "top": [
+          "Açafrão",
+          "Lichia"
+        ],
+        "heart": [
+          "Rosa",
+          "Pêssego",
+          "Framboesa"
+        ],
+        "base": [
+          "Baunilha",
+          "Oud",
+          "Madeira de teca"
+        ]
+      },
+      "unknownNotes": [],
+      "review": "ok",
+      "fetchedAt": "2026-10-25T21:55:41.949Z"
+    },
+    {
+      "url": "https://swissarabian.com/products/tobacco-01",
+      "name": "Tobacco 01",
+      "sku": "TOB1108001",
+      "size": null,
+      "gender": null,
+      "notesRaw": "Top Note:\nPlum, Apple, Cumin, Pink pepper, Liquorice\nMiddle Note:\nLabdanum, Amber, Ylang ylang, Patchouli\nBase Note:\nMusk, Cashmere, Honey, Vanilla, Sandalwood, Tobacco\nSHIPPING AND DELIVERY\nShare\nShare on Facebook\nShare on Twitter\nPin it\nCustomer Reviews\nBased on 24 reviews\nWrite a review\n79%\n(19)\n8%\n(2)\n4%\n(1)\n4%\n(1)\n4%\n(1)\n95.7\n84.6\nC\nChristina Blair\nTop tier\nThe DNA in this is superb. A lovely\nScent for date night\nC\nCisem Balli\nTOBACCO 01\nG\nGudjon teitur Johannesson\nI own 5 perfumes from swiss arabien and 2 oils\nLove all and get compliments all the time, would love to buy “shaghaf nectar b",
+      "notesEn": {
+        "top": [
+          "Plum",
+          "Apple",
+          "Cumin",
+          "Pink pepper",
+          "Liquorice"
+        ],
+        "heart": [
+          "Labdanum",
+          "Amber",
+          "Ylang ylang",
+          "Patchouli"
+        ],
+        "base": [
+          "Musk",
+          "Cashmere",
+          "Honey",
+          "Vanilla",
+          "Sandalwood",
+          "Tobacco"
+        ]
+      },
+      "notes": {
+        "top": [
+          "Ameixa",
+          "Maçã",
+          "Cominho",
+          "Pimenta-rosa",
+          "Alcaçuz"
+        ],
+        "heart": [
+          "Ládano",
+          "Âmbar",
+          "Ylang-ylang",
+          "Patchouli"
+        ],
+        "base": [
+          "Almíscar",
+          "Madeira de cashmere",
+          "Mel",
+          "Baunilha",
+          "Sândalo",
+          "Tabaco"
+        ]
+      },
+      "unknownNotes": [],
+      "review": "ok",
+      "fetchedAt": "2026-10-25T21:55:52.604Z"
+    },
+    {
+      "url": "https://swissarabian.com/products/shaghaf-vanilla-toffee",
+      "name": "Shaghaf Vanilla Toffee",
+      "sku": "SVTO098501",
+      "size": null,
+      "gender": null,
+      "notesRaw": "Top Note:\nButtery toffee, Arabic Coffee\nMiddle Note:\nWalnut Pastry, Date milk, Vanilla, Cardamom\nBase Note:\nMadagascar vanilla caviar, Brown sugar, Benzoin, Tonka Bean, Musk, Woods\nSHIPPING AND DELIVERY\nShare\nShare on Facebook\nShare on Twitter\nPin it\nCustomer Reviews\nBased on 22 reviews\nWrite a review\n77%\n(17)\n9%\n(2)\n5%\n(1)\n5%\n(1)\n5%\n(1)\n95.0\nJ\nJunhyun Kim\nSHAGHAF VANILLA TOFFEE\nA\nAhmed Mohamed\nBad company\nYou are stealing people's money unjustly.\nYou have made your money tainted with corruption.\nBecause you stole from me, and I will not forgive you.\nYour system is broken and unusable. You mad",
+      "notesEn": {
+        "top": [
+          "Buttery toffee",
+          "Arabic Coffee"
+        ],
+        "heart": [
+          "Walnut Pastry",
+          "Date milk",
+          "Vanilla",
+          "Cardamom"
+        ],
+        "base": [
+          "Madagascar vanilla caviar",
+          "Brown sugar",
+          "Benzoin",
+          "Tonka Bean",
+          "Musk",
+          "Woods"
+        ]
+      },
+      "notes": {
+        "top": [
+          "Toffee",
+          "Café arábica"
+        ],
+        "heart": [
+          "Nozes",
+          "Notas gourmand",
+          "Tâmara",
+          "Leite",
+          "Baunilha",
+          "Cardamomo"
+        ],
+        "base": [
+          "Baunilha de Madagascar",
+          "Açúcar mascavo",
+          "Benjoim",
+          "Fava-tonka",
+          "Almíscar",
+          "Notas amadeiradas"
+        ]
+      },
+      "unknownNotes": [],
+      "review": "ok",
+      "fetchedAt": "2026-10-25T21:56:03.176Z"
+    },
+    {
+      "url": "https://swissarabian.com/products/soul-of-bali",
+      "name": "Soul Of Bali",
+      "sku": "SBAL140401",
+      "size": null,
+      "gender": null,
+      "notesRaw": "Top Note:\nPink Pepper, Ginger, Rhubarb, Bergamot, Mango, Pineapple\nMiddle Note:\nCardamom, Olibanum, Saffron, Rosewood, Nutmeg, Aquatic note\nBase Note:\nMusk, Sandalwood, Cypriol, Ambergris\nSHIPPING AND DELIVERY\nShare\nShare on Facebook\nShare on Twitter\nPin it\nCustomer Reviews\nBased on 8 reviews\nWrite a review\n75%\n(6)\n0%\n(0)\n0%\n(0)\n0%\n(0)\n25%\n(2)\nF\nFilip Prostak\nThe package did not arrive\nThe package still hasn't arrived, the status is still displayed as in transit. Is there any information about what is happening with my order?\nA\nAyokunle Olaoluwa\nSOUL OF BALI\nM\nMaureen Osuji\nSOUL OF BALI\nThis p",
+      "notesEn": {
+        "top": [
+          "Pink Pepper",
+          "Ginger",
+          "Rhubarb",
+          "Bergamot",
+          "Mango",
+          "Pineapple"
+        ],
+        "heart": [],
+        "base": [
+          "Musk",
+          "Sandalwood",
+          "Cypriol",
+          "Ambergris"
+        ]
+      },
+      "notes": {
+        "top": [
+          "Pimenta-rosa",
+          "Gengibre",
+          "Ruibarbo",
+          "Bergamota",
+          "Manga",
+          "Abacaxi"
+        ],
+        "heart": [],
+        "base": [
+          "Almíscar",
+          "Sândalo",
+          "Cypriol",
+          "Âmbar-gris"
+        ]
+      },
+      "unknownNotes": [],
+      "review": "ok",
+      "fetchedAt": "2026-10-25T21:56:13.892Z"
+    },
+    {
+      "url": "https://swissarabian.com/products/shaghaf-amber-infusion",
+      "name": "Shaghaf Amber Infusion",
+      "sku": "SAIN098501",
+      "size": null,
+      "gender": null,
+      "notesRaw": "Top Note:\nDry Amber, Ginger, Cardamom, Apricot\nMiddle Note:\nVanilla, Apple, Cedar, Davana Oil, Lily Of The Valey\nBase Note:\nAmber, Patchouli, Olibanum, Leather, Musk\nSHIPPING AND DELIVERY\nShare\nShare on Facebook\nShare on Twitter\nPin it\nCustomer Reviews\nBased on 5 reviews\nWrite a review\n100%\n(5)\n0%\n(0)\n0%\n(0)\n0%\n(0)\n0%\n(0)\nM\nMOHD NASRI MOHD NASIR\nExcellent\nPremium smell and classic\nR\nReuel Rivera\nLove Swiss Arabian , Strong & Sophisticated with d exception of Shaghaf oud not a big fan 😜\nM\nM I Bulsari\nOne of the best\nAbsolutely brilliant and get so many compliments\nM\nMichael Powell Jr,\nSHAGHAF ",
+      "notesEn": null,
+      "notes": null,
+      "unknownNotes": [],
+      "review": "sem pirâmide",
+      "fetchedAt": "2026-10-25T21:56:35.434Z"
+    },
+    {
+      "url": "https://swissarabian.com/products/enigma-of-taif",
+      "name": "Enigma Of Taif",
+      "sku": "EOTA140401",
+      "size": null,
+      "gender": null,
+      "notesRaw": "Top Note:\nCardamom, Black pepper, Pink pepper, Elemi, Plum\nMiddle Note:\nTaif rose, Saffron, Violet, Olibanum, Osmanthus\nBase Note:\nOakwood, Molasses, Vetiver, Amber, Labdanum\nSHIPPING AND DELIVERY\nShare\nShare on Facebook\nShare on Twitter\nPin it\nCustomer Reviews\nBased on 8 reviews\nWrite a review\n100%\n(8)\n0%\n(0)\n0%\n(0)\n0%\n(0)\n0%\n(0)\nJ\nJUSTICE AMEGASHIE\nSmells amazing. Which others do you recommend\nM\nMohammedujef Mansuri\nMagical\nUnique composition of taif rose and bit of oud notes in background. Long stay on cloth. Megical composition\nS\nSebastian Sjoblom\nENIGMA OF TAIF\nA\nAerion Abney\nExcellent sc",
+      "notesEn": {
+        "top": [
+          "Cardamom",
+          "Black pepper",
+          "Pink pepper",
+          "Elemi",
+          "Plum"
+        ],
+        "heart": [
+          "Taif rose",
+          "Saffron",
+          "Violet",
+          "Olibanum",
+          "Osmanthus"
+        ],
+        "base": [
+          "Oakwood",
+          "Molasses",
+          "Vetiver",
+          "Amber",
+          "Labdanum"
+        ]
+      },
+      "notes": {
+        "top": [
+          "Cardamomo",
+          "Pimenta-preta",
+          "Pimenta-rosa",
+          "Elemi",
+          "Ameixa"
+        ],
+        "heart": [
+          "Rosa de Taif",
+          "Açafrão",
+          "Violeta",
+          "Olíbano",
+          "Osmanto"
+        ],
+        "base": [
+          "Carvalho",
+          "Melaço",
+          "Vetiver",
+          "Âmbar",
+          "Ládano"
+        ]
+      },
+      "unknownNotes": [],
+      "review": "ok",
+      "fetchedAt": "2026-10-25T21:56:46.050Z"
+    },
+    {
+      "url": "https://swissarabian.com/products/vanilla-01",
+      "name": "Vanilla 01",
+      "sku": "VAN1108001",
+      "size": null,
+      "gender": null,
+      "notesRaw": "Top Note:\nPink Pepper Madagascar, Orange Flower, Coconut\nMiddle Note:\nJasmine, Sambac India, Cappuccino,Caramel, Tuberose\nBase Note:\nVanilla Bourbon Absolute, Tonka Bean Absolute, Sandalwood, Musk\nSHIPPING AND DELIVERY\nShare\nShare on Facebook\nShare on Twitter\nPin it\nCustomer Reviews\nBased on 21 reviews\nWrite a review\n62%\n(13)\n14%\n(3)\n5%\n(1)\n5%\n(1)\n14%\n(3)\n100.0\n100.0\nD\nDelft Ferry Jean Jacque\nVANILLA 01\nS\nSarah Sakhri\nVanilla 01\nIt was not what I was expecting. It leans more on the oud and coffee. There is barely any vanilla.\nP\nPrisilla Berry\nPerfume\nExquisite ❤️\nO\nOrazul Joe\nThese are wonderf",
+      "notesEn": {
+        "top": [
+          "Pink Pepper Madagascar",
+          "Orange Flower",
+          "Coconut"
+        ],
+        "heart": [
+          "Jasmine",
+          "Sambac India",
+          "Cappuccino",
+          "Caramel",
+          "Tuberose"
+        ],
+        "base": [
+          "Vanilla Bourbon Absolute",
+          "Tonka Bean Absolute",
+          "Sandalwood",
+          "Musk"
+        ]
+      },
+      "notes": {
+        "top": [
+          "Pimenta-rosa",
+          "Flor de laranjeira",
+          "Coco"
+        ],
+        "heart": [
+          "Jasmim",
+          "Jasmim sambac",
+          "Café",
+          "Leite",
+          "Caramelo",
+          "Tuberosa"
+        ],
+        "base": [
+          "Baunilha Bourbon",
+          "Fava-tonka",
+          "Sândalo",
+          "Almíscar"
+        ]
+      },
+      "unknownNotes": [],
+      "review": "ok",
+      "fetchedAt": "2026-10-25T21:56:56.908Z"
+    },
+    {
+      "url": "https://swissarabian.com/products/the-collector-s-edition",
+      "name": "The Collector’s Edition",
+      "sku": "PSET000005",
+      "size": null,
+      "gender": null,
+      "notesRaw": "Top Note:\nMiddle Note:\nBase Note:\nSHIPPING AND DELIVERY\nShare\nShare on Facebook\nShare on Twitter\nPin it\nCustomer Reviews\nBased on 2 reviews\nWrite a review\n0%\n(0)\n0%\n(0)\n0%\n(0)\n0%\n(0)\n100%\n(2)\nG\nGeorge Evagorou\nI havent received my order yet\nI have not received my order yet. It is still in customs\nB\nBrahim Outaleb\n👎🏼\nصراحة أنا مستاء من الخطأ الذي وقع في طلبي. توصلتُ بالشحنة، لكن زجاجة Vanilla O1 كانت فارغة تمامًا، وهذا خطأ غير مقبول\nولم أتلق أي معلومات او تعويض، لانها كانت هدية لخطيبتي في حفلة خطبتنا\nRecently viewed\nSUBSCRIBE TO OUR NEWSLETTER\nEmail address\nSign up\nSHOP\nPerfumes\nMen's Perfume",
+      "notesEn": null,
+      "notes": null,
+      "unknownNotes": [],
+      "review": "sem pirâmide",
+      "fetchedAt": "2026-10-25T21:57:07.592Z"
+    },
+    {
+      "url": "https://swissarabian.com/products/shaghaf-women-collection",
+      "name": "Shaghaf Women Collection",
+      "sku": "GPAC007025",
+      "size": null,
+      "gender": "Feminino",
+      "notesRaw": "Top Note:\nMiddle Note:\nBase Note:\nSHIPPING AND DELIVERY\nShare\nShare on Facebook\nShare on Twitter\nPin it\nRecently viewed\nSUBSCRIBE TO OUR NEWSLETTER\nEmail address\nSign up\nSHOP\nPerfumes\nMen's Perfumes\nWomen's Perfumes\nUnisex Perfumes\nHair Mist\nPerfume Oils\nIncense\nTraditional Items\nServices\nExchange & Return\nShipping & Delivery\nRefund Policy\nTerms & Conditions\nPrivacy Policy\nContact Us\nMore Links\nAbout Us\nFAQ's\nBlogs\nJoin Our Team\nBecome a Sales Partner\nFOLLOW US\nCopyright &copy; 2026\nSwiss Arabian Global\n.\nPayment methods accepted\nAmerican Express\nApple Pay\nGoogle Pay\nMastercard\nVisa\n×\nSelect Y",
+      "notesEn": null,
+      "notes": null,
+      "unknownNotes": [],
+      "review": "sem pirâmide",
+      "fetchedAt": "2026-10-25T21:57:18.319Z"
+    },
+    {
+      "url": "https://swissarabian.com/products/shaghaf-men-collection",
+      "name": "Shaghaf Men Collection",
+      "sku": "GPAC007026",
+      "size": null,
+      "gender": "Masculino",
+      "notesRaw": "Top Note:\nMiddle Note:\nBase Note:\nSHIPPING AND DELIVERY\nShare\nShare on Facebook\nShare on Twitter\nPin it\nCustomer Reviews\nBased on 1 review\nWrite a review\n100%\n(1)\n0%\n(0)\n0%\n(0)\n0%\n(0)\n0%\n(0)\nM\nM T HURSCHLER\nSHAGHAF MEN COLLECTION\nRecently viewed\nSUBSCRIBE TO OUR NEWSLETTER\nEmail address\nSign up\nSHOP\nPerfumes\nMen's Perfumes\nWomen's Perfumes\nUnisex Perfumes\nHair Mist\nPerfume Oils\nIncense\nTraditional Items\nServices\nExchange & Return\nShipping & Delivery\nRefund Policy\nTerms & Conditions\nPrivacy Policy\nContact Us\nMore Links\nAbout Us\nFAQ's\nBlogs\nJoin Our Team\nBecome a Sales Partner\nFOLLOW US\nCopyrigh",
+      "notesEn": null,
+      "notes": null,
+      "unknownNotes": [],
+      "review": "sem pirâmide",
+      "fetchedAt": "2026-10-25T21:57:28.980Z"
+    },
+    {
+      "url": "https://swissarabian.com/products/heritage-women-collection",
+      "name": "Heritage Women Collection",
+      "sku": "GPAC007028",
+      "size": null,
+      "gender": "Feminino",
+      "notesRaw": "Top Note:\nMiddle Note:\nBase Note:\nSHIPPING AND DELIVERY\nShare\nShare on Facebook\nShare on Twitter\nPin it\nCustomer Reviews\nBased on 4 reviews\nWrite a review\n75%\n(3)\n0%\n(0)\n25%\n(1)\n0%\n(0)\n0%\n(0)\nS\nSarah Nijam\nStunning.\nThis is a decadent and rich collection which is so beautiful. I feel it should be used sparingly or layered to enhance these scents and to prevent them being too pungent. I have Incense 01 which takes me back to the Catholic Church of my childhood. I adore Frankinscence and Myhrr so lm in scent heaven with the addition of the world-class Musk, Vanilla and Rose. These are my prized ",
+      "notesEn": null,
+      "notes": null,
+      "unknownNotes": [],
+      "review": "sem pirâmide",
+      "fetchedAt": "2026-10-25T21:57:39.657Z"
+    },
+    {
+      "url": "https://swissarabian.com/products/cities-collection",
+      "name": "Cities Collection",
+      "sku": "GPAC007029",
+      "size": null,
+      "gender": null,
+      "notesRaw": "Top Note:\nMiddle Note:\nBase Note:\nSHIPPING AND DELIVERY\nShare\nShare on Facebook\nShare on Twitter\nPin it\nCustomer Reviews\nBased on 1 review\nWrite a review\n100%\n(1)\n0%\n(0)\n0%\n(0)\n0%\n(0)\n0%\n(0)\nA\nAMITHA DHEWI\nCITIES COLLECTION\nRecently viewed\nSUBSCRIBE TO OUR NEWSLETTER\nEmail address\nSign up\nSHOP\nPerfumes\nMen's Perfumes\nWomen's Perfumes\nUnisex Perfumes\nHair Mist\nPerfume Oils\nIncense\nTraditional Items\nServices\nExchange & Return\nShipping & Delivery\nRefund Policy\nTerms & Conditions\nPrivacy Policy\nContact Us\nMore Links\nAbout Us\nFAQ's\nBlogs\nJoin Our Team\nBecome a Sales Partner\nFOLLOW US\nCopyright &cop",
+      "notesEn": null,
+      "notes": null,
+      "unknownNotes": [],
+      "review": "sem pirâmide",
+      "fetchedAt": "2026-10-25T21:57:50.393Z"
+    },
+    {
+      "url": "https://swissarabian.com/products/collectors-edition-1",
+      "name": "Collector'S Edition 1",
+      "sku": "GPAC007030",
+      "size": null,
+      "gender": null,
+      "notesRaw": "Top Note:\nMiddle Note:\nBase Note:\nSHIPPING AND DELIVERY\nShare\nShare on Facebook\nShare on Twitter\nPin it\nCustomer Reviews\nBased on 3 reviews\nWrite a review\n33%\n(1)\n0%\n(0)\n0%\n(0)\n0%\n(0)\n67%\n(2)\nW\nWesley Narine\nDisappointing\nYour Website can't take an order\nWhatapp service is shit, not helpful.\nEmail no better.\nDo you really want my review...\nM\nMatthew Ramai\nMissing case\nI received the fragrances but I did not get the packaging that it comes in I only got the individual box not the leather case\nF\nFritz Cima\nGreat collection.\nReally nice fragrance\nRecently viewed\nSUBSCRIBE TO OUR NEWSLETTER\nEmail ",
+      "notesEn": null,
+      "notes": null,
+      "unknownNotes": [],
+      "review": "sem pirâmide",
+      "fetchedAt": "2026-10-25T21:58:01.137Z"
+    },
+    {
+      "url": "https://swissarabian.com/products/private-collection",
+      "name": "Private Collection",
+      "sku": "GPAC007035",
+      "size": null,
+      "gender": null,
+      "notesRaw": "Top Note:\nMiddle Note:\nBase Note:\nSHIPPING AND DELIVERY\nShare\nShare on Facebook\nShare on Twitter\nPin it\nRecently viewed\nSUBSCRIBE TO OUR NEWSLETTER\nEmail address\nSign up\nSHOP\nPerfumes\nMen's Perfumes\nWomen's Perfumes\nUnisex Perfumes\nHair Mist\nPerfume Oils\nIncense\nTraditional Items\nServices\nExchange & Return\nShipping & Delivery\nRefund Policy\nTerms & Conditions\nPrivacy Policy\nContact Us\nMore Links\nAbout Us\nFAQ's\nBlogs\nJoin Our Team\nBecome a Sales Partner\nFOLLOW US\nCopyright &copy; 2026\nSwiss Arabian Global\n.\nPayment methods accepted\nAmerican Express\nApple Pay\nGoogle Pay\nMastercard\nVisa\n×\nSelect Y",
+      "notesEn": null,
+      "notes": null,
+      "unknownNotes": [],
+      "review": "sem pirâmide",
+      "fetchedAt": "2026-10-25T21:59:58.512Z"
+    },
+    {
+      "url": "https://swissarabian.com/products/musk-8",
+      "name": "Musk 07",
+      "sku": "MUS7107301",
+      "size": null,
+      "gender": null,
+      "notesRaw": "Top Note:\nPomegranate, Blackcurrant\nMiddle Note:\nRose, Lily Of The Valley\nBase Note:\nPatchouli, Musk\nSHIPPING AND DELIVERY\nShare\nShare on Facebook\nShare on Twitter\nPin it\nCustomer Reviews\nBased on 5 reviews\nWrite a review\n40%\n(2)\n20%\n(1)\n0%\n(0)\n20%\n(1)\n20%\n(1)\nS\nSafa Ahmed\nUn-delivered product\nUnfortunately i can’t give my review on a product i didn’t receive, and i contacted your shop email numerous times and dhl express for a clarification and they confirmed return of product because of some customer problem.\nOrder #6025\nConfirmed 18. Aug\nIQ Fulfillment 1944222851\nHopefully i would hear a fe",
+      "notesEn": {
+        "top": [
+          "Pomegranate",
+          "Blackcurrant"
+        ],
+        "heart": [
+          "Rose",
+          "Lily Of The Valley"
+        ],
+        "base": [
+          "Patchouli",
+          "Musk"
+        ]
+      },
+      "notes": {
+        "top": [
+          "Romã",
+          "Cassis"
+        ],
+        "heart": [
+          "Rosa",
+          "Lírio-do-vale"
+        ],
+        "base": [
+          "Patchouli",
+          "Almíscar"
+        ]
+      },
+      "unknownNotes": [],
+      "review": "ok",
+      "fetchedAt": "2026-10-25T22:00:09.250Z"
+    },
+    {
+      "url": "https://swissarabian.com/products/yulali",
+      "name": "Yulali",
+      "sku": "YULA107901",
+      "size": null,
+      "gender": null,
+      "notesRaw": "Top Note:\nBergamot, Tangerine, Apple, Nectarine\nMiddle Note:\nMagnolia, Jasmine, Freesia, Lily of the Valley, Gardenia\nBase Note:\nSandalwood, Musk, Vanilla, Patchouli, Amber\nSHIPPING AND DELIVERY\nShare\nShare on Facebook\nShare on Twitter\nPin it\nCustomer Reviews\nBased on 1 review\nWrite a review\n100%\n(1)\n0%\n(0)\n0%\n(0)\n0%\n(0)\n0%\n(0)\nN\nNadia Uvarov\nSmells nice and long lasting\nI don’t smell the fresh notes but nectarine and white flowers are standing out.\nRecently viewed\nSUBSCRIBE TO OUR NEWSLETTER\nEmail address\nSign up\nSHOP\nPerfumes\nMen's Perfumes\nWomen's Perfumes\nUnisex Perfumes\nHair Mist\nPerfume ",
+      "notesEn": {
+        "top": [
+          "Bergamot",
+          "Tangerine",
+          "Apple",
+          "Nectarine"
+        ],
+        "heart": [
+          "Magnolia",
+          "Jasmine",
+          "Freesia",
+          "Lily of the Valley",
+          "Gardenia"
+        ],
+        "base": [
+          "Sandalwood",
+          "Musk",
+          "Vanilla",
+          "Patchouli",
+          "Amber"
+        ]
+      },
+      "notes": {
+        "top": [
+          "Bergamota",
+          "Tangerina",
+          "Maçã",
+          "Nectarina"
+        ],
+        "heart": [
+          "Magnólia",
+          "Jasmim",
+          "Frésia",
+          "Lírio-do-vale",
+          "Gardênia"
+        ],
+        "base": [
+          "Sândalo",
+          "Almíscar",
+          "Baunilha",
+          "Patchouli",
+          "Âmbar"
+        ]
+      },
+      "unknownNotes": [],
+      "review": "ok",
+      "fetchedAt": "2026-10-25T22:00:19.916Z"
+    },
+    {
+      "url": "https://swissarabian.com/products/swiss-arabian-exclusive-collection",
+      "name": "Swiss Arabian Exclusive Collection",
+      "sku": "GPAC001924",
+      "size": null,
+      "gender": null,
+      "notesRaw": "Top Note:\nMiddle Note:\nBase Note:\nSHIPPING AND DELIVERY\nShare\nShare on Facebook\nShare on Twitter\nPin it\nCustomer Reviews\nBased on 1 review\nWrite a review\n100%\n(1)\n0%\n(0)\n0%\n(0)\n0%\n(0)\n0%\n(0)\nB\nBeverly Samuel\nOpulent gift set\nThis set is luxurious.\nA great gift to give to someone for a special occasion . My friends saw the set and will be ordering .\nThis set is a everything, i absolutely love this .\nRecently viewed\nSUBSCRIBE TO OUR NEWSLETTER\nEmail address\nSign up\nSHOP\nPerfumes\nMen's Perfumes\nWomen's Perfumes\nUnisex Perfumes\nHair Mist\nPerfume Oils\nIncense\nTraditional Items\nServices\nExchange & R",
+      "notesEn": null,
+      "notes": null,
+      "unknownNotes": [],
+      "review": "sem pirâmide",
+      "fetchedAt": "2026-10-25T22:00:30.508Z"
+    },
+    {
+      "url": "https://swissarabian.com/products/harmony-collection-1",
+      "name": "Harmony Collection",
+      "sku": "GPAC007051",
+      "size": null,
+      "gender": null,
+      "notesRaw": "Top Note:\nMiddle Note:\nBase Note:\nSHIPPING AND DELIVERY\nShare\nShare on Facebook\nShare on Twitter\nPin it\nRecently viewed\nSUBSCRIBE TO OUR NEWSLETTER\nEmail address\nSign up\nSHOP\nPerfumes\nMen's Perfumes\nWomen's Perfumes\nUnisex Perfumes\nHair Mist\nPerfume Oils\nIncense\nTraditional Items\nServices\nExchange & Return\nShipping & Delivery\nRefund Policy\nTerms & Conditions\nPrivacy Policy\nContact Us\nMore Links\nAbout Us\nFAQ's\nBlogs\nJoin Our Team\nBecome a Sales Partner\nFOLLOW US\nCopyright &copy; 2026\nSwiss Arabian Global\n.\nPayment methods accepted\nAmerican Express\nApple Pay\nGoogle Pay\nMastercard\nVisa\n×\nSelect Y",
+      "notesEn": null,
+      "notes": null,
+      "unknownNotes": [],
+      "review": "sem pirâmide",
+      "fetchedAt": "2026-10-25T22:01:24.120Z"
+    },
+    {
+      "url": "https://swissarabian.com/products/shaghaf-for-men",
+      "name": "Shaghaf",
+      "sku": "SHAG098501",
+      "size": null,
+      "gender": null,
+      "notesRaw": "Top Note:\nLemon, Lavender\nMiddle Note:\nNutgrass, Sea Notes\nBase Note:\nPatchouli, Amber\nSHIPPING AND DELIVERY\nShare\nShare on Facebook\nShare on Twitter\nPin it\nCustomer Reviews\nBased on 1 review\nWrite a review\n100%\n(1)\n0%\n(0)\n0%\n(0)\n0%\n(0)\n0%\n(0)\nJ\nJian carlo Manzano\nSHAGHAF\nRecently viewed\nSUBSCRIBE TO OUR NEWSLETTER\nEmail address\nSign up\nSHOP\nPerfumes\nMen's Perfumes\nWomen's Perfumes\nUnisex Perfumes\nHair Mist\nPerfume Oils\nIncense\nTraditional Items\nServices\nExchange & Return\nShipping & Delivery\nRefund Policy\nTerms & Conditions\nPrivacy Policy\nContact Us\nMore Links\nAbout Us\nFAQ's\nBlogs\nJoin Our Tea",
+      "notesEn": {
+        "top": [
+          "Lemon",
+          "Lavender"
+        ],
+        "heart": [],
+        "base": [
+          "Patchouli",
+          "Amber"
+        ]
+      },
+      "notes": {
+        "top": [
+          "Limão-siciliano",
+          "Lavanda"
+        ],
+        "heart": [],
+        "base": [
+          "Patchouli",
+          "Âmbar"
+        ]
+      },
+      "unknownNotes": [],
+      "review": "ok",
+      "fetchedAt": "2026-10-25T22:01:34.826Z"
+    },
+    {
+      "url": "https://swissarabian.com/products/rose-01-copy",
+      "name": "Rose 01",
+      "sku": "ROS1107301",
+      "size": null,
+      "gender": null,
+      "notesRaw": "Top Note:\nLychee, Bergamot, Pink Pepper\nMiddle Note:\nBulgarian Rose, Peony, Nutmeg\nBase Note:\nVanilla, Musk, Cashmere Wood\nSHIPPING AND DELIVERY\nShare\nShare on Facebook\nShare on Twitter\nPin it\nRecently viewed\nSUBSCRIBE TO OUR NEWSLETTER\nEmail address\nSign up\nSHOP\nPerfumes\nMen's Perfumes\nWomen's Perfumes\nUnisex Perfumes\nHair Mist\nPerfume Oils\nIncense\nTraditional Items\nServices\nExchange & Return\nShipping & Delivery\nRefund Policy\nTerms & Conditions\nPrivacy Policy\nContact Us\nMore Links\nAbout Us\nFAQ's\nBlogs\nJoin Our Team\nBecome a Sales Partner\nFOLLOW US\nCopyright &copy; 2026\nSwiss Arabian Global\n.\n",
+      "notesEn": {
+        "top": [
+          "Lychee",
+          "Bergamot",
+          "Pink Pepper"
+        ],
+        "heart": [
+          "Bulgarian Rose",
+          "Peony",
+          "Nutmeg"
+        ],
+        "base": [
+          "Vanilla",
+          "Musk",
+          "Cashmere Wood"
+        ]
+      },
+      "notes": {
+        "top": [
+          "Lichia",
+          "Bergamota",
+          "Pimenta-rosa"
+        ],
+        "heart": [
+          "Rosa búlgara",
+          "Peônia",
+          "Noz-moscada"
+        ],
+        "base": [
+          "Baunilha",
+          "Almíscar",
+          "Madeira de cashmere"
+        ]
+      },
+      "unknownNotes": [],
+      "review": "ok",
+      "fetchedAt": "2026-10-25T22:01:45.544Z"
+    },
+    {
+      "url": "https://swissarabian.com/products/patchouli-01",
+      "name": "Patchouli 01",
+      "sku": "PAT1108001",
+      "size": null,
+      "gender": null,
+      "notesRaw": "Top Note:\nLavender, Blackcurrant, Bergamot, Pink Pepper, Grapefruit, Cardamom, Watery Accord\nMiddle Note:\nGeranium, Lily Of The Valley, Elemi, Orange Blossom, Pineapple, Mint,\nBase Note:\nPatchouli, Ciste Absolute, Olibanum, Oakwood, Cashmere Wood, Vanilla, Tonka\nSHIPPING AND DELIVERY\nShare\nShare on Facebook\nShare on Twitter\nPin it\nCustomer Reviews\nBased on 8 reviews\nWrite a review\n50%\n(4)\n13%\n(1)\n0%\n(0)\n13%\n(1)\n25%\n(2)\nS\nStefan Kamenov\nI want to returned it , no one told me that I should make so much thing to take the fragrance\nB\nBroderick Carreon\nTo long to get the product and customer servic",
+      "notesEn": {
+        "top": [
+          "Lavender",
+          "Blackcurrant",
+          "Bergamot",
+          "Pink Pepper",
+          "Grapefruit",
+          "Cardamom",
+          "Watery Accord"
+        ],
+        "heart": [
+          "Geranium",
+          "Lily Of The Valley",
+          "Elemi",
+          "Orange Blossom",
+          "Pineapple",
+          "Mint"
+        ],
+        "base": [
+          "Patchouli",
+          "Ciste Absolute",
+          "Olibanum",
+          "Oakwood",
+          "Cashmere Wood",
+          "Vanilla",
+          "Tonka"
+        ]
+      },
+      "notes": {
+        "top": [
+          "Lavanda",
+          "Cassis",
+          "Bergamota",
+          "Pimenta-rosa",
+          "Toranja",
+          "Cardamomo",
+          "Notas aquáticas"
+        ],
+        "heart": [
+          "Gerânio",
+          "Lírio-do-vale",
+          "Elemi",
+          "Flor de laranjeira",
+          "Abacaxi",
+          "Menta"
+        ],
+        "base": [
+          "Patchouli",
+          "Ládano",
+          "Olíbano",
+          "Carvalho",
+          "Madeira de cashmere",
+          "Baunilha",
+          "Fava-tonka"
+        ]
+      },
+      "unknownNotes": [],
+      "review": "ok",
+      "fetchedAt": "2026-10-25T22:02:06.866Z"
+    },
+    {
+      "url": "https://swissarabian.com/products/shaghaf-nectar-blush",
+      "name": "Shaghaf Nectar Blush",
+      "sku": "SNBL098501",
+      "size": null,
+      "gender": null,
+      "notesRaw": "Top Note:\nYuzu, Williams Pear, Neroli,  Elder Flower, Apple, Black Currant\nMiddle Note:\nGardenia, Orange Blossom, Magnolia, Cedarwood, Watery Accord\nBase Note:\nPatchouli, Tonka, Musk, Vanilla, Peru Balsam\nSHIPPING AND DELIVERY\nShare\nShare on Facebook\nShare on Twitter\nPin it\nCustomer Reviews\nBased on 3 reviews\nWrite a review\n33%\n(1)\n33%\n(1)\n0%\n(0)\n0%\n(0)\n33%\n(1)\nS\nSimona Miska\nOvercharged, no response\nWas given 4 times bigger invoice AMD therefore had to pay 4 times more tax. Customer service doesn't answer, neither emails , neither whatsup.\nC\nCisem Balli\nSHAGHAF NECTAR BLUSH\nJ\nJed Ephan\nI love",
+      "notesEn": {
+        "top": [
+          "Yuzu",
+          "Williams Pear",
+          "Neroli",
+          "Elder Flower",
+          "Apple",
+          "Black Currant"
+        ],
+        "heart": [
+          "Gardenia",
+          "Orange Blossom",
+          "Magnolia",
+          "Cedarwood",
+          "Watery Accord"
+        ],
+        "base": [
+          "Patchouli",
+          "Tonka",
+          "Musk",
+          "Vanilla",
+          "Peru Balsam"
+        ]
+      },
+      "notes": {
+        "top": [
+          "Yuzu",
+          "Pera",
+          "Neroli",
+          "Flor de sabugueiro",
+          "Maçã",
+          "Cassis"
+        ],
+        "heart": [
+          "Gardênia",
+          "Flor de laranjeira",
+          "Magnólia",
+          "Cedro",
+          "Notas aquáticas"
+        ],
+        "base": [
+          "Patchouli",
+          "Fava-tonka",
+          "Almíscar",
+          "Baunilha",
+          "Bálsamo-do-peru"
+        ]
+      },
+      "unknownNotes": [],
+      "review": "ok",
+      "fetchedAt": "2026-10-25T22:02:17.548Z"
+    },
+    {
+      "url": "https://swissarabian.com/products/the-collector-s-edition-ii",
+      "name": "The Collector’S Edition Ii",
+      "sku": "GPAC142703",
+      "size": null,
+      "gender": null,
+      "notesRaw": "Top Note:\nN/A\nMiddle Note:\nN/A\nBase Note:\nN/A\nSHIPPING AND DELIVERY\nShare\nShare on Facebook\nShare on Twitter\nPin it\nCustomer Reviews\nBased on 2 reviews\nWrite a review\n50%\n(1)\n0%\n(0)\n0%\n(0)\n0%\n(0)\n50%\n(1)\nV\nVivette Hepburn\nlong lasting great smelling\nlong lasting great smelling\nO\nOusseynou po Kante Magath Cisse\nNo receive goods\nRecently viewed\nSUBSCRIBE TO OUR NEWSLETTER\nEmail address\nSign up\nSHOP\nPerfumes\nMen's Perfumes\nWomen's Perfumes\nUnisex Perfumes\nHair Mist\nPerfume Oils\nIncense\nTraditional Items\nServices\nExchange & Return\nShipping & Delivery\nRefund Policy\nTerms & Conditions\nPrivacy Policy",
+      "notesEn": null,
+      "notes": null,
+      "unknownNotes": [],
+      "review": "sem pirâmide",
+      "fetchedAt": "2026-10-25T22:02:28.256Z"
+    },
+    {
+      "url": "https://swissarabian.com/products/layali-blanc",
+      "name": "Layali Blanc",
+      "sku": "LBLA099601",
+      "size": null,
+      "gender": null,
+      "notesRaw": "Top Note:\nPeony, Geranium, Caramel\nMiddle Note:\nWhite Rose, Iris, White Musk, Raspberry\nBase Note:\nCashmere Wood, Sandalwood, Powdery, Musk, Vanilla\nSHIPPING AND DELIVERY\nShare\nShare on Facebook\nShare on Twitter\nPin it\nCustomer Reviews\nBased on 1 review\nWrite a review\n0%\n(0)\n0%\n(0)\n0%\n(0)\n0%\n(0)\n100%\n(1)\nK\nKeanu Gerald\nUnsatisfied\nI have not received my order\nRecently viewed\nSUBSCRIBE TO OUR NEWSLETTER\nEmail address\nSign up\nSHOP\nPerfumes\nMen's Perfumes\nWomen's Perfumes\nUnisex Perfumes\nHair Mist\nPerfume Oils\nIncense\nTraditional Items\nServices\nExchange & Return\nShipping & Delivery\nRefund Policy\n",
+      "notesEn": {
+        "top": [
+          "Peony",
+          "Geranium",
+          "Caramel"
+        ],
+        "heart": [
+          "White Rose",
+          "Iris",
+          "White Musk",
+          "Raspberry"
+        ],
+        "base": [
+          "Cashmere Wood",
+          "Sandalwood",
+          "Powdery",
+          "Musk",
+          "Vanilla"
+        ]
+      },
+      "notes": {
+        "top": [
+          "Peônia",
+          "Gerânio",
+          "Caramelo"
+        ],
+        "heart": [
+          "Rosa",
+          "Íris",
+          "Almíscar branco",
+          "Framboesa"
+        ],
+        "base": [
+          "Madeira de cashmere",
+          "Sândalo",
+          "Notas atalcadas",
+          "Almíscar",
+          "Baunilha"
+        ]
+      },
+      "unknownNotes": [],
+      "review": "ok",
+      "fetchedAt": "2026-10-25T22:02:38.978Z"
+    },
+    {
+      "url": "https://swissarabian.com/products/layali-noir",
+      "name": "Layali Noir",
+      "sku": "LNOI099601",
+      "size": null,
+      "gender": null,
+      "notesRaw": "Top Note:\nDavana Oil, Cinnamon\nMiddle Note:\nTonka, Amber, Oakwood\nBase Note:\nVanilla, Praline, Sandalwood, Amber\nSHIPPING AND DELIVERY\nShare\nShare on Facebook\nShare on Twitter\nPin it\nRecently viewed\nSUBSCRIBE TO OUR NEWSLETTER\nEmail address\nSign up\nSHOP\nPerfumes\nMen's Perfumes\nWomen's Perfumes\nUnisex Perfumes\nHair Mist\nPerfume Oils\nIncense\nTraditional Items\nServices\nExchange & Return\nShipping & Delivery\nRefund Policy\nTerms & Conditions\nPrivacy Policy\nContact Us\nMore Links\nAbout Us\nFAQ's\nBlogs\nJoin Our Team\nBecome a Sales Partner\nFOLLOW US\nCopyright &copy; 2026\nSwiss Arabian Global\n.\nPayment me",
+      "notesEn": {
+        "top": [
+          "Davana Oil",
+          "Cinnamon"
+        ],
+        "heart": [
+          "Tonka",
+          "Amber",
+          "Oakwood"
+        ],
+        "base": [
+          "Vanilla",
+          "Praline",
+          "Sandalwood",
+          "Amber"
+        ]
+      },
+      "notes": {
+        "top": [
+          "Davana",
+          "Canela"
+        ],
+        "heart": [
+          "Fava-tonka",
+          "Âmbar",
+          "Carvalho"
+        ],
+        "base": [
+          "Baunilha",
+          "Praliné",
+          "Sândalo",
+          "Âmbar"
+        ]
+      },
+      "unknownNotes": [],
+      "review": "ok",
+      "fetchedAt": "2026-10-25T22:02:49.704Z"
+    },
+    {
+      "url": "https://swissarabian.com/products/layali-rubis",
+      "name": "Layali Rubis",
+      "sku": "LRUB099601",
+      "size": null,
+      "gender": null,
+      "notesRaw": "Top Note:\nPear, Bergamot, Mandarin\nMiddle Note:\nBulgarian Rose, Turkish Rose,  African Orange Flower\nBase Note:\nAkigalawood, Vanilla, Sandalwood\nSHIPPING AND DELIVERY\nShare\nShare on Facebook\nShare on Twitter\nPin it\nRecently viewed\nSUBSCRIBE TO OUR NEWSLETTER\nEmail address\nSign up\nSHOP\nPerfumes\nMen's Perfumes\nWomen's Perfumes\nUnisex Perfumes\nHair Mist\nPerfume Oils\nIncense\nTraditional Items\nServices\nExchange & Return\nShipping & Delivery\nRefund Policy\nTerms & Conditions\nPrivacy Policy\nContact Us\nMore Links\nAbout Us\nFAQ's\nBlogs\nJoin Our Team\nBecome a Sales Partner\nFOLLOW US\nCopyright &copy; 2026\nS",
+      "notesEn": {
+        "top": [
+          "Pear",
+          "Bergamot",
+          "Mandarin"
+        ],
+        "heart": [
+          "Bulgarian Rose",
+          "Turkish Rose",
+          "African Orange Flower"
+        ],
+        "base": [
+          "Akigalawood",
+          "Vanilla",
+          "Sandalwood"
+        ]
+      },
+      "notes": {
+        "top": [
+          "Pera",
+          "Bergamota",
+          "Tangerina"
+        ],
+        "heart": [
+          "Rosa búlgara",
+          "Rosa turca",
+          "Flor de laranjeira"
+        ],
+        "base": [
+          "Akigalawood",
+          "Baunilha",
+          "Sândalo"
+        ]
+      },
+      "unknownNotes": [],
+      "review": "ok",
+      "fetchedAt": "2026-10-25T22:03:00.336Z"
+    },
+    {
+      "url": "https://swissarabian.com/products/layali-soleil",
+      "name": "Layali Soleil",
+      "sku": "LSOL099601",
+      "size": null,
+      "gender": null,
+      "notesRaw": "Top Note:\nCoconut, Heliotrope, Vanilla\nMiddle Note:\nMadagascar, Vanilla\nBase Note:\nVanilla,White Musk, Sandalwood\nSHIPPING AND DELIVERY\nShare\nShare on Facebook\nShare on Twitter\nPin it\nRecently viewed\nSUBSCRIBE TO OUR NEWSLETTER\nEmail address\nSign up\nSHOP\nPerfumes\nMen's Perfumes\nWomen's Perfumes\nUnisex Perfumes\nHair Mist\nPerfume Oils\nIncense\nTraditional Items\nServices\nExchange & Return\nShipping & Delivery\nRefund Policy\nTerms & Conditions\nPrivacy Policy\nContact Us\nMore Links\nAbout Us\nFAQ's\nBlogs\nJoin Our Team\nBecome a Sales Partner\nFOLLOW US\nCopyright &copy; 2026\nSwiss Arabian Global\n.\nPayment m",
+      "notesEn": {
+        "top": [
+          "Coconut",
+          "Heliotrope",
+          "Vanilla"
+        ],
+        "heart": [
+          "Madagascar",
+          "Vanilla"
+        ],
+        "base": [
+          "Vanilla",
+          "White Musk",
+          "Sandalwood"
+        ]
+      },
+      "notes": {
+        "top": [
+          "Coco",
+          "Heliotrópio",
+          "Baunilha"
+        ],
+        "heart": [
+          "Baunilha"
+        ],
+        "base": [
+          "Baunilha",
+          "Almíscar branco",
+          "Sândalo"
+        ]
+      },
+      "unknownNotes": [],
+      "review": "ok",
+      "fetchedAt": "2026-10-25T22:03:11.047Z"
+    },
+    {
+      "url": "https://swissarabian.com/products/shaghaf-oud-ahmar-75-ml-shaghaf-oud-elixir-25-ml",
+      "name": "Shaghaf Oud Ahmar",
+      "sku": "GPAC007053",
+      "size": "75 ML",
+      "gender": null,
+      "notesRaw": "Top Note:\nN/A\nMiddle Note:\nN/A\nBase Note:\nN/A\nSHIPPING AND DELIVERY\nShare\nShare on Facebook\nShare on Twitter\nPin it\nCustomer Reviews\nBased on 2 reviews\nWrite a review\n50%\n(1)\n50%\n(1)\n0%\n(0)\n0%\n(0)\n0%\n(0)\nL\nLilie Alachraf\nBest oud perfumes!\nC\nCisem Balli\nSHAGHAF OUD AHMAR 75 ML + SHAGHAF OUD ELIXIR 25 ML\nRecently viewed\nSUBSCRIBE TO OUR NEWSLETTER\nEmail address\nSign up\nSHOP\nPerfumes\nMen's Perfumes\nWomen's Perfumes\nUnisex Perfumes\nHair Mist\nPerfume Oils\nIncense\nTraditional Items\nServices\nExchange & Return\nShipping & Delivery\nRefund Policy\nTerms & Conditions\nPrivacy Policy\nContact Us\nMore Links\nA",
+      "notesEn": null,
+      "notes": null,
+      "unknownNotes": [],
+      "review": "sem pirâmide",
+      "fetchedAt": "2026-10-25T22:03:21.729Z"
+    },
+    {
+      "url": "https://swissarabian.com/products/shaghaf-oud-royale-75-ml-shaghaf-amber-infusion-25-ml",
+      "name": "Shaghaf Oud Royale",
+      "sku": "GPAC007054",
+      "size": "75 ML",
+      "gender": null,
+      "notesRaw": "Top Note:\nN/A\nMiddle Note:\nN/A\nBase Note:\nN/A\nSHIPPING AND DELIVERY\nShare\nShare on Facebook\nShare on Twitter\nPin it\nRecently viewed\nSUBSCRIBE TO OUR NEWSLETTER\nEmail address\nSign up\nSHOP\nPerfumes\nMen's Perfumes\nWomen's Perfumes\nUnisex Perfumes\nHair Mist\nPerfume Oils\nIncense\nTraditional Items\nServices\nExchange & Return\nShipping & Delivery\nRefund Policy\nTerms & Conditions\nPrivacy Policy\nContact Us\nMore Links\nAbout Us\nFAQ's\nBlogs\nJoin Our Team\nBecome a Sales Partner\nFOLLOW US\nCopyright &copy; 2026\nSwiss Arabian Global\n.\nPayment methods accepted\nAmerican Express\nApple Pay\nGoogle Pay\nMastercard\nVis",
+      "notesEn": null,
+      "notes": null,
+      "unknownNotes": [],
+      "review": "sem pirâmide",
+      "fetchedAt": "2026-10-25T22:03:32.499Z"
+    },
+    {
+      "url": "https://swissarabian.com/products/shaghaf-oud-tonka-75-ml-shaghaf-oud-azraq-25-ml",
+      "name": "Shaghaf Oud Tonka",
+      "sku": "GPAC007055",
+      "size": "75 ML",
+      "gender": null,
+      "notesRaw": "Top Note:\nN/A\nMiddle Note:\nN/A\nBase Note:\nN/A\nSHIPPING AND DELIVERY\nShare\nShare on Facebook\nShare on Twitter\nPin it\nCustomer Reviews\nBased on 1 review\nWrite a review\n100%\n(1)\n0%\n(0)\n0%\n(0)\n0%\n(0)\n0%\n(0)\nT\nThembisile Ndlovu\nAnother satisfied customer\nI so so love the Tonka as  well as the Azraq.\nThis is my second time ordering the ordering the Tonka\nRecently viewed\nSUBSCRIBE TO OUR NEWSLETTER\nEmail address\nSign up\nSHOP\nPerfumes\nMen's Perfumes\nWomen's Perfumes\nUnisex Perfumes\nHair Mist\nPerfume Oils\nIncense\nTraditional Items\nServices\nExchange & Return\nShipping & Delivery\nRefund Policy\nTerms & Con",
+      "notesEn": null,
+      "notes": null,
+      "unknownNotes": [],
+      "review": "sem pirâmide",
+      "fetchedAt": "2026-10-25T22:03:43.156Z"
+    },
+    {
+      "url": "https://swissarabian.com/products/shaghaf-vanilla-toffee-75-ml-shaghaf-oud-ahmar-25-ml",
+      "name": "Shaghaf Vanilla Toffee",
+      "sku": "GPAC007056",
+      "size": "75 ML",
+      "gender": null,
+      "notesRaw": "Top Note:\nN/A\nMiddle Note:\nN/A\nBase Note:\nN/A\nSHIPPING AND DELIVERY\nShare\nShare on Facebook\nShare on Twitter\nPin it\nRecently viewed\nSUBSCRIBE TO OUR NEWSLETTER\nEmail address\nSign up\nSHOP\nPerfumes\nMen's Perfumes\nWomen's Perfumes\nUnisex Perfumes\nHair Mist\nPerfume Oils\nIncense\nTraditional Items\nServices\nExchange & Return\nShipping & Delivery\nRefund Policy\nTerms & Conditions\nPrivacy Policy\nContact Us\nMore Links\nAbout Us\nFAQ's\nBlogs\nJoin Our Team\nBecome a Sales Partner\nFOLLOW US\nCopyright &copy; 2026\nSwiss Arabian Global\n.\nPayment methods accepted\nAmerican Express\nApple Pay\nGoogle Pay\nMastercard\nVis",
+      "notesEn": null,
+      "notes": null,
+      "unknownNotes": [],
+      "review": "sem pirâmide",
+      "fetchedAt": "2026-10-25T22:03:53.826Z"
+    },
+    {
+      "url": "https://swissarabian.com/products/shaghaf-oud-azraq-75-ml-shaghaf-vanilla-toffee-25-ml",
+      "name": "Shaghaf Oud Azraq",
+      "sku": "GPAC007057",
+      "size": "75 ML",
+      "gender": null,
+      "notesRaw": "Top Note:\nN/A\nMiddle Note:\nN/A\nBase Note:\nN/A\nSHIPPING AND DELIVERY\nShare\nShare on Facebook\nShare on Twitter\nPin it\nRecently viewed\nSUBSCRIBE TO OUR NEWSLETTER\nEmail address\nSign up\nSHOP\nPerfumes\nMen's Perfumes\nWomen's Perfumes\nUnisex Perfumes\nHair Mist\nPerfume Oils\nIncense\nTraditional Items\nServices\nExchange & Return\nShipping & Delivery\nRefund Policy\nTerms & Conditions\nPrivacy Policy\nContact Us\nMore Links\nAbout Us\nFAQ's\nBlogs\nJoin Our Team\nBecome a Sales Partner\nFOLLOW US\nCopyright &copy; 2026\nSwiss Arabian Global\n.\nPayment methods accepted\nAmerican Express\nApple Pay\nGoogle Pay\nMastercard\nVis",
+      "notesEn": null,
+      "notes": null,
+      "unknownNotes": [],
+      "review": "sem pirâmide",
+      "fetchedAt": "2026-10-25T22:04:04.540Z"
+    },
+    {
+      "url": "https://swissarabian.com/products/shaghaf-oud-elixir-75-ml-shaghaf-oud-tonka-25-ml",
+      "name": "Shaghaf Oud Elixir",
+      "sku": "GPAC007058",
+      "size": "75 ML",
+      "gender": null,
+      "notesRaw": "Top Note:\nN/A\nMiddle Note:\nN/A\nBase Note:\nN/A\nSHIPPING AND DELIVERY\nShare\nShare on Facebook\nShare on Twitter\nPin it\nRecently viewed\nSUBSCRIBE TO OUR NEWSLETTER\nEmail address\nSign up\nSHOP\nPerfumes\nMen's Perfumes\nWomen's Perfumes\nUnisex Perfumes\nHair Mist\nPerfume Oils\nIncense\nTraditional Items\nServices\nExchange & Return\nShipping & Delivery\nRefund Policy\nTerms & Conditions\nPrivacy Policy\nContact Us\nMore Links\nAbout Us\nFAQ's\nBlogs\nJoin Our Team\nBecome a Sales Partner\nFOLLOW US\nCopyright &copy; 2026\nSwiss Arabian Global\n.\nPayment methods accepted\nAmerican Express\nApple Pay\nGoogle Pay\nMastercard\nVis",
+      "notesEn": null,
+      "notes": null,
+      "unknownNotes": [],
+      "review": "sem pirâmide",
+      "fetchedAt": "2026-10-25T22:04:15.258Z"
+    },
+    {
+      "url": "https://swissarabian.com/products/shaghaf-amber-infusion-75-ml-shaghaf-oud-royale-25-ml",
+      "name": "Shaghaf Amber Infusion",
+      "sku": "GPAC007059",
+      "size": "75 ML",
+      "gender": null,
+      "notesRaw": "Top Note:\nN/A\nMiddle Note:\nN/A\nBase Note:\nN/A\nSHIPPING AND DELIVERY\nShare\nShare on Facebook\nShare on Twitter\nPin it\nCustomer Reviews\nBased on 1 review\nWrite a review\n0%\n(0)\n0%\n(0)\n0%\n(0)\n0%\n(0)\n100%\n(1)\nJ\nJuan Valencia\nDidn’t came to me\nI still wait for your answer about The Status of my ship\nRecently viewed\nSUBSCRIBE TO OUR NEWSLETTER\nEmail address\nSign up\nSHOP\nPerfumes\nMen's Perfumes\nWomen's Perfumes\nUnisex Perfumes\nHair Mist\nPerfume Oils\nIncense\nTraditional Items\nServices\nExchange & Return\nShipping & Delivery\nRefund Policy\nTerms & Conditions\nPrivacy Policy\nContact Us\nMore Links\nAbout Us\nFAQ",
+      "notesEn": null,
+      "notes": null,
+      "unknownNotes": [],
+      "review": "sem pirâmide",
+      "fetchedAt": "2026-10-25T22:04:25.904Z"
+    },
+    {
+      "url": "https://swissarabian.com/products/amaani-12ml",
+      "name": "Amaani",
+      "sku": "AMAA107301",
+      "size": null,
+      "gender": null,
+      "notesRaw": "Top Note:\nLavender, Citrus, Thyme, Saffron, Raspberry\nMiddle Note:\nLeather, Resins, Fresh Notes\nBase Note:\nAmber, Musk, Oud, Patchouli\nSHIPPING AND DELIVERY\nShare\nShare on Facebook\nShare on Twitter\nPin it\nRecently viewed\nSUBSCRIBE TO OUR NEWSLETTER\nEmail address\nSign up\nSHOP\nPerfumes\nMen's Perfumes\nWomen's Perfumes\nUnisex Perfumes\nHair Mist\nPerfume Oils\nIncense\nTraditional Items\nServices\nExchange & Return\nShipping & Delivery\nRefund Policy\nTerms & Conditions\nPrivacy Policy\nContact Us\nMore Links\nAbout Us\nFAQ's\nBlogs\nJoin Our Team\nBecome a Sales Partner\nFOLLOW US\nCopyright &copy; 2026\nSwiss Arabi",
+      "notesEn": {
+        "top": [
+          "Lavender",
+          "Citrus",
+          "Thyme",
+          "Saffron",
+          "Raspberry"
+        ],
+        "heart": [],
+        "base": [
+          "Amber",
+          "Musk",
+          "Oud",
+          "Patchouli"
+        ]
+      },
+      "notes": {
+        "top": [
+          "Lavanda",
+          "Notas cítricas",
+          "Tomilho",
+          "Açafrão",
+          "Framboesa"
+        ],
+        "heart": [],
+        "base": [
+          "Âmbar",
+          "Almíscar",
+          "Oud",
+          "Patchouli"
+        ]
+      },
+      "unknownNotes": [],
+      "review": "ok",
+      "fetchedAt": "2026-10-25T22:04:36.557Z"
+    },
+    {
+      "url": "https://swissarabian.com/products/ishq-edp-50ml",
+      "name": "Ishq",
+      "sku": "ISHQ108001",
+      "size": null,
+      "gender": null,
+      "notesRaw": "Top Note:\nBlack Pepper, Saffron\nMiddle Note:\nSage, Carnation, Turkish Rose\nBase Note:\nNutgrass, Leather\nSHIPPING AND DELIVERY\nShare\nShare on Facebook\nShare on Twitter\nPin it\nRecently viewed\nSUBSCRIBE TO OUR NEWSLETTER\nEmail address\nSign up\nSHOP\nPerfumes\nMen's Perfumes\nWomen's Perfumes\nUnisex Perfumes\nHair Mist\nPerfume Oils\nIncense\nTraditional Items\nServices\nExchange & Return\nShipping & Delivery\nRefund Policy\nTerms & Conditions\nPrivacy Policy\nContact Us\nMore Links\nAbout Us\nFAQ's\nBlogs\nJoin Our Team\nBecome a Sales Partner\nFOLLOW US\nCopyright &copy; 2026\nSwiss Arabian Global\n.\nPayment methods acc",
+      "notesEn": {
+        "top": [
+          "Black Pepper",
+          "Saffron"
+        ],
+        "heart": [
+          "Sage",
+          "Carnation",
+          "Turkish Rose"
+        ],
+        "base": [
+          "Nutgrass",
+          "Leather"
+        ]
+      },
+      "notes": {
+        "top": [
+          "Pimenta-preta",
+          "Açafrão"
+        ],
+        "heart": [
+          "Sálvia",
+          "Cravo (flor)",
+          "Rosa turca"
+        ],
+        "base": [
+          "Cypriol",
+          "Couro"
+        ]
+      },
+      "unknownNotes": [],
+      "review": "ok",
+      "fetchedAt": "2026-10-25T22:04:47.407Z"
+    },
+    {
+      "url": "https://swissarabian.com/products/shaghaf-collectors-1",
+      "name": "Shaghaf Oud Ahmar + Shaghaf Oud Elixir",
+      "sku": "GPAC007060",
+      "size": null,
+      "gender": null,
+      "notesRaw": "Top Note:\nMiddle Note:\nBase Note:\nSHIPPING AND DELIVERY\nShare\nShare on Facebook\nShare on Twitter\nPin it\nRecently viewed\nSUBSCRIBE TO OUR NEWSLETTER\nEmail address\nSign up\nSHOP\nPerfumes\nMen's Perfumes\nWomen's Perfumes\nUnisex Perfumes\nHair Mist\nPerfume Oils\nIncense\nTraditional Items\nServices\nExchange & Return\nShipping & Delivery\nRefund Policy\nTerms & Conditions\nPrivacy Policy\nContact Us\nMore Links\nAbout Us\nFAQ's\nBlogs\nJoin Our Team\nBecome a Sales Partner\nFOLLOW US\nCopyright &copy; 2026\nSwiss Arabian Global\n.\nPayment methods accepted\nAmerican Express\nApple Pay\nGoogle Pay\nMastercard\nVisa\n×\nSelect Y",
+      "notesEn": null,
+      "notes": null,
+      "unknownNotes": [],
+      "review": "sem pirâmide",
+      "fetchedAt": "2026-10-25T22:05:08.791Z"
+    },
+    {
+      "url": "https://swissarabian.com/products/shaghaf-collectors-2",
+      "name": "Shaghaf Vanilla Toffee + Shaghaf Oud Azraq",
+      "sku": "GPAC007061",
+      "size": null,
+      "gender": null,
+      "notesRaw": "Top Note:\nMiddle Note:\nBase Note:\nSHIPPING AND DELIVERY\nShare\nShare on Facebook\nShare on Twitter\nPin it\nRecently viewed\nSUBSCRIBE TO OUR NEWSLETTER\nEmail address\nSign up\nSHOP\nPerfumes\nMen's Perfumes\nWomen's Perfumes\nUnisex Perfumes\nHair Mist\nPerfume Oils\nIncense\nTraditional Items\nServices\nExchange & Return\nShipping & Delivery\nRefund Policy\nTerms & Conditions\nPrivacy Policy\nContact Us\nMore Links\nAbout Us\nFAQ's\nBlogs\nJoin Our Team\nBecome a Sales Partner\nFOLLOW US\nCopyright &copy; 2026\nSwiss Arabian Global\n.\nPayment methods accepted\nAmerican Express\nApple Pay\nGoogle Pay\nMastercard\nVisa\n×\nSelect Y",
+      "notesEn": null,
+      "notes": null,
+      "unknownNotes": [],
+      "review": "sem pirâmide",
+      "fetchedAt": "2026-10-25T22:05:19.363Z"
+    },
+    {
+      "url": "https://swissarabian.com/products/heritage-collectors-1",
+      "name": "Rose 01  + Tobacco 01",
+      "sku": "GPAC007062",
+      "size": null,
+      "gender": null,
+      "notesRaw": "Top Note:\nMiddle Note:\nBase Note:\nSHIPPING AND DELIVERY\nShare\nShare on Facebook\nShare on Twitter\nPin it\nRecently viewed\nSUBSCRIBE TO OUR NEWSLETTER\nEmail address\nSign up\nSHOP\nPerfumes\nMen's Perfumes\nWomen's Perfumes\nUnisex Perfumes\nHair Mist\nPerfume Oils\nIncense\nTraditional Items\nServices\nExchange & Return\nShipping & Delivery\nRefund Policy\nTerms & Conditions\nPrivacy Policy\nContact Us\nMore Links\nAbout Us\nFAQ's\nBlogs\nJoin Our Team\nBecome a Sales Partner\nFOLLOW US\nCopyright &copy; 2026\nSwiss Arabian Global\n.\nPayment methods accepted\nAmerican Express\nApple Pay\nGoogle Pay\nMastercard\nVisa\n×\nSelect Y",
+      "notesEn": null,
+      "notes": null,
+      "unknownNotes": [],
+      "review": "sem pirâmide",
+      "fetchedAt": "2026-10-25T22:05:30.093Z"
+    },
+    {
+      "url": "https://swissarabian.com/products/heritage-collectors-2",
+      "name": "Musk 07 + Oud 07",
+      "sku": "GPAC007063",
+      "size": null,
+      "gender": null,
+      "notesRaw": "Top Note:\nMiddle Note:\nBase Note:\nSHIPPING AND DELIVERY\nShare\nShare on Facebook\nShare on Twitter\nPin it\nCustomer Reviews\nBased on 1 review\nWrite a review\n100%\n(1)\n0%\n(0)\n0%\n(0)\n0%\n(0)\n0%\n(0)\nN\nNada Anees\nReview for MUSK 07+ OUD 07\nExactly what I was looking for. Love them both\nRecently viewed\nSUBSCRIBE TO OUR NEWSLETTER\nEmail address\nSign up\nSHOP\nPerfumes\nMen's Perfumes\nWomen's Perfumes\nUnisex Perfumes\nHair Mist\nPerfume Oils\nIncense\nTraditional Items\nServices\nExchange & Return\nShipping & Delivery\nRefund Policy\nTerms & Conditions\nPrivacy Policy\nContact Us\nMore Links\nAbout Us\nFAQ's\nBlogs\nJoin Ou",
+      "notesEn": null,
+      "notes": null,
+      "unknownNotes": [],
+      "review": "sem pirâmide",
+      "fetchedAt": "2026-10-25T22:05:40.758Z"
+    },
+    {
+      "url": "https://swissarabian.com/products/cities-collectors-1",
+      "name": "Essence Of Casablanca + Opulence Of Dubai",
+      "sku": "GPAC007064",
+      "size": null,
+      "gender": null,
+      "notesRaw": "Top Note:\nMiddle Note:\nBase Note:\nSHIPPING AND DELIVERY\nShare\nShare on Facebook\nShare on Twitter\nPin it\nRecently viewed\nSUBSCRIBE TO OUR NEWSLETTER\nEmail address\nSign up\nSHOP\nPerfumes\nMen's Perfumes\nWomen's Perfumes\nUnisex Perfumes\nHair Mist\nPerfume Oils\nIncense\nTraditional Items\nServices\nExchange & Return\nShipping & Delivery\nRefund Policy\nTerms & Conditions\nPrivacy Policy\nContact Us\nMore Links\nAbout Us\nFAQ's\nBlogs\nJoin Our Team\nBecome a Sales Partner\nFOLLOW US\nCopyright &copy; 2026\nSwiss Arabian Global\n.\nPayment methods accepted\nAmerican Express\nApple Pay\nGoogle Pay\nMastercard\nVisa\n×\nSelect Y",
+      "notesEn": null,
+      "notes": null,
+      "unknownNotes": [],
+      "review": "sem pirâmide",
+      "fetchedAt": "2026-10-25T22:05:51.409Z"
+    },
+    {
+      "url": "https://swissarabian.com/products/cities-collectors-2",
+      "name": "Soul Of Bali + Enigma Of Taif",
+      "sku": "GPAC007065",
+      "size": null,
+      "gender": null,
+      "notesRaw": "Top Note:\nMiddle Note:\nBase Note:\nSHIPPING AND DELIVERY\nShare\nShare on Facebook\nShare on Twitter\nPin it\nRecently viewed\nSUBSCRIBE TO OUR NEWSLETTER\nEmail address\nSign up\nSHOP\nPerfumes\nMen's Perfumes\nWomen's Perfumes\nUnisex Perfumes\nHair Mist\nPerfume Oils\nIncense\nTraditional Items\nServices\nExchange & Return\nShipping & Delivery\nRefund Policy\nTerms & Conditions\nPrivacy Policy\nContact Us\nMore Links\nAbout Us\nFAQ's\nBlogs\nJoin Our Team\nBecome a Sales Partner\nFOLLOW US\nCopyright &copy; 2026\nSwiss Arabian Global\n.\nPayment methods accepted\nAmerican Express\nApple Pay\nGoogle Pay\nMastercard\nVisa\n×\nSelect Y",
+      "notesEn": null,
+      "notes": null,
+      "unknownNotes": [],
+      "review": "sem pirâmide",
+      "fetchedAt": "2026-10-25T22:06:02.214Z"
+    },
+    {
+      "url": "https://swissarabian.com/products/cities-collectors-3",
+      "name": "Spirit Of Valencia + Passion Of Venice",
+      "sku": "GPAC007066",
+      "size": null,
+      "gender": null,
+      "notesRaw": "Top Note:\nMiddle Note:\nBase Note:\nSHIPPING AND DELIVERY\nShare\nShare on Facebook\nShare on Twitter\nPin it\nRecently viewed\nSUBSCRIBE TO OUR NEWSLETTER\nEmail address\nSign up\nSHOP\nPerfumes\nMen's Perfumes\nWomen's Perfumes\nUnisex Perfumes\nHair Mist\nPerfume Oils\nIncense\nTraditional Items\nServices\nExchange & Return\nShipping & Delivery\nRefund Policy\nTerms & Conditions\nPrivacy Policy\nContact Us\nMore Links\nAbout Us\nFAQ's\nBlogs\nJoin Our Team\nBecome a Sales Partner\nFOLLOW US\nCopyright &copy; 2026\nSwiss Arabian Global\n.\nPayment methods accepted\nAmerican Express\nApple Pay\nGoogle Pay\nMastercard\nVisa\n×\nSelect Y",
+      "notesEn": null,
+      "notes": null,
+      "unknownNotes": [],
+      "review": "sem pirâmide",
+      "fetchedAt": "2026-10-25T22:06:12.872Z"
+    },
+    {
+      "url": "https://swissarabian.com/products/harmony-collectors-1",
+      "name": "Leather And Oud + Bergamot And Cedarwood",
+      "sku": "GPAC007067",
+      "size": null,
+      "gender": null,
+      "notesRaw": "Top Note:\nMiddle Note:\nBase Note:\nSHIPPING AND DELIVERY\nShare\nShare on Facebook\nShare on Twitter\nPin it\nRecently viewed\nSUBSCRIBE TO OUR NEWSLETTER\nEmail address\nSign up\nSHOP\nPerfumes\nMen's Perfumes\nWomen's Perfumes\nUnisex Perfumes\nHair Mist\nPerfume Oils\nIncense\nTraditional Items\nServices\nExchange & Return\nShipping & Delivery\nRefund Policy\nTerms & Conditions\nPrivacy Policy\nContact Us\nMore Links\nAbout Us\nFAQ's\nBlogs\nJoin Our Team\nBecome a Sales Partner\nFOLLOW US\nCopyright &copy; 2026\nSwiss Arabian Global\n.\nPayment methods accepted\nAmerican Express\nApple Pay\nGoogle Pay\nMastercard\nVisa\n×\nSelect Y",
+      "notesEn": null,
+      "notes": null,
+      "unknownNotes": [],
+      "review": "sem pirâmide",
+      "fetchedAt": "2026-10-25T22:06:23.653Z"
+    },
+    {
+      "url": "https://swissarabian.com/products/harmony-collectors-2",
+      "name": "Rose And Patchouli + Jasmine And Vanilla",
+      "sku": "GPAC007068",
+      "size": null,
+      "gender": null,
+      "notesRaw": "Top Note:\nMiddle Note:\nBase Note:\nSHIPPING AND DELIVERY\nShare\nShare on Facebook\nShare on Twitter\nPin it\nRecently viewed\nSUBSCRIBE TO OUR NEWSLETTER\nEmail address\nSign up\nSHOP\nPerfumes\nMen's Perfumes\nWomen's Perfumes\nUnisex Perfumes\nHair Mist\nPerfume Oils\nIncense\nTraditional Items\nServices\nExchange & Return\nShipping & Delivery\nRefund Policy\nTerms & Conditions\nPrivacy Policy\nContact Us\nMore Links\nAbout Us\nFAQ's\nBlogs\nJoin Our Team\nBecome a Sales Partner\nFOLLOW US\nCopyright &copy; 2026\nSwiss Arabian Global\n.\nPayment methods accepted\nAmerican Express\nApple Pay\nGoogle Pay\nMastercard\nVisa\n×\nSelect Y",
+      "notesEn": null,
+      "notes": null,
+      "unknownNotes": [],
+      "review": "sem pirâmide",
+      "fetchedAt": "2026-10-25T22:06:34.333Z"
+    },
+    {
+      "url": "https://swissarabian.com/products/private-collectors-i",
+      "name": "Rose 01  + Shaghaf Oud Ahmar",
+      "sku": "GPAC007069",
+      "size": null,
+      "gender": null,
+      "notesRaw": "Top Note:\nMiddle Note:\nBase Note:\nSHIPPING AND DELIVERY\nShare\nShare on Facebook\nShare on Twitter\nPin it\nRecently viewed\nSUBSCRIBE TO OUR NEWSLETTER\nEmail address\nSign up\nSHOP\nPerfumes\nMen's Perfumes\nWomen's Perfumes\nUnisex Perfumes\nHair Mist\nPerfume Oils\nIncense\nTraditional Items\nServices\nExchange & Return\nShipping & Delivery\nRefund Policy\nTerms & Conditions\nPrivacy Policy\nContact Us\nMore Links\nAbout Us\nFAQ's\nBlogs\nJoin Our Team\nBecome a Sales Partner\nFOLLOW US\nCopyright &copy; 2026\nSwiss Arabian Global\n.\nPayment methods accepted\nAmerican Express\nApple Pay\nGoogle Pay\nMastercard\nVisa\n×\nSelect Y",
+      "notesEn": null,
+      "notes": null,
+      "unknownNotes": [],
+      "review": "sem pirâmide",
+      "fetchedAt": "2026-10-25T22:06:45.009Z"
+    },
+    {
+      "url": "https://swissarabian.com/products/private-collectors-ii",
+      "name": "Musk 07 + Shaghaf Oud Tonka",
+      "sku": "GPAC007070",
+      "size": null,
+      "gender": null,
+      "notesRaw": "Top Note:\nMiddle Note:\nBase Note:\nSHIPPING AND DELIVERY\nShare\nShare on Facebook\nShare on Twitter\nPin it\nRecently viewed\nSUBSCRIBE TO OUR NEWSLETTER\nEmail address\nSign up\nSHOP\nPerfumes\nMen's Perfumes\nWomen's Perfumes\nUnisex Perfumes\nHair Mist\nPerfume Oils\nIncense\nTraditional Items\nServices\nExchange & Return\nShipping & Delivery\nRefund Policy\nTerms & Conditions\nPrivacy Policy\nContact Us\nMore Links\nAbout Us\nFAQ's\nBlogs\nJoin Our Team\nBecome a Sales Partner\nFOLLOW US\nCopyright &copy; 2026\nSwiss Arabian Global\n.\nPayment methods accepted\nAmerican Express\nApple Pay\nGoogle Pay\nMastercard\nVisa\n×\nSelect Y",
+      "notesEn": null,
+      "notes": null,
+      "unknownNotes": [],
+      "review": "sem pirâmide",
+      "fetchedAt": "2026-10-25T22:06:55.696Z"
+    },
+    {
+      "url": "https://swissarabian.com/products/edge-collectors-i",
+      "name": "Edge M + Edge W",
+      "sku": "GPAC007071",
+      "size": null,
+      "gender": null,
+      "notesRaw": "Top Note:\nMiddle Note:\nBase Note:\nSHIPPING AND DELIVERY\nShare\nShare on Facebook\nShare on Twitter\nPin it\nRecently viewed\nSUBSCRIBE TO OUR NEWSLETTER\nEmail address\nSign up\nSHOP\nPerfumes\nMen's Perfumes\nWomen's Perfumes\nUnisex Perfumes\nHair Mist\nPerfume Oils\nIncense\nTraditional Items\nServices\nExchange & Return\nShipping & Delivery\nRefund Policy\nTerms & Conditions\nPrivacy Policy\nContact Us\nMore Links\nAbout Us\nFAQ's\nBlogs\nJoin Our Team\nBecome a Sales Partner\nFOLLOW US\nCopyright &copy; 2026\nSwiss Arabian Global\n.\nPayment methods accepted\nAmerican Express\nApple Pay\nGoogle Pay\nMastercard\nVisa\n×\nSelect Y",
+      "notesEn": null,
+      "notes": null,
+      "unknownNotes": [],
+      "review": "sem pirâmide",
+      "fetchedAt": "2026-10-25T22:07:06.362Z"
+    },
+    {
+      "url": "https://swissarabian.com/products/edge-intense-collectors-i",
+      "name": "Edge Intense M + Edge Intense W",
+      "sku": "GPAC007072",
+      "size": null,
+      "gender": null,
+      "notesRaw": "Top Note:\nMiddle Note:\nBase Note:\nSHIPPING AND DELIVERY\nShare\nShare on Facebook\nShare on Twitter\nPin it\nRecently viewed\nSUBSCRIBE TO OUR NEWSLETTER\nEmail address\nSign up\nSHOP\nPerfumes\nMen's Perfumes\nWomen's Perfumes\nUnisex Perfumes\nHair Mist\nPerfume Oils\nIncense\nTraditional Items\nServices\nExchange & Return\nShipping & Delivery\nRefund Policy\nTerms & Conditions\nPrivacy Policy\nContact Us\nMore Links\nAbout Us\nFAQ's\nBlogs\nJoin Our Team\nBecome a Sales Partner\nFOLLOW US\nCopyright &copy; 2026\nSwiss Arabian Global\n.\nPayment methods accepted\nAmerican Express\nApple Pay\nGoogle Pay\nMastercard\nVisa\n×\nSelect Y",
+      "notesEn": null,
+      "notes": null,
+      "unknownNotes": [],
+      "review": "sem pirâmide",
+      "fetchedAt": "2026-10-25T22:07:17.055Z"
+    },
+    {
+      "url": "https://swissarabian.com/products/wild-collectors-1",
+      "name": "Pure Instinct + Intense Pride",
+      "sku": "GPAC007073",
+      "size": null,
+      "gender": null,
+      "notesRaw": "Top Note:\nMiddle Note:\nBase Note:\nSHIPPING AND DELIVERY\nShare\nShare on Facebook\nShare on Twitter\nPin it\nRecently viewed\nSUBSCRIBE TO OUR NEWSLETTER\nEmail address\nSign up\nSHOP\nPerfumes\nMen's Perfumes\nWomen's Perfumes\nUnisex Perfumes\nHair Mist\nPerfume Oils\nIncense\nTraditional Items\nServices\nExchange & Return\nShipping & Delivery\nRefund Policy\nTerms & Conditions\nPrivacy Policy\nContact Us\nMore Links\nAbout Us\nFAQ's\nBlogs\nJoin Our Team\nBecome a Sales Partner\nFOLLOW US\nCopyright &copy; 2026\nSwiss Arabian Global\n.\nPayment methods accepted\nAmerican Express\nApple Pay\nGoogle Pay\nMastercard\nVisa\n×\nSelect Y",
+      "notesEn": null,
+      "notes": null,
+      "unknownNotes": [],
+      "review": "sem pirâmide",
+      "fetchedAt": "2026-10-25T22:07:27.694Z"
+    },
+    {
+      "url": "https://swissarabian.com/products/wild-collectors-2",
+      "name": "Royal Mystery + Primal Code",
+      "sku": "GPAC007074",
+      "size": null,
+      "gender": null,
+      "notesRaw": "Top Note:\nMiddle Note:\nBase Note:\nSHIPPING AND DELIVERY\nShare\nShare on Facebook\nShare on Twitter\nPin it\nRecently viewed\nSUBSCRIBE TO OUR NEWSLETTER\nEmail address\nSign up\nSHOP\nPerfumes\nMen's Perfumes\nWomen's Perfumes\nUnisex Perfumes\nHair Mist\nPerfume Oils\nIncense\nTraditional Items\nServices\nExchange & Return\nShipping & Delivery\nRefund Policy\nTerms & Conditions\nPrivacy Policy\nContact Us\nMore Links\nAbout Us\nFAQ's\nBlogs\nJoin Our Team\nBecome a Sales Partner\nFOLLOW US\nCopyright &copy; 2026\nSwiss Arabian Global\n.\nPayment methods accepted\nAmerican Express\nApple Pay\nGoogle Pay\nMastercard\nVisa\n×\nSelect Y",
+      "notesEn": null,
+      "notes": null,
+      "unknownNotes": [],
+      "review": "sem pirâmide",
+      "fetchedAt": "2026-10-25T22:07:38.389Z"
+    },
+    {
+      "url": "https://swissarabian.com/products/edge-collection",
+      "name": "Edge Collection",
+      "sku": "GPAC007075",
+      "size": null,
+      "gender": null,
+      "notesRaw": "Top Note:\nMiddle Note:\nBase Note:\nSHIPPING AND DELIVERY\nShare\nShare on Facebook\nShare on Twitter\nPin it\nRecently viewed\nSUBSCRIBE TO OUR NEWSLETTER\nEmail address\nSign up\nSHOP\nPerfumes\nMen's Perfumes\nWomen's Perfumes\nUnisex Perfumes\nHair Mist\nPerfume Oils\nIncense\nTraditional Items\nServices\nExchange & Return\nShipping & Delivery\nRefund Policy\nTerms & Conditions\nPrivacy Policy\nContact Us\nMore Links\nAbout Us\nFAQ's\nBlogs\nJoin Our Team\nBecome a Sales Partner\nFOLLOW US\nCopyright &copy; 2026\nSwiss Arabian Global\n.\nPayment methods accepted\nAmerican Express\nApple Pay\nGoogle Pay\nMastercard\nVisa\n×\nSelect Y",
+      "notesEn": null,
+      "notes": null,
+      "unknownNotes": [],
+      "review": "sem pirâmide",
+      "fetchedAt": "2026-10-25T22:07:49.099Z"
+    },
+    {
+      "url": "https://swissarabian.com/products/wild-collection",
+      "name": "Wild Collection",
+      "sku": "GPAC007077",
+      "size": null,
+      "gender": null,
+      "notesRaw": "Top Note:\nMiddle Note:\nBase Note:\nSHIPPING AND DELIVERY\nShare\nShare on Facebook\nShare on Twitter\nPin it\nRecently viewed\nSUBSCRIBE TO OUR NEWSLETTER\nEmail address\nSign up\nSHOP\nPerfumes\nMen's Perfumes\nWomen's Perfumes\nUnisex Perfumes\nHair Mist\nPerfume Oils\nIncense\nTraditional Items\nServices\nExchange & Return\nShipping & Delivery\nRefund Policy\nTerms & Conditions\nPrivacy Policy\nContact Us\nMore Links\nAbout Us\nFAQ's\nBlogs\nJoin Our Team\nBecome a Sales Partner\nFOLLOW US\nCopyright &copy; 2026\nSwiss Arabian Global\n.\nPayment methods accepted\nAmerican Express\nApple Pay\nGoogle Pay\nMastercard\nVisa\n×\nSelect Y",
+      "notesEn": null,
+      "notes": null,
+      "unknownNotes": [],
+      "review": "sem pirâmide",
+      "fetchedAt": "2026-10-25T22:07:59.777Z"
+    },
+    {
+      "url": "https://swissarabian.com/products/malaki-collection",
+      "name": "Malaki Collection",
+      "sku": "GPAC007080",
+      "size": null,
+      "gender": null,
+      "notesRaw": "Top Note:\nMiddle Note:\nBase Note:\nSHIPPING AND DELIVERY\nShare\nShare on Facebook\nShare on Twitter\nPin it\nRecently viewed\nSUBSCRIBE TO OUR NEWSLETTER\nEmail address\nSign up\nSHOP\nPerfumes\nMen's Perfumes\nWomen's Perfumes\nUnisex Perfumes\nHair Mist\nPerfume Oils\nIncense\nTraditional Items\nServices\nExchange & Return\nShipping & Delivery\nRefund Policy\nTerms & Conditions\nPrivacy Policy\nContact Us\nMore Links\nAbout Us\nFAQ's\nBlogs\nJoin Our Team\nBecome a Sales Partner\nFOLLOW US\nCopyright &copy; 2026\nSwiss Arabian Global\n.\nPayment methods accepted\nAmerican Express\nApple Pay\nGoogle Pay\nMastercard\nVisa\n×\nSelect Y",
+      "notesEn": null,
+      "notes": null,
+      "unknownNotes": [],
+      "review": "sem pirâmide",
+      "fetchedAt": "2026-10-25T22:08:10.590Z"
+    },
+    {
+      "url": "https://swissarabian.com/products/ghutra-collection",
+      "name": "Ghutra Collection",
+      "sku": "GPAC007078",
+      "size": null,
+      "gender": null,
+      "notesRaw": "Top Note:\nMiddle Note:\nBase Note:\nSHIPPING AND DELIVERY\nShare\nShare on Facebook\nShare on Twitter\nPin it\nRecently viewed\nSUBSCRIBE TO OUR NEWSLETTER\nEmail address\nSign up\nSHOP\nPerfumes\nMen's Perfumes\nWomen's Perfumes\nUnisex Perfumes\nHair Mist\nPerfume Oils\nIncense\nTraditional Items\nServices\nExchange & Return\nShipping & Delivery\nRefund Policy\nTerms & Conditions\nPrivacy Policy\nContact Us\nMore Links\nAbout Us\nFAQ's\nBlogs\nJoin Our Team\nBecome a Sales Partner\nFOLLOW US\nCopyright &copy; 2026\nSwiss Arabian Global\n.\nPayment methods accepted\nAmerican Express\nApple Pay\nGoogle Pay\nMastercard\nVisa\n×\nSelect Y",
+      "notesEn": null,
+      "notes": null,
+      "unknownNotes": [],
+      "review": "sem pirâmide",
+      "fetchedAt": "2026-10-25T22:08:21.264Z"
+    },
+    {
+      "url": "https://swissarabian.com/products/love-collection",
+      "name": "Love Collection",
+      "sku": "GPAC007076",
+      "size": null,
+      "gender": null,
+      "notesRaw": "Top Note:\nMiddle Note:\nBase Note:\nSHIPPING AND DELIVERY\nShare\nShare on Facebook\nShare on Twitter\nPin it\nRecently viewed\nSUBSCRIBE TO OUR NEWSLETTER\nEmail address\nSign up\nSHOP\nPerfumes\nMen's Perfumes\nWomen's Perfumes\nUnisex Perfumes\nHair Mist\nPerfume Oils\nIncense\nTraditional Items\nServices\nExchange & Return\nShipping & Delivery\nRefund Policy\nTerms & Conditions\nPrivacy Policy\nContact Us\nMore Links\nAbout Us\nFAQ's\nBlogs\nJoin Our Team\nBecome a Sales Partner\nFOLLOW US\nCopyright &copy; 2026\nSwiss Arabian Global\n.\nPayment methods accepted\nAmerican Express\nApple Pay\nGoogle Pay\nMastercard\nVisa\n×\nSelect Y",
+      "notesEn": null,
+      "notes": null,
+      "unknownNotes": [],
+      "review": "sem pirâmide",
+      "fetchedAt": "2026-10-25T22:08:32.395Z"
+    },
+    {
+      "url": "https://swissarabian.com/products/shaghaf-oud-marine",
+      "name": "Shaghaf Oud Marine",
+      "sku": "SOMA098501",
+      "size": null,
+      "gender": null,
+      "notesRaw": "Top Note:\nMarine Notes, Bergamot Italy, Black Pepper\nMiddle Note:\nGeranium, Mahonial, Petalia, Rosyfolia\nBase Note:\nCypriol, Akigalawood, Amber, Oud Accord\nSHIPPING AND DELIVERY\nShare\nShare on Facebook\nShare on Twitter\nPin it\nCustomer Reviews\nBe the first to write a review\nWrite a review\n0%\n(0)\n0%\n(0)\n0%\n(0)\n0%\n(0)\n0%\n(0)\nRecently viewed\nSUBSCRIBE TO OUR NEWSLETTER\nEmail address\nSign up\nSHOP\nPerfumes\nMen's Perfumes\nWomen's Perfumes\nUnisex Perfumes\nHair Mist\nPerfume Oils\nIncense\nTraditional Items\nServices\nExchange & Return\nShipping & Delivery\nRefund Policy\nTerms & Conditions\nPrivacy Policy\nCont",
+      "notesEn": {
+        "top": [
+          "Marine Notes",
+          "Bergamot Italy",
+          "Black Pepper"
+        ],
+        "heart": [
+          "Geranium",
+          "Mahonial",
+          "Petalia",
+          "Rosyfolia"
+        ],
+        "base": [
+          "Cypriol",
+          "Akigalawood",
+          "Amber",
+          "Oud Accord"
+        ]
+      },
+      "notes": {
+        "top": [
+          "Notas marinhas",
+          "Bergamota",
+          "Pimenta-preta"
+        ],
+        "heart": [
+          "Gerânio",
+          "Mahonia",
+          "Petalia",
+          "Rosyfolia"
+        ],
+        "base": [
+          "Cypriol",
+          "Akigalawood",
+          "Âmbar",
+          "Oud"
+        ]
+      },
+      "unknownNotes": [],
+      "review": "ok",
+      "fetchedAt": "2026-10-25T22:08:43.018Z"
+    },
+    {
+      "url": "https://swissarabian.com/products/echoes-of-st-moritz",
+      "name": "Echoes Of St. Moritz",
+      "sku": "ESMO140401",
+      "size": null,
+      "gender": null,
+      "notesRaw": "Top Note:\nBergamot, Frozen Mandarin, Grapefruit, Iced Red Berries\nMiddle Note:\nCypres, Crispy Apple, Cassis, Wild Artemisia, Elemi\nBase Note:\nWintery Vetiver, Leather, Alpine Cedarwood, Moss, Patchouli, Amber, Sympep, Musk, Vanilla\nSHIPPING AND DELIVERY\nShare\nShare on Facebook\nShare on Twitter\nPin it\nRecently viewed\nSUBSCRIBE TO OUR NEWSLETTER\nEmail address\nSign up\nSHOP\nPerfumes\nMen's Perfumes\nWomen's Perfumes\nUnisex Perfumes\nHair Mist\nPerfume Oils\nIncense\nTraditional Items\nServices\nExchange & Return\nShipping & Delivery\nRefund Policy\nTerms & Conditions\nPrivacy Policy\nContact Us\nMore Links\nAbou",
+      "notesEn": {
+        "top": [
+          "Bergamot",
+          "Frozen Mandarin",
+          "Grapefruit",
+          "Iced Red Berries"
+        ],
+        "heart": [
+          "Cypres",
+          "Crispy Apple",
+          "Cassis",
+          "Wild Artemisia",
+          "Elemi"
+        ],
+        "base": [
+          "Wintery Vetiver",
+          "Leather",
+          "Alpine Cedarwood",
+          "Moss",
+          "Patchouli",
+          "Amber",
+          "Sympep",
+          "Musk",
+          "Vanilla"
+        ]
+      },
+      "notes": {
+        "top": [
+          "Bergamota",
+          "Tangerina",
+          "Toranja",
+          "Frutas vermelhas"
+        ],
+        "heart": [
+          "Cipreste",
+          "Maçã",
+          "Cassis",
+          "Artemísia",
+          "Elemi"
+        ],
+        "base": [
+          "Vetiver",
+          "Couro",
+          "Cedro",
+          "Musgo",
+          "Patchouli",
+          "Âmbar",
+          "Sympep",
+          "Almíscar",
+          "Baunilha"
+        ]
+      },
+      "unknownNotes": [
+        "Sympep"
+      ],
+      "review": "notas sem tradução",
+      "fetchedAt": "2026-10-25T22:08:53.704Z"
+    },
+    {
+      "url": "https://swissarabian.com/products/the-collectors-edition-iii",
+      "name": "The Collector'S Edition Iii",
+      "sku": "GPAC142801",
+      "size": null,
+      "gender": null,
+      "notesRaw": "Top Note:\nMiddle Note:\nBase Note:\nSHIPPING AND DELIVERY\nShare\nShare on Facebook\nShare on Twitter\nPin it\nRecently viewed\nSUBSCRIBE TO OUR NEWSLETTER\nEmail address\nSign up\nSHOP\nPerfumes\nMen's Perfumes\nWomen's Perfumes\nUnisex Perfumes\nHair Mist\nPerfume Oils\nIncense\nTraditional Items\nServices\nExchange & Return\nShipping & Delivery\nRefund Policy\nTerms & Conditions\nPrivacy Policy\nContact Us\nMore Links\nAbout Us\nFAQ's\nBlogs\nJoin Our Team\nBecome a Sales Partner\nFOLLOW US\nCopyright &copy; 2026\nSwiss Arabian Global\n.\nPayment methods accepted\nAmerican Express\nApple Pay\nGoogle Pay\nMastercard\nVisa\n×\nSelect Y",
+      "notesEn": null,
+      "notes": null,
+      "unknownNotes": [],
+      "review": "sem pirâmide",
+      "fetchedAt": "2026-10-25T22:09:04.475Z"
     }
   ],
-  "skipped": [],
-  "updatedAt": "2026-10-25T21:46:21.138Z"
+  "skipped": [
+    "https://swissarabian.com/products/rose-1",
+    "https://swissarabian.com/products/rose-01-edp-cpo",
+    "https://swissarabian.com/products/musk-07-edp-cpo",
+    "https://swissarabian.com/products/shaghaf-ahmar-edp-cpo",
+    "https://swissarabian.com/products/shaghaf-tonka-edp-cpo",
+    "https://swissarabian.com/products/shaghaf-azraq-edp-cpo",
+    "https://swissarabian.com/products/gharaam-edp-cpo",
+    "https://swissarabian.com/products/hawaa-edp-cpo",
+    "https://swissarabian.com/products/shaghaf-oud-edp-cpo",
+    "https://swissarabian.com/products/essence-of-casablanca-edp-cpo",
+    "https://swissarabian.com/products/layaali-collection",
+    "https://swissarabian.com/products/musk-7",
+    "https://swissarabian.com/products/gharam",
+    "https://swissarabian.com/products/shaghaf-oud-1",
+    "https://swissarabian.com/products/casablanca-50ml",
+    "https://swissarabian.com/products/rasheeqa-rouge"
+  ],
+  "updatedAt": "2026-10-25T22:09:04.475Z"
 }
