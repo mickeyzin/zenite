@@ -113,7 +113,7 @@ export function DraftsTab({ sb }: TabProps) {
           {brands.length > 1 && (
             <select
               className="admin-select"
-              aria-label="Marca"
+              aria-label="Filtrar por marca"
               value={brand}
               onChange={(e) => {
                 setBrand(e.target.value);

@@ -25,18 +25,68 @@ export function PerfumesTab({ sb, refreshSite }: TabProps) {
   const [q, setQ] = useState("");
   const [editing, setEditing] = useState<{ id: string; focus?: "poster" } | null>(null);
   const [busy, setBusy] = useState<string | null>(null);
-  const { data, error, loading, reload } = useLoad<PerfumeListRow[]>(
-    () =>
-      sb
-        .from("perfumes")
-        .select("id, slug, name, full_name, status, featured, updated_at, brand:brands(name), perfume_images(id), perfume_notes(note_id)")
-        .order("updated_at", { ascending: false }),
+  const [brand, setBrand] = useState("");
+  const [selected, setSelected] = useState<Set<string>>(new Set());
+  const [bulkMsg, setBulkMsg] = useState<string | null>(null);
+  const { data, error, loading, reload } = useLoad<PerfumeListRow[]>(() =>
+    sb
+      .from("perfumes")
+      .select(
+        "id, slug, name, full_name, status, featured, updated_at, brand:brands(name), perfume_images(id), perfume_notes(note_id)",
+      )
+      .order("updated_at", { ascending: false }),
   );
 
   const rows = useMemo(() => {
     const t = q.trim().toLowerCase();
-    return (data ?? []).filter((p) => (filter === "todos" || p.status === filter) && (!t || p.full_name.toLowerCase().includes(t)));
-  }, [data, filter, q]);
+    return (data ?? []).filter(
+      (p) =>
+        (filter === "todos" || p.status === filter) &&
+        (!brand || p.brand?.name === brand) &&
+        (!t || p.full_name.toLowerCase().includes(t)),
+    );
+  }, [data, filter, q, brand]);
+  const brands = useMemo(() => [...new Set((data ?? []).map((p) => p.brand?.name).filter(Boolean) as string[])].sort(), [data]);
+  const picked = rows.filter((p) => selected.has(p.id));
+  const publishable = picked.filter((p) => p.status !== "publicado" && p.perfume_notes.length);
+  const allShown = rows.length > 0 && rows.every((p) => selected.has(p.id));
+  const toggle = (id: string) =>
+    setSelected((s) => {
+      const n = new Set(s);
+      if (n.has(id)) n.delete(id);
+      else n.add(id);
+      return n;
+    });
+
+  /** Publica ou despublica vários de uma vez (em lotes, para não estourar o tamanho da requisição). */
+  const bulk = async (status: "publicado" | "rascunho") => {
+    const targets = status === "publicado" ? publishable : picked.filter((p) => p.status === "publicado");
+    if (!targets.length) return;
+    const verb = status === "publicado" ? "Publicar" : "Despublicar";
+    if (!confirm(`${verb} ${targets.length} perfume(s)?`)) return;
+    setBusy("bulk");
+    setBulkMsg(null);
+    let done = 0;
+    for (let i = 0; i < targets.length; i += 100) {
+      const ids = targets.slice(i, i + 100).map((p) => p.id);
+      const { error } = await sb.from("perfumes").update({ status }).in("id", ids);
+      if (error) {
+        setBulkMsg(`Erro depois de ${done}: ${error.message}`);
+        break;
+      }
+      done += ids.length;
+    }
+    const skipped = status === "publicado" ? picked.filter((p) => p.status !== "publicado" && !p.perfume_notes.length).length : 0;
+    setBulkMsg(
+      (m) =>
+        m ??
+        `${done} perfume(s) ${status === "publicado" ? "publicados" : "despublicados"}.${skipped ? ` ${skipped} sem notas ficaram de fora.` : ""}`,
+    );
+    setBusy(null);
+    setSelected(new Set());
+    reload();
+    await refreshSite();
+  };
 
   const set = async (p: PerfumeListRow, patch: Partial<Pick<PerfumeListRow, "status" | "featured">>) => {
     setBusy(p.id);
@@ -68,8 +118,8 @@ export function PerfumesTab({ sb, refreshSite }: TabProps) {
         <div>
           <h2 id="perfumes-title">Perfumes</h2>
           <p className="admin-muted">
-            Publicar coloca o perfume no catálogo. “Destaque” inclui na apresentação 3D da home — só funciona para perfumes
-            com modelo 3D e pôster.
+            Publicar coloca o perfume no catálogo. “Destaque” inclui na apresentação 3D da home — só funciona para perfumes com
+            modelo 3D e pôster.
           </p>
         </div>
         <div className="admin-filters">
@@ -82,12 +132,62 @@ export function PerfumesTab({ sb, refreshSite }: TabProps) {
             onChange={(e) => setQ(e.target.value)}
           />
           {(["todos", "rascunho", "publicado", "arquivado"] as const).map((s) => (
-            <button key={s} className="btn-ghost" aria-pressed={filter === s} onClick={() => setFilter(s)}>
+            <button
+              key={s}
+              className="btn-ghost"
+              aria-pressed={filter === s}
+              onClick={() => {
+                setFilter(s);
+                setSelected(new Set());
+              }}
+            >
               {s === "todos" ? "Todos" : STATUS_LABEL[s]}
             </button>
           ))}
+          {brands.length > 1 && (
+            <select
+              aria-label="Filtrar por marca"
+              value={brand}
+              onChange={(e) => {
+                setBrand(e.target.value);
+                setSelected(new Set());
+              }}
+            >
+              <option value="">Todas as marcas</option>
+              {brands.map((b) => (
+                <option key={b} value={b}>
+                  {b} ({(data ?? []).filter((p) => p.brand?.name === b).length})
+                </option>
+              ))}
+            </select>
+          )}
         </div>
       </header>
+
+      <div className="admin-actions">
+        <button
+          className="btn-ghost"
+          disabled={!rows.length}
+          onClick={() => setSelected(allShown ? new Set() : new Set(rows.map((p) => p.id)))}
+        >
+          {allShown ? "Desmarcar todos" : `Marcar todos da lista (${rows.length})`}
+        </button>
+        <button className="btn-primary" disabled={busy === "bulk" || !publishable.length} onClick={() => bulk("publicado")}>
+          Publicar selecionados ({publishable.length})
+        </button>
+        <button
+          className="btn-ghost"
+          disabled={busy === "bulk" || !picked.some((p) => p.status === "publicado")}
+          onClick={() => bulk("rascunho")}
+        >
+          Despublicar selecionados
+        </button>
+      </div>
+      {bulkMsg && (
+        <p className="admin-notice" role="status">
+          {bulkMsg}
+        </p>
+      )}
 
       {loading && <p className="admin-muted">Carregando…</p>}
       {error && <p className="admin-error">{error}</p>}
@@ -96,6 +196,14 @@ export function PerfumesTab({ sb, refreshSite }: TabProps) {
         <table className="admin-table">
           <thead>
             <tr>
+              <th scope="col">
+                <input
+                  type="checkbox"
+                  aria-label="Marcar todos da lista"
+                  checked={allShown}
+                  onChange={() => setSelected(allShown ? new Set() : new Set(rows.map((p) => p.id)))}
+                />
+              </th>
               <th scope="col">Perfume</th>
               <th scope="col">Situação</th>
               <th scope="col">Notas</th>
@@ -108,6 +216,14 @@ export function PerfumesTab({ sb, refreshSite }: TabProps) {
           <tbody>
             {rows.map((p) => (
               <tr key={p.id}>
+                <td>
+                  <input
+                    type="checkbox"
+                    aria-label={`Selecionar ${p.full_name}`}
+                    checked={selected.has(p.id)}
+                    onChange={() => toggle(p.id)}
+                  />
+                </td>
                 <td>
                   <button className="admin-link admin-strong" onClick={() => setEditing({ id: p.id })}>
                     {p.full_name}
