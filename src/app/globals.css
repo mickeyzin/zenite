@@ -859,3 +859,30 @@ body {
 .wardrobe-cta .zicon { color: var(--z-cyan); }
 .quiz-save { display: grid; gap: .6rem; justify-items: start; padding: 1rem 1.1rem; border-radius: 12px; border: 1px solid color-mix(in oklab, var(--z-cyan) 45%, transparent); background: rgba(49,199,243,.06); }
 .quiz-save a:not(.btn-primary) { color: var(--z-cyan); text-decoration: underline; }
+
+/* ——— Para você ——— */
+.foryou-page { max-width: 64rem; }
+.foryou { display: grid; gap: 2rem; }
+.foryou-profile { grid-template-columns: 1fr; }
+@media (min-width: 768px) { .foryou-profile { grid-template-columns: 1fr 1.2fr; align-items: center; } }
+.foryou-section { display: grid; gap: .6rem; }
+.foryou-section > h2 { font-family: var(--font-serif); font-weight: 400; font-size: 1.7rem; }
+.foryou-grid { display: grid; gap: .8rem; grid-template-columns: repeat(auto-fill, minmax(min(100%, 19rem), 1fr)); margin-top: .4rem; }
+.foryou-grid.is-hero { grid-template-columns: 1fr; }
+.foryou-card { display: grid; grid-template-columns: 5.5rem 1fr; gap: 1rem; padding: .8rem; border: 1px solid var(--z-line); border-radius: 14px; background: rgba(255,255,255,.02); }
+.foryou-card.is-hero { grid-template-columns: 9rem 1fr; padding: 1.1rem; border-color: color-mix(in oklab, var(--z-cyan) 50%, transparent); background: radial-gradient(circle at 0% 0%, rgba(49,199,243,.12), transparent 60%), rgba(255,255,255,.03); box-shadow: 0 0 40px -20px var(--z-cyan); }
+.foryou-img img, .foryou-img .poster-art { width: 100%; height: auto; aspect-ratio: 9 / 11; object-fit: cover; border-radius: 8px; display: block; }
+.foryou-body { display: grid; gap: .3rem; align-content: start; min-width: 0; }
+.foryou-score { font-size: .68rem; letter-spacing: .16em; text-transform: uppercase; color: var(--z-cyan); }
+.foryou-body h3 { font-family: var(--font-serif); font-weight: 400; font-size: 1.25rem; line-height: 1.15; }
+.foryou-card.is-hero h3 { font-size: 1.7rem; }
+.foryou-reason { font-size: .86rem; color: #cfd4ee; line-height: 1.45; }
+.foryou-offer { font-size: .8rem; color: var(--z-white); }
+.foryou-actions { display: flex; flex-wrap: wrap; gap: .3rem .9rem; margin-top: .2rem; }
+.foryou-actions .admin-link { font-size: .76rem; color: var(--z-muted); }
+.foryou-actions .admin-link:hover { color: var(--z-cyan); }
+.foryou-empty { max-width: 36rem; }
+.foryou-cta { gap: .3rem; border-color: color-mix(in oklab, var(--z-cyan) 50%, transparent); background: radial-gradient(circle at 100% 0%, rgba(166,92,255,.16), transparent 55%), radial-gradient(circle at 0% 0%, rgba(49,199,243,.14), transparent 55%), var(--z-glass); transition: transform .25s, box-shadow .25s; }
+.foryou-cta:hover { transform: translateY(-2px); box-shadow: 0 0 40px -16px var(--z-cyan); }
+.foryou-cta strong { font-family: var(--font-serif); font-weight: 400; font-size: 1.5rem; }
+.foryou-cta-kicker { font-size: .7rem; letter-spacing: .24em; text-transform: uppercase; color: var(--z-cyan); }

@@ -178,6 +178,12 @@ function Account({ sb, session }: { sb: SupabaseClient; session: Session }) {
           {notice}
         </p>
       )}
+      <Link href="/para-voce" className="account-card foryou-cta">
+        <span className="foryou-cta-kicker">✦ Para você</span>
+        <strong>Ver os perfumes escolhidos para o seu perfil</strong>
+        <span className="admin-muted">Por estação, ocasião e o seu lado mais forte — atualizado com o seu armário.</span>
+      </Link>
+
       <section className="account-card" aria-labelledby="acc-perfil">
         <h2 id="acc-perfil">Perfil</h2>
         <div className="account-row">
