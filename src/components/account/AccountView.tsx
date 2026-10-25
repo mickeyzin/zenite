@@ -2,11 +2,13 @@
 
 import type { Session, SupabaseClient } from "@supabase/supabase-js";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { ProfileBars } from "@/components/charts/Charts";
 import { Icon } from "@/components/ui/Icons";
 import { topAccords, type Profile } from "@/lib/olfactory";
 import { PENDING_QUIZ_KEY, useSession } from "@/lib/supabase/useSession";
+import { LearningPanel } from "./LearningPanel";
 
 export type WardrobeStatus = "tenho" | "gostei" | "nao_gostei" | "quero";
 export const WARDROBE_LABEL: Record<WardrobeStatus, string> = {
@@ -21,6 +23,7 @@ interface ProfileRow {
   quiz_answers: unknown;
   quiz_profile: Profile | null;
   quiz_updated_at: string | null;
+  learning_consent?: boolean | null;
 }
 interface WardrobeRow {
   perfume_id: string;
@@ -126,6 +129,7 @@ function Login({ sb }: { sb: SupabaseClient }) {
 }
 
 function Account({ sb, session }: { sb: SupabaseClient; session: Session }) {
+  const router = useRouter();
   const uid = session.user.id;
   const [profile, setProfile] = useState<ProfileRow | null>(null);
   const [wardrobe, setWardrobe] = useState<WardrobeRow[]>([]);
@@ -136,9 +140,9 @@ function Account({ sb, session }: { sb: SupabaseClient; session: Session }) {
   useEffect(() => {
     let live = true;
     (async () => {
-      if (await savePendingQuiz(sb, uid)) live && setNotice("Seu mapa olfativo foi salvo no perfil.");
+      if ((await savePendingQuiz(sb, uid)) && live) setNotice("Seu mapa olfativo foi salvo no perfil.");
       const [p, w] = await Promise.all([
-        sb.from("profiles").select("display_name, quiz_answers, quiz_profile, quiz_updated_at").eq("user_id", uid).maybeSingle(),
+        sb.from("profiles").select("display_name, quiz_answers, quiz_profile, quiz_updated_at, learning_consent").eq("user_id", uid).maybeSingle(),
         sb
           .from("wardrobe")
           .select("perfume_id, status, perfume:perfumes(slug, full_name, perfume_images(url, kind))")
@@ -165,7 +169,7 @@ function Account({ sb, session }: { sb: SupabaseClient; session: Session }) {
     const { error } = await sb.rpc("delete_my_account");
     if (error) return setNotice(`Erro: ${error.message}`);
     await sb.auth.signOut();
-    location.href = "/";
+    router.push("/");
   };
 
   const top = profile?.quiz_profile ? topAccords(profile.quiz_profile, 3) : [];
@@ -273,10 +277,12 @@ function Account({ sb, session }: { sb: SupabaseClient; session: Session }) {
         )}
       </section>
 
+      <LearningPanel sb={sb} uid={uid} consent={profile?.learning_consent ?? null} onChange={() => setTick((t) => t + 1)} />
+
       <section className="account-card account-danger" aria-labelledby="acc-dados">
         <h2 id="acc-dados">Seus dados</h2>
         <p className="admin-muted">
-          Guardamos só o que está nesta página: nome, mapa olfativo e armário. Veja a <Link href="/privacidade">política de privacidade</Link>.
+          Guardamos só o que está nesta página: nome, mapa olfativo, armário e — se você autorizou — os sinais de uso acima. Veja a <Link href="/privacidade">política de privacidade</Link>.
         </p>
         <div className="admin-actions">
           <button className="btn-ghost" onClick={() => sb.auth.signOut()}>

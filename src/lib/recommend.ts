@@ -1,5 +1,5 @@
 import type { Perfume } from "@/data/types";
-import { ACCORDS, accordProfile, allNotes, normalize, type AccordKey, type Profile } from "./olfactory";
+import { ACCORDS, accordProfile, allNotes, normalize, NOTE_ACCORDS, type AccordKey, type Profile } from "./olfactory";
 
 /**
  * Recomendações "Para você". Tudo é calculado a partir de:
@@ -14,6 +14,33 @@ export interface UserTaste {
   loved: string[];
   avoided: string[];
   wardrobe: Record<string, WardrobeStatus>; // slug → status
+  /** Sinais de uso (só com autorização), já com peso e perda por tempo. */
+  signals?: Signals;
+}
+
+export interface Signals {
+  perfumes: Record<string, number>; // slug → força
+  notes: Record<string, number>; // nome da nota → força
+}
+
+export interface UserEvent {
+  kind: "view" | "compare" | "offer_click" | "search_note";
+  slug: string | null;
+  note: string | null;
+  created_at: string;
+}
+
+/** Peso de cada sinal; metade da força a cada 30 dias. */
+const EVENT_WEIGHT = { view: 0.15, compare: 0.25, offer_click: 0.45, search_note: 0.3 } as const;
+export function signalsFrom(events: UserEvent[], now = Date.now()): Signals {
+  const out: Signals = { perfumes: {}, notes: {} };
+  for (const e of events) {
+    const days = Math.max(0, (now - Date.parse(e.created_at)) / 86_400_000);
+    const w = EVENT_WEIGHT[e.kind] * 0.5 ** (days / 30);
+    if (e.kind === "search_note" && e.note) out.notes[e.note] = (out.notes[e.note] ?? 0) + w;
+    else if (e.slug) out.perfumes[e.slug] = (out.perfumes[e.slug] ?? 0) + w;
+  }
+  return out;
 }
 
 export interface Pick {
@@ -55,6 +82,22 @@ export function tasteProfile(t: UserTaste, catalog: Perfume[]): Profile | null {
     any = true;
   };
   if (t.quizProfile) add(t.quizProfile, 1.2);
+  // Uso: no máximo 0,8 de peso somado (menos que o mapa), dividido pela força de cada sinal.
+  const sig = t.signals;
+  if (sig) {
+    const total = Object.values(sig.perfumes).reduce((a, b) => a + b, 0) + Object.values(sig.notes).reduce((a, b) => a + b, 0);
+    const scale = total ? Math.min(0.8, total) / total : 0;
+    for (const p of catalog) if (sig.perfumes[p.slug]) add(profileOf(p), sig.perfumes[p.slug] * scale);
+    for (const [note, w] of Object.entries(sig.notes)) {
+      const nw = NOTE_ACCORDS[normalize(note)];
+      if (!nw) continue;
+      const pr = empty();
+      for (const [k, v] of Object.entries(nw)) pr[k as AccordKey] = v ?? 0;
+      const sum = Object.values(pr).reduce((a, b) => a + b, 0) || 1;
+      for (const { key } of ACCORDS) pr[key] /= sum;
+      add(pr, w * scale);
+    }
+  }
   for (const p of catalog) {
     const st = t.wardrobe[p.slug];
     if (st === "gostei") add(profileOf(p), 0.9);
@@ -132,6 +175,18 @@ export function recommend(t: UserTaste, catalog: Perfume[]): { profile: Profile 
     const s = wished + 0.8 * cos(u, profileOf(p)) + Math.min(0.2, lovedFound.length * 0.07) - Math.min(0.35, avoidedFound.length * 0.12) - 0.25 * Math.max(0, nearDisliked - 0.7);
     base.set(p.slug, { s: Math.max(0, Math.min(1, s)), lovedFound, avoidedFound });
   }
+  // Perfumes que a pessoa mais tem olhado (para explicar sugestões parecidas).
+  const watched = Object.entries(t.signals?.perfumes ?? {})
+    .filter(([, w]) => w >= 0.25)
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, 3)
+    .map(([slug]) => catalog.find((p) => p.slug === slug))
+    .filter((p): p is Perfume => Boolean(p));
+  const signalHint = (p: Perfume) => {
+    if (watched.some((w) => w.slug === p.slug)) return "Você tem voltado a este";
+    const near = watched.find((w) => cos(profileOf(w), profileOf(p)) > 0.85);
+    return near ? `Parecido com o ${near.name}, que você tem olhado` : "";
+  };
   const why = (p: Perfume, extra?: string) => {
     const b = base.get(p.slug)!;
     const bits: string[] = [];
@@ -142,6 +197,8 @@ export function recommend(t: UserTaste, catalog: Perfume[]): { profile: Profile 
     r = r[0].toUpperCase() + r.slice(1);
     if (extra) r += `. ${extra}`;
     if (t.wardrobe[p.slug] === "quero") r += ". Está na sua lista de quero experimentar";
+    const hint = signalHint(p);
+    if (hint) r += `. ${hint}`;
     if (b.avoidedFound.length) r += `. Atenção: tem ${listPt(b.avoidedFound.map((n) => n.toLowerCase()))}`;
     return r + ".";
   };

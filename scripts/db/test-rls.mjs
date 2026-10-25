@@ -173,5 +173,37 @@ await as("authenticated", ANA, async () => {
 const left = (await db.query(`select (select count(*)::int from auth.users where id = '${ANA}') u, (select count(*)::int from profiles where user_id = '${ANA}') p, (select count(*)::int from wardrobe where user_id = '${ANA}') w`)).rows[0];
 check("ao apagar, perfil e armário somem junto", left.u === 0 && left.p === 0 && left.w === 0, JSON.stringify(left));
 
+// ——— aprendizado pelo uso (só com autorização) ———
+const BIA = "44444444-4444-4444-4444-444444444444";
+await db.exec(`insert into auth.users values ('${BIA}', 'bia@x')`);
+await as("authenticated", BIA, async () => {
+  await tryq(`insert into profiles (user_id) values ('${BIA}')`);
+  const no = await tryq(`insert into user_events (user_id, kind, perfume_id) values ('${BIA}', 'view', '${pubId}')`);
+  check("sem autorização, nada é registrado", !!no.error, no.error?.slice(0, 50));
+  await tryq(`update profiles set learning_consent = true, learning_consent_at = now() where user_id = '${BIA}'`);
+  const yes = await tryq(`insert into user_events (user_id, kind, perfume_id) values ('${BIA}', 'view', '${pubId}')`);
+  check("com autorização, registra", !yes.error, yes.error);
+  const note = await tryq(`insert into user_events (user_id, kind, note) values ('${BIA}', 'search_note', 'Baunilha')`);
+  check("registra nota pesquisada", !note.error, note.error);
+  const bad = await tryq(`insert into user_events (user_id, kind) values ('${BIA}', 'view')`);
+  check("registro incompleto é recusado", !!bad.error);
+  const other = await tryq(`insert into user_events (user_id, kind, perfume_id) values ('${USER}', 'view', '${pubId}')`);
+  check("ninguém registra em nome de outra pessoa", !!other.error);
+});
+await as("authenticated", USER, async () => {
+  const r = await tryq("select count(*)::int n from user_events");
+  check("outra pessoa não vê o histórico alheio", !r.error && r.rows[0].n === 0);
+});
+await as("anon", null, async () => {
+  const r = await tryq("select * from user_events");
+  check("visitante sem conta não lê histórico", !!r.error || r.rows.length === 0);
+});
+await as("authenticated", BIA, async () => {
+  const n1 = (await db.query(`select count(*)::int n from user_events where user_id = '${BIA}'`)).rows[0].n;
+  await tryq(`update profiles set learning_consent = false where user_id = '${BIA}'`);
+  const n2 = (await db.query(`select count(*)::int n from user_events where user_id = '${BIA}'`)).rows[0].n;
+  check("desligar a autorização apaga o histórico", n1 === 2 && n2 === 0, `${n1} → ${n2}`);
+});
+
 console.log(`\n${pass} ok, ${fail} falhas`);
 process.exit(fail ? 1 : 0);

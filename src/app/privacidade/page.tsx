@@ -39,7 +39,7 @@ export default function PrivacidadePage() {
         <ul>
           <li>
             Criar conta é opcional. Com ela guardamos <strong>só</strong>: seu e-mail (para o link de acesso), o nome que você
-            escolher, seu mapa olfativo e o seu armário (perfumes que você marcou como “tenho”, “gostei”, “não gostei” ou “quero
+            escolher, seu mapa olfativo, o seu armário e, se autorizar, sinais de uso (perfumes que você marcou como “tenho”, “gostei”, “não gostei” ou “quero
             experimentar”).
           </li>
           <li>Esses dados são visíveis apenas para você. Nem outros visitantes nem outras contas conseguem ver.</li>
@@ -47,7 +47,15 @@ export default function PrivacidadePage() {
             Em “Minha conta” você pode sair, corrigir os dados e <strong>apagar a conta</strong>: o perfil e o armário são
             apagados junto, na hora.
           </li>
-          <li>Ainda não registramos o que você clica ou pesquisa. Se isso vier a existir, será opcional e pedirá sua autorização antes.</li>
+          <li>
+            <strong>Aprender com o uso (opcional, desligado por padrão).</strong> Só se você autorizar, registramos na sua conta as
+            resenhas que você lê com calma, as comparações, os cliques em ofertas e as notas que você pesquisa no catálogo — para
+            afinar as recomendações em “Para você”. Não registramos o que não é sobre perfumes.
+          </li>
+          <li>
+            Esses sinais são visíveis só para você em “Minha conta”, perdem peso com o tempo e são apagados após 180 dias. Desligar
+            a autorização ou clicar em “Apagar histórico” apaga tudo na hora.
+          </li>
         </ul>
       </section>
 

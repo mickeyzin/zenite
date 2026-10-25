@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Cormorant_Garamond, Manrope } from "next/font/google";
+import { ActivityTracker } from "@/components/account/ActivityTracker";
 import { SiteFooter } from "@/components/ui/SiteFooter";
 import { SiteHeader } from "@/components/ui/SiteHeader";
 import { SITE_URL } from "@/lib/site";
@@ -34,6 +35,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <SiteHeader />
         {children}
         <SiteFooter />
+        <ActivityTracker />
         <noscript>
           <style>{`.cinema{height:auto!important}.cinema-stage{position:relative!important;height:auto!important}.stage-panel{position:relative!important;opacity:1!important;visibility:visible!important;inset:auto!important;transform:none!important;margin:2rem auto}`}</style>
         </noscript>

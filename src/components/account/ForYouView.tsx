@@ -8,7 +8,8 @@ import { ProfileBars } from "@/components/charts/Charts";
 import { PerfumeArt } from "@/components/ui/PerfumeArt";
 import type { Perfume } from "@/data/types";
 import { topAccords, type Profile } from "@/lib/olfactory";
-import { recommend, type Pick, type WardrobeStatus } from "@/lib/recommend";
+import { recommend, signalsFrom, type Pick, type Signals, type UserEvent, type WardrobeStatus } from "@/lib/recommend";
+import { ConsentPrompt } from "./ConsentPrompt";
 import { useSession } from "@/lib/supabase/useSession";
 
 interface Loaded {
@@ -17,11 +18,15 @@ interface Loaded {
   avoided: string[];
   wardrobe: Record<string, WardrobeStatus>;
   ids: Record<string, string>; // slug → id (para gravar no armário)
+  consent: boolean | null;
+  signals?: Signals;
+  eventCount: number;
 }
 
 export function ForYouView({ catalog }: { catalog: Perfume[] }) {
   const { sb, session } = useSession();
   const [data, setData] = useState<Loaded | null>(null);
+  const [reload, setReload] = useState(0);
   const uid = session?.user.id;
 
   useEffect(() => {
@@ -29,26 +34,57 @@ export function ForYouView({ catalog }: { catalog: Perfume[] }) {
     let live = true;
     (async () => {
       const [p, w, ids] = await Promise.all([
-        sb.from("profiles").select("quiz_answers, quiz_profile").eq("user_id", uid).maybeSingle(),
+        sb.from("profiles").select("quiz_answers, quiz_profile, learning_consent").eq("user_id", uid).maybeSingle(),
         sb.from("wardrobe").select("status, perfume:perfumes(slug)"),
         sb.from("perfumes").select("id, slug"),
       ]);
+      const consent = (p.data as { learning_consent?: boolean | null } | null)?.learning_consent ?? null;
+      const ev = consent
+        ? await sb
+            .from("user_events")
+            .select("kind, note, created_at, perfume:perfumes(slug)")
+            .order("created_at", { ascending: false })
+            .limit(500)
+        : { data: [] };
       if (!live) return;
-      const answers = (p.data?.quiz_answers ?? {}) as { loved?: string[]; avoided?: string[] };
+      const events: UserEvent[] = (
+        (ev.data ?? []) as unknown as {
+          kind: UserEvent["kind"];
+          note: string | null;
+          created_at: string;
+          perfume: { slug: string } | null;
+        }[]
+      ).map((e) => ({
+        kind: e.kind,
+        note: e.note,
+        created_at: e.created_at,
+        slug: e.perfume?.slug ?? null,
+      }));
+      const answers = (p.data?.quiz_answers ?? {}) as {
+        loved?: string[];
+        avoided?: string[];
+      };
       const wardrobe: Loaded["wardrobe"] = {};
-      for (const r of (w.data ?? []) as unknown as { status: WardrobeStatus; perfume: { slug: string } | null }[]) if (r.perfume) wardrobe[r.perfume.slug] = r.status;
+      for (const r of (w.data ?? []) as unknown as {
+        status: WardrobeStatus;
+        perfume: { slug: string } | null;
+      }[])
+        if (r.perfume) wardrobe[r.perfume.slug] = r.status;
       setData({
         quizProfile: (p.data?.quiz_profile as Profile | null) ?? null,
         loved: answers.loved ?? [],
         avoided: answers.avoided ?? [],
         wardrobe,
+        consent,
+        signals: events.length ? signalsFrom(events) : undefined,
+        eventCount: events.length,
         ids: Object.fromEntries(((ids.data ?? []) as { id: string; slug: string }[]).map((x) => [x.slug, x.id])),
       });
     })();
     return () => {
       live = false;
     };
-  }, [sb, uid]);
+  }, [sb, uid, reload]);
 
   const rec = useMemo(() => (data ? recommend(data, catalog) : null), [data, catalog]);
 
@@ -70,14 +106,17 @@ export function ForYouView({ catalog }: { catalog: Perfume[] }) {
     );
   if (!rec?.profile)
     return (
-      <div className="account-card foryou-empty">
-        <h2>Falta conhecer o seu gosto</h2>
-        <p className="admin-muted">
-          Faça o mapa olfativo e salve no perfil, ou marque nas resenhas perfumes que você tem ou já usou.
-        </p>
-        <Link href="/mapa-olfativo" className="btn-primary inline-block">
-          Fazer o mapa olfativo
-        </Link>
+      <div className="foryou">
+        {data!.consent === null && <ConsentPrompt sb={sb} uid={uid!} onDone={() => setReload((r) => r + 1)} />}
+        <div className="account-card foryou-empty">
+          <h2>Falta conhecer o seu gosto</h2>
+          <p className="admin-muted">
+            Faça o mapa olfativo e salve no perfil, ou marque nas resenhas perfumes que você tem ou já usou.
+          </p>
+          <Link href="/mapa-olfativo" className="btn-primary inline-block">
+            Fazer o mapa olfativo
+          </Link>
+        </div>
       </div>
     );
 
@@ -91,12 +130,20 @@ export function ForYouView({ catalog }: { catalog: Perfume[] }) {
   const top = topAccords(rec.profile, 3);
   return (
     <div className="foryou">
+      {data!.consent === null && <ConsentPrompt sb={sb} uid={uid!} onDone={() => setReload((r) => r + 1)} />}
       <section className="account-card foryou-profile" aria-labelledby="fy-perfil">
         <div>
           <h2 id="fy-perfil">O seu perfil hoje</h2>
           <p className="account-big">{top.map((t) => t.label).join(" · ")}</p>
           <p className="admin-muted">
-            Mapa olfativo{Object.keys(data!.wardrobe).length ? ` + ${Object.keys(data!.wardrobe).length} perfume(s) do armário` : ""}.{" "}
+            {[
+              data!.quizProfile && "Mapa olfativo",
+              Object.keys(data!.wardrobe).length && `${Object.keys(data!.wardrobe).length} perfume(s) do armário`,
+              data!.eventCount && `${data!.eventCount} sinal(is) de uso`,
+            ]
+              .filter(Boolean)
+              .join(" + ")}
+            .{" "}
             <Link href="/conta" className="admin-link">
               Ver minha conta
             </Link>
@@ -127,7 +174,15 @@ export function ForYouView({ catalog }: { catalog: Perfume[] }) {
   );
 }
 
-function PickCard({ pick: { perfume: p, score, reason }, hero, onMark }: { pick: Pick; hero: boolean; onMark: (slug: string, s: WardrobeStatus) => void }) {
+function PickCard({
+  pick: { perfume: p, score, reason },
+  hero,
+  onMark,
+}: {
+  pick: Pick;
+  hero: boolean;
+  onMark: (slug: string, s: WardrobeStatus) => void;
+}) {
   const offer = p.offers?.find((o) => o.available && o.price !== null);
   return (
     <li className={`foryou-card ${hero ? "is-hero" : ""}`}>
@@ -142,7 +197,12 @@ function PickCard({ pick: { perfume: p, score, reason }, hero, onMark }: { pick:
         <p className="foryou-reason">{reason}</p>
         {offer && (
           <p className="foryou-offer">
-            a partir de {offer.price!.toLocaleString("pt-BR", { style: "currency", currency: offer.currency })} · {offer.store}
+            a partir de{" "}
+            {offer.price!.toLocaleString("pt-BR", {
+              style: "currency",
+              currency: offer.currency,
+            })}{" "}
+            · {offer.store}
           </p>
         )}
         <div className="foryou-actions">

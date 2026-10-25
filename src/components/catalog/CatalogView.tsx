@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { SEARCH_EVENT } from "@/components/account/ActivityTracker";
 import { PerfumeArt } from "@/components/ui/PerfumeArt";
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
@@ -91,6 +92,13 @@ export function CatalogView({ perfumes }: { perfumes: Perfume[] }) {
     // eslint-disable-next-line react-hooks/set-state-in-effect
     setSt(readUrl());
   }, []);
+
+  // Busca parada por 1,5 s: avisa o registrador de uso (só grava se for uma nota e houver autorização).
+  useEffect(() => {
+    if (!st.q.trim()) return;
+    const t = window.setTimeout(() => window.dispatchEvent(new CustomEvent(SEARCH_EVENT, { detail: st.q.trim() })), 1500);
+    return () => window.clearTimeout(t);
+  }, [st.q]);
 
   // Grava a URL (sem recarregar).
   useEffect(() => {
