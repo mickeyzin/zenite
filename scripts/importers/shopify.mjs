@@ -26,7 +26,8 @@ if (!cfg) {
 }
 const opt = (k, d) => (args.includes(k) ? args[args.indexOf(k) + 1] : d);
 const LIMIT = Number(opt("--limit", 40));
-const OUT = path.join(ROOT, `data/imports/${key}.json`);
+// ZENITE_IMPORT_DIR permite gravar fora do repositório enquanto a leitura roda.
+const OUT = path.join(process.env.ZENITE_IMPORT_DIR ?? path.join(ROOT, "data/imports"), `${key}.json`);
 
 // Só perfume para a pele, em spray. Óleos, incensos, kits e itens de casa/corpo ficam de fora.
 const EXCLUDE =
