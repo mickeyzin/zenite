@@ -97,3 +97,15 @@ que só aceita administradores). Se não conseguir, o site se atualiza sozinho e
 - O dicionário `data/note-accords.json` serviu de base para o seed. Com o banco ligado, a fonte
   das classificações passa a ser o banco (aba Notas).
 - Para gerar o seed de novo depois de mudar os dados locais: `npm run db:seed:build`.
+
+## Contas de visitantes (perfil e armário)
+
+1. **SQL Editor:** rode `supabase/migrations/0004_user_profiles.sql`.
+2. **Authentication → Sign In / Providers:** ligue **Allow new users to sign up** de novo e deixe **Email** ativo.
+   Isso é seguro: só quem está na tabela `admins` altera dados do site; contas comuns só veem o próprio perfil e armário.
+3. **Authentication → URL Configuration:**
+   - **Site URL:** `https://zenite-orpin.vercel.app` (ou o seu domínio)
+   - **Redirect URLs:** adicione `https://zenite-orpin.vercel.app/conta`
+4. (Recomendado) **Authentication → Emails:** traduza o e-mail “Magic Link” para português.
+   O envio padrão do Supabase tem limite baixo de e-mails por hora; para muitos usuários, configure um SMTP próprio
+   (ex.: Resend, Brevo) em **Authentication → SMTP Settings**.

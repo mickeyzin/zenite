@@ -7,6 +7,7 @@ import { StatusBadge } from "@/components/ui/StatusBadge";
 import type { Perfume } from "@/data/types";
 import { accordProfile, derivedMetrics, topAccords } from "@/lib/olfactory";
 import { SIMILAR_THRESHOLD, similarTo } from "@/lib/similarity";
+import { WardrobeButtons } from "@/components/account/WardrobeButtons";
 import { NoteConstellation } from "./NoteConstellation";
 import { BestOfferHighlight, bestPrice, OffersSection } from "./OffersSection";
 
@@ -82,6 +83,7 @@ export function ReviewView({ perfume: p, catalog }: { perfume: Perfume; catalog:
           <p className="data-note">
             <StatusBadge status={p.intro.status} note={p.intro.note} /> <span>{p.intro.note}</span>
           </p>
+          <WardrobeButtons slug={p.slug} name={p.fullName} />
           <BestOfferHighlight perfume={p} />
           <nav className="review-toc" aria-label="Nesta resenha">
             <a href="#dados">Dados</a>

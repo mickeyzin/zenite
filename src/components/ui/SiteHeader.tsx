@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { AccountLink } from "@/components/account/AccountLink";
 
 const NAV: { label: string; short?: string; href?: string; desktopOnly?: boolean }[] = [
   { label: "Catálogo", href: "/catalogo" },
@@ -39,6 +40,9 @@ export function SiteHeader() {
               )}
             </li>
           ))}
+          <li>
+            <AccountLink />
+          </li>
         </ul>
       </nav>
     </header>

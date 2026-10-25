@@ -14,14 +14,14 @@ export default function PrivacidadePage() {
           <span>✦</span> Transparência
         </p>
         <h1 className="stage-title">Privacidade e afiliados</h1>
-        <p className="review-method">Última atualização: outubro de 2026.</p>
+        <p className="review-method">Última atualização: 25 de outubro de 2026.</p>
       </header>
 
       <section>
         <h2>O que a Zênite coleta</h2>
         <ul>
           <li>
-            <strong>Nenhum cadastro de visitantes.</strong> Para ler resenhas, comparar e fazer o mapa olfativo não é preciso conta.
+            <strong>Conta só se você quiser.</strong> Para ler resenhas, comparar e fazer o mapa olfativo não é preciso conta.
           </li>
           <li>
             <strong>Cliques em ofertas.</strong> Quando você clica em “Ver oferta”, registramos só qual oferta, o horário e a página
@@ -35,9 +35,26 @@ export default function PrivacidadePage() {
       </section>
 
       <section>
+        <h2>Conta (opcional)</h2>
+        <ul>
+          <li>
+            Criar conta é opcional. Com ela guardamos <strong>só</strong>: seu e-mail (para o link de acesso), o nome que você
+            escolher, seu mapa olfativo e o seu armário (perfumes que você marcou como “tenho”, “gostei”, “não gostei” ou “quero
+            experimentar”).
+          </li>
+          <li>Esses dados são visíveis apenas para você. Nem outros visitantes nem outras contas conseguem ver.</li>
+          <li>
+            Em “Minha conta” você pode sair, corrigir os dados e <strong>apagar a conta</strong>: o perfil e o armário são
+            apagados junto, na hora.
+          </li>
+          <li>Ainda não registramos o que você clica ou pesquisa. Se isso vier a existir, será opcional e pedirá sua autorização antes.</li>
+        </ul>
+      </section>
+
+      <section>
         <h2>Mapa olfativo</h2>
         <ul>
-          <li>As respostas do quiz ficam no seu navegador e não são enviadas para a Zênite.</li>
+          <li>Sem conta, as respostas do quiz ficam só no seu navegador. Com conta, você escolhe salvá-las no seu perfil.</li>
           <li>
             Se você usar a etapa “Descreva com suas palavras”, o texto digitado é enviado à <strong>OpenAI</strong> apenas para ser
             interpretado em famílias e notas. A Zênite não guarda esse texto. Não escreva dados pessoais nesse campo.
@@ -77,8 +94,8 @@ export default function PrivacidadePage() {
       <section>
         <h2>Seus direitos</h2>
         <p>
-          Pela Lei Geral de Proteção de Dados (LGPD), você pode pedir informações sobre dados tratados pela Zênite. Como não
-          mantemos cadastro de visitantes, em geral não há dados pessoais seus guardados aqui.
+          Pela Lei Geral de Proteção de Dados (LGPD), você pode ver, corrigir e apagar seus dados. Tudo o que guardamos sobre a sua
+          conta aparece em “Minha conta”, onde também está o botão para apagar tudo.
         </p>
       </section>
     </main>

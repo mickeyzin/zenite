@@ -131,5 +131,47 @@ if (pending) {
   });
 }
 
+// ——— contas de visitantes: perfil e armário ———
+const ANA = "33333333-3333-3333-3333-333333333333";
+await db.exec(`insert into auth.users values ('${ANA}', 'ana@x')`);
+const pubId = (await db.query("select id from perfumes where status = 'publicado' limit 1")).rows[0].id;
+const draftRow = (await db.query("select id from perfumes where status <> 'publicado' limit 1")).rows[0];
+await as("authenticated", ANA, async () => {
+  const p = await tryq(`insert into profiles (user_id, display_name, quiz_answers) values ('${ANA}', 'Ana', '{"families":["doce"]}') returning user_id`);
+  check("pessoa cria o próprio perfil", !p.error, p.error);
+  const w = await tryq(`insert into wardrobe (user_id, perfume_id, status) values ('${ANA}', '${pubId}', 'gostei')`);
+  check("pessoa marca perfume no armário", !w.error, w.error);
+  if (draftRow) {
+    const d = await tryq(`insert into wardrobe (user_id, perfume_id, status) values ('${ANA}', '${draftRow.id}', 'tenho')`);
+    check("armário recusa perfume não publicado", !!d.error, d.error?.slice(0, 60));
+  }
+  const fake = await tryq(`insert into profiles (user_id, display_name) values ('${USER}', 'Impostor')`);
+  check("ninguém cria perfil em nome de outra pessoa", !!fake.error, fake.error?.slice(0, 60));
+});
+await as("authenticated", USER, async () => {
+  const r = await tryq("select count(*)::int n from profiles");
+  check("outra pessoa não vê o perfil alheio", !r.error && r.rows[0].n === 0);
+  const w = await tryq("select count(*)::int n from wardrobe");
+  check("outra pessoa não vê o armário alheio", !w.error && w.rows[0].n === 0);
+  const u = await tryq(`update profiles set display_name = 'x' where user_id = '${ANA}' returning 1`);
+  check("outra pessoa não altera o perfil alheio", !!u.error || u.rows.length === 0);
+});
+await as("anon", null, async () => {
+  const r = await tryq("select * from profiles");
+  check("visitante sem conta não lê perfis", !!r.error || r.rows.length === 0, r.error ? "negado" : "");
+  const d = await tryq("select public.delete_my_account()");
+  check("visitante sem conta não apaga contas", !!d.error);
+});
+await as("authenticated", ADMIN, async () => {
+  const d = await tryq("select public.delete_my_account()");
+  check("conta de admin não é apagada pelo botão", !!d.error, d.error?.slice(0, 60));
+});
+await as("authenticated", ANA, async () => {
+  const d = await tryq("select public.delete_my_account()");
+  check("pessoa apaga a própria conta", !d.error, d.error);
+});
+const left = (await db.query(`select (select count(*)::int from auth.users where id = '${ANA}') u, (select count(*)::int from profiles where user_id = '${ANA}') p, (select count(*)::int from wardrobe where user_id = '${ANA}') w`)).rows[0];
+check("ao apagar, perfil e armário somem junto", left.u === 0 && left.p === 0 && left.w === 0, JSON.stringify(left));
+
 console.log(`\n${pass} ok, ${fail} falhas`);
 process.exit(fail ? 1 : 0);

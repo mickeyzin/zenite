@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useMemo, useRef, useState } from "react";
+import { SaveToProfile } from "@/components/account/SaveToProfile";
 import { ProfileBars } from "@/components/charts/Charts";
 import { PerfumeArt } from "@/components/ui/PerfumeArt";
 import type { Perfume } from "@/data/types";
@@ -407,7 +408,7 @@ function Result({
           Refazer do zero
         </button>
       </div>
-      <p className="quiz-help">Suas respostas ficam só neste aparelho; nada é enviado para a Zênite.</p>
+      <SaveToProfile answers={answers} profile={result.profile} />
     </section>
   );
 }

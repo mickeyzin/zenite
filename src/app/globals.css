@@ -822,3 +822,40 @@ body {
   .best-offer .offer-facts, .best-offer-actions { grid-column: 1 / -1; }
   .best-offer-price strong { font-size: 1.4rem; }
 }
+.nav-account { display: inline-flex; align-items: center; gap: .45rem; }
+.nav-account .zicon.is-on { color: var(--z-cyan); filter: drop-shadow(0 0 5px rgba(49,199,243,.7)); }
+
+/* ——— Minha conta ——— */
+.account-page { max-width: 52rem; }
+.account { display: grid; gap: 1rem; }
+.account-card { display: grid; gap: .9rem; padding: 1.4rem; border: 1px solid var(--z-line); border-radius: 16px; background: radial-gradient(circle at 0% 0%, rgba(49,199,243,.06), transparent 55%), var(--z-glass); }
+.account-card h2 { font-family: var(--font-serif); font-weight: 400; font-size: 1.6rem; }
+.account-login { max-width: 30rem; }
+.account-login input, .account-page input[type="text"] { width: 100%; padding: .6rem .8rem; border-radius: 8px; border: 1px solid var(--z-line); background: rgba(3,6,18,.7); color: var(--z-white); font-size: .95rem; }
+.account-row { display: flex; gap: .75rem; align-items: flex-end; flex-wrap: wrap; }
+.account-row .admin-field { flex: 1; min-width: 12rem; }
+.account-perks { display: grid; gap: .45rem; font-size: .88rem; color: #d6dbf3; }
+.account-perks li { display: flex; gap: .5rem; align-items: center; }
+.account-perks .zicon { color: var(--z-cyan); }
+.account-big { font-family: var(--font-serif); font-size: 1.5rem; }
+.account-shelf { display: grid; gap: .6rem; }
+.account-shelf h3 { font-size: .72rem; letter-spacing: .2em; text-transform: uppercase; color: var(--z-cyan); }
+.account-shelf ul { display: grid; gap: .5rem; }
+.account-shelf li { display: flex; justify-content: space-between; align-items: center; gap: .75rem; padding: .5rem .7rem; border: 1px solid var(--z-line); border-radius: 10px; }
+.account-item { display: flex; align-items: center; gap: .8rem; min-width: 0; }
+.account-item img, .account-item-empty { width: 2.8rem; height: 3.4rem; object-fit: cover; border-radius: 6px; flex: none; }
+.account-item-empty { display: grid; place-items: center; color: var(--z-cyan); background: rgba(49,199,243,.08); }
+.account-item span:last-child { font-family: var(--font-serif); font-size: 1.1rem; }
+.account-delete { color: #ff8a9a; }
+.wardrobe { display: flex; flex-wrap: wrap; gap: .45rem; align-items: center; }
+.wardrobe-btn { display: inline-flex; align-items: center; gap: .4rem; padding: .45rem .8rem; border-radius: 999px; border: 1px solid var(--z-line); font-size: .78rem; background: rgba(255,255,255,.02); transition: border-color .2s, background .2s; }
+.wardrobe-btn:hover:not(:disabled) { border-color: rgba(49,199,243,.5); }
+.wardrobe-btn[aria-pressed="true"] { border-color: var(--z-cyan); background: rgba(49,199,243,.14); color: #fff; box-shadow: 0 0 16px -6px var(--z-cyan); }
+.wardrobe-btn[aria-pressed="true"] .zicon { color: var(--z-cyan); }
+.wardrobe-btn:disabled { opacity: .6; }
+.wardrobe-link { font-size: .78rem; }
+.wardrobe-cta { display: flex; align-items: center; gap: .5rem; font-size: .85rem; color: var(--z-muted); }
+.wardrobe-cta a { color: var(--z-cyan); text-decoration: underline; text-underline-offset: 3px; }
+.wardrobe-cta .zicon { color: var(--z-cyan); }
+.quiz-save { display: grid; gap: .6rem; justify-items: start; padding: 1rem 1.1rem; border-radius: 12px; border: 1px solid color-mix(in oklab, var(--z-cyan) 45%, transparent); background: rgba(49,199,243,.06); }
+.quiz-save a:not(.btn-primary) { color: var(--z-cyan); text-decoration: underline; }
