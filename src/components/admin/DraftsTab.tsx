@@ -33,6 +33,7 @@ const FILTERS = [
  */
 export function DraftsTab({ sb }: TabProps) {
   const [filter, setFilter] = useState<Draft["status"]>("pendente");
+  const [brand, setBrand] = useState("");
   const [selected, setSelected] = useState<Set<string>>(new Set());
   const [busy, setBusy] = useState(false);
   const [log, setLog] = useState<string[]>([]);
@@ -46,7 +47,9 @@ export function DraftsTab({ sb }: TabProps) {
         .order("url"),
     filter,
   );
-  const drafts = data ?? [];
+  const all = data ?? [];
+  const brands = [...new Set(all.map((d) => d.brand_slug))];
+  const drafts = brand ? all.filter((d) => d.brand_slug === brand) : all;
   const ready = drafts.filter((d) => d.payload.review === "ok");
 
   const toggle = (id: string) =>
@@ -107,6 +110,24 @@ export function DraftsTab({ sb }: TabProps) {
               {f.label}
             </button>
           ))}
+          {brands.length > 1 && (
+            <select
+              className="admin-select"
+              aria-label="Marca"
+              value={brand}
+              onChange={(e) => {
+                setBrand(e.target.value);
+                setSelected(new Set());
+              }}
+            >
+              <option value="">Todas as marcas ({all.length})</option>
+              {brands.map((b) => (
+                <option key={b} value={b}>
+                  {b} ({all.filter((d) => d.brand_slug === b).length})
+                </option>
+              ))}
+            </select>
+          )}
         </div>
       </header>
 

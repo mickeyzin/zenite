@@ -49,11 +49,16 @@ for (const [en, pt] of Object.entries(notesPt as Record<string, string>)) {
   out.push(`insert into public.note_aliases (alias, note_id) values (${q(normalize(en).replace(/\s+/g, " "))}, ${noteRef(target.name)}) on conflict do nothing;`);
 }
 
+const notesEnd = out.length; // acordes + notas + grafias (reaproveitados nos arquivos por marca)
+
 // ——— Marcas ———
 const brands = [
   { slug: "lattafa", name: "Lattafa", website: "https://lattafa.com" },
   { slug: "creed", name: "Creed", website: "https://www.creedfragrance.com" },
   { slug: "prada", name: "Prada", website: "https://www.prada.com" },
+  { slug: "afnan", name: "Afnan", website: "https://afnan.com" },
+  { slug: "swiss-arabian", name: "Swiss Arabian", website: "https://swissarabian.com" },
+  { slug: "khadlaj", name: "Khadlaj", website: "https://khadlaj-perfumes.com" },
 ];
 brands.forEach((b) => out.push(`insert into public.brands (slug, name, website) values (${q(b.slug)}, ${q(b.name)}, ${q(b.website)}) on conflict (slug) do nothing;`));
 
@@ -98,16 +103,38 @@ on conflict (perfume_id) do nothing;`);
 });
 
 // ——— Rascunhos importados ———
+// Além do seed completo, cada marca ganha um arquivo menor (supabase/imports/<marca>.sql)
+// com as notas, a marca e os rascunhos dela — para rodar sozinho no SQL Editor.
+const perBrand = new Map<string, string[]>();
 for (const file of fs.readdirSync("data/imports").filter((f) => f.endsWith(".json"))) {
   const d = JSON.parse(fs.readFileSync(`data/imports/${file}`, "utf8"));
   const brandSlug = slugOf(d.brand);
+  const start = out.length;
   for (const it of d.items) {
     const linked = featuredPerfumes.find((p) => p.model.desktop && normalize(p.name) === normalize(it.name ?? "") && slugOf(p.brand) === brandSlug);
     out.push(`insert into public.import_drafts (source, url, brand_slug, payload, status, perfume_id, fetched_at) values (${q(brandSlug)}, ${q(it.url)}, ${q(brandSlug)}, ${q(it)},
   ${linked ? "'aprovado'" : "'pendente'"}, ${linked ? `(select id from public.perfumes where slug = ${q(linked.slug)})` : "null"}, ${q(it.fetchedAt ?? null)}) on conflict (url) do nothing;`);
   }
+  perBrand.set(brandSlug, out.slice(start));
 }
 
 out.push("commit;");
 fs.writeFileSync("supabase/seed.sql", out.join("\n") + "\n");
 console.log(`supabase/seed.sql: ${out.length} comandos`);
+
+fs.mkdirSync("supabase/imports", { recursive: true });
+for (const [slug, drafts] of perBrand) {
+  const b = brands.find((x) => x.slug === slug);
+  const brandSql = b
+    ? [`insert into public.brands (slug, name, website) values (${q(b.slug)}, ${q(b.name)}, ${q(b.website)}) on conflict (slug) do nothing;`]
+    : [];
+  const body = [
+    `-- Gerado por scripts/db/build-seed.ts — rascunhos de ${b?.name ?? slug} (com as notas necessárias). Pode rodar mais de uma vez.`,
+    ...out.slice(1, notesEnd),
+    ...brandSql,
+    ...drafts,
+    "commit;",
+  ];
+  fs.writeFileSync(`supabase/imports/${slug}.sql`, body.join("\n") + "\n");
+  console.log(`supabase/imports/${slug}.sql: ${drafts.length} rascunhos`);
+}
