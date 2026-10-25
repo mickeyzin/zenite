@@ -63,6 +63,7 @@ export const textOf = (html) =>
 export function translate(list, unknown) {
   return list.flatMap((n) => {
     const key = n.toLowerCase().replace(/\s+/g, " ").trim();
+    if (DICT[key] === "") return []; // não é nota (ex.: "soft")
     if (DICT[key]) return DICT[key].split("|");
     unknown.push(n);
     return [n];
@@ -73,9 +74,18 @@ export function translate(list, unknown) {
 export function parseNotes(s) {
   const split = (v) =>
     v
+      .replace(/[\u00c2\u00a0]/g, " ") // espaço não separável mal codificado ("Â")
+      .replace(/([a-z])([A-Z])/g, "$1, $2") // notas grudadas ("WoodyOrange Blossom")
       .split(/,|\band\b|&|\//)
-      .map((x) => x.replace(/\.$/, "").replace(/\s+/g, " ").trim())
-      .filter((x) => x && x.length <= 40);
+      .map((x) =>
+        x
+          .trim()
+          .replace(/^[a-z]{1,2}:\s*/i, "") // sobra de rótulo ("s: Virginia Cedar")
+          .replace(/\.$/, "")
+          .replace(/\s+/g, " ")
+          .trim(),
+      )
+      .filter((x) => x.length >= 2 && x.length <= 40 && !/[<>]/.test(x));
   const grab = (label) => {
     const m = s.match(new RegExp(`(?:^|\\n|\\s)${label}\\s*(?:notes?)?\\s*(?:[-–:]\\s*\\n?|\\n)\\s*([^\\n]+)`, "i"));
     return m ? split(m[1]) : null;
@@ -100,7 +110,8 @@ export function finish(item, notesEn) {
 /** Retraduz um arquivo de rascunhos com o dicionário atual, sem acessar o site. */
 export function retranslate(file) {
   const db = JSON.parse(fs.readFileSync(file, "utf8"));
-  for (const it of db.items) if (it.notesEn) finish(it, it.notesEn);
+  // Relê o texto original guardado (notesRaw), para valerem as correções do leitor.
+  for (const it of db.items) if (it.notesRaw || it.notesEn) finish(it, it.notesRaw ? parseNotes(it.notesRaw) : it.notesEn);
   fs.writeFileSync(file, JSON.stringify(db, null, 2));
   console.log(`retraduzidos: ${db.items.filter((i) => i.review === "ok").length} de ${db.items.length} completos`);
 }
