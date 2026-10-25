@@ -217,8 +217,13 @@ export async function getCatalog(): Promise<Catalog> {
     const query = (select: string) => anonClient().from("perfumes").select(select).eq("status", "publicado").order("name");
     let { data, error } = await query(SELECT);
     // Banco ainda sem a migração 0002 (imagens das notas): segue sem as imagens.
-    // Banco ainda sem as migrações 0002/0003 (imagens de notas e ofertas): segue sem as imagens.
-    if (error && /image_url/.test(error.message)) ({ data, error } = await query(SELECT.replace(/,? ?image_url,?/g, (m) => (m.startsWith(",") && m.endsWith(",") ? "," : ""))));
+    // Banco sem alguma migração de imagem: tira só a coluna que falta e tenta de novo
+    // (0003 = foto das ofertas; 0002 = imagem das notas). As demais imagens continuam.
+    const withoutOfferImg = SELECT.replace("seller_reputation, image_url,", "seller_reputation,");
+    const withoutNoteImg = (sel: string) => sel.replace("name_pt, image_url,", "name_pt,");
+    if (error && /offers\w*\.image_url/.test(error.message)) ({ data, error } = await query(withoutOfferImg));
+    if (error && /notes\w*\.image_url/.test(error.message)) ({ data, error } = await query(withoutNoteImg(withoutOfferImg)));
+    if (error && /image_url/.test(error.message)) ({ data, error } = await query(withoutNoteImg(withoutOfferImg)));
     if (error) throw new Error(error.message);
     const rows = (data ?? []) as unknown as Row[];
     if (!rows.length) throw new Error("nenhum perfume publicado");
