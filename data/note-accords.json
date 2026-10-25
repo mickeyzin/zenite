@@ -1704,5 +1704,190 @@
    "citrico": 0.6,
    "verde": 0.4
   }
+ },
+ "flor de amendoeira": {
+  "name": "Flor de amendoeira",
+  "weights": {
+   "floral": 0.7,
+   "doce": 0.3
+  }
+ },
+ "amyris": {
+  "name": "Amyris",
+  "weights": {
+   "amadeirado": 1
+  }
+ },
+ "angelica": {
+  "name": "Angélica",
+  "weights": {
+   "aromatico": 0.6,
+   "verde": 0.4
+  }
+ },
+ "flor de bananeira": {
+  "name": "Flor de bananeira",
+  "weights": {
+   "floral": 0.6,
+   "frutado": 0.4
+  }
+ },
+ "cera de abelha": {
+  "name": "Cera de abelha",
+  "weights": {
+   "doce": 0.5,
+   "ambarado": 0.5
+  }
+ },
+ "canfora": {
+  "name": "Cânfora",
+  "weights": {
+   "aromatico": 0.6,
+   "amadeirado": 0.4
+  }
+ },
+ "cola": {
+  "name": "Cola",
+  "weights": {
+   "doce": 0.5,
+   "especiado": 0.3,
+   "citrico": 0.2
+  }
+ },
+ "cumarina": {
+  "name": "Cumarina",
+  "weights": {
+   "doce": 0.6,
+   "ambarado": 0.4
+  }
+ },
+ "giesta": {
+  "name": "Giesta",
+  "weights": {
+   "floral": 0.7,
+   "verde": 0.3
+  }
+ },
+ "duriao": {
+  "name": "Durião",
+  "weights": {
+   "frutado": 1
+  }
+ },
+ "flor de toranja": {
+  "name": "Flor de toranja",
+  "weights": {
+   "floral": 0.6,
+   "citrico": 0.4
+  }
+ },
+ "horchata": {
+  "name": "Horchata",
+  "weights": {
+   "doce": 0.7,
+   "especiado": 0.3
+  }
+ },
+ "imortela": {
+  "name": "Imortela",
+  "weights": {
+   "ambarado": 0.5,
+   "doce": 0.3,
+   "aromatico": 0.2
+  }
+ },
+ "litsea": {
+  "name": "Litsea",
+  "weights": {
+   "citrico": 1
+  }
+ },
+ "xarope de bordo": {
+  "name": "Xarope de bordo",
+  "weights": {
+   "doce": 1
+  }
+ },
+ "manjerona": {
+  "name": "Manjerona",
+  "weights": {
+   "aromatico": 0.7,
+   "especiado": 0.3
+  }
+ },
+ "camomila": {
+  "name": "Camomila",
+  "weights": {
+   "aromatico": 0.5,
+   "floral": 0.3,
+   "verde": 0.2
+  }
+ },
+ "notas minerais": {
+  "name": "Notas minerais",
+  "weights": {
+   "aromatico": 0.4,
+   "amadeirado": 0.3,
+   "almiscarado": 0.3
+  }
+ },
+ "amendoim": {
+  "name": "Amendoim",
+  "weights": {
+   "doce": 0.6,
+   "amadeirado": 0.4
+  }
+ },
+ "gergelim": {
+  "name": "Gergelim",
+  "weights": {
+   "doce": 0.4,
+   "amadeirado": 0.4,
+   "especiado": 0.2
+  }
+ },
+ "notas solares": {
+  "name": "Notas solares",
+  "weights": {
+   "floral": 0.5,
+   "citrico": 0.3,
+   "ambarado": 0.2
+  }
+ },
+ "curcuma": {
+  "name": "Cúrcuma",
+  "weights": {
+   "especiado": 1
+  }
+ },
+ "valeriana": {
+  "name": "Valeriana",
+  "weights": {
+   "verde": 0.5,
+   "amadeirado": 0.5
+  }
+ },
+ "ninfeia": {
+  "name": "Ninfeia",
+  "weights": {
+   "floral": 0.7,
+   "verde": 0.3
+  }
+ },
+ "cha branco": {
+  "name": "Chá branco",
+  "weights": {
+   "aromatico": 0.5,
+   "verde": 0.3,
+   "floral": 0.2
+  }
+ },
+ "vinho": {
+  "name": "Vinho",
+  "weights": {
+   "frutado": 0.6,
+   "doce": 0.2,
+   "ambarado": 0.2
+  }
  }
 }

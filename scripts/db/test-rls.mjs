@@ -125,6 +125,25 @@ if (pending) {
     check("pirâmide substituída; apelido em inglês vira a mesma nota; nota nova criada",
       !sn.error && after.length === 2 && after.some((r) => r.name_pt === "Nota Inventada Teste"), sn.error ?? after.map((r) => r.name_pt).join(", "));
   });
+  // Fonte diferente do site oficial (ex.: Wikidata) e proteção de perfume existente.
+  await db.exec(`insert into import_drafts (source, url, brand_slug, payload) values
+    ('wikidata', 'https://teste.local/wd1', 'marca-teste', '{"name":"Teste WD","brandName":"Marca Teste","sourceLabel":"Wikidata (CC0)","notesStatus":"a-confirmar","notesNote":"n","year":2010,"perfumers":["Fulano"],"notes":{"top":["Bergamota"],"heart":[],"base":[]}}'),
+    ('teste', 'https://teste.local/dup', (select b.slug from perfumes p join brands b on b.id = p.brand_id order by p.slug limit 1),
+      jsonb_build_object('name', (select p.name from perfumes p order by p.slug limit 1), 'notes', '{"top":["Coco"],"heart":[],"base":[]}'::jsonb))`);
+  await as("authenticated", ADMIN, async () => {
+    const w = await tryq(`select public.approve_draft((select id from import_drafts where url = 'https://teste.local/wd1')) as id`);
+    const p = w.rows ? (await db.query(`select p.year, p.perfumers, p.notes_status, b.name brand, (select label from perfume_sources where perfume_id = p.id limit 1) src from perfumes p join brands b on b.id = p.brand_id where p.id = '${w.rows[0].id}'`)).rows[0] : null;
+    check("rascunho do Wikidata: fonte, ano, perfumista e pirâmide a confirmar",
+      !w.error && p.src === "Wikidata (CC0)" && p.year === 2010 && p.perfumers?.[0] === "Fulano" && p.notes_status === "a-confirmar" && p.brand === "Marca Teste",
+      w.error ?? JSON.stringify(p));
+    const before = (await db.query(`select string_agg(note_id::text, ',' order by tier, position) s from perfume_notes where perfume_id = (select id from perfumes order by slug limit 1)`)).rows[0].s;
+    const dup = await tryq(`select public.approve_draft((select id from import_drafts where url = 'https://teste.local/dup')) as id`);
+    const after = (await db.query(`select string_agg(note_id::text, ',' order by tier, position) s from perfume_notes where perfume_id = (select id from perfumes order by slug limit 1)`)).rows[0].s;
+    check("rascunho com o nome de um perfume existente não altera a pirâmide dele", !dup.error && before === after, dup.error ?? "");
+  });
+  await db.exec(`delete from perfume_sources where url like 'https://teste.local/%'; delete from import_drafts where url like 'https://teste.local/%';
+    delete from perfumes where slug = 'marca-teste-teste-wd'; delete from brands where slug = 'marca-teste';`);
+
   await as("anon", null, async () => {
     const r = await tryq("select count(*)::int n from perfumes where status <> 'publicado'");
     check("perfume aprovado não aparece para o público", !r.error && r.rows[0].n === 0);

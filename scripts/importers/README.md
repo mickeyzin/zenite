@@ -22,6 +22,7 @@ Verificado em 25/10/2026 (termos de uso + robots.txt). Rever antes de cada nova 
 | Afnan | afnan.com | ✅ Permitido: robots.txt libera páginas de produto (e publica um sitemap para agentes); termos sem proibição a robôs. `shopify.mjs` |
 | Swiss Arabian | swissarabian.com | ✅ Permitido: robots.txt libera produtos; termos sem proibição a robôs. Volume não aparece na página. `shopify.mjs` |
 | Khadlaj | khadlaj-perfumes.com | ✅ Permitido: robots.txt libera produtos; termos sem proibição a robôs. `shopify.mjs` |
+| Wikidata (várias marcas) | wikidata.org | ✅ Dados abertos (CC0), consulta pública com identificação. Pirâmide com camada (P5872 + P1552). Tudo entra "a confirmar" (base colaborativa). `wikidata.mjs` |
 | Armaf | armaf.com | ⛔ Termos proíbem "spider, crawl, or scrape". |
 | French Avenue | frenchavenue.com | ⛔ Termos proíbem robôs/extração. |
 | Rayhaan | rayhaanperfumes.com | ⛔ Termos proíbem robôs/extração. |
@@ -39,6 +40,10 @@ Verificado em 25/10/2026 (termos de uso + robots.txt). Rever antes de cada nova 
 | Natura | natura.com.br | ⛔ robots.txt bloqueia robôs de IA (inclusive ClaudeBot). |
 | O Boticário | boticario.com.br | ⛔ Bloqueado por proteção antirrobô (Akamai). Caminho: pedir feed/catálogo à marca ou programa de afiliados. |
 | Eudora | eudora.com.br | ⛔ Conexão recusada pela proteção do site. |
+| Fragrantica | fragrantica.com(.br) | ⛔ robots.txt bloqueia robôs de IA; sem licença de uso. |
+| Parfumo | parfumo.com | ⏸ Base protegida pelo direito europeu de bases de dados; há contato de licenciamento — só com autorização. |
+| Basenotes | basenotes.com | ⛔ Acesso negado (403). |
+| Open Beauty Facts | openbeautyfacts.org | ⛔ robots.txt bloqueia robôs de IA; sem pirâmide. |
 | In The Box | intheboxperfumes.com.br | ⛔ Bloqueado por proteção antirrobô (Cloudflare). Mesmo caminho acima. |
 
 Marcas bloqueadas podem entrar pelo **cadastro manual** no painel (`/admin` → Perfumes), com a fonte citada.
@@ -51,6 +56,8 @@ NODE_USE_ENV_PROXY=1 node scripts/importers/lattafa.mjs --limit 30
 NODE_USE_ENV_PROXY=1 node scripts/importers/lattafa.mjs --only /art-of-universe/
 # lojas Shopify (afnan | swiss-arabian | khadlaj)
 NODE_USE_ENV_PROXY=1 node scripts/importers/shopify.mjs afnan --limit 100
+# Wikidata (todas as marcas de uma vez; marcas com site oficial importado ficam de fora)
+NODE_USE_ENV_PROXY=1 node scripts/importers/wikidata.mjs
 ```
 
 Depois: `npm run db:seed:build` gera `supabase/seed.sql` e um arquivo por marca em

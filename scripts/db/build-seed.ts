@@ -108,15 +108,16 @@ on conflict (perfume_id) do nothing;`);
 const perBrand = new Map<string, string[]>();
 for (const file of fs.readdirSync("data/imports").filter((f) => f.endsWith(".json"))) {
   const d = JSON.parse(fs.readFileSync(`data/imports/${file}`, "utf8"));
-  const brandSlug = slugOf(d.brand);
+  const fileSlug = slugOf(d.brand); // "wikidata" reúne várias marcas; cada item traz a sua
   const start = out.length;
   for (const it of d.items) {
+    const brandSlug = it.brandSlug ?? fileSlug;
     const linked = featuredPerfumes.find((p) => p.model.desktop && normalize(p.name) === normalize(it.name ?? "") && slugOf(p.brand) === brandSlug);
-    out.push(`insert into public.import_drafts (source, url, brand_slug, payload, status, perfume_id, fetched_at) values (${q(brandSlug)}, ${q(it.url)}, ${q(brandSlug)}, ${q(it)},
+    out.push(`insert into public.import_drafts (source, url, brand_slug, payload, status, perfume_id, fetched_at) values (${q(fileSlug)}, ${q(it.url)}, ${q(brandSlug)}, ${q(it)},
   ${linked ? "'aprovado'" : "'pendente'"}, ${linked ? `(select id from public.perfumes where slug = ${q(linked.slug)})` : "null"}, ${q(it.fetchedAt ?? null)})
   on conflict (url) do update set payload = excluded.payload, fetched_at = excluded.fetched_at where public.import_drafts.status = 'pendente';`);
   }
-  perBrand.set(brandSlug, out.slice(start));
+  perBrand.set(fileSlug, out.slice(start));
 }
 
 out.push("commit;");
@@ -130,7 +131,7 @@ for (const [slug, drafts] of perBrand) {
     ? [`insert into public.brands (slug, name, website) values (${q(b.slug)}, ${q(b.name)}, ${q(b.website)}) on conflict (slug) do nothing;`]
     : [];
   const body = [
-    `-- Gerado por scripts/db/build-seed.ts — rascunhos de ${b?.name ?? slug} (com as notas necessárias). Pode rodar mais de uma vez.`,
+    `-- Gerado por scripts/db/build-seed.ts — rascunhos de ${b?.name ?? (slug === "wikidata" ? "Wikidata (várias marcas)" : slug)} (com as notas necessárias). Pode rodar mais de uma vez.`,
     ...out.slice(1, notesEnd),
     ...brandSql,
     ...drafts,

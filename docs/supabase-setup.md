@@ -124,3 +124,12 @@ pendentes são atualizados com a tradução mais recente.
 
 Rascunhos "sem pirâmide" vieram de páginas sem a lista de notas (ou com texto corrido): confira à mão
 na página da marca antes de aprovar, ou rejeite.
+
+## Perfumes do Wikidata (várias marcas)
+
+1. **SQL Editor:** rode antes `supabase/migrations/0006_draft_sources.sql` (a aprovação passa a registrar
+   a fonte certa, o ano e o perfumista, e nunca altera um perfume que já existe).
+2. Rode `supabase/imports/wikidata.sql` (103 perfumes de Mugler, Calvin Klein, Vivienne Westwood, Creed,
+   Dior, Tom Ford, Guerlain, Givenchy, Byredo e outras).
+3. Aprove em **Importados** como as outras marcas. Estes entram com a pirâmide **a confirmar** e a fonte
+   "Wikidata (CC0)": confira com a marca antes de publicar.
