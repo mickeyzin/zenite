@@ -46,7 +46,7 @@ export function SaveToProfile({ answers, profile }: { answers: Answers; profile:
     <div className="quiz-save">
       {state === "saved" ? (
         <p role="status">
-          Mapa salvo no seu perfil. <Link href="/para-voce">Ver recomendações para você</Link>
+          Mapa salvo no seu perfil. <Link href="/conta#para-voce">Ver recomendações para você</Link>
         </p>
       ) : (
         <button type="button" className="btn-primary" disabled={state === "saving"} onClick={save}>

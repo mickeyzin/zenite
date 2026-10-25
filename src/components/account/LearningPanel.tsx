@@ -2,36 +2,27 @@
 
 import type { SupabaseClient } from "@supabase/supabase-js";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { CONSENT_EVENT } from "./ActivityTracker";
-
-interface Ev {
-  kind: "view" | "compare" | "offer_click" | "search_note";
-  note: string | null;
-  created_at: string;
-  perfume: { slug: string; full_name: string } | null;
-}
+import type { EventRow } from "./useProfileData";
 
 const KIND = { view: "leu a resenha", compare: "comparou", offer_click: "abriu uma oferta" } as const;
 
 /** "O que aprendemos com você": autorização, resumo dos sinais e apagar histórico. */
-export function LearningPanel({ sb, uid, consent, onChange }: { sb: SupabaseClient; uid: string; consent: boolean | null; onChange: () => void }) {
-  const [events, setEvents] = useState<Ev[]>([]);
+export function LearningPanel({
+  sb,
+  uid,
+  consent,
+  events,
+  onChange,
+}: {
+  sb: SupabaseClient;
+  uid: string;
+  consent: boolean | null;
+  events: EventRow[];
+  onChange: () => void;
+}) {
   const [busy, setBusy] = useState(false);
-  const [tick, setTick] = useState(0);
-
-  useEffect(() => {
-    if (!consent) return;
-    let live = true;
-    sb.from("user_events")
-      .select("kind, note, created_at, perfume:perfumes(slug, full_name)")
-      .order("created_at", { ascending: false })
-      .limit(500)
-      .then(({ data }) => live && setEvents((data as unknown as Ev[]) ?? []));
-    return () => {
-      live = false;
-    };
-  }, [sb, consent, tick]);
 
   const setConsent = async (yes: boolean) => {
     if (!yes && !confirm("Desligar também apaga todo o histórico de uso. Continuar?")) return;
@@ -39,7 +30,6 @@ export function LearningPanel({ sb, uid, consent, onChange }: { sb: SupabaseClie
     await sb.from("profiles").upsert({ user_id: uid, learning_consent: yes, learning_consent_at: new Date().toISOString() });
     window.dispatchEvent(new Event(CONSENT_EVENT));
     setBusy(false);
-    if (!yes) setEvents([]);
     onChange();
   };
   const clear = async () => {
@@ -47,8 +37,7 @@ export function LearningPanel({ sb, uid, consent, onChange }: { sb: SupabaseClie
     setBusy(true);
     await sb.from("user_events").delete().eq("user_id", uid);
     setBusy(false);
-    setEvents([]);
-    setTick((t) => t + 1);
+    onChange();
   };
 
   // Resumo: perfumes por número de sinais; notas pesquisadas.
@@ -56,24 +45,23 @@ export function LearningPanel({ sb, uid, consent, onChange }: { sb: SupabaseClie
   const notes = new Map<string, number>();
   for (const e of events) {
     if (e.kind === "search_note" && e.note) notes.set(e.note, (notes.get(e.note) ?? 0) + 1);
-    else if (e.perfume) {
-      const cur = byPerfume.get(e.perfume.slug) ?? { name: e.perfume.full_name, slug: e.perfume.slug, kinds: {} };
+    else if (e.slug) {
+      const cur = byPerfume.get(e.slug) ?? { name: e.perfumeName ?? e.slug, slug: e.slug, kinds: {} };
       cur.kinds[e.kind] = (cur.kinds[e.kind] ?? 0) + 1;
-      byPerfume.set(e.perfume.slug, cur);
+      byPerfume.set(e.slug, cur);
     }
   }
   const tops = [...byPerfume.values()].sort((a, b) => sum(b.kinds) - sum(a.kinds)).slice(0, 6);
 
   return (
-    <section className="account-card" aria-labelledby="acc-aprender">
-      <h2 id="acc-aprender">O que aprendemos com você</h2>
+    <div className="learning">
       <label className="learning-toggle">
         <input type="checkbox" checked={Boolean(consent)} disabled={busy} onChange={(e) => setConsent(e.target.checked)} />
         <span>
           <strong>Aprender com o que eu vejo</strong>
           <small>
             Resenhas lidas com calma, comparações, cliques em ofertas e notas pesquisadas afinam as suas recomendações em{" "}
-            <Link href="/para-voce">Para você</Link>. Desligado por padrão.
+            <a href="#para-voce">Para você</a>. Desligado por padrão.
           </small>
         </span>
       </label>
@@ -120,7 +108,7 @@ export function LearningPanel({ sb, uid, consent, onChange }: { sb: SupabaseClie
       ) : (
         <p className="admin-muted">Desligado: nada do que você faz no site é registrado.</p>
       )}
-    </section>
+    </div>
   );
 }
 

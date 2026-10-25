@@ -21,6 +21,10 @@ const nextConfig: NextConfig = {
   ...(staticExport
     ? {}
     : {
+        // "Para você" agora fica dentro do perfil.
+        async redirects() {
+          return [{ source: "/para-voce", destination: "/conta#para-voce", permanent: false }];
+        },
         async headers() {
           return [
             {
