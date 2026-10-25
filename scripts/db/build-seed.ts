@@ -49,8 +49,6 @@ for (const [en, pt] of Object.entries(notesPt as Record<string, string>)) {
   out.push(`insert into public.note_aliases (alias, note_id) values (${q(normalize(en).replace(/\s+/g, " "))}, ${noteRef(target.name)}) on conflict do nothing;`);
 }
 
-const notesEnd = out.length; // acordes + notas + grafias (reaproveitados nos arquivos por marca)
-
 // ——— Marcas ———
 const brands = [
   { slug: "lattafa", name: "Lattafa", website: "https://lattafa.com" },
@@ -103,40 +101,74 @@ on conflict (perfume_id) do nothing;`);
 });
 
 // ——— Rascunhos importados ———
-// Além do seed completo, cada marca ganha um arquivo menor (supabase/imports/<marca>.sql)
-// com as notas, a marca e os rascunhos dela — para rodar sozinho no SQL Editor.
-const perBrand = new Map<string, string[]>();
+// Só os campos que o painel e a aprovação usam (o texto original fica no repositório).
+const KEEP = ["name", "sku", "size", "gender", "notes", "unknownNotes", "review", "brand", "brandName", "year", "perfumers", "sourceLabel", "notesStatus", "notesNote"];
+const slim = (it: Record<string, unknown>) => Object.fromEntries(KEEP.filter((k) => it[k] !== undefined && it[k] !== null).map((k) => [k, it[k]]));
+type Row = { source: string; url: string; brand_slug: string; payload: Record<string, unknown>; status: string; linked: string | null; fetched_at: string | null };
+const perBrand = new Map<string, Row[]>();
 for (const file of fs.readdirSync("data/imports").filter((f) => f.endsWith(".json"))) {
   const d = JSON.parse(fs.readFileSync(`data/imports/${file}`, "utf8"));
   const fileSlug = slugOf(d.brand); // "wikidata" reúne várias marcas; cada item traz a sua
-  const start = out.length;
+  const rows: Row[] = [];
   for (const it of d.items) {
     const brandSlug = it.brandSlug ?? fileSlug;
     const linked = featuredPerfumes.find((p) => p.model.desktop && normalize(p.name) === normalize(it.name ?? "") && slugOf(p.brand) === brandSlug);
-    out.push(`insert into public.import_drafts (source, url, brand_slug, payload, status, perfume_id, fetched_at) values (${q(fileSlug)}, ${q(it.url)}, ${q(brandSlug)}, ${q(it)},
-  ${linked ? "'aprovado'" : "'pendente'"}, ${linked ? `(select id from public.perfumes where slug = ${q(linked.slug)})` : "null"}, ${q(it.fetchedAt ?? null)})
-  on conflict (url) do update set payload = excluded.payload, fetched_at = excluded.fetched_at where public.import_drafts.status = 'pendente';`);
+    rows.push({ source: fileSlug, url: it.url, brand_slug: brandSlug, payload: slim(it), status: linked ? "aprovado" : "pendente", linked: linked?.slug ?? null, fetched_at: it.fetchedAt ?? null });
   }
-  perBrand.set(fileSlug, out.slice(start));
+  perBrand.set(fileSlug, rows);
 }
 
+/** Um comando só para muitas linhas: os dados vão como JSON (bem menor que um INSERT por linha). */
+const dollar = (v: unknown) => {
+  const j = JSON.stringify(v);
+  if (j.includes("$z$")) throw new Error("JSON com $z$");
+  return `$z$${j}$z$::jsonb`;
+};
+const draftsSql = (rows: Row[]) =>
+  `insert into public.import_drafts (source, url, brand_slug, payload, status, perfume_id, fetched_at)
+select x.source, x.url, x.brand_slug, x.payload, x.status::public.draft_status, (select id from public.perfumes where slug = x.linked), x.fetched_at
+from jsonb_to_recordset(${dollar(rows)}) as x(source text, url text, brand_slug text, payload jsonb, status text, linked text, fetched_at timestamptz)
+on conflict (url) do update set payload = excluded.payload, fetched_at = excluded.fetched_at where public.import_drafts.status = 'pendente';`;
+
+for (const rows of perBrand.values()) out.push(draftsSql(rows));
 out.push("commit;");
 fs.writeFileSync("supabase/seed.sql", out.join("\n") + "\n");
 console.log(`supabase/seed.sql: ${out.length} comandos`);
 
+// ——— Arquivos para o SQL Editor (supabase/imports/) ———
+// 00-notas.sql: acordes, notas, pesos e grafias (rodar primeiro; pode repetir).
+const NOTES = Object.values(NA).map(({ name }) => ({ slug: slugOf(name), name_pt: name, name_en: enByPt.get(normalize(name)) ?? null }));
+const WEIGHTS = Object.values(NA).flatMap(({ name, weights }) => Object.entries(weights).map(([accord, weight]) => ({ slug: slugOf(name), accord, weight })));
+const ALIASES = [
+  ...Object.entries(NA).map(([key, { name }]) => ({ alias: key, slug: slugOf(name) })),
+  ...Object.entries(notesPt as Record<string, string>)
+    .filter(([, pt]) => !pt.includes("|") && NA[normalize(pt)])
+    .map(([en, pt]) => ({ alias: normalize(en).replace(/\s+/g, " "), slug: slugOf(NA[normalize(pt)].name) })),
+];
 fs.mkdirSync("supabase/imports", { recursive: true });
-for (const [slug, drafts] of perBrand) {
+fs.writeFileSync(
+  "supabase/imports/00-notas.sql",
+  [
+    "-- Gerado por scripts/db/build-seed.ts — notas, acordes e grafias. Rode ANTES dos arquivos das marcas. Pode rodar mais de uma vez.",
+    "begin;",
+    ...ACCORDS.map((a, i) => `insert into public.accords (key, label, position) values (${q(a.key)}, ${q(a.label)}, ${i}) on conflict (key) do update set label = excluded.label;`),
+    `insert into public.notes (slug, name_pt, name_en) select x.slug, x.name_pt, x.name_en from jsonb_to_recordset(${dollar(NOTES)}) as x(slug text, name_pt text, name_en text) on conflict (slug) do nothing;`,
+    `insert into public.note_accords (note_id, accord_key, weight) select n.id, x.accord, x.weight from jsonb_to_recordset(${dollar(WEIGHTS)}) as x(slug text, accord text, weight numeric) join public.notes n on n.slug = x.slug on conflict do nothing;`,
+    `insert into public.note_aliases (alias, note_id) select distinct on (x.alias) x.alias, n.id from jsonb_to_recordset(${dollar(ALIASES)}) as x(alias text, slug text) join public.notes n on n.slug = x.slug on conflict do nothing;`,
+    "commit;",
+  ].join("\n") + "\n",
+);
+console.log(`supabase/imports/00-notas.sql: ${NOTES.length} notas, ${ALIASES.length} grafias`);
+
+for (const [slug, rows] of perBrand) {
   const b = brands.find((x) => x.slug === slug);
-  const brandSql = b
-    ? [`insert into public.brands (slug, name, website) values (${q(b.slug)}, ${q(b.name)}, ${q(b.website)}) on conflict (slug) do nothing;`]
-    : [];
   const body = [
-    `-- Gerado por scripts/db/build-seed.ts — rascunhos de ${b?.name ?? (slug === "wikidata" ? "Wikidata (várias marcas)" : slug)} (com as notas necessárias). Pode rodar mais de uma vez.`,
-    ...out.slice(1, notesEnd),
-    ...brandSql,
-    ...drafts,
+    `-- Gerado por scripts/db/build-seed.ts — rascunhos de ${b?.name ?? (slug === "wikidata" ? "Wikidata (várias marcas)" : slug)}. Rode depois de 00-notas.sql. Pode rodar mais de uma vez.`,
+    "begin;",
+    ...(b ? [`insert into public.brands (slug, name, website) values (${q(b.slug)}, ${q(b.name)}, ${q(b.website)}) on conflict (slug) do nothing;`] : []),
+    draftsSql(rows),
     "commit;",
   ];
   fs.writeFileSync(`supabase/imports/${slug}.sql`, body.join("\n") + "\n");
-  console.log(`supabase/imports/${slug}.sql: ${drafts.length} rascunhos`);
+  console.log(`supabase/imports/${slug}.sql: ${rows.length} rascunhos`);
 }

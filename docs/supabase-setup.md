@@ -110,26 +110,19 @@ que só aceita administradores). Se não conseguir, o site se atualiza sozinho e
    O envio padrão do Supabase tem limite baixo de e-mails por hora; para muitos usuários, configure um SMTP próprio
    (ex.: Resend, Brevo) em **Authentication → SMTP Settings**.
 
-## Novas marcas importadas (Afnan, Swiss Arabian, Khadlaj)
+## Novas marcas (Afnan, Swiss Arabian, Khadlaj, Wikidata) — passo a passo
 
-Cada marca tem um arquivo próprio em `supabase/imports/` com as notas necessárias, a marca e os
-rascunhos dela. Pode rodar mais de uma vez: rascunhos já aprovados ou rejeitados não mudam; os
-pendentes são atualizados com a tradução mais recente.
+Arquivos pequenos em `supabase/imports/`, na ordem abaixo. Todos podem rodar mais de uma vez.
+Rascunhos já aprovados ou rejeitados não mudam; os pendentes recebem a tradução mais recente.
 
-1. No GitHub, abra o arquivo (ex.: `supabase/imports/afnan.sql`) e use **Copy raw file**.
-2. **SQL Editor → New query**, cole e clique em **Run**. Repita para cada marca
-   (`afnan.sql`, `swiss-arabian.sql`, `khadlaj.sql` e, para atualizar as traduções, `lattafa.sql`).
-3. No painel: **Importados** → escolha a marca no filtro → **Selecionar completos** → confira com a
-   página de origem → **Aprovar selecionados**. Depois publique em **Perfumes**.
+1. `supabase/migrations/0006_draft_sources.sql` — aprovação com a fonte certa (rodar uma vez).
+2. `supabase/imports/00-notas.sql` — notas, acordes e grafias (rodar **antes** das marcas).
+3. Uma marca por vez: `afnan.sql`, `swiss-arabian.sql`, `khadlaj.sql`, `wikidata.sql` e `lattafa.sql`.
 
-Rascunhos "sem pirâmide" vieram de páginas sem a lista de notas (ou com texto corrido): confira à mão
-na página da marca antes de aprovar, ou rejeite.
+Para cada arquivo: no GitHub, **Copy raw file** → Supabase **SQL Editor → New query** → colar → **Run**.
+Deve aparecer "Success. No rows returned". Se aparecer erro, nada daquele arquivo é gravado.
 
-## Perfumes do Wikidata (várias marcas)
-
-1. **SQL Editor:** rode antes `supabase/migrations/0006_draft_sources.sql` (a aprovação passa a registrar
-   a fonte certa, o ano e o perfumista, e nunca altera um perfume que já existe).
-2. Rode `supabase/imports/wikidata.sql` (103 perfumes de Mugler, Calvin Klein, Vivienne Westwood, Creed,
-   Dior, Tom Ford, Guerlain, Givenchy, Byredo e outras).
-3. Aprove em **Importados** como as outras marcas. Estes entram com a pirâmide **a confirmar** e a fonte
-   "Wikidata (CC0)": confira com a marca antes de publicar.
+Depois, no painel: **Importados** → filtro da marca → **Selecionar completos** → conferir com a página
+de origem → **Aprovar selecionados** → publicar em **Perfumes**. Rascunhos "sem pirâmide" vieram de
+páginas sem a lista de notas: confira à mão ou rejeite. Os do Wikidata entram com a pirâmide
+"a confirmar" e a fonte "Wikidata (CC0)".
