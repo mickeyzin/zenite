@@ -1,4 +1,4 @@
-import { autoAffiliate } from "@/lib/affiliate";
+import { autoAffiliate, isAmazonStore } from "@/lib/affiliate";
 import { cacheLife, cacheTag } from "next/cache";
 import { supabaseEnabled } from "@/lib/supabase/config";
 import { normalize } from "@/lib/olfactory";
@@ -154,7 +154,8 @@ export function rowToPerfume(r: Row, now = Date.now()): Perfume {
       seller: o.seller_reputation ?? null,
       title: o.title,
       volumeMl: o.volume_ml == null ? null : Number(o.volume_ml),
-      price: o.price != null && fresh(o.checked_at) ? Number(o.price) : null,
+      // Amazon: preço só pela API oficial (regra dos Associados); preço digitado não aparece.
+      price: o.price != null && fresh(o.checked_at) && !isAmazonStore(one(o.store)?.slug) ? Number(o.price) : null,
       currency: o.currency,
       // Também é de afiliado quando o link é gerado pelo programa da loja (Amazon/Awin).
       isAffiliate: o.is_affiliate || Boolean(autoAffiliate(o.url)),

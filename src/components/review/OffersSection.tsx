@@ -93,7 +93,7 @@ function OfferRow({ offer: o, isBest, perfume: p }: { offer: Offer; isBest: bool
               {o.checkedAt && <span>conferido em {when(o.checkedAt)}</span>}
             </>
           ) : (
-            <span className="text-[var(--z-muted)]">Preço na loja</span>
+            <span className="text-[var(--z-muted)]">{/amazon/i.test(o.storeSlug || o.store) ? "Ver preço na Amazon" : "Preço na loja"}</span>
           )}
         </div>
         {o.available && (

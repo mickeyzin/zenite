@@ -60,6 +60,12 @@ export function autoAffiliate(url: string | null | undefined, cfg: AffiliateConf
   return null;
 }
 
+/**
+ * Amazon: as políticas do Programa de Associados só permitem mostrar preço obtido pela API
+ * oficial (PA-API/Creators API). Preço digitado à mão não aparece no site.
+ */
+export const isAmazonStore = (slugOrName: string | null | undefined) => /^amazon\b/i.test((slugOrName ?? "").trim());
+
 /** Loja a partir do link (para cadastrar ofertas coladas em lote). */
 export function storeFromUrl(url: string): { slug: string; name: string } | null {
   let host: string;

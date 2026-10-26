@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { isAffiliateLink, storeFromUrl } from "@/lib/affiliate";
+import { isAffiliateLink, isAmazonStore, storeFromUrl } from "@/lib/affiliate";
 import { cropToWebp } from "@/lib/image-resize";
 import type { TabProps } from "./AdminApp";
 import { useLoad } from "./useLoad";
@@ -64,11 +64,18 @@ export function OffersTab({ sb, refreshSite }: TabProps) {
   const stale = useLoad<StaleOffer[]>(async () => {
     const r = await sb
       .from("offers")
-      .select("id, title, checked_at, perfume_id, perfume:perfumes(full_name), store:stores(name)")
+      .select("id, title, checked_at, perfume_id, perfume:perfumes(full_name), store:stores(name, slug)")
       .eq("active", true)
       .order("checked_at", { ascending: true, nullsFirst: true });
     const limit = Date.now() - STALE_HOURS * 3600_000;
-    return { data: (r.data as StaleOffer[] | null)?.filter((o) => !o.checked_at || Date.parse(o.checked_at) < limit) ?? null, error: r.error };
+    // Amazon fica de fora: o site não mostra preço digitado dela.
+    return {
+      data:
+        (r.data as StaleOffer[] | null)?.filter(
+          (o) => !isAmazonStore(o.store?.slug) && (!o.checked_at || Date.parse(o.checked_at) < limit),
+        ) ?? null,
+      error: r.error,
+    };
   }, String(perfumeId));
 
   const update = async (id: string, patch: Partial<Offer>) => {
@@ -165,7 +172,15 @@ export function OffersTab({ sb, refreshSite }: TabProps) {
                       link ↗
                     </a>
                   </p>
-                  {o.active && <PriceCheck offer={o} onSave={(patch) => update(o.id, patch)} />}
+                  {o.active &&
+                    (isAmazonStore(o.store?.name) ? (
+                      <p className="admin-muted">
+                        Amazon: o site não mostra preço digitado (regra do Programa de Associados — só preço da API oficial).
+                        Aparece “Ver preço na Amazon”.
+                      </p>
+                    ) : (
+                      <PriceCheck offer={o} onSave={(patch) => update(o.id, patch)} />
+                    ))}
                 </div>
                 <div className="admin-item-actions">
                   <button className="admin-link" onClick={() => update(o.id, { active: !o.active })}>
@@ -210,7 +225,7 @@ interface StaleOffer {
   checked_at: string | null;
   perfume_id: string;
   perfume: { full_name: string } | null;
-  store: { name: string } | null;
+  store: { name: string; slug?: string } | null;
 }
 
 /** Confirma o preço visto agora na loja (ou que está esgotado). */
@@ -539,6 +554,8 @@ export function BulkOffers({
         if (v >= 0) r.price = v;
         else r.error ??= "preço inválido";
       }
+      // Amazon: preço digitado não é exibido (regra dos Associados), então nem é gravado.
+      if (r.url && storeFromUrl(r.url)?.slug === "amazon") r.price = null;
       if (volume.trim()) r.volume = Number(volume.replace(/[^\d.,]/g, "").replace(",", ".")) || null;
       out.push(r);
     });
@@ -622,6 +639,7 @@ export function BulkOffers({
               <span>{r.error ? "✘" : "✔"}</span> linha {r.line}: {r.perfume?.full_name ?? r.raw.split(/[;|\t]/)[0]}
               {r.url && ` · ${storeFromUrl(r.url)?.name ?? ""}${isAffiliateLink(r.url) ? " (afiliado)" : ""}`}
               {r.price !== null && ` · ${brl(r.price)}`}
+              {r.url && storeFromUrl(r.url)?.slug === "amazon" && " · preço não exibido (regra da Amazon)"}
               {r.error && <em> — {r.error}</em>}
             </li>
           ))}
