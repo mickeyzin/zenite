@@ -69,11 +69,12 @@ export function storeFromUrl(url: string): { slug: string; name: string } | null
     return null;
   }
   if (/(^|\.)mercadoli[vb]re\.com(\.br)?$|(^|\.)meli\.la$/.test(host)) return { slug: "mercado-livre", name: "Mercado Livre" };
-  if (/^amazon\.com(\.br)?$|^amzn\.to$/.test(host)) return { slug: "amazon", name: "Amazon" };
+  // Links curtos da barra de associados (link.amazon, amzn.to) também são da Amazon.
+  if (/^amazon\.com(\.br)?$|^amzn\.to$|^link\.amazon$/.test(host)) return { slug: "amazon", name: "Amazon" };
   const base = host.replace(/\.(com|net|org)(\.br)?$|\.br$/, "");
   return { slug: base.replace(/[^a-z0-9]+/g, "-"), name: base.charAt(0).toUpperCase() + base.slice(1) };
 }
 
 /** Link já é de afiliado (gerado no painel do programa)? */
 export const isAffiliateLink = (url: string) =>
-  /^https:\/\/(?:www\.)?(?:mercadolivre\.com(?:\.br)?\/sec\/|meli\.la\/|amzn\.to\/|www\.awin1\.com\/)/i.test(url) || /[?&]tag=[\w-]+/.test(url);
+  /^https:\/\/(?:www\.)?(?:mercadolivre\.com(?:\.br)?\/sec\/|meli\.la\/|amzn\.to\/|link\.amazon\/|www\.awin1\.com\/)/i.test(url) || /[?&]tag=[\w-]+/.test(url);
