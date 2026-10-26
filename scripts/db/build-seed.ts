@@ -167,6 +167,16 @@ for (const [slug, rows] of perBrand) {
     "begin;",
     ...(b ? [`insert into public.brands (slug, name, website) values (${q(b.slug)}, ${q(b.name)}, ${q(b.website)}) on conflict (slug) do nothing;`] : []),
     draftsSql(rows),
+    // Rascunhos já aprovados também recebem a foto (só os campos da foto; precisa da migração 0007).
+    ...(rows.some((r) => r.payload.imageUrl)
+      ? [
+          `update public.import_drafts d set payload = d.payload || x.img
+from (select r->>'url' as url, jsonb_strip_nulls(jsonb_build_object('imageUrl', r->'payload'->'imageUrl', 'imageCredit', r->'payload'->'imageCredit', 'imageLicense', r->'payload'->'imageLicense', 'imagePage', r->'payload'->'imagePage')) as img
+      from jsonb_array_elements(${dollar(rows.filter((r) => r.payload.imageUrl).map((r) => ({ url: r.url, payload: r.payload })))}) r) x
+where d.url = x.url and d.status = 'aprovado';`,
+          `select public.draft_poster(d.perfume_id, d.payload) from public.import_drafts d where d.status = 'aprovado' and d.perfume_id is not null and d.payload ? 'imageUrl';`,
+        ]
+      : []),
     "commit;",
   ];
   fs.writeFileSync(`supabase/imports/${slug}.sql`, body.join("\n") + "\n");
