@@ -126,3 +126,13 @@ Depois, no painel: **Importados** → filtro da marca → **Selecionar completos
 de origem → **Aprovar selecionados** → publicar em **Perfumes**. Rascunhos "sem pirâmide" vieram de
 páginas sem a lista de notas: confira à mão ou rejeite. Os do Wikidata entram com a pirâmide
 "a confirmar" e a fonte "Wikidata (CC0)".
+
+## Fotos livres (Wikimedia Commons)
+
+1. Rode `supabase/migrations/0007_draft_images.sql` (a aprovação passa a gravar a foto com crédito e licença;
+   perfumes já aprovados ganham a foto se ainda não tiverem pôster).
+2. Rode de novo `supabase/imports/wikidata.sql` (os pendentes recebem a foto).
+3. A resenha mostra "Foto: autor · licença" com link para a página da foto — obrigatório nas licenças
+   CC BY e CC BY-SA. Não remova o crédito.
+
+Fotos de marcas: veja `docs/pedido-imagens-marcas.md` (modelo de e-mail para pedir autorização).
