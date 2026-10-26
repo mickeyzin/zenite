@@ -1,3 +1,4 @@
+import { autoAffiliate } from "@/lib/affiliate";
 import { supabaseEnabled } from "@/lib/supabase/config";
 import { anonClient } from "@/lib/supabase/server";
 
@@ -13,7 +14,8 @@ export async function GET(request: Request, { params }: RouteContext<"/oferta/[i
 
   const sb = anonClient();
   const { data } = await sb.from("offers").select("url, affiliate_url").eq("id", id).maybeSingle();
-  const target = data?.affiliate_url ?? data?.url;
+  // Link de afiliado cadastrado; senão, o gerado pelo programa da loja (Amazon/Awin); senão, o link comum.
+  const target = data?.affiliate_url ?? autoAffiliate(data?.url)?.url ?? data?.url;
   if (!target || !/^https:\/\//.test(target)) return Response.redirect(back, 302);
 
   const ref = request.headers.get("referer");

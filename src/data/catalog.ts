@@ -1,3 +1,4 @@
+import { autoAffiliate } from "@/lib/affiliate";
 import { cacheLife, cacheTag } from "next/cache";
 import { supabaseEnabled } from "@/lib/supabase/config";
 import { normalize } from "@/lib/olfactory";
@@ -29,7 +30,7 @@ const SELECT = `
   perfume_images(url, kind, position, credit, license),
   models_3d(desktop_url, mobile_url, liquid_points_url),
   similar_overrides!perfume_id(reason, similar:similar_id(full_name)),
-  offers(id, title, volume_ml, price, currency, is_affiliate, available, active, checked_at, shipping, seller_reputation, image_url, store:stores(name, slug))
+  offers(id, title, volume_ml, price, currency, url, is_affiliate, available, active, checked_at, shipping, seller_reputation, image_url, store:stores(name, slug))
 `;
 
 /** Preço conferido há mais que isso não é exibido (pode ter mudado). */
@@ -96,6 +97,7 @@ interface Row {
     volume_ml: number | string | null;
     price: number | string | null;
     currency: string;
+    url?: string | null;
     is_affiliate: boolean;
     available: boolean;
     active: boolean;
@@ -154,7 +156,8 @@ export function rowToPerfume(r: Row, now = Date.now()): Perfume {
       volumeMl: o.volume_ml == null ? null : Number(o.volume_ml),
       price: o.price != null && fresh(o.checked_at) ? Number(o.price) : null,
       currency: o.currency,
-      isAffiliate: o.is_affiliate,
+      // Também é de afiliado quando o link é gerado pelo programa da loja (Amazon/Awin).
+      isAffiliate: o.is_affiliate || Boolean(autoAffiliate(o.url)),
       available: o.available,
       checkedAt: o.checked_at,
     }))

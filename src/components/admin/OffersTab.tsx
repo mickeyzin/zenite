@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { isAffiliateLink, storeFromUrl } from "@/lib/affiliate";
 import { cropToWebp } from "@/lib/image-resize";
 import type { TabProps } from "./AdminApp";
 import { useLoad } from "./useLoad";
@@ -93,7 +94,8 @@ export function OffersTab({ sb, refreshSite }: TabProps) {
           <p className="admin-muted">
             Preços conferidos à mão: o Mercado Livre bloqueia a leitura de anúncios pela API oficial (testado em out/2026). Confira
             o preço na loja e confirme aqui — no site, preço com mais de 3 dias deixa de aparecer. Link de afiliado: gere no painel
-            de afiliados do Mercado Livre e cole no cadastro.
+            de afiliados do Mercado Livre e cole no cadastro (ou cole vários de uma vez logo abaixo). Links da Amazon e de lojas
+            da Awin viram link de afiliado sozinhos quando os códigos estão configurados na Vercel.
           </p>
         </div>
         <label className="admin-field admin-select-wide">
@@ -108,6 +110,17 @@ export function OffersTab({ sb, refreshSite }: TabProps) {
           </select>
         </label>
       </header>
+
+      <BulkOffers
+        sb={sb}
+        perfumes={perfumes.data ?? []}
+        onSaved={async () => {
+          stores.reload();
+          offers.reload();
+          stale.reload();
+          await refreshSite();
+        }}
+      />
 
       {!!stale.data?.length && (
         <details className="admin-log" open={!perfumeId}>
@@ -468,5 +481,157 @@ function OfferPhoto({ sb, offer, onSaved }: Pick<TabProps, "sb"> & { offer: Offe
         </button>
       )}
     </div>
+  );
+}
+
+interface BulkRow {
+  line: number;
+  raw: string;
+  perfume?: { id: string; full_name: string };
+  url?: string;
+  price: number | null;
+  volume: number | null;
+  error?: string;
+}
+
+const normName = (s: string) =>
+  s
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[̀-ͯ]/g, "")
+    .replace(/[^a-z0-9]+/g, " ")
+    .trim();
+
+/**
+ * Várias ofertas de uma vez: uma por linha, "perfume ; link ; preço ; volume" (preço e volume opcionais;
+ * aceita ";", "|" ou tabulação, então dá para colar de uma planilha). A loja sai do link.
+ */
+export function BulkOffers({
+  sb,
+  perfumes,
+  onSaved,
+}: Pick<TabProps, "sb"> & { perfumes: { id: string; full_name: string }[]; onSaved: () => Promise<void> }) {
+  const [text, setText] = useState("");
+  const [rows, setRows] = useState<BulkRow[] | null>(null);
+  const [busy, setBusy] = useState(false);
+  const [msg, setMsg] = useState<string | null>(null);
+
+  const check = () => {
+    setMsg(null);
+    const byName = new Map(perfumes.map((p) => [normName(p.full_name), p]));
+    const out: BulkRow[] = [];
+    text.split(/\r?\n/).forEach((raw, i) => {
+      if (!raw.trim()) return;
+      const [name = "", link = "", price = "", volume = ""] = raw.split(/\s*[;|\t]\s*/);
+      const r: BulkRow = { line: i + 1, raw, price: null, volume: null };
+      const n = normName(name);
+      r.perfume = byName.get(n);
+      if (!r.perfume && n) {
+        const hits = perfumes.filter((p) => normName(p.full_name).includes(n));
+        if (hits.length === 1) r.perfume = hits[0];
+        else if (hits.length > 1) r.error = `nome ambíguo (${hits.length} perfumes): escreva o nome completo`;
+      }
+      if (!r.perfume && !r.error) r.error = "perfume não encontrado";
+      if (/^https:\/\/\S+$/.test(link.trim())) r.url = link.trim();
+      else r.error ??= "link precisa começar com https://";
+      if (price.trim()) {
+        const v = parsePrice(price);
+        if (v >= 0) r.price = v;
+        else r.error ??= "preço inválido";
+      }
+      if (volume.trim()) r.volume = Number(volume.replace(/[^\d.,]/g, "").replace(",", ".")) || null;
+      out.push(r);
+    });
+    setRows(out);
+  };
+
+  const save = async () => {
+    const ok = (rows ?? []).filter((r) => !r.error);
+    if (!ok.length) return;
+    setBusy(true);
+    const stores = new Map<string, string>();
+    let saved = 0;
+    const errors: string[] = [];
+    for (const r of ok) {
+      const st = storeFromUrl(r.url!);
+      if (!st) continue;
+      if (!stores.has(st.slug)) {
+        const s = await sb.from("stores").upsert({ slug: st.slug, name: st.name }, { onConflict: "slug" }).select("id").single();
+        if (s.error) {
+          errors.push(`linha ${r.line}: loja — ${s.error.message}`);
+          continue;
+        }
+        stores.set(st.slug, s.data.id);
+      }
+      const aff = isAffiliateLink(r.url!);
+      const { error } = await sb.from("offers").insert({
+        perfume_id: r.perfume!.id,
+        store_id: stores.get(st.slug),
+        title: `${r.perfume!.full_name}${r.volume ? ` ${r.volume} ml` : ""}`,
+        volume_ml: r.volume,
+        price: r.price,
+        url: r.url,
+        affiliate_url: aff ? r.url : null,
+        is_affiliate: aff,
+        checked_at: r.price !== null ? new Date().toISOString() : null,
+      });
+      if (error) errors.push(`linha ${r.line}: ${error.message}`);
+      else saved++;
+    }
+    setBusy(false);
+    setMsg(`${saved} oferta(s) cadastrada(s).${errors.length ? ` Erros: ${errors.join("; ")}` : ""}`);
+    if (saved) {
+      setText("");
+      setRows(null);
+      await onSaved();
+    }
+  };
+
+  const good = rows?.filter((r) => !r.error).length ?? 0;
+  return (
+    <details className="admin-fieldset admin-bulk">
+      <summary>Colar vários links de uma vez</summary>
+      <p className="admin-muted">
+        Uma oferta por linha: <code>perfume ; link ; preço ; volume</code>. Preço e volume são opcionais. Funciona com links de
+        afiliado do Mercado Livre (copiados do painel de afiliados), da Amazon e de outras lojas — a loja é reconhecida pelo
+        link. Dá para colar direto de uma planilha.
+      </p>
+      <textarea
+        className="admin-textarea"
+        rows={6}
+        aria-label="Ofertas, uma por linha"
+        placeholder={"Lattafa Khamrah ; https://mercadolivre.com/sec/abc123 ; 249,90 ; 100\nAfnan 9 PM ; https://www.amazon.com.br/dp/B0XXXX ; 199,00"}
+        value={text}
+        onChange={(e) => {
+          setText(e.target.value);
+          setRows(null);
+        }}
+      />
+      <div className="admin-actions">
+        <button className="btn-ghost" disabled={!text.trim()} onClick={check}>
+          Conferir
+        </button>
+        <button className="btn-primary" disabled={busy || !good} onClick={save}>
+          {busy ? "Salvando…" : `Cadastrar ${good} oferta(s)`}
+        </button>
+      </div>
+      {rows && (
+        <ul className="admin-bulk-list">
+          {rows.map((r) => (
+            <li key={r.line} className={r.error ? "is-error" : "is-ok"}>
+              <span>{r.error ? "✘" : "✔"}</span> linha {r.line}: {r.perfume?.full_name ?? r.raw.split(/[;|\t]/)[0]}
+              {r.url && ` · ${storeFromUrl(r.url)?.name ?? ""}${isAffiliateLink(r.url) ? " (afiliado)" : ""}`}
+              {r.price !== null && ` · ${brl(r.price)}`}
+              {r.error && <em> — {r.error}</em>}
+            </li>
+          ))}
+        </ul>
+      )}
+      {msg && (
+        <p className="admin-notice" role="status">
+          {msg}
+        </p>
+      )}
+    </details>
   );
 }
