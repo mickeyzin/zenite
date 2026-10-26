@@ -90,7 +90,8 @@ async function commonsInfo(files) {
       if (!ii) continue;
       const m = ii.extmetadata ?? {};
       out.set(p.title.slice(5), {
-        url: String(ii.thumburl ?? ii.url).split("?")[0], // sem parâmetros de rastreamento
+        // Sem parâmetros de rastreamento, e sempre pelo upload.wikimedia.org (o mesmo arquivo).
+        url: String(ii.thumburl ?? ii.url).split("?")[0].replace("//thumb.wikimedia.org/", "//upload.wikimedia.org/"),
         page: ii.descriptionurl,
         license: strip(m.LicenseShortName?.value),
         // Alguns autores vêm com o nome do arquivo antes ("Guerlain_bottles.jpg_: Fulano").
