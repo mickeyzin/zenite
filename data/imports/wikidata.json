@@ -18,7 +18,7 @@
       "sourceLabel": "Wikidata (CC0)",
       "notesStatus": "a-confirmar",
       "notesNote": "Pirâmide do Wikidata (base colaborativa, licença CC0). Conferir com a marca antes de publicar.",
-      "fetchedAt": "2026-10-25T22:35:10.709Z",
+      "fetchedAt": "2026-10-26T00:52:30.967Z",
       "notesEn": {
         "top": [
           "rum",
@@ -71,7 +71,7 @@
       "sourceLabel": "Wikidata (CC0)",
       "notesStatus": "a-confirmar",
       "notesNote": "Pirâmide do Wikidata (base colaborativa, licença CC0). Conferir com a marca antes de publicar.",
-      "fetchedAt": "2026-10-25T22:35:10.709Z",
+      "fetchedAt": "2026-10-26T00:52:30.965Z",
       "notesEn": {
         "top": [
           "lime",
@@ -79,9 +79,9 @@
           "bergamot"
         ],
         "heart": [
-          "pink pepper",
           "beeswax",
-          "cardamom"
+          "cardamom",
+          "pink pepper"
         ],
         "base": [
           "Haitian vetiver",
@@ -96,9 +96,9 @@
           "Bergamota"
         ],
         "heart": [
-          "Pimenta-rosa",
           "Cera de abelha",
-          "Cardamomo"
+          "Cardamomo",
+          "Pimenta-rosa"
         ],
         "base": [
           "Vetiver",
@@ -124,7 +124,7 @@
       "sourceLabel": "Wikidata (CC0)",
       "notesStatus": "a-confirmar",
       "notesNote": "Pirâmide do Wikidata (base colaborativa, licença CC0). Conferir com a marca antes de publicar.",
-      "fetchedAt": "2026-10-25T22:35:10.710Z",
+      "fetchedAt": "2026-10-26T00:52:30.969Z",
       "notesEn": {
         "top": [
           "rhubarb",
@@ -177,7 +177,7 @@
       "sourceLabel": "Wikidata (CC0)",
       "notesStatus": "a-confirmar",
       "notesNote": "Pirâmide do Wikidata (base colaborativa, licença CC0). Conferir com a marca antes de publicar.",
-      "fetchedAt": "2026-10-25T22:35:10.710Z",
+      "fetchedAt": "2026-10-26T00:52:30.968Z",
       "notesEn": {
         "top": [
           "melon",
@@ -212,7 +212,7 @@
       "sourceLabel": "Wikidata (CC0)",
       "notesStatus": "a-confirmar",
       "notesNote": "Pirâmide do Wikidata (base colaborativa, licença CC0). Conferir com a marca antes de publicar.",
-      "fetchedAt": "2026-10-25T22:35:10.710Z",
+      "fetchedAt": "2026-10-26T00:52:30.969Z",
       "notesEn": {
         "top": [
           "orange blossom",
@@ -273,7 +273,7 @@
       "sourceLabel": "Wikidata (CC0)",
       "notesStatus": "a-confirmar",
       "notesNote": "Pirâmide do Wikidata (base colaborativa, licença CC0). Conferir com a marca antes de publicar.",
-      "fetchedAt": "2026-10-25T22:35:10.710Z",
+      "fetchedAt": "2026-10-26T00:52:30.969Z",
       "notesEn": {
         "top": [
           "sandalwood",
@@ -318,6 +318,29 @@
       "review": "ok"
     },
     {
+      "url": "https://www.wikidata.org/wiki/Q1814362",
+      "name": "Curious",
+      "brand": "Britney Spears",
+      "brandName": "Britney Spears",
+      "brandSlug": "britney-spears",
+      "size": null,
+      "gender": null,
+      "year": null,
+      "perfumers": null,
+      "sourceLabel": "Wikidata (CC0)",
+      "notesStatus": "a-confirmar",
+      "notesNote": "Pirâmide do Wikidata (base colaborativa, licença CC0). Conferir com a marca antes de publicar.",
+      "fetchedAt": "2026-10-26T00:52:30.969Z",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f2/Curious.jpg",
+      "imageCredit": "Foto: Svetlana (Wikimedia Commons)",
+      "imageLicense": "Public domain",
+      "imagePage": "https://commons.wikimedia.org/wiki/File:Curious.jpg",
+      "notesEn": null,
+      "notes": null,
+      "unknownNotes": [],
+      "review": "sem pirâmide"
+    },
+    {
       "url": "https://www.wikidata.org/wiki/Q138795798",
       "name": "Deep Viola",
       "brand": "Byredo",
@@ -330,7 +353,7 @@
       "sourceLabel": "Wikidata (CC0)",
       "notesStatus": "a-confirmar",
       "notesNote": "Pirâmide do Wikidata (base colaborativa, licença CC0). Conferir com a marca antes de publicar.",
-      "fetchedAt": "2026-10-25T22:35:10.709Z",
+      "fetchedAt": "2026-10-26T00:52:30.967Z",
       "notesEn": {
         "top": [
           "angelica",
@@ -384,7 +407,7 @@
       "sourceLabel": "Wikidata (CC0)",
       "notesStatus": "a-confirmar",
       "notesNote": "Pirâmide do Wikidata (base colaborativa, licença CC0). Conferir com a marca antes de publicar.",
-      "fetchedAt": "2026-10-25T22:35:10.710Z",
+      "fetchedAt": "2026-10-26T00:52:30.968Z",
       "notesEn": {
         "top": [
           "blackcurrant",
@@ -441,7 +464,7 @@
       "sourceLabel": "Wikidata (CC0)",
       "notesStatus": "a-confirmar",
       "notesNote": "Pirâmide do Wikidata (base colaborativa, licença CC0). Conferir com a marca antes de publicar.",
-      "fetchedAt": "2026-10-25T22:35:10.708Z",
+      "fetchedAt": "2026-10-26T00:52:30.964Z",
       "notesEn": {
         "top": [
           "freesia",
@@ -506,7 +529,7 @@
       "sourceLabel": "Wikidata (CC0)",
       "notesStatus": "a-confirmar",
       "notesNote": "Pirâmide do Wikidata (base colaborativa, licença CC0). Conferir com a marca antes de publicar.",
-      "fetchedAt": "2026-10-25T22:35:10.709Z",
+      "fetchedAt": "2026-10-26T00:52:30.968Z",
       "notesEn": {
         "top": [
           "peony",
@@ -557,7 +580,7 @@
       "sourceLabel": "Wikidata (CC0)",
       "notesStatus": "a-confirmar",
       "notesNote": "Pirâmide do Wikidata (base colaborativa, licença CC0). Conferir com a marca antes de publicar.",
-      "fetchedAt": "2026-10-25T22:35:10.710Z",
+      "fetchedAt": "2026-10-26T00:52:30.968Z",
       "notesEn": {
         "top": [
           "citrus"
@@ -600,7 +623,7 @@
       "sourceLabel": "Wikidata (CC0)",
       "notesStatus": "a-confirmar",
       "notesNote": "Pirâmide do Wikidata (base colaborativa, licença CC0). Conferir com a marca antes de publicar.",
-      "fetchedAt": "2026-10-25T22:35:10.709Z",
+      "fetchedAt": "2026-10-26T00:52:30.968Z",
       "notesEn": {
         "top": [
           "mandarin orange"
@@ -635,7 +658,7 @@
       "sourceLabel": "Wikidata (CC0)",
       "notesStatus": "a-confirmar",
       "notesNote": "Pirâmide do Wikidata (base colaborativa, licença CC0). Conferir com a marca antes de publicar.",
-      "fetchedAt": "2026-10-25T22:35:10.709Z",
+      "fetchedAt": "2026-10-26T00:52:30.968Z",
       "notesEn": {
         "top": [
           "pineapple"
@@ -676,7 +699,7 @@
       "sourceLabel": "Wikidata (CC0)",
       "notesStatus": "a-confirmar",
       "notesNote": "Pirâmide do Wikidata (base colaborativa, licença CC0). Conferir com a marca antes de publicar.",
-      "fetchedAt": "2026-10-25T22:35:10.709Z",
+      "fetchedAt": "2026-10-26T00:52:30.968Z",
       "notesEn": {
         "top": [
           "lavender",
@@ -743,7 +766,7 @@
       "sourceLabel": "Wikidata (CC0)",
       "notesStatus": "a-confirmar",
       "notesNote": "Pirâmide do Wikidata (base colaborativa, licença CC0). Conferir com a marca antes de publicar.",
-      "fetchedAt": "2026-10-25T22:35:10.709Z",
+      "fetchedAt": "2026-10-26T00:52:30.968Z",
       "notesEn": {
         "top": [
           "apples",
@@ -796,7 +819,7 @@
       "sourceLabel": "Wikidata (CC0)",
       "notesStatus": "a-confirmar",
       "notesNote": "Pirâmide do Wikidata (base colaborativa, licença CC0). Conferir com a marca antes de publicar.",
-      "fetchedAt": "2026-10-25T22:35:10.709Z",
+      "fetchedAt": "2026-10-26T00:52:30.968Z",
       "notesEn": {
         "top": [
           "lychee",
@@ -849,7 +872,7 @@
       "sourceLabel": "Wikidata (CC0)",
       "notesStatus": "a-confirmar",
       "notesNote": "Pirâmide do Wikidata (base colaborativa, licença CC0). Conferir com a marca antes de publicar.",
-      "fetchedAt": "2026-10-25T22:35:10.709Z",
+      "fetchedAt": "2026-10-26T00:52:30.965Z",
       "notesEn": {
         "top": [
           "vanilla",
@@ -922,7 +945,7 @@
       "sourceLabel": "Wikidata (CC0)",
       "notesStatus": "a-confirmar",
       "notesNote": "Pirâmide do Wikidata (base colaborativa, licença CC0). Conferir com a marca antes de publicar.",
-      "fetchedAt": "2026-10-25T22:35:10.710Z",
+      "fetchedAt": "2026-10-26T00:52:30.968Z",
       "notesEn": {
         "top": [
           "cinnamon",
@@ -983,6 +1006,31 @@
       "review": "ok"
     },
     {
+      "url": "https://www.wikidata.org/wiki/Q820507",
+      "name": "No. 5",
+      "brand": "Chanel",
+      "brandName": "Chanel",
+      "brandSlug": "chanel",
+      "size": null,
+      "gender": "Feminino",
+      "year": 1921,
+      "perfumers": [
+        "Ernest Beaux"
+      ],
+      "sourceLabel": "Wikidata (CC0)",
+      "notesStatus": "a-confirmar",
+      "notesNote": "Pirâmide do Wikidata (base colaborativa, licença CC0). Conferir com a marca antes de publicar.",
+      "fetchedAt": "2026-10-26T00:52:30.969Z",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c0/CHANEL_No5_parfum_%28cropped%29.jpg",
+      "imageCredit": "Foto: arz (Wikimedia Commons)",
+      "imageLicense": "Public domain",
+      "imagePage": "https://commons.wikimedia.org/wiki/File:CHANEL_No5_parfum_(cropped).jpg",
+      "notesEn": null,
+      "notes": null,
+      "unknownNotes": [],
+      "review": "sem pirâmide"
+    },
+    {
       "url": "https://www.wikidata.org/wiki/Q3393810",
       "name": "Poison",
       "brand": "Christian Dior",
@@ -995,7 +1043,7 @@
       "sourceLabel": "Wikidata (CC0)",
       "notesStatus": "a-confirmar",
       "notesNote": "Pirâmide do Wikidata (base colaborativa, licença CC0). Conferir com a marca antes de publicar.",
-      "fetchedAt": "2026-10-25T22:35:10.708Z",
+      "fetchedAt": "2026-10-26T00:52:30.965Z",
       "notesEn": {
         "top": [
           "plum",
@@ -1013,13 +1061,13 @@
           "rose"
         ],
         "base": [
-          "cedarwood",
           "vanilla",
           "amber",
           "sandalwood",
           "heliotrope",
           "musk",
-          "vetiver"
+          "vetiver",
+          "cedarwood"
         ]
       },
       "notes": {
@@ -1039,13 +1087,13 @@
           "Rosa"
         ],
         "base": [
-          "Cedro",
           "Baunilha",
           "Âmbar",
           "Sândalo",
           "Heliotrópio",
           "Almíscar",
-          "Vetiver"
+          "Vetiver",
+          "Cedro"
         ]
       },
       "unknownNotes": [],
@@ -1066,7 +1114,7 @@
       "sourceLabel": "Wikidata (CC0)",
       "notesStatus": "a-confirmar",
       "notesNote": "Pirâmide do Wikidata (base colaborativa, licença CC0). Conferir com a marca antes de publicar.",
-      "fetchedAt": "2026-10-25T22:35:10.709Z",
+      "fetchedAt": "2026-10-26T00:52:30.967Z",
       "notesEn": {
         "top": [
           "bigarade",
@@ -1109,6 +1157,31 @@
       "review": "ok"
     },
     {
+      "url": "https://www.wikidata.org/wiki/Q104777364",
+      "name": "Ambre Antique",
+      "brand": "Coty",
+      "brandName": "Coty",
+      "brandSlug": "coty",
+      "size": null,
+      "gender": null,
+      "year": 1905,
+      "perfumers": [
+        "François Coty"
+      ],
+      "sourceLabel": "Wikidata (CC0)",
+      "notesStatus": "a-confirmar",
+      "notesNote": "Pirâmide do Wikidata (base colaborativa, licença CC0). Conferir com a marca antes de publicar.",
+      "fetchedAt": "2026-10-26T00:52:30.969Z",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/5/5b/R_Lalique_glass_9.JPG",
+      "imageCredit": "Foto: Davidmadelena (Wikimedia Commons)",
+      "imageLicense": "CC BY-SA 3.0",
+      "imagePage": "https://commons.wikimedia.org/wiki/File:R_Lalique_glass_9.JPG",
+      "notesEn": null,
+      "notes": null,
+      "unknownNotes": [],
+      "review": "sem pirâmide"
+    },
+    {
       "url": "https://www.wikidata.org/wiki/Q106626237",
       "name": "Cordon Vert",
       "brand": "Coty",
@@ -1123,7 +1196,11 @@
       "sourceLabel": "Wikidata (CC0)",
       "notesStatus": "a-confirmar",
       "notesNote": "Pirâmide do Wikidata (base colaborativa, licença CC0). Conferir com a marca antes de publicar.",
-      "fetchedAt": "2026-10-25T22:35:10.708Z",
+      "fetchedAt": "2026-10-26T00:52:30.965Z",
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/35/Cordon_Vert_by_Coty%2C_1905-I.jpg/960px-Cordon_Vert_by_Coty%2C_1905-I.jpg",
+      "imageCredit": "Foto: DDupard (Wikimedia Commons)",
+      "imageLicense": "CC BY-SA 4.0",
+      "imagePage": "https://commons.wikimedia.org/wiki/File:Cordon_Vert_by_Coty,_1905-I.jpg",
       "notesEn": {
         "top": [
           "lemon",
@@ -1166,6 +1243,27 @@
       "review": "ok"
     },
     {
+      "url": "https://www.wikidata.org/wiki/Q104777313",
+      "name": "L'Origan",
+      "brand": "Coty",
+      "brandName": "Coty",
+      "brandSlug": "coty",
+      "size": null,
+      "gender": null,
+      "year": 1905,
+      "perfumers": [
+        "François Coty"
+      ],
+      "sourceLabel": "Wikidata (CC0)",
+      "notesStatus": "a-confirmar",
+      "notesNote": "Pirâmide do Wikidata (base colaborativa, licença CC0). Conferir com a marca antes de publicar.",
+      "fetchedAt": "2026-10-26T00:52:30.969Z",
+      "notesEn": null,
+      "notes": null,
+      "unknownNotes": [],
+      "review": "sem pirâmide"
+    },
+    {
       "url": "https://www.wikidata.org/wiki/Q139992070",
       "name": "Acqua Fiorentina",
       "brand": "Creed",
@@ -1180,7 +1278,7 @@
       "sourceLabel": "Wikidata (CC0)",
       "notesStatus": "a-confirmar",
       "notesNote": "Pirâmide do Wikidata (base colaborativa, licença CC0). Conferir com a marca antes de publicar.",
-      "fetchedAt": "2026-10-25T22:35:10.709Z",
+      "fetchedAt": "2026-10-26T00:52:30.968Z",
       "notesEn": {
         "top": [
           "grapefruit",
@@ -1229,7 +1327,7 @@
       "sourceLabel": "Wikidata (CC0)",
       "notesStatus": "a-confirmar",
       "notesNote": "Pirâmide do Wikidata (base colaborativa, licença CC0). Conferir com a marca antes de publicar.",
-      "fetchedAt": "2026-10-25T22:35:10.708Z",
+      "fetchedAt": "2026-10-26T00:52:30.965Z",
       "notesEn": {
         "top": [
           "Calabrian bergamot",
@@ -1280,7 +1378,7 @@
       "sourceLabel": "Wikidata (CC0)",
       "notesStatus": "a-confirmar",
       "notesNote": "Pirâmide do Wikidata (base colaborativa, licença CC0). Conferir com a marca antes de publicar.",
-      "fetchedAt": "2026-10-25T22:35:10.709Z",
+      "fetchedAt": "2026-10-26T00:52:30.966Z",
       "notesEn": {
         "top": [
           "pink pepper",
@@ -1333,7 +1431,11 @@
       "sourceLabel": "Wikidata (CC0)",
       "notesStatus": "a-confirmar",
       "notesNote": "Pirâmide do Wikidata (base colaborativa, licença CC0). Conferir com a marca antes de publicar.",
-      "fetchedAt": "2026-10-25T22:35:10.707Z",
+      "fetchedAt": "2026-10-26T00:52:30.961Z",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/30/Davidoff_Cool_Water.jpg",
+      "imageCredit": "Foto: Bruce The Deus (Wikimedia Commons)",
+      "imageLicense": "CC BY-SA 3.0",
+      "imagePage": "https://commons.wikimedia.org/wiki/File:Davidoff_Cool_Water.jpg",
       "notesEn": {
         "top": [
           "sea",
@@ -1400,7 +1502,7 @@
       "sourceLabel": "Wikidata (CC0)",
       "notesStatus": "a-confirmar",
       "notesNote": "Pirâmide do Wikidata (base colaborativa, licença CC0). Conferir com a marca antes de publicar.",
-      "fetchedAt": "2026-10-25T22:35:10.710Z",
+      "fetchedAt": "2026-10-26T00:52:30.969Z",
       "notesEn": {
         "top": [
           "Calabrian bergamot",
@@ -1445,7 +1547,7 @@
       "sourceLabel": "Wikidata (CC0)",
       "notesStatus": "a-confirmar",
       "notesNote": "Pirâmide do Wikidata (base colaborativa, licença CC0). Conferir com a marca antes de publicar.",
-      "fetchedAt": "2026-10-25T22:35:10.710Z",
+      "fetchedAt": "2026-10-26T00:52:30.968Z",
       "notesEn": {
         "top": [
           "pineapple",
@@ -1494,7 +1596,7 @@
       "sourceLabel": "Wikidata (CC0)",
       "notesStatus": "a-confirmar",
       "notesNote": "Pirâmide do Wikidata (base colaborativa, licença CC0). Conferir com a marca antes de publicar.",
-      "fetchedAt": "2026-10-25T22:35:10.710Z",
+      "fetchedAt": "2026-10-26T00:52:30.967Z",
       "notesEn": {
         "top": [
           "cardamom",
@@ -1543,7 +1645,7 @@
       "sourceLabel": "Wikidata (CC0)",
       "notesStatus": "a-confirmar",
       "notesNote": "Pirâmide do Wikidata (base colaborativa, licença CC0). Conferir com a marca antes de publicar.",
-      "fetchedAt": "2026-10-25T22:35:10.710Z",
+      "fetchedAt": "2026-10-26T00:52:30.966Z",
       "notesEn": {
         "top": [
           "pink pepper",
@@ -1620,7 +1722,7 @@
       "sourceLabel": "Wikidata (CC0)",
       "notesStatus": "a-confirmar",
       "notesNote": "Pirâmide do Wikidata (base colaborativa, licença CC0). Conferir com a marca antes de publicar.",
-      "fetchedAt": "2026-10-25T22:35:10.709Z",
+      "fetchedAt": "2026-10-26T00:52:30.967Z",
       "notesEn": {
         "top": [
           "bigarade",
@@ -1691,7 +1793,7 @@
       "sourceLabel": "Wikidata (CC0)",
       "notesStatus": "a-confirmar",
       "notesNote": "Pirâmide do Wikidata (base colaborativa, licença CC0). Conferir com a marca antes de publicar.",
-      "fetchedAt": "2026-10-25T22:35:10.709Z",
+      "fetchedAt": "2026-10-26T00:52:30.966Z",
       "notesEn": {
         "top": [
           "lemon",
@@ -1766,7 +1868,7 @@
       "sourceLabel": "Wikidata (CC0)",
       "notesStatus": "a-confirmar",
       "notesNote": "Pirâmide do Wikidata (base colaborativa, licença CC0). Conferir com a marca antes de publicar.",
-      "fetchedAt": "2026-10-25T22:35:10.710Z",
+      "fetchedAt": "2026-10-26T00:52:30.966Z",
       "notesEn": {
         "top": [
           "bergamot",
@@ -1821,7 +1923,7 @@
       "sourceLabel": "Wikidata (CC0)",
       "notesStatus": "a-confirmar",
       "notesNote": "Pirâmide do Wikidata (base colaborativa, licença CC0). Conferir com a marca antes de publicar.",
-      "fetchedAt": "2026-10-25T22:35:10.708Z",
+      "fetchedAt": "2026-10-26T00:52:30.965Z",
       "notesEn": {
         "top": [
           "black pepper",
@@ -1868,7 +1970,7 @@
       "sourceLabel": "Wikidata (CC0)",
       "notesStatus": "a-confirmar",
       "notesNote": "Pirâmide do Wikidata (base colaborativa, licença CC0). Conferir com a marca antes de publicar.",
-      "fetchedAt": "2026-10-25T22:35:10.708Z",
+      "fetchedAt": "2026-10-26T00:52:30.965Z",
       "notesEn": {
         "top": [
           "caramel"
@@ -1911,7 +2013,7 @@
       "sourceLabel": "Wikidata (CC0)",
       "notesStatus": "a-confirmar",
       "notesNote": "Pirâmide do Wikidata (base colaborativa, licença CC0). Conferir com a marca antes de publicar.",
-      "fetchedAt": "2026-10-25T22:35:10.708Z",
+      "fetchedAt": "2026-10-26T00:52:30.965Z",
       "notesEn": {
         "top": [
           "orange blossom",
@@ -1946,7 +2048,7 @@
       "sourceLabel": "Wikidata (CC0)",
       "notesStatus": "a-confirmar",
       "notesNote": "Pirâmide do Wikidata (base colaborativa, licença CC0). Conferir com a marca antes de publicar.",
-      "fetchedAt": "2026-10-25T22:35:10.708Z",
+      "fetchedAt": "2026-10-26T00:52:30.965Z",
       "notesEn": {
         "top": [
           "ylang-ylang",
@@ -2029,7 +2131,7 @@
       "sourceLabel": "Wikidata (CC0)",
       "notesStatus": "a-confirmar",
       "notesNote": "Pirâmide do Wikidata (base colaborativa, licença CC0). Conferir com a marca antes de publicar.",
-      "fetchedAt": "2026-10-25T22:35:10.710Z",
+      "fetchedAt": "2026-10-26T00:52:30.966Z",
       "notesEn": {
         "top": [
           "candied fruit",
@@ -2068,6 +2170,56 @@
       "review": "ok"
     },
     {
+      "url": "https://www.wikidata.org/wiki/Q1616038",
+      "name": "Mitsouko",
+      "brand": "Guerlain",
+      "brandName": "Guerlain",
+      "brandSlug": "guerlain",
+      "size": null,
+      "gender": "Feminino",
+      "year": 1919,
+      "perfumers": [
+        "Jacques Guerlain"
+      ],
+      "sourceLabel": "Wikidata (CC0)",
+      "notesStatus": "a-confirmar",
+      "notesNote": "Pirâmide do Wikidata (base colaborativa, licença CC0). Conferir com a marca antes de publicar.",
+      "fetchedAt": "2026-10-26T00:52:30.969Z",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/f/ff/Mitsouko.jpg",
+      "imageCredit": "Foto: Arienne McCracken from Los Angeles, United States (Wikimedia Commons)",
+      "imageLicense": "CC BY-SA 2.0",
+      "imagePage": "https://commons.wikimedia.org/wiki/File:Mitsouko.jpg",
+      "notesEn": null,
+      "notes": null,
+      "unknownNotes": [],
+      "review": "sem pirâmide"
+    },
+    {
+      "url": "https://www.wikidata.org/wiki/Q1159330",
+      "name": "Shalimar",
+      "brand": "Guerlain",
+      "brandName": "Guerlain",
+      "brandSlug": "guerlain",
+      "size": null,
+      "gender": "Feminino",
+      "year": 1921,
+      "perfumers": [
+        "Jacques Guerlain"
+      ],
+      "sourceLabel": "Wikidata (CC0)",
+      "notesStatus": "a-confirmar",
+      "notesNote": "Pirâmide do Wikidata (base colaborativa, licença CC0). Conferir com a marca antes de publicar.",
+      "fetchedAt": "2026-10-26T00:52:30.969Z",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b0/Perfume_Shalimar.jpg",
+      "imageCredit": "Foto: Gonna Fly Now (Wikimedia Commons)",
+      "imageLicense": "CC BY-SA 2.0",
+      "imagePage": "https://commons.wikimedia.org/wiki/File:Perfume_Shalimar.jpg",
+      "notesEn": null,
+      "notes": null,
+      "unknownNotes": [],
+      "review": "sem pirâmide"
+    },
+    {
       "url": "https://www.wikidata.org/wiki/Q138605631",
       "name": "Tobacco Honey",
       "brand": "Guerlain",
@@ -2080,7 +2232,7 @@
       "sourceLabel": "Wikidata (CC0)",
       "notesStatus": "a-confirmar",
       "notesNote": "Pirâmide do Wikidata (base colaborativa, licença CC0). Conferir com a marca antes de publicar.",
-      "fetchedAt": "2026-10-25T22:35:10.708Z",
+      "fetchedAt": "2026-10-26T00:52:30.967Z",
       "notesEn": {
         "top": [
           "honey",
@@ -2131,7 +2283,7 @@
       "sourceLabel": "Wikidata (CC0)",
       "notesStatus": "a-confirmar",
       "notesNote": "Pirâmide do Wikidata (base colaborativa, licença CC0). Conferir com a marca antes de publicar.",
-      "fetchedAt": "2026-10-25T22:35:10.708Z",
+      "fetchedAt": "2026-10-26T00:52:30.965Z",
       "notesEn": {
         "top": [
           "orange",
@@ -2182,7 +2334,7 @@
       "sourceLabel": "Wikidata (CC0)",
       "notesStatus": "a-confirmar",
       "notesNote": "Pirâmide do Wikidata (base colaborativa, licença CC0). Conferir com a marca antes de publicar.",
-      "fetchedAt": "2026-10-25T22:35:10.709Z",
+      "fetchedAt": "2026-10-26T00:52:30.965Z",
       "notesEn": {
         "top": [
           "peach fruit"
@@ -2221,6 +2373,29 @@
       "review": "ok"
     },
     {
+      "url": "https://www.wikidata.org/wiki/Q137337051",
+      "name": "BOSS ALIVE",
+      "brand": "Hugo Boss",
+      "brandName": "Hugo Boss",
+      "brandSlug": "hugo-boss",
+      "size": null,
+      "gender": null,
+      "year": 2020,
+      "perfumers": null,
+      "sourceLabel": "Wikidata (CC0)",
+      "notesStatus": "a-confirmar",
+      "notesNote": "Pirâmide do Wikidata (base colaborativa, licença CC0). Conferir com a marca antes de publicar.",
+      "fetchedAt": "2026-10-26T00:52:30.969Z",
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4d/A_bottle_of_BOSS_ALIVE_Perfume_that_smells_sweet_and_of_jasmine_sambac.jpg/960px-A_bottle_of_BOSS_ALIVE_Perfume_that_smells_sweet_and_of_jasmine_sambac.jpg",
+      "imageCredit": "Foto: Sleepytimecat (Wikimedia Commons)",
+      "imageLicense": "CC BY 4.0",
+      "imagePage": "https://commons.wikimedia.org/wiki/File:A_bottle_of_BOSS_ALIVE_Perfume_that_smells_sweet_and_of_jasmine_sambac.jpg",
+      "notesEn": null,
+      "notes": null,
+      "unknownNotes": [],
+      "review": "sem pirâmide"
+    },
+    {
       "url": "https://www.wikidata.org/wiki/Q140237028",
       "name": "Ha Long Bay",
       "brand": "Jovoy",
@@ -2233,7 +2408,7 @@
       "sourceLabel": "Wikidata (CC0)",
       "notesStatus": "a-confirmar",
       "notesNote": "Pirâmide do Wikidata (base colaborativa, licença CC0). Conferir com a marca antes de publicar.",
-      "fetchedAt": "2026-10-25T22:35:10.710Z",
+      "fetchedAt": "2026-10-26T00:52:30.967Z",
       "notesEn": {
         "top": [
           "mango",
@@ -2284,7 +2459,7 @@
       "sourceLabel": "Wikidata (CC0)",
       "notesStatus": "a-confirmar",
       "notesNote": "Pirâmide do Wikidata (base colaborativa, licença CC0). Conferir com a marca antes de publicar.",
-      "fetchedAt": "2026-10-25T22:35:10.710Z",
+      "fetchedAt": "2026-10-26T00:52:30.968Z",
       "notesEn": {
         "top": [
           "banana",
@@ -2331,7 +2506,7 @@
       "sourceLabel": "Wikidata (CC0)",
       "notesStatus": "a-confirmar",
       "notesNote": "Pirâmide do Wikidata (base colaborativa, licença CC0). Conferir com a marca antes de publicar.",
-      "fetchedAt": "2026-10-25T22:35:10.710Z",
+      "fetchedAt": "2026-10-26T00:52:30.968Z",
       "notesEn": {
         "top": [
           "green pear"
@@ -2374,7 +2549,7 @@
       "sourceLabel": "Wikidata (CC0)",
       "notesStatus": "a-confirmar",
       "notesNote": "Pirâmide do Wikidata (base colaborativa, licença CC0). Conferir com a marca antes de publicar.",
-      "fetchedAt": "2026-10-25T22:35:10.710Z",
+      "fetchedAt": "2026-10-26T00:52:30.968Z",
       "notesEn": {
         "top": [
           "mandarin orange",
@@ -2437,7 +2612,7 @@
       "sourceLabel": "Wikidata (CC0)",
       "notesStatus": "a-confirmar",
       "notesNote": "Pirâmide do Wikidata (base colaborativa, licença CC0). Conferir com a marca antes de publicar.",
-      "fetchedAt": "2026-10-25T22:35:10.709Z",
+      "fetchedAt": "2026-10-26T00:52:30.965Z",
       "notesEn": {
         "top": [
           "raspberry",
@@ -2490,7 +2665,7 @@
       "sourceLabel": "Wikidata (CC0)",
       "notesStatus": "a-confirmar",
       "notesNote": "Pirâmide do Wikidata (base colaborativa, licença CC0). Conferir com a marca antes de publicar.",
-      "fetchedAt": "2026-10-25T22:35:10.709Z",
+      "fetchedAt": "2026-10-26T00:52:30.966Z",
       "notesEn": {
         "top": [
           "spicy"
@@ -2529,7 +2704,7 @@
       "sourceLabel": "Wikidata (CC0)",
       "notesStatus": "a-confirmar",
       "notesNote": "Pirâmide do Wikidata (base colaborativa, licença CC0). Conferir com a marca antes de publicar.",
-      "fetchedAt": "2026-10-25T22:35:10.710Z",
+      "fetchedAt": "2026-10-26T00:52:30.969Z",
       "notesEn": {
         "top": [
           "plum",
@@ -2576,7 +2751,7 @@
       "sourceLabel": "Wikidata (CC0)",
       "notesStatus": "a-confirmar",
       "notesNote": "Pirâmide do Wikidata (base colaborativa, licença CC0). Conferir com a marca antes de publicar.",
-      "fetchedAt": "2026-10-25T22:35:10.710Z",
+      "fetchedAt": "2026-10-26T00:52:30.969Z",
       "notesEn": {
         "top": [
           "bergamot",
@@ -2625,7 +2800,7 @@
       "sourceLabel": "Wikidata (CC0)",
       "notesStatus": "a-confirmar",
       "notesNote": "Pirâmide do Wikidata (base colaborativa, licença CC0). Conferir com a marca antes de publicar.",
-      "fetchedAt": "2026-10-25T22:35:10.709Z",
+      "fetchedAt": "2026-10-26T00:52:30.965Z",
       "notesEn": {
         "top": [
           "Sicilian lemon",
@@ -2682,7 +2857,11 @@
       "sourceLabel": "Wikidata (CC0)",
       "notesStatus": "a-confirmar",
       "notesNote": "Pirâmide do Wikidata (base colaborativa, licença CC0). Conferir com a marca antes de publicar.",
-      "fetchedAt": "2026-10-25T22:35:10.708Z",
+      "fetchedAt": "2026-10-26T00:52:30.965Z",
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/40/Daisy_by_Marc_Jacobs.jpg/960px-Daisy_by_Marc_Jacobs.jpg",
+      "imageCredit": "Foto: Mycatkins (Wikimedia Commons)",
+      "imageLicense": "CC BY 2.0",
+      "imagePage": "https://commons.wikimedia.org/wiki/File:Daisy_by_Marc_Jacobs.jpg",
       "notesEn": {
         "top": [
           "violet leaf",
@@ -2733,7 +2912,7 @@
       "sourceLabel": "Wikidata (CC0)",
       "notesStatus": "a-confirmar",
       "notesNote": "Pirâmide do Wikidata (base colaborativa, licença CC0). Conferir com a marca antes de publicar.",
-      "fetchedAt": "2026-10-25T22:35:10.709Z",
+      "fetchedAt": "2026-10-26T00:52:30.966Z",
       "notesEn": {
         "top": [
           "saffron",
@@ -2790,7 +2969,7 @@
       "sourceLabel": "Wikidata (CC0)",
       "notesStatus": "a-confirmar",
       "notesNote": "Pirâmide do Wikidata (base colaborativa, licença CC0). Conferir com a marca antes de publicar.",
-      "fetchedAt": "2026-10-25T22:35:10.710Z",
+      "fetchedAt": "2026-10-26T00:52:30.969Z",
       "notesEn": {
         "top": [
           "rose absolute",
@@ -2841,7 +3020,7 @@
       "sourceLabel": "Wikidata (CC0)",
       "notesStatus": "a-confirmar",
       "notesNote": "Pirâmide do Wikidata (base colaborativa, licença CC0). Conferir com a marca antes de publicar.",
-      "fetchedAt": "2026-10-25T22:35:10.708Z",
+      "fetchedAt": "2026-10-26T00:52:30.965Z",
       "notesEn": {
         "top": [
           "melon",
@@ -2894,7 +3073,7 @@
       "sourceLabel": "Wikidata (CC0)",
       "notesStatus": "a-confirmar",
       "notesNote": "Pirâmide do Wikidata (base colaborativa, licença CC0). Conferir com a marca antes de publicar.",
-      "fetchedAt": "2026-10-25T22:35:10.710Z",
+      "fetchedAt": "2026-10-26T00:52:30.968Z",
       "notesEn": {
         "top": [
           "Jasminum sambac"
@@ -2933,7 +3112,7 @@
       "sourceLabel": "Wikidata (CC0)",
       "notesStatus": "a-confirmar",
       "notesNote": "Pirâmide do Wikidata (base colaborativa, licença CC0). Conferir com a marca antes de publicar.",
-      "fetchedAt": "2026-10-25T22:35:10.710Z",
+      "fetchedAt": "2026-10-26T00:52:30.968Z",
       "notesEn": {
         "top": [
           "citrus",
@@ -2980,7 +3159,7 @@
       "sourceLabel": "Wikidata (CC0)",
       "notesStatus": "a-confirmar",
       "notesNote": "Pirâmide do Wikidata (base colaborativa, licença CC0). Conferir com a marca antes de publicar.",
-      "fetchedAt": "2026-10-25T22:35:10.709Z",
+      "fetchedAt": "2026-10-26T00:52:30.967Z",
       "notesEn": {
         "top": [
           "bergamot",
@@ -2991,11 +3170,11 @@
           "orange"
         ],
         "heart": [
-          "tiaré",
           "orange blossom",
           "heliotrope",
           "pepper",
-          "ylang-ylang"
+          "ylang-ylang",
+          "tiaré"
         ],
         "base": [
           "amber",
@@ -3015,11 +3194,11 @@
           "Laranja"
         ],
         "heart": [
-          "Flor de tiaré",
           "Flor de laranjeira",
           "Heliotrópio",
           "Pimenta",
-          "Ylang-ylang"
+          "Ylang-ylang",
+          "Flor de tiaré"
         ],
         "base": [
           "Âmbar",
@@ -3045,7 +3224,7 @@
       "sourceLabel": "Wikidata (CC0)",
       "notesStatus": "a-confirmar",
       "notesNote": "Pirâmide do Wikidata (base colaborativa, licença CC0). Conferir com a marca antes de publicar.",
-      "fetchedAt": "2026-10-25T22:35:10.709Z",
+      "fetchedAt": "2026-10-26T00:52:30.968Z",
       "notesEn": {
         "top": [
           "jasmine"
@@ -3093,7 +3272,7 @@
       "sourceLabel": "Wikidata (CC0)",
       "notesStatus": "a-confirmar",
       "notesNote": "Pirâmide do Wikidata (base colaborativa, licença CC0). Conferir com a marca antes de publicar.",
-      "fetchedAt": "2026-10-25T22:35:10.709Z",
+      "fetchedAt": "2026-10-26T00:52:30.967Z",
       "notesEn": {
         "top": [
           "Buddha's hand"
@@ -3132,7 +3311,7 @@
       "sourceLabel": "Wikidata (CC0)",
       "notesStatus": "a-confirmar",
       "notesNote": "Pirâmide do Wikidata (base colaborativa, licença CC0). Conferir com a marca antes de publicar.",
-      "fetchedAt": "2026-10-25T22:35:10.709Z",
+      "fetchedAt": "2026-10-26T00:52:30.967Z",
       "notesEn": {
         "top": [
           "ginger",
@@ -3179,7 +3358,7 @@
       "sourceLabel": "Wikidata (CC0)",
       "notesStatus": "a-confirmar",
       "notesNote": "Pirâmide do Wikidata (base colaborativa, licença CC0). Conferir com a marca antes de publicar.",
-      "fetchedAt": "2026-10-25T22:35:10.710Z",
+      "fetchedAt": "2026-10-26T00:52:30.968Z",
       "notesEn": {
         "top": [
           "coconut",
@@ -3226,7 +3405,7 @@
       "sourceLabel": "Wikidata (CC0)",
       "notesStatus": "a-confirmar",
       "notesNote": "Pirâmide do Wikidata (base colaborativa, licença CC0). Conferir com a marca antes de publicar.",
-      "fetchedAt": "2026-10-25T22:35:10.709Z",
+      "fetchedAt": "2026-10-26T00:52:30.968Z",
       "notesEn": {
         "top": [
           "coconut",
@@ -3271,7 +3450,7 @@
       "sourceLabel": "Wikidata (CC0)",
       "notesStatus": "a-confirmar",
       "notesNote": "Pirâmide do Wikidata (base colaborativa, licença CC0). Conferir com a marca antes de publicar.",
-      "fetchedAt": "2026-10-25T22:35:10.709Z",
+      "fetchedAt": "2026-10-26T00:52:30.968Z",
       "notesEn": {
         "top": [],
         "heart": [
@@ -3312,7 +3491,7 @@
       "sourceLabel": "Wikidata (CC0)",
       "notesStatus": "a-confirmar",
       "notesNote": "Pirâmide do Wikidata (base colaborativa, licença CC0). Conferir com a marca antes de publicar.",
-      "fetchedAt": "2026-10-25T22:35:10.709Z",
+      "fetchedAt": "2026-10-26T00:52:30.968Z",
       "notesEn": {
         "top": [
           "pear"
@@ -3359,7 +3538,7 @@
       "sourceLabel": "Wikidata (CC0)",
       "notesStatus": "a-confirmar",
       "notesNote": "Pirâmide do Wikidata (base colaborativa, licença CC0). Conferir com a marca antes de publicar.",
-      "fetchedAt": "2026-10-25T22:35:10.710Z",
+      "fetchedAt": "2026-10-26T00:52:30.968Z",
       "notesEn": {
         "top": [
           "anise seed",
@@ -3416,7 +3595,7 @@
       "sourceLabel": "Wikidata (CC0)",
       "notesStatus": "a-confirmar",
       "notesNote": "Pirâmide do Wikidata (base colaborativa, licença CC0). Conferir com a marca antes de publicar.",
-      "fetchedAt": "2026-10-25T22:35:10.709Z",
+      "fetchedAt": "2026-10-26T00:52:30.967Z",
       "notesEn": {
         "top": [
           "ginger",
@@ -3459,7 +3638,7 @@
       "sourceLabel": "Wikidata (CC0)",
       "notesStatus": "a-confirmar",
       "notesNote": "Pirâmide do Wikidata (base colaborativa, licença CC0). Conferir com a marca antes de publicar.",
-      "fetchedAt": "2026-10-25T22:35:10.709Z",
+      "fetchedAt": "2026-10-26T00:52:30.967Z",
       "notesEn": {
         "top": [
           "mineral",
@@ -3500,7 +3679,7 @@
       "sourceLabel": "Wikidata (CC0)",
       "notesStatus": "a-confirmar",
       "notesNote": "Pirâmide do Wikidata (base colaborativa, licença CC0). Conferir com a marca antes de publicar.",
-      "fetchedAt": "2026-10-25T22:35:10.709Z",
+      "fetchedAt": "2026-10-26T00:52:30.967Z",
       "notesEn": {
         "top": [
           "mineral",
@@ -3543,7 +3722,7 @@
       "sourceLabel": "Wikidata (CC0)",
       "notesStatus": "a-confirmar",
       "notesNote": "Pirâmide do Wikidata (base colaborativa, licença CC0). Conferir com a marca antes de publicar.",
-      "fetchedAt": "2026-10-25T22:35:10.709Z",
+      "fetchedAt": "2026-10-26T00:52:30.967Z",
       "notesEn": {
         "top": [
           "spicy",
@@ -3590,7 +3769,7 @@
       "sourceLabel": "Wikidata (CC0)",
       "notesStatus": "a-confirmar",
       "notesNote": "Pirâmide do Wikidata (base colaborativa, licença CC0). Conferir com a marca antes de publicar.",
-      "fetchedAt": "2026-10-25T22:35:10.709Z",
+      "fetchedAt": "2026-10-26T00:52:30.968Z",
       "notesEn": {
         "top": [
           "raspberry"
@@ -3637,7 +3816,7 @@
       "sourceLabel": "Wikidata (CC0)",
       "notesStatus": "a-confirmar",
       "notesNote": "Pirâmide do Wikidata (base colaborativa, licença CC0). Conferir com a marca antes de publicar.",
-      "fetchedAt": "2026-10-25T22:35:10.709Z",
+      "fetchedAt": "2026-10-26T00:52:30.966Z",
       "notesEn": {
         "top": [
           "pink pepper"
@@ -3684,7 +3863,7 @@
       "sourceLabel": "Wikidata (CC0)",
       "notesStatus": "a-confirmar",
       "notesNote": "Pirâmide do Wikidata (base colaborativa, licença CC0). Conferir com a marca antes de publicar.",
-      "fetchedAt": "2026-10-25T22:35:10.709Z",
+      "fetchedAt": "2026-10-26T00:52:30.966Z",
       "notesEn": {
         "top": [
           "pineapple",
@@ -3733,7 +3912,7 @@
       "sourceLabel": "Wikidata (CC0)",
       "notesStatus": "a-confirmar",
       "notesNote": "Pirâmide do Wikidata (base colaborativa, licença CC0). Conferir com a marca antes de publicar.",
-      "fetchedAt": "2026-10-25T22:35:10.709Z",
+      "fetchedAt": "2026-10-26T00:52:30.967Z",
       "notesEn": {
         "top": [
           "pink pepper",
@@ -3774,12 +3953,12 @@
       "sourceLabel": "Wikidata (CC0)",
       "notesStatus": "a-confirmar",
       "notesNote": "Pirâmide do Wikidata (base colaborativa, licença CC0). Conferir com a marca antes de publicar.",
-      "fetchedAt": "2026-10-25T22:35:10.709Z",
+      "fetchedAt": "2026-10-26T00:52:30.966Z",
       "notesEn": {
         "top": [
-          "passionfruit",
           "mandarin orange",
-          "lemon"
+          "lemon",
+          "passionfruit"
         ],
         "heart": [],
         "base": [
@@ -3791,9 +3970,9 @@
       },
       "notes": {
         "top": [
-          "Maracujá",
           "Tangerina",
-          "Limão-siciliano"
+          "Limão-siciliano",
+          "Maracujá"
         ],
         "heart": [],
         "base": [
@@ -3822,7 +4001,7 @@
       "sourceLabel": "Wikidata (CC0)",
       "notesStatus": "a-confirmar",
       "notesNote": "Pirâmide do Wikidata (base colaborativa, licença CC0). Conferir com a marca antes de publicar.",
-      "fetchedAt": "2026-10-25T22:35:10.709Z",
+      "fetchedAt": "2026-10-26T00:52:30.967Z",
       "notesEn": {
         "top": [
           "raspberry",
@@ -3868,7 +4047,7 @@
       "sourceLabel": "Wikidata (CC0)",
       "notesStatus": "a-confirmar",
       "notesNote": "Pirâmide do Wikidata (base colaborativa, licença CC0). Conferir com a marca antes de publicar.",
-      "fetchedAt": "2026-10-25T22:35:10.709Z",
+      "fetchedAt": "2026-10-26T00:52:30.967Z",
       "notesEn": {
         "top": [
           "lychee",
@@ -3913,7 +4092,7 @@
       "sourceLabel": "Wikidata (CC0)",
       "notesStatus": "a-confirmar",
       "notesNote": "Pirâmide do Wikidata (base colaborativa, licença CC0). Conferir com a marca antes de publicar.",
-      "fetchedAt": "2026-10-25T22:35:10.709Z",
+      "fetchedAt": "2026-10-26T00:52:30.966Z",
       "notesEn": {
         "top": [
           "bergamot"
@@ -3952,7 +4131,7 @@
       "sourceLabel": "Wikidata (CC0)",
       "notesStatus": "a-confirmar",
       "notesNote": "Pirâmide do Wikidata (base colaborativa, licença CC0). Conferir com a marca antes de publicar.",
-      "fetchedAt": "2026-10-25T22:35:10.709Z",
+      "fetchedAt": "2026-10-26T00:52:30.967Z",
       "notesEn": {
         "top": [
           "bergamot"
@@ -3979,6 +4158,32 @@
       "review": "ok"
     },
     {
+      "url": "https://www.wikidata.org/wiki/Q105809730",
+      "name": "Narciso Rodriguez for Her",
+      "brand": "Narciso Rodriguez",
+      "brandName": "Narciso Rodriguez",
+      "brandSlug": "narciso-rodriguez",
+      "size": null,
+      "gender": null,
+      "year": 2003,
+      "perfumers": [
+        "Francis Kurkdjian",
+        "Christine Nagel"
+      ],
+      "sourceLabel": "Wikidata (CC0)",
+      "notesStatus": "a-confirmar",
+      "notesNote": "Pirâmide do Wikidata (base colaborativa, licença CC0). Conferir com a marca antes de publicar.",
+      "fetchedAt": "2026-10-26T00:52:30.969Z",
+      "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ec/Narciso_Rodriguez_for_Her_Eau_de_Parfum.jpg/960px-Narciso_Rodriguez_for_Her_Eau_de_Parfum.jpg",
+      "imageCredit": "Foto: 1 nariz por Dênis Pagani (Wikimedia Commons)",
+      "imageLicense": "CC BY 3.0",
+      "imagePage": "https://commons.wikimedia.org/wiki/File:Narciso_Rodriguez_for_Her_Eau_de_Parfum.jpg",
+      "notesEn": null,
+      "notes": null,
+      "unknownNotes": [],
+      "review": "sem pirâmide"
+    },
+    {
       "url": "https://www.wikidata.org/wiki/Q138773649",
       "name": "Virtus",
       "brand": "Navitus Parfums",
@@ -3993,7 +4198,7 @@
       "sourceLabel": "Wikidata (CC0)",
       "notesStatus": "a-confirmar",
       "notesNote": "Pirâmide do Wikidata (base colaborativa, licença CC0). Conferir com a marca antes de publicar.",
-      "fetchedAt": "2026-10-25T22:35:10.709Z",
+      "fetchedAt": "2026-10-26T00:52:30.967Z",
       "notesEn": {
         "top": [
           "bergamot",
@@ -4065,7 +4270,7 @@
       "sourceLabel": "Wikidata (CC0)",
       "notesStatus": "a-confirmar",
       "notesNote": "Pirâmide do Wikidata (base colaborativa, licença CC0). Conferir com a marca antes de publicar.",
-      "fetchedAt": "2026-10-25T22:35:10.710Z",
+      "fetchedAt": "2026-10-26T00:52:30.966Z",
       "notesEn": {
         "top": [
           "papaya fruit",
@@ -4114,7 +4319,7 @@
       "sourceLabel": "Wikidata (CC0)",
       "notesStatus": "a-confirmar",
       "notesNote": "Pirâmide do Wikidata (base colaborativa, licença CC0). Conferir com a marca antes de publicar.",
-      "fetchedAt": "2026-10-25T22:35:10.709Z",
+      "fetchedAt": "2026-10-26T00:52:30.967Z",
       "notesEn": {
         "top": [
           "Koji pear",
@@ -4123,9 +4328,9 @@
           "raspberry"
         ],
         "heart": [
+          "rose water",
           "osmanthus",
-          "Jasminum sambac",
-          "rose water"
+          "Jasminum sambac"
         ],
         "base": [
           "ambrette seed",
@@ -4142,9 +4347,9 @@
           "Framboesa"
         ],
         "heart": [
+          "Rosa",
           "Osmanto",
-          "Jasmim sambac",
-          "Rosa"
+          "Jasmim sambac"
         ],
         "base": [
           "Ambreta",
@@ -4171,7 +4376,7 @@
       "sourceLabel": "Wikidata (CC0)",
       "notesStatus": "a-confirmar",
       "notesNote": "Pirâmide do Wikidata (base colaborativa, licença CC0). Conferir com a marca antes de publicar.",
-      "fetchedAt": "2026-10-25T22:35:10.709Z",
+      "fetchedAt": "2026-10-26T00:52:30.966Z",
       "notesEn": {
         "top": [
           "peppermint",
@@ -4228,7 +4433,7 @@
       "sourceLabel": "Wikidata (CC0)",
       "notesStatus": "a-confirmar",
       "notesNote": "Pirâmide do Wikidata (base colaborativa, licença CC0). Conferir com a marca antes de publicar.",
-      "fetchedAt": "2026-10-25T22:35:10.708Z",
+      "fetchedAt": "2026-10-26T00:52:30.967Z",
       "notesEn": {
         "top": [
           "bergamot",
@@ -4242,8 +4447,8 @@
           "green tea"
         ],
         "base": [
-          "fig",
-          "musk"
+          "musk",
+          "fig"
         ]
       },
       "notes": {
@@ -4259,8 +4464,8 @@
           "Chá verde"
         ],
         "base": [
-          "Figo",
-          "Almíscar"
+          "Almíscar",
+          "Figo"
         ]
       },
       "unknownNotes": [],
@@ -4281,12 +4486,12 @@
       "sourceLabel": "Wikidata (CC0)",
       "notesStatus": "a-confirmar",
       "notesNote": "Pirâmide do Wikidata (base colaborativa, licença CC0). Conferir com a marca antes de publicar.",
-      "fetchedAt": "2026-10-25T22:35:10.710Z",
+      "fetchedAt": "2026-10-26T00:52:30.967Z",
       "notesEn": {
         "top": [
+          "lemon",
           "apples",
-          "peach fruit",
-          "lemon"
+          "peach fruit"
         ],
         "heart": [
           "lily-of-the-valley",
@@ -4301,9 +4506,9 @@
       },
       "notes": {
         "top": [
+          "Limão-siciliano",
           "Maçã",
-          "Pêssego",
-          "Limão-siciliano"
+          "Pêssego"
         ],
         "heart": [
           "Lírio-do-vale",
@@ -4332,7 +4537,7 @@
       "sourceLabel": "Wikidata (CC0)",
       "notesStatus": "a-confirmar",
       "notesNote": "Pirâmide do Wikidata (base colaborativa, licença CC0). Conferir com a marca antes de publicar.",
-      "fetchedAt": "2026-10-25T22:35:10.709Z",
+      "fetchedAt": "2026-10-26T00:52:30.967Z",
       "notesEn": {
         "top": [
           "saffron",
@@ -4383,7 +4588,7 @@
       "sourceLabel": "Wikidata (CC0)",
       "notesStatus": "a-confirmar",
       "notesNote": "Pirâmide do Wikidata (base colaborativa, licença CC0). Conferir com a marca antes de publicar.",
-      "fetchedAt": "2026-10-25T22:35:10.710Z",
+      "fetchedAt": "2026-10-26T00:52:30.969Z",
       "notesEn": {
         "top": [
           "bergamot",
@@ -4438,7 +4643,7 @@
       "sourceLabel": "Wikidata (CC0)",
       "notesStatus": "a-confirmar",
       "notesNote": "Pirâmide do Wikidata (base colaborativa, licença CC0). Conferir com a marca antes de publicar.",
-      "fetchedAt": "2026-10-25T22:35:10.709Z",
+      "fetchedAt": "2026-10-26T00:52:30.967Z",
       "notesEn": {
         "top": [
           "Calabrian bergamot",
@@ -4491,7 +4696,7 @@
       "sourceLabel": "Wikidata (CC0)",
       "notesStatus": "a-confirmar",
       "notesNote": "Pirâmide do Wikidata (base colaborativa, licença CC0). Conferir com a marca antes de publicar.",
-      "fetchedAt": "2026-10-25T22:35:10.709Z",
+      "fetchedAt": "2026-10-26T00:52:30.966Z",
       "notesEn": {
         "top": [
           "mango"
@@ -4532,7 +4737,7 @@
       "sourceLabel": "Wikidata (CC0)",
       "notesStatus": "a-confirmar",
       "notesNote": "Pirâmide do Wikidata (base colaborativa, licença CC0). Conferir com a marca antes de publicar.",
-      "fetchedAt": "2026-10-25T22:35:10.710Z",
+      "fetchedAt": "2026-10-26T00:52:30.968Z",
       "notesEn": {
         "top": [
           "cloves",
@@ -4579,7 +4784,7 @@
       "sourceLabel": "Wikidata (CC0)",
       "notesStatus": "a-confirmar",
       "notesNote": "Pirâmide do Wikidata (base colaborativa, licença CC0). Conferir com a marca antes de publicar.",
-      "fetchedAt": "2026-10-25T22:35:10.710Z",
+      "fetchedAt": "2026-10-26T00:52:30.968Z",
       "notesEn": {
         "top": [
           "cinnamon",
@@ -4624,7 +4829,7 @@
       "sourceLabel": "Wikidata (CC0)",
       "notesStatus": "a-confirmar",
       "notesNote": "Pirâmide do Wikidata (base colaborativa, licença CC0). Conferir com a marca antes de publicar.",
-      "fetchedAt": "2026-10-25T22:35:10.708Z",
+      "fetchedAt": "2026-10-26T00:52:30.965Z",
       "notesEn": {
         "top": [
           "lemon leaf oil",
@@ -4693,7 +4898,7 @@
       "sourceLabel": "Wikidata (CC0)",
       "notesStatus": "a-confirmar",
       "notesNote": "Pirâmide do Wikidata (base colaborativa, licença CC0). Conferir com a marca antes de publicar.",
-      "fetchedAt": "2026-10-25T22:35:10.710Z",
+      "fetchedAt": "2026-10-26T00:52:30.969Z",
       "notesEn": {
         "top": [
           "bergamot",
@@ -4742,7 +4947,7 @@
       "sourceLabel": "Wikidata (CC0)",
       "notesStatus": "a-confirmar",
       "notesNote": "Pirâmide do Wikidata (base colaborativa, licença CC0). Conferir com a marca antes de publicar.",
-      "fetchedAt": "2026-10-25T22:35:10.710Z",
+      "fetchedAt": "2026-10-26T00:52:30.968Z",
       "notesEn": {
         "top": [
           "bergamot"
@@ -4795,7 +5000,7 @@
       "sourceLabel": "Wikidata (CC0)",
       "notesStatus": "a-confirmar",
       "notesNote": "Pirâmide do Wikidata (base colaborativa, licença CC0). Conferir com a marca antes de publicar.",
-      "fetchedAt": "2026-10-25T22:35:10.710Z",
+      "fetchedAt": "2026-10-26T00:52:30.967Z",
       "notesEn": {
         "top": [
           "pepper",
@@ -4863,7 +5068,7 @@
       "sourceLabel": "Wikidata (CC0)",
       "notesStatus": "a-confirmar",
       "notesNote": "Pirâmide do Wikidata (base colaborativa, licença CC0). Conferir com a marca antes de publicar.",
-      "fetchedAt": "2026-10-25T22:35:10.709Z",
+      "fetchedAt": "2026-10-26T00:52:30.966Z",
       "notesEn": {
         "top": [
           "popcorn",
@@ -4916,7 +5121,7 @@
       "sourceLabel": "Wikidata (CC0)",
       "notesStatus": "a-confirmar",
       "notesNote": "Pirâmide do Wikidata (base colaborativa, licença CC0). Conferir com a marca antes de publicar.",
-      "fetchedAt": "2026-10-25T22:35:10.710Z",
+      "fetchedAt": "2026-10-26T00:52:30.966Z",
       "notesEn": {
         "top": [
           "cardamom",
@@ -4967,7 +5172,7 @@
       "sourceLabel": "Wikidata (CC0)",
       "notesStatus": "a-confirmar",
       "notesNote": "Pirâmide do Wikidata (base colaborativa, licença CC0). Conferir com a marca antes de publicar.",
-      "fetchedAt": "2026-10-25T22:35:10.710Z",
+      "fetchedAt": "2026-10-26T00:52:30.966Z",
       "notesEn": {
         "top": [
           "aldehydes",
@@ -5032,7 +5237,7 @@
       "sourceLabel": "Wikidata (CC0)",
       "notesStatus": "a-confirmar",
       "notesNote": "Pirâmide do Wikidata (base colaborativa, licença CC0). Conferir com a marca antes de publicar.",
-      "fetchedAt": "2026-10-25T22:35:10.709Z",
+      "fetchedAt": "2026-10-26T00:52:30.968Z",
       "notesEn": {
         "top": [
           "freesia",
@@ -5085,7 +5290,7 @@
       "sourceLabel": "Wikidata (CC0)",
       "notesStatus": "a-confirmar",
       "notesNote": "Pirâmide do Wikidata (base colaborativa, licença CC0). Conferir com a marca antes de publicar.",
-      "fetchedAt": "2026-10-25T22:35:10.709Z",
+      "fetchedAt": "2026-10-26T00:52:30.968Z",
       "notesEn": {
         "top": [
           "lily-of-the-valley"
@@ -5128,7 +5333,7 @@
       "sourceLabel": "Wikidata (CC0)",
       "notesStatus": "a-confirmar",
       "notesNote": "Pirâmide do Wikidata (base colaborativa, licença CC0). Conferir com a marca antes de publicar.",
-      "fetchedAt": "2026-10-25T22:35:10.709Z",
+      "fetchedAt": "2026-10-26T00:52:30.968Z",
       "notesEn": {
         "top": [
           "green tea",
@@ -5171,7 +5376,7 @@
       "sourceLabel": "Wikidata (CC0)",
       "notesStatus": "a-confirmar",
       "notesNote": "Pirâmide do Wikidata (base colaborativa, licença CC0). Conferir com a marca antes de publicar.",
-      "fetchedAt": "2026-10-25T22:35:10.709Z",
+      "fetchedAt": "2026-10-26T00:52:30.966Z",
       "notesEn": {
         "top": [
           "bergamot",
@@ -5216,7 +5421,7 @@
       "sourceLabel": "Wikidata (CC0)",
       "notesStatus": "a-confirmar",
       "notesNote": "Pirâmide do Wikidata (base colaborativa, licença CC0). Conferir com a marca antes de publicar.",
-      "fetchedAt": "2026-10-25T22:35:10.709Z",
+      "fetchedAt": "2026-10-26T00:52:30.968Z",
       "notesEn": {
         "top": [
           "pineapple",
@@ -5273,7 +5478,7 @@
       "sourceLabel": "Wikidata (CC0)",
       "notesStatus": "a-confirmar",
       "notesNote": "Pirâmide do Wikidata (base colaborativa, licença CC0). Conferir com a marca antes de publicar.",
-      "fetchedAt": "2026-10-25T22:35:10.709Z",
+      "fetchedAt": "2026-10-26T00:52:30.968Z",
       "notesEn": {
         "top": [
           "pear",
@@ -5322,7 +5527,7 @@
       "sourceLabel": "Wikidata (CC0)",
       "notesStatus": "a-confirmar",
       "notesNote": "Pirâmide do Wikidata (base colaborativa, licença CC0). Conferir com a marca antes de publicar.",
-      "fetchedAt": "2026-10-25T22:35:10.709Z",
+      "fetchedAt": "2026-10-26T00:52:30.968Z",
       "notesEn": {
         "top": [
           "sea",
@@ -5355,5 +5560,5 @@
       "review": "ok"
     }
   ],
-  "updatedAt": "2026-10-25T22:35:10.719Z"
+  "updatedAt": "2026-10-26T00:52:30.984Z"
 }

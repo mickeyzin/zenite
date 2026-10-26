@@ -14,6 +14,7 @@ const nextConfig: NextConfig = {
       { protocol: "https", hostname: "*.supabase.co", pathname: "/storage/v1/object/public/**" },
       // Fotos livres do Wikimedia Commons (com crédito e licença na resenha).
       { protocol: "https", hostname: "upload.wikimedia.org", pathname: "/wikipedia/commons/**" },
+      { protocol: "https", hostname: "thumb.wikimedia.org", pathname: "/wikipedia/commons/**" },
       // Só nos testes locais (banco de teste em 127.0.0.1).
       ...(process.env.ZENITE_LOCAL_IMAGES === "1" ? [{ protocol: "http" as const, hostname: "127.0.0.1", port: "54321", pathname: "/storage/**" }] : []),
     ],

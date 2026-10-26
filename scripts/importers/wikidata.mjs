@@ -22,6 +22,8 @@ const ENDPOINT = "https://query.wikidata.org/sparql";
 const TIER = { Q124382774: "top", Q124382780: "heart", Q124382781: "base" };
 // Marcas que já vêm do site oficial (lá a fonte é melhor) ficam de fora.
 const SKIP_BRANDS = new Set(["lattafa", "afnan", "swiss-arabian", "khadlaj"]);
+// Itens em que o Wikidata só traz a fabricante (licenciada), não a marca do perfume.
+const BRAND_FIX = { Q137337051: "Hugo Boss", Q1814362: "Britney Spears" };
 
 const slug = (s) =>
   s
@@ -88,10 +90,14 @@ async function commonsInfo(files) {
       if (!ii) continue;
       const m = ii.extmetadata ?? {};
       out.set(p.title.slice(5), {
-        url: ii.thumburl ?? ii.url,
+        url: String(ii.thumburl ?? ii.url).split("?")[0], // sem parâmetros de rastreamento
         page: ii.descriptionurl,
         license: strip(m.LicenseShortName?.value),
-        artist: strip(m.Artist?.value).slice(0, 80),
+        // Alguns autores vêm com o nome do arquivo antes ("Guerlain_bottles.jpg_: Fulano").
+        artist: strip(m.Artist?.value)
+          .replace(/^.*\.(?:jpe?g|png|tiff?|gif)_?:\s*/i, "")
+          .replace(/\s+derivat\w*.*$/i, "") // "Fulano derivative work: Ciclano" → autor original
+          .slice(0, 80),
       });
     }
     await sleep(2000);
@@ -140,6 +146,7 @@ async function main() {
   const out = [];
   const skipped = { semMarca: 0, marcaOficial: 0, fotoSemLicencaLivre: 0 };
   for (const it of items.values()) {
+    if (BRAND_FIX[it.q]) it.brand = BRAND_FIX[it.q];
     if (!it.brand || /^Q\d+$/.test(it.brand)) {
       skipped.semMarca++;
       continue;
