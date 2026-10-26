@@ -18,8 +18,10 @@ My name is [seu nome], and I run Zênite (https://zenite-orpin.vercel.app), an i
 editorial website about perfumes. We publish detailed reviews with the official olfactory pyramid,
 seasons, occasions and where to buy — and [Brand] fragrances are among the most searched by our readers.
 
-We would like to ask for permission to use official product images (bottle photos / press kit) of
-your fragrances on our website, with the credit "Image: [Brand]" next to each photo.
+We would like to ask for permission to use official product images of your fragrances on our website,
+with the credit "Image: [Brand]" next to each photo. Specifically, may we use the product photos
+already published on your official website ([site da marca]), loaded automatically for each fragrance?
+A press kit would work too.
 
 - The images would appear only on the review page of each [Brand] fragrance.
 - We do not sell perfumes; we link to authorised retailers, and affiliate links are always disclosed.
@@ -46,8 +48,10 @@ Meu nome é [seu nome] e sou responsável pela Zênite (https://zenite-orpin.ver
 brasileiro e independente sobre perfumes. Publicamos resenhas completas com a pirâmide olfativa oficial,
 estações, ocasiões e onde comprar — e os perfumes [Marca] estão entre os mais procurados pelos leitores.
 
-Gostaríamos de pedir autorização para usar imagens oficiais dos produtos (fotos dos frascos / kit de
-imprensa) no site, com o crédito "Imagem: [Marca]" ao lado de cada foto.
+Gostaríamos de pedir autorização para usar imagens oficiais dos produtos no site, com o crédito
+"Imagem: [Marca]" ao lado de cada foto. Em especial: podemos usar as fotos dos produtos já publicadas
+no site oficial de vocês ([site da marca]), carregadas automaticamente para cada perfume? Um kit de
+imprensa também serve.
 
 - As imagens apareceriam só na página de resenha de cada perfume [Marca].
 - Não vendemos perfumes; indicamos lojas autorizadas, e links de afiliado são sempre identificados.
@@ -66,6 +70,9 @@ Zênite — [seu e-mail]
 
 ## Depois da resposta
 
-1. Guarde o e-mail com a autorização.
-2. No painel: **Perfumes** → abra o perfume → **Enviar pôster** → escolha a foto e escreva o crédito
-   (ex.: "Imagem: Lattafa, com autorização").
+1. Guarde o e-mail com a autorização (é a prova de que o uso foi permitido).
+2. **Se autorizarem as fotos do site oficial:** avise — as fotos de todos os perfumes da marca são
+   importadas de uma vez, com o crédito, sem trabalho manual.
+3. **Se mandarem um kit de imprensa (pasta/zip):** também dá para enviar todas de uma vez, com os
+   arquivos casados pelo nome do perfume.
+4. Para um perfume só: **Perfumes** → abra o perfume → **Enviar pôster** → foto e crédito.
