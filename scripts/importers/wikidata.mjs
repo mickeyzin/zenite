@@ -4,6 +4,10 @@
  * (query.wikidata.org). Só perfumes com pirâmide por camada: "smells of" (P5872)
  * com o qualificador "has characteristic" (P1552) = nota de topo/coração/fundo.
  *
+ * Também traz a foto do perfume (P18) quando ela existe no Wikimedia Commons com licença
+ * livre, com autor e licença para o crédito; perfumes famosos que só têm foto entram
+ * "sem pirâmide" (as notas são completadas à mão).
+ *
  * O Wikidata é colaborativo: tudo entra como rascunho "a confirmar", com a fonte
  * citada, para conferência humana antes de publicar.
  *
@@ -48,8 +52,10 @@ const NOTES_Q = `SELECT ?i ?iLabel ?note ?noteLabel ?tier WHERE {
   VALUES ?tier { wd:Q124382774 wd:Q124382780 wd:Q124382781 }
   SERVICE wikibase:label { bd:serviceParam wikibase:language "en,pt,fr,de". }
 }`;
-const META_Q = `SELECT ?i ?brandLabel ?makerLabel ?year ?perfumerLabel ?publicLabel WHERE {
-  ?i wdt:P31 wd:Q131746 ; p:P5872/pq:P1552 ?t .
+const META_Q = `SELECT ?i ?iLabel ?brandLabel ?makerLabel ?year ?perfumerLabel ?publicLabel ?img WHERE {
+  ?i wdt:P31 wd:Q131746 .
+  { ?i p:P5872/pq:P1552 ?t } UNION { ?i wdt:P18 ?anyImg }
+  OPTIONAL { ?i wdt:P18 ?img }
   OPTIONAL { ?i wdt:P1716 ?brand }
   OPTIONAL { ?i wdt:P176 ?maker }
   OPTIONAL { ?i wdt:P571 ?d . BIND(YEAR(?d) AS ?year) }
@@ -57,6 +63,41 @@ const META_Q = `SELECT ?i ?brandLabel ?makerLabel ?year ?perfumerLabel ?publicLa
   OPTIONAL { ?i wdt:P2360 ?public }
   SERVICE wikibase:label { bd:serviceParam wikibase:language "en,pt,fr,de". }
 }`;
+
+// Fotos que não mostram o frasco (anúncios antigos, exposições, paisagens): ficam de fora.
+const NOT_BOTTLE = /vogue|cappiello|valensole|dokumentation|hallwylska|golden moments/i;
+const FREE = /^(cc0|cc[ -]by(-sa)?[ -]?\d|public domain|pd\b|pd-)/i;
+
+/** Autor e licença das fotos no Commons (um pedido para até 50 arquivos, com nova tentativa se limitar). */
+async function commonsInfo(files) {
+  const out = new Map();
+  for (let i = 0; i < files.length; i += 50) {
+    const titles = files.slice(i, i + 50).map((f) => `File:${f}`).join("|");
+    const url = `https://commons.wikimedia.org/w/api.php?action=query&format=json&prop=imageinfo&iiprop=url|extmetadata&iiurlwidth=900&titles=${encodeURIComponent(titles)}`;
+    let res;
+    for (let t = 0; t < 10; t++) {
+      res = await fetch(url, { headers: { "User-Agent": UA } });
+      if (res.status !== 429) break;
+      console.log("Commons pediu para esperar; nova tentativa em 60 s");
+      await sleep(60_000);
+    }
+    if (!res.ok) throw new Error(`Commons ${res.status}`);
+    const strip = (v) => String(v ?? "").replace(/<[^>]+>/g, "").replace(/\s+/g, " ").trim();
+    for (const p of Object.values((await res.json()).query.pages)) {
+      const ii = p.imageinfo?.[0];
+      if (!ii) continue;
+      const m = ii.extmetadata ?? {};
+      out.set(p.title.slice(5), {
+        url: ii.thumburl ?? ii.url,
+        page: ii.descriptionurl,
+        license: strip(m.LicenseShortName?.value),
+        artist: strip(m.Artist?.value).slice(0, 80),
+      });
+    }
+    await sleep(2000);
+  }
+  return out;
+}
 
 async function main() {
   const notes = await sparql(NOTES_Q);
@@ -75,18 +116,29 @@ async function main() {
     items.set(q, it);
   }
   for (const b of meta) {
-    const it = items.get(id(b, "i"));
+    const q = id(b, "i");
+    // Perfume sem pirâmide, mas com foto: entra também (as notas são completadas à mão).
+    if (!items.has(q) && val(b, "img")) items.set(q, { q, label: val(b, "iLabel"), notes: { top: [], heart: [], base: [] } });
+    const it = items.get(q);
     if (!it) continue;
+    const img = val(b, "img");
+    if (img) it.imageFile ??= decodeURIComponent(img.split("/").pop());
     it.brand ??= val(b, "brandLabel") ?? val(b, "makerLabel");
     const y = Number(val(b, "year"));
     if (y >= 1700 && y <= 2100) it.year = Math.min(it.year ?? y, y);
     const perf = val(b, "perfumerLabel");
-    if (perf && !/^Q\d+$/.test(perf)) (it.perfumers ??= []).includes(perf) || it.perfumers.push(perf);
+    if (perf && !/^Q\d+$/.test(perf)) {
+      it.perfumers ??= [];
+      if (!it.perfumers.includes(perf)) it.perfumers.push(perf);
+    }
     it.public ??= val(b, "publicLabel");
   }
 
+  const files = [...new Set([...items.values()].map((i) => i.imageFile).filter((f) => f && !NOT_BOTTLE.test(f)))];
+  const photos = await commonsInfo(files);
+
   const out = [];
-  const skipped = { semMarca: 0, marcaOficial: 0 };
+  const skipped = { semMarca: 0, marcaOficial: 0, fotoSemLicencaLivre: 0 };
   for (const it of items.values()) {
     if (!it.brand || /^Q\d+$/.test(it.brand)) {
       skipped.semMarca++;
@@ -117,6 +169,13 @@ async function main() {
       notesNote: "Pirâmide do Wikidata (base colaborativa, licença CC0). Conferir com a marca antes de publicar.",
       fetchedAt: new Date().toISOString(),
     };
+    const photo = it.imageFile && photos.get(it.imageFile);
+    if (photo && FREE.test(photo.license) && photo.artist) {
+      item.imageUrl = photo.url;
+      item.imageCredit = `Foto: ${photo.artist} (Wikimedia Commons)`;
+      item.imageLicense = photo.license;
+      item.imagePage = photo.page;
+    } else if (photo) skipped.fotoSemLicencaLivre++;
     const n = it.notes;
     out.push(finish(item, n.top.length + n.heart.length + n.base.length ? n : null));
   }

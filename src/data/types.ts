@@ -98,6 +98,11 @@ export interface Perfume {
   model: BottleModel;
   /** Imagem estática (modo sem WebGL e página de resenha). */
   poster: string | null;
+  /** Crédito da foto do frasco (obrigatório para fotos de terceiros). */
+  posterCredit?: string | null;
+  /** Licença da foto (ex.: "CC BY-SA 4.0") e, quando houver, a página de origem. */
+  posterLicense?: string | null;
+  posterSourceUrl?: string | null;
   /** Escala do frasco na cena (frascos largos, como o Prada, ficam menores). */
   sceneScale: number;
   perfumers: Sourced<string[] | null>;

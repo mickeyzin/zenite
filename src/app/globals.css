@@ -1044,3 +1044,5 @@ body {
 }
 @media (max-width: 480px) { .foryou-card.is-hero { grid-template-columns: 6.5rem 1fr; padding: .9rem; } .foryou-card.is-hero h4 { font-size: 1.4rem; } }
 .admin-filters select { width: auto; min-width: 12rem; }
+.review-poster-credit { margin-top: .45rem; font-size: .68rem; line-height: 1.4; color: var(--z-muted); text-align: center; }
+.review-poster-credit a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }

@@ -102,7 +102,7 @@ on conflict (perfume_id) do nothing;`);
 
 // ——— Rascunhos importados ———
 // Só os campos que o painel e a aprovação usam (o texto original fica no repositório).
-const KEEP = ["name", "sku", "size", "gender", "notes", "unknownNotes", "review", "brand", "brandName", "year", "perfumers", "sourceLabel", "notesStatus", "notesNote"];
+const KEEP = ["name", "sku", "size", "gender", "notes", "unknownNotes", "review", "brand", "brandName", "year", "perfumers", "sourceLabel", "notesStatus", "notesNote", "imageUrl", "imageCredit", "imageLicense", "imagePage"];
 const slim = (it: Record<string, unknown>) => Object.fromEntries(KEEP.filter((k) => it[k] !== undefined && it[k] !== null).map((k) => [k, it[k]]));
 type Row = { source: string; url: string; brand_slug: string; payload: Record<string, unknown>; status: string; linked: string | null; fetched_at: string | null };
 const perBrand = new Map<string, Row[]>();

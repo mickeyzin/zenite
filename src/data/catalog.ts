@@ -26,7 +26,7 @@ const SELECT = `
   perfume_notes(tier, position, note:notes(name_pt, image_url, note_accords(accord_key, weight))),
   reviews(*),
   perfume_sources(field, label, url),
-  perfume_images(url, kind, position),
+  perfume_images(url, kind, position, credit, license),
   models_3d(desktop_url, mobile_url, liquid_points_url),
   similar_overrides!perfume_id(reason, similar:similar_id(full_name)),
   offers(id, title, volume_ml, price, currency, is_affiliate, available, active, checked_at, shipping, seller_reputation, image_url, store:stores(name, slug))
@@ -87,7 +87,7 @@ interface Row {
     rating_note: string | null;
   }>;
   perfume_sources: { field: string; label: string; url: string }[];
-  perfume_images: { url: string; kind: string; position: number }[];
+  perfume_images: { url: string; kind: string; position: number; credit?: string | null; license?: string | null }[];
   models_3d: One<{ desktop_url: string; mobile_url: string; liquid_points_url: string | null }>;
   similar_overrides: { reason: string; similar: One<{ full_name: string }> }[];
   offers?: {
@@ -170,6 +170,10 @@ export function rowToPerfume(r: Row, now = Date.now()): Perfume {
     universe: r.universe ?? "",
     model: { desktop: model?.desktop_url ?? "", mobile: model?.mobile_url ?? "", liquid: opt(model?.liquid_points_url) },
     poster: poster?.url ?? null,
+    // license guarda "CC BY-SA 4.0 https://commons…": nome da licença + página de origem.
+    posterCredit: opt(poster?.credit),
+    posterLicense: opt(poster?.license?.replace(/\s*https?:\/\/\S+\s*$/, "") || null),
+    posterSourceUrl: opt(poster?.license?.match(/https?:\/\/\S+$/)?.[0]),
     sceneScale: Number(r.scene_scale) || 1,
     frontRotationY: Number(r.front_rotation) || 0,
     perfumers: { value: r.perfumers, status: r.perfumers_status, note: opt(r.perfumers_note), sources: sources("perfumistas") },

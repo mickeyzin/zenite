@@ -66,6 +66,18 @@ export function ReviewView({ perfume: p, catalog }: { perfume: Perfume; catalog:
           ) : (
             <PerfumeArt perfume={p} className="poster-art" />
           )}
+          {p.poster && p.posterCredit && (
+            <p className="review-poster-credit">
+              {p.posterSourceUrl ? (
+                <a href={p.posterSourceUrl} target="_blank" rel="noopener noreferrer">
+                  {p.posterCredit}
+                </a>
+              ) : (
+                p.posterCredit
+              )}
+              {p.posterLicense && ` · ${p.posterLicense}`}
+            </p>
+          )}
         </div>
         <div className="review-head">
           <p className="eyebrow">
