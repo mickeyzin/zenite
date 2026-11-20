@@ -1,5 +1,6 @@
 "use client";
 
+import { AiBadge } from "@/components/ui/AiBadge";
 import Image from "next/image";
 import Link from "next/link";
 import { ACCORD_COLOR } from "@/components/ui/Icons";
@@ -50,7 +51,8 @@ function PickCard({
       className={`foryou-card ${hero ? "is-hero" : ""}`}
       style={{ "--acc": main ? ACCORD_COLOR[main.key] : "#31c7f3" } as React.CSSProperties}
     >
-      <Link href={`/perfumes/${p.slug}`} className="foryou-img" tabIndex={-1} aria-hidden>
+      <Link href={`/perfumes/${p.slug}`} className="foryou-img has-ai" tabIndex={-1} aria-hidden>
+        <AiBadge show={!!p.poster && p.posterAi} />
         {p.poster ? <Image src={p.poster} alt="" width={360} height={440} /> : <PerfumeArt perfume={p} className="poster-art" />}
       </Link>
       <div className="foryou-body">

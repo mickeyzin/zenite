@@ -1,4 +1,5 @@
 import { autoAffiliate, isAmazonStore } from "@/lib/affiliate";
+import { isAiImage } from "@/lib/ai-label";
 import { cacheLife, cacheTag } from "next/cache";
 import { supabaseEnabled } from "@/lib/supabase/config";
 import { normalize } from "@/lib/olfactory";
@@ -178,6 +179,7 @@ export function rowToPerfume(r: Row, now = Date.now()): Perfume {
     posterCredit: opt(poster?.credit),
     posterLicense: opt(poster?.license?.replace(/\s*https?:\/\/\S+\s*$/, "") || null),
     posterSourceUrl: opt(poster?.license?.match(/https?:\/\/\S+$/)?.[0]),
+    ...(isAiImage(poster?.license) ? { posterAi: true } : {}),
     sceneScale: Number(r.scene_scale) || 1,
     frontRotationY: Number(r.front_rotation) || 0,
     perfumers: { value: r.perfumers, status: r.perfumers_status, note: opt(r.perfumers_note), sources: sources("perfumistas") },

@@ -1,3 +1,5 @@
+import { AiBadge } from "@/components/ui/AiBadge";
+import { AI_NOTICE } from "@/lib/ai-label";
 import Image from "next/image";
 import Link from "next/link";
 import { CompareBars, MeterList, ProfileBars } from "@/components/charts/Charts";
@@ -60,13 +62,15 @@ export function ReviewView({ perfume: p, catalog }: { perfume: Perfume; catalog:
     <article className="review" aria-labelledby="review-title">
       {/* ——— Cabeçalho ——— */}
       <header className="review-hero">
-        <div className="review-poster">
+        <div className="review-poster has-ai">
           {p.poster ? (
-            <Image src={p.poster} alt={`Frasco do ${p.fullName}`} width={900} height={1100} priority />
+            <Image src={p.poster} alt={p.posterAi ? `Ilustração gerada por IA do frasco do ${p.fullName}` : `Frasco do ${p.fullName}`} width={900} height={1100} priority />
           ) : (
             <PerfumeArt perfume={p} className="poster-art" />
           )}
-          {p.poster && p.posterCredit && (
+          <AiBadge show={!!p.poster && p.posterAi} label="Ilustração IA" />
+          {p.poster && p.posterAi && <p className="review-poster-credit">{AI_NOTICE}</p>}
+          {p.poster && !p.posterAi && p.posterCredit && (
             <p className="review-poster-credit">
               {p.posterSourceUrl ? (
                 <a href={p.posterSourceUrl} target="_blank" rel="noopener noreferrer">

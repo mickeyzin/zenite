@@ -3,6 +3,7 @@
 import { useMemo, useState } from "react";
 import type { TabProps } from "./AdminApp";
 import { PerfumeEditor } from "./PerfumeEditor";
+import { describe, generate, saveAiPoster } from "./AiPoster";
 import { useLoad } from "./useLoad";
 
 export interface PerfumeListRow {
@@ -28,6 +29,8 @@ export function PerfumesTab({ sb, refreshSite }: TabProps) {
   const [brand, setBrand] = useState("");
   const [selected, setSelected] = useState<Set<string>>(new Set());
   const [bulkMsg, setBulkMsg] = useState<string | null>(null);
+  const [aiLog, setAiLog] = useState<string[]>([]);
+  const [fromMemory, setFromMemory] = useState(false);
   const { data, error, loading, reload } = useLoad<PerfumeListRow[]>(() =>
     sb
       .from("perfumes")
@@ -57,6 +60,40 @@ export function PerfumesTab({ sb, refreshSite }: TabProps) {
       else n.add(id);
       return n;
     });
+
+  /** Ilustração IA em lote: só para os selecionados sem pôster. Um por vez (cerca de 1 min cada). */
+  const aiTargets = picked.filter((p) => !p.perfume_images.length);
+  const aiBatch = async () => {
+    if (!aiTargets.length) return;
+    if (!confirm(`Gerar ilustração com IA para ${aiTargets.length} perfume(s)? Leva cerca de 1 minuto cada e usa créditos da OpenAI.`)) return;
+    setBusy("ai");
+    const log: string[] = [];
+    const push = (l: string) => {
+      log.push(l);
+      setAiLog([...log]);
+    };
+    let ok = 0;
+    for (const [i, p] of aiTargets.entries()) {
+      const tag = `[${i + 1}/${aiTargets.length}] ${p.full_name}`;
+      try {
+        const d = await describe(sb, p.id);
+        if (!d.description && !fromMemory) {
+          push(`— ${tag}: sem foto oficial; gere no editor com uma foto de referência`);
+          continue;
+        }
+        const g = await generate(sb, p.id, d.description);
+        await saveAiPoster(sb, p, g.image);
+        ok++;
+        push(`✔ ${tag}${d.description ? "" : " (de memória — confira)"}`);
+      } catch (e) {
+        push(`✘ ${tag}: ${(e as Error).message}`);
+      }
+    }
+    push(`Pronto: ${ok} ilustração(ões) salvas. Confira cada uma antes de publicar.`);
+    setBusy(null);
+    reload();
+    if (ok) await refreshSite();
+  };
 
   /** Publica ou despublica vários de uma vez (em lotes, para não estourar o tamanho da requisição). */
   const bulk = async (status: "publicado" | "rascunho") => {
@@ -182,7 +219,24 @@ export function PerfumesTab({ sb, refreshSite }: TabProps) {
         >
           Despublicar selecionados
         </button>
+        <button className="btn-ghost" disabled={!!busy || !aiTargets.length} onClick={aiBatch}>
+          {busy === "ai" ? "Gerando ilustrações…" : `Gerar ilustração IA (${aiTargets.length} sem pôster)`}
+        </button>
+        <label className="admin-check">
+          <input type="checkbox" checked={fromMemory} onChange={(e) => setFromMemory(e.target.checked)} /> sem foto oficial, gerar de
+          memória
+        </label>
       </div>
+      {aiLog.length > 0 && (
+        <details className="admin-log" open>
+          <summary>Ilustrações IA ({aiLog.length})</summary>
+          <ul>
+            {aiLog.map((l, i) => (
+              <li key={i}>{l}</li>
+            ))}
+          </ul>
+        </details>
+      )}
       {bulkMsg && (
         <p className="admin-notice" role="status">
           {bulkMsg}

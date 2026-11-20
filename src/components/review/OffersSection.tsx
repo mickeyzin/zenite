@@ -53,7 +53,7 @@ export function OffersSection({ perfume: p }: { perfume: Perfume }) {
 const isML = (o: Offer) => /mercado/i.test(o.storeSlug || o.store);
 
 function OfferRow({ offer: o, isBest, perfume: p }: { offer: Offer; isBest: boolean; perfume: Perfume }) {
-  const img = o.image ?? p.poster;
+  const img = o.image ?? (p.posterAi ? null : p.poster); // ilustração IA nunca vale como foto da oferta
   return (
     <li className={`offer ${isBest ? "is-best" : ""} ${o.available ? "" : "is-off"}`}>
       <div className="offer-img">
@@ -116,7 +116,7 @@ function OfferRow({ offer: o, isBest, perfume: p }: { offer: Offer; isBest: bool
 export function BestOfferHighlight({ perfume: p }: { perfume: Perfume }) {
   const o = bestPrice(p);
   if (!o || o.price === null) return null;
-  const img = o.image ?? p.poster;
+  const img = o.image ?? (p.posterAi ? null : p.poster); // ilustração IA nunca vale como foto da oferta
   const count = (p.offers ?? []).filter((x) => x.available).length;
   return (
     <aside className="best-offer" aria-label="Melhor oferta">

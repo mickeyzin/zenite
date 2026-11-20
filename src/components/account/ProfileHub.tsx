@@ -1,5 +1,6 @@
 "use client";
 
+import { AiBadge } from "@/components/ui/AiBadge";
 import type { Session, SupabaseClient } from "@supabase/supabase-js";
 import Image from "next/image";
 import Link from "next/link";
@@ -261,7 +262,8 @@ export function ProfileHub({ sb, session, catalog }: { sb: SupabaseClient; sessi
                   <ul>
                     {items.map((p) => (
                       <li key={p.slug} className="ph-bottle">
-                        <Link href={`/perfumes/${p.slug}`}>
+                        <Link href={`/perfumes/${p.slug}`} className="has-ai">
+                          <AiBadge show={!!p.poster && p.posterAi} />
                           {p.poster ? (
                             <Image src={p.poster} alt="" width={180} height={220} />
                           ) : (

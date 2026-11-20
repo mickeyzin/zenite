@@ -1,5 +1,6 @@
 "use client";
 
+import { AiBadge } from "@/components/ui/AiBadge";
 import Image from "next/image";
 import { SEARCH_EVENT } from "@/components/account/ActivityTracker";
 import { PerfumeArt } from "@/components/ui/PerfumeArt";
@@ -213,7 +214,8 @@ export function CatalogView({ perfumes }: { perfumes: Perfume[] }) {
           {results.map(({ p, accords }, i) => (
             <li key={p.slug} className="perfume-card">
               <Link href={`/perfumes/${p.slug}`} className="perfume-card-link">
-                <div className="perfume-card-img">
+                <div className="perfume-card-img has-ai">
+                  <AiBadge show={!!p.poster && p.posterAi} />
                   {p.poster ? (
                     <Image src={p.poster} alt="" width={360} height={440} sizes="(max-width: 640px) 33vw, (max-width: 1024px) 25vw, 20vw" loading={i < 6 ? "eager" : "lazy"} />
                   ) : (

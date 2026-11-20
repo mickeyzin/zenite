@@ -1,5 +1,6 @@
 "use client";
 
+import { AiBadge } from "@/components/ui/AiBadge";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useMemo, useRef, useState } from "react";
@@ -374,7 +375,8 @@ function Result({
       <ol className="quiz-matches">
         {matches.map((m, i) => (
           <li key={m.perfume.slug} className="quiz-match">
-            <Link href={`/perfumes/${m.perfume.slug}`} className="quiz-match-img" tabIndex={-1} aria-hidden>
+            <Link href={`/perfumes/${m.perfume.slug}`} className="quiz-match-img has-ai" tabIndex={-1} aria-hidden>
+              <AiBadge show={!!m.perfume.poster && m.perfume.posterAi} />
               {m.perfume.poster ? (
                 <Image src={m.perfume.poster} alt="" width={180} height={220} />
               ) : (

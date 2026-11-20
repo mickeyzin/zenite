@@ -3,6 +3,8 @@
 import { useEffect, useId, useState } from "react";
 import type { DataStatus, Metric } from "@/data/types";
 import { cropToWebp } from "@/lib/image-resize";
+import { AI_LICENSE } from "@/lib/ai-label";
+import { AiPoster } from "./AiPoster";
 import type { TabProps } from "./AdminApp";
 import { useLoad } from "./useLoad";
 
@@ -35,7 +37,7 @@ interface PerfumeRow {
   volume_ml: number | null;
   perfume_notes: { tier: "top" | "heart" | "base"; position: number; note: { name_pt: string } | null }[];
   perfume_sources: { id: string; field: string; label: string; url: string }[];
-  perfume_images: { id: string; url: string; kind: string; credit: string | null }[];
+  perfume_images: { id: string; url: string; kind: string; credit: string | null; license?: string | null }[];
 }
 
 interface ReviewRow {
@@ -82,7 +84,7 @@ export function PerfumeEditor({ sb, refreshSite, id, onClose, focus }: TabProps 
         sb
           .from("perfumes")
           .select(
-            "*, perfume_notes(tier, position, note:notes(name_pt)), perfume_sources(id, field, label, url), perfume_images(id, url, kind, credit)",
+            "*, perfume_notes(tier, position, note:notes(name_pt)), perfume_sources(id, field, label, url), perfume_images(id, url, kind, credit, license)",
           )
           .eq("id", id)
           .single(),
@@ -366,6 +368,12 @@ function EditorForm({
       </fieldset>
 
       <PosterUpload sb={sb} refreshSite={refreshSite} perfume={p} />
+      <AiPoster
+        sb={sb}
+        perfume={{ id: p.id, slug: p.slug }}
+        hasRealPoster={p.perfume_images.some((i) => i.kind === "poster" && i.license !== AI_LICENSE)}
+        onSaved={refreshSite}
+      />
     </section>
   );
 }

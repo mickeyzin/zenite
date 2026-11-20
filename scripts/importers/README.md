@@ -18,7 +18,7 @@ Verificado em 25/10/2026 (termos de uso + robots.txt). Rever antes de cada nova 
 
 | Marca | Site | Situação |
 |---|---|---|
-| Lattafa | lattafa.com | ✅ Permitido: termos sem restrição a robôs, robots.txt com crawl-delay 10 s. Pirâmide em dados estruturados. |
+| Lattafa | lattafa.com | ⚠️ Importado em out/2026 (termos sem restrição a robôs, crawl-delay 10 s). Desde nov/2026 o site tem desafio antirrobô (Cloudflare): não contornar; novas leituras só com permissão da marca. |
 | Afnan | afnan.com | ✅ Permitido: robots.txt libera páginas de produto (e publica um sitemap para agentes); termos sem proibição a robôs. `shopify.mjs` |
 | Swiss Arabian | swissarabian.com | ✅ Permitido: robots.txt libera produtos; termos sem proibição a robôs. Volume não aparece na página. `shopify.mjs` |
 | Khadlaj | khadlaj-perfumes.com | ✅ Permitido: robots.txt libera produtos; termos sem proibição a robôs. `shopify.mjs` |
