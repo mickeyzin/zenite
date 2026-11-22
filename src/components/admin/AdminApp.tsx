@@ -3,6 +3,7 @@
 import type { Session, SupabaseClient } from "@supabase/supabase-js";
 import { useEffect, useState, useSyncExternalStore } from "react";
 import { browserClient } from "@/lib/supabase/client";
+import { AiTab } from "./AiTab";
 import { DraftsTab } from "./DraftsTab";
 import { NotesTab } from "./NotesTab";
 import { OffersTab } from "./OffersTab";
@@ -12,10 +13,11 @@ import { PerfumesTab } from "./PerfumesTab";
  * Painel da Zênite. Roda no navegador com a chave pública do Supabase; quem
  * protege os dados são as regras RLS do banco (só administradores escrevem).
  */
-type Tab = "rascunhos" | "perfumes" | "notas" | "ofertas";
+type Tab = "rascunhos" | "perfumes" | "ilustracoes" | "notas" | "ofertas";
 const TABS: { key: Tab; label: string }[] = [
   { key: "rascunhos", label: "Importados" },
   { key: "perfumes", label: "Perfumes" },
+  { key: "ilustracoes", label: "Ilustrações IA" },
   { key: "notas", label: "Notas" },
   { key: "ofertas", label: "Ofertas" },
 ];
@@ -170,6 +172,7 @@ function Panel({ sb, session }: { sb: SupabaseClient; session: Session }) {
       </p>
       {tab === "rascunhos" && <DraftsTab {...props} />}
       {tab === "perfumes" && <PerfumesTab {...props} />}
+      {tab === "ilustracoes" && <AiTab {...props} />}
       {tab === "notas" && <NotesTab {...props} />}
       {tab === "ofertas" && <OffersTab {...props} />}
     </div>

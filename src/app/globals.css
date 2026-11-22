@@ -1062,3 +1062,15 @@ body {
 .admin-ai-previews { display: flex; gap: .8rem; align-items: flex-start; }
 .admin-ai-previews figure { display: grid; gap: .3rem; max-width: 12rem; }
 .admin-ai-previews img { width: 100%; height: auto; border-radius: 8px; border: 1px solid var(--z-line); }
+.admin-ai-list { display: grid; gap: .5rem; margin-top: 1rem; }
+.admin-ai-row { display: grid; grid-template-columns: auto 1fr auto; gap: .9rem; align-items: center; padding: .55rem .7rem; border: 1px solid var(--z-line); border-radius: 12px; }
+.admin-ai-row.is-gerando { border-color: var(--z-cyan); box-shadow: 0 0 18px -8px var(--z-cyan); }
+.admin-ai-row.is-ok { border-color: rgba(111,207,127,.6); }
+.admin-ai-row.is-erro { border-color: rgba(255,138,154,.6); }
+.admin-ai-thumbs { display: flex; gap: .35rem; }
+.admin-ai-thumbs img, .admin-ai-empty { width: 3.2rem; height: 3.9rem; object-fit: cover; border-radius: 6px; border: 1px solid var(--z-line); }
+.admin-ai-empty { display: grid; place-items: center; font-size: .6rem; color: var(--z-muted); text-align: center; }
+.admin-ai-info { display: grid; gap: .15rem; min-width: 0; }
+.admin-ai-actions { display: grid; gap: .3rem; justify-items: end; }
+.admin-ai-actions label { cursor: pointer; }
+@media (max-width: 640px) { .admin-ai-row { grid-template-columns: auto 1fr; } .admin-ai-actions { grid-column: 1 / -1; justify-items: start; grid-auto-flow: column; justify-content: start; gap: 1rem; } }

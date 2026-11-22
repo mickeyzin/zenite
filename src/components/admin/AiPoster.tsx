@@ -47,7 +47,7 @@ export async function saveAiPoster(sb: SupabaseClient, perfume: { id: string; sl
 }
 
 /** Foto de referência escolhida no computador → data URL pequena (só para a IA ler; não é guardada). */
-async function fileToDataUrl(file: File) {
+export async function fileToDataUrl(file: File) {
   const img = await createImageBitmap(file);
   const scale = Math.min(1, 1024 / Math.max(img.width, img.height));
   const canvas = document.createElement("canvas");
