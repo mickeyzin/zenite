@@ -1,17 +1,18 @@
 import { AiBadge } from "@/components/ui/AiBadge";
 import { AI_NOTICE } from "@/lib/ai-label";
 import Image from "next/image";
-import Link from "next/link";
-import { CompareBars, MeterList, ProfileBars } from "@/components/charts/Charts";
+import { MeterList, ProfileBars } from "@/components/charts/Charts";
 import { Icon, normSeason, occasionIcon, SEASONS, type IconName } from "@/components/ui/Icons";
 import { PerfumeArt } from "@/components/ui/PerfumeArt";
 import { StatusBadge } from "@/components/ui/StatusBadge";
 import type { Perfume } from "@/data/types";
 import { accordProfile, derivedMetrics, topAccords } from "@/lib/olfactory";
-import { SIMILAR_THRESHOLD, similarTo } from "@/lib/similarity";
+import { profileMap, similarSlots } from "@/lib/similar-slots";
+import { Comments } from "./Comments";
+import { SimilarSlots } from "./SimilarSlots";
 import { WardrobeButtons } from "@/components/account/WardrobeButtons";
 import { NoteConstellation } from "./NoteConstellation";
-import { BestOfferHighlight, bestPrice, OffersSection } from "./OffersSection";
+import { BestOfferHighlight, OffersSection } from "./OffersSection";
 
 const TIERS = [
   ["top", "Saída", "up", "Os primeiros minutos"],
@@ -38,22 +39,13 @@ function Spec({ icon, label, children, wide }: { icon: IconName; label: string; 
  * 1) dados do perfume (oficiais/verificáveis, com fonte e status);
  * 2) perfil estimado (cálculo transparente a partir das notas);
  * 3) avaliação editorial (provisória até o teste);
- * 4) opiniões de usuários (em breve).
+ * 4) comentários dos leitores (opinião de usuários).
  */
 export function ReviewView({ perfume: p, catalog }: { perfume: Perfume; catalog: Perfume[] }) {
   const { profile, unknown } = accordProfile(p);
   const derived = derivedMetrics(profile);
   const accords = topAccords(profile, 3);
-  const { close, others } = similarTo(p, catalog);
-  // Alternativas mais baratas: semelhantes (afinidade ≥ 35%) com preço confirmado menor.
-  const myBest = bestPrice(p)?.price ?? null;
-  const cheaper =
-    myBest === null
-      ? []
-      : close
-          .map((s) => ({ s, price: bestPrice(s.perfume)?.price ?? null }))
-          .filter((x): x is { s: (typeof close)[number]; price: number } => x.price !== null && x.price < myBest)
-          .sort((a, b) => a.price - b.price);
+  const slots = similarSlots(p, catalog);
   const allSources = [...(p.notes.sources ?? []), ...(p.concentration.sources ?? []), ...(p.year.sources ?? []), ...(p.perfumers.sources ?? [])].filter(
     (s, i, arr) => arr.findIndex((x) => x.url === s.url) === i,
   );
@@ -108,6 +100,7 @@ export function ReviewView({ perfume: p, catalog }: { perfume: Perfume; catalog:
             <a href="#perfil">Perfil olfativo</a>
             <a href="#avaliacao">Avaliação</a>
             <a href="#semelhantes">Semelhantes</a>
+            <a href="#comentarios">Comentários</a>
           </nav>
         </div>
       </header>
@@ -266,64 +259,19 @@ export function ReviewView({ perfume: p, catalog }: { perfume: Perfume; catalog:
           <h3>Perfil recomendado</h3>
           <p>{p.verdict.profile.value}</p>
         </div>
-        <h3 className="review-h3">Opiniões de usuários</h3>
-        <p className="text-[var(--z-muted)]">Em breve. Opiniões de visitantes aparecerão aqui, separadas da avaliação editorial.</p>
       </section>
 
       {/* ——— Semelhantes ——— */}
       <section id="semelhantes" className="review-section" aria-labelledby="semelhantes-t">
         <h2 id="semelhantes-t">Perfumes semelhantes</h2>
         <p className="review-method">
-          Comparação automática por acordes, notas em comum, estações e ocasiões. Indica afinidade de perfil — não que os perfumes sejam iguais.
+          Até três sugestões: a inspiração (quando a editoria aponta uma), um custo-benefício e um escolhido pelo seu gosto. A afinidade é calculada por acordes, notas, estações e ocasiões — indica perfil parecido, não perfumes iguais.
         </p>
-        {close.length === 0 && (
-          <p className="text-[var(--z-muted)]">Nenhum perfume do catálogo atual tem perfil próximo o suficiente (afinidade de 35% ou mais).</p>
-        )}
-        <ul className="similar-list">
-          {[...close, ...others].map((s) => {
-            const pr = accordProfile(s.perfume).profile;
-            return (
-              <li key={s.perfume.slug} className={`similar-card ${s.score >= SIMILAR_THRESHOLD ? "is-close" : ""}`}>
-                <div className="similar-head">
-                  <Link href={`/perfumes/${s.perfume.slug}`} className="similar-name">
-                    {s.perfume.fullName}
-                  </Link>
-                  <span className="similar-score">
-                    Afinidade {Math.round(s.score * 100)}%{s.score < SIMILAR_THRESHOLD ? " · pouca semelhança" : ""}
-                  </span>
-                </div>
-                <p>{s.reason}</p>
-                <CompareBars
-                  nameA={p.name}
-                  nameB={s.perfume.name}
-                  caption={`Características estimadas: ${p.name} e ${s.perfume.name}`}
-                  rows={derivedMetrics(profile).map((m, i) => ({ key: m.key, label: m.label, a: m.value, b: derivedMetrics(pr)[i].value }))}
-                />
-                <Link href={`/comparar?a=${p.slug}&b=${s.perfume.slug}`} className="btn-ghost inline-block mt-3">
-                  Comparar em detalhe
-                </Link>
-              </li>
-            );
-          })}
-        </ul>
-        <h3 className="review-h3">Alternativas mais baratas</h3>
-        {cheaper.length ? (
-          <ul className="cheaper-list">
-            {cheaper.map(({ s, price }) => (
-              <li key={s.perfume.slug}>
-                <Link href={`/perfumes/${s.perfume.slug}`}>{s.perfume.fullName}</Link> — a partir de{" "}
-                {price.toLocaleString("pt-BR", { style: "currency", currency: "BRL" })}, afinidade {Math.round(s.score * 100)}%
-              </li>
-            ))}
-          </ul>
-        ) : (
-          <p className="text-[var(--z-muted)]">
-            {myBest
-              ? "Nenhum perfume com perfil próximo tem preço confirmado menor no momento."
-              : "Só sugerimos alternativas quando há preço confirmado deste perfume e do semelhante."}
-          </p>
-        )}
+        <SimilarSlots baseSlug={p.slug} {...slots} profiles={profileMap(catalog)} />
       </section>
+
+      {/* ——— Comentários ——— */}
+      <Comments slug={p.slug} name={p.name} />
 
 
       {allSources.length > 0 && (

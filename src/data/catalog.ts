@@ -24,6 +24,7 @@ const SELECT = `
   gender, gender_status, gender_note, perfumers, perfumers_status, perfumers_note, family, family_status, family_note,
   notes_status, notes_note, intro, intro_status, intro_note, universe, theme, look, scene_scale, front_rotation,
   featured, featured_order,
+  inspired_by_name, inspired_note, inspired:inspired_by_id(slug, full_name),
   brand:brands(name),
   perfume_notes(tier, position, note:notes(name_pt, image_url, note_accords(accord_key, weight))),
   reviews(*),
@@ -92,6 +93,9 @@ interface Row {
   perfume_images: { url: string; kind: string; position: number; credit?: string | null; license?: string | null }[];
   models_3d: One<{ desktop_url: string; mobile_url: string; liquid_points_url: string | null }>;
   similar_overrides: { reason: string; similar: One<{ full_name: string }> }[];
+  inspired_by_name?: string | null;
+  inspired_note?: string | null;
+  inspired?: One<{ slug: string; full_name: string }>;
   offers?: {
     id: string;
     title: string;
@@ -200,6 +204,16 @@ export function rowToPerfume(r: Row, now = Date.now()): Perfume {
       profile: { value: review?.profile ?? "", status: rs },
       similar: { value: similar, status: rs, note: similar.length ? undefined : SIMILAR_NOTE },
     },
+    // Inspiração declarada pela editoria (perfume do catálogo, ou só o nome se não estiver cadastrado).
+    ...(one(r.inspired ?? null) || r.inspired_by_name
+      ? {
+          inspiredBy: {
+            slug: one(r.inspired ?? null)?.slug,
+            name: one(r.inspired ?? null)?.full_name ?? r.inspired_by_name ?? "",
+            note: opt(r.inspired_note),
+          },
+        }
+      : {}),
     theme: r.theme ?? DEFAULT_THEME,
     look: r.look ?? {},
     noteWeights,
@@ -225,15 +239,20 @@ export async function getCatalog(): Promise<Catalog> {
   }
   try {
     const query = (select: string) => anonClient().from("perfumes").select(select).eq("status", "publicado").order("name");
-    let { data, error } = await query(SELECT);
-    // Banco ainda sem a migração 0002 (imagens das notas): segue sem as imagens.
-    // Banco sem alguma migração de imagem: tira só a coluna que falta e tenta de novo
-    // (0003 = foto das ofertas; 0002 = imagem das notas). As demais imagens continuam.
-    const withoutOfferImg = SELECT.replace("seller_reputation, image_url,", "seller_reputation,");
-    const withoutNoteImg = (sel: string) => sel.replace("name_pt, image_url,", "name_pt,");
-    if (error && /offers\w*\.image_url/.test(error.message)) ({ data, error } = await query(withoutOfferImg));
-    if (error && /notes\w*\.image_url/.test(error.message)) ({ data, error } = await query(withoutNoteImg(withoutOfferImg)));
-    if (error && /image_url/.test(error.message)) ({ data, error } = await query(withoutNoteImg(withoutOfferImg)));
+    // Banco sem alguma migração: tira só a parte que falta e tenta de novo, até 4 vezes
+    // (0008 = inspiração; 0003 = foto das ofertas; 0002 = imagem das notas). O resto continua.
+    let select = SELECT;
+    let { data, error } = await query(select);
+    for (let i = 0; error && i < 4; i++) {
+      const before = select;
+      if (/inspired/.test(error.message)) select = select.replace("inspired_by_name, inspired_note, inspired:inspired_by_id(slug, full_name),", "");
+      else if (/offers\w*\.image_url/.test(error.message)) select = select.replace("seller_reputation, image_url,", "seller_reputation,");
+      else if (/notes\w*\.image_url/.test(error.message)) select = select.replace("name_pt, image_url,", "name_pt,");
+      else if (/image_url/.test(error.message))
+        select = select.replace("seller_reputation, image_url,", "seller_reputation,").replace("name_pt, image_url,", "name_pt,");
+      if (select === before) break;
+      ({ data, error } = await query(select));
+    }
     if (error) throw new Error(error.message);
     const rows = (data ?? []) as unknown as Row[];
     if (!rows.length) throw new Error("nenhum perfume publicado");

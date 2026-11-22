@@ -1075,3 +1075,52 @@ body {
 .admin-ai-actions label { cursor: pointer; }
 @media (max-width: 640px) { .admin-ai-row { grid-template-columns: auto 1fr; } .admin-ai-actions { grid-column: 1 / -1; justify-items: start; grid-auto-flow: column; justify-content: start; gap: 1rem; } }
 .constellation-credit { margin-top: .4rem; font-size: .7rem; color: var(--z-muted); text-align: center; }
+
+/* ——— Semelhantes: no máximo 3 cartões, cada um com um papel ——— */
+.slot-list { list-style: none; padding: 0; margin: 1.4rem 0 0; display: grid; gap: 1.1rem; }
+@media (min-width: 820px) { .slot-list { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.slot-card { border: 1px solid var(--z-line); border-radius: 10px; padding: 1.1rem 1.1rem 1.3rem; display: flex; flex-direction: column; gap: .55rem; min-width: 0;
+  background: linear-gradient(180deg, rgba(121,40,202,0.08), rgba(6,12,32,0.35)); transition: border-color .2s, transform .2s; }
+.slot-card:hover { border-color: rgba(49,199,243,0.45); transform: translateY(-2px); }
+.slot-inspiracao { border-color: rgba(166,92,255,0.45); }
+.slot-custo { border-color: rgba(49,199,243,0.35); }
+.slot-gosto { border-color: rgba(242,155,212,0.4); }
+.slot-kicker { display: flex; align-items: center; gap: .4rem; font-size: .68rem; letter-spacing: .16em; text-transform: uppercase; color: var(--z-cyan); margin: 0; }
+.slot-inspiracao .slot-kicker { color: var(--z-violet); }
+.slot-gosto .slot-kicker { color: #f29bd4; }
+.slot-img { aspect-ratio: 240 / 293; border-radius: 8px; overflow: hidden; background: radial-gradient(circle at 50% 40%, rgba(49,199,243,0.12), transparent 70%); display: grid; place-items: center; }
+.slot-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.slot-noimg { font-size: 2.4rem; color: rgba(166,92,255,0.6); }
+@media (max-width: 819px) {
+  .slot-card { display: grid; grid-template-columns: 96px 1fr; column-gap: 1rem; align-items: start; }
+  .slot-card > * { grid-column: 2; }
+  .slot-card > .slot-img { grid-column: 1; grid-row: 1 / span 6; }
+}
+.slot-name { font-family: var(--font-serif); font-size: 1.15rem; line-height: 1.25; margin: .2rem 0 0; }
+.slot-name a:hover { color: var(--z-cyan); }
+.slot-meta { font-size: .8rem; color: var(--z-muted); margin: 0; }
+.slot-reason { font-size: .88rem; line-height: 1.55; color: #cfd4ee; margin: 0; }
+.slot-note { font-size: .8rem; color: var(--z-muted); margin: 0; font-style: italic; }
+.slot-note a { color: var(--z-cyan); font-style: normal; }
+.slot-compare { grid-column: 1 / -1; justify-self: start; }
+
+/* ——— Comentários dos leitores ——— */
+.comments { display: grid; gap: 1.2rem; max-width: 760px; }
+.comment-form { display: grid; gap: .6rem; }
+.comment-form textarea { width: 100%; resize: vertical; min-height: 5.5rem; padding: .85rem 1rem; border-radius: 8px; border: 1px solid var(--z-line);
+  background: var(--z-glass); color: var(--z-white); font: inherit; font-size: .92rem; line-height: 1.5; }
+.comment-form textarea:focus { outline: none; border-color: rgba(49,199,243,0.6); box-shadow: 0 0 0 3px rgba(49,199,243,0.12); }
+.comment-form-foot { display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
+.comment-count { font-size: .75rem; color: var(--z-muted); }
+.comment-msg { color: #ff8a9a; font-size: .85rem; margin: 0; }
+.comment-login a { color: var(--z-cyan); }
+.comment-list { list-style: none; padding: 0; margin: 0; display: grid; gap: .8rem; }
+.comment { border: 1px solid var(--z-line); border-radius: 8px; padding: .9rem 1.1rem; background: rgba(255,255,255,0.015); }
+.comment-head { display: flex; align-items: center; gap: .6rem; margin: 0 0 .45rem; font-size: .88rem; }
+.comment-head time { color: var(--z-muted); font-size: .75rem; margin-left: auto; }
+.comment-avatar { width: 1.8rem; height: 1.8rem; border-radius: 50%; display: grid; place-items: center; font-size: .8rem; font-weight: 600;
+  background: linear-gradient(135deg, var(--z-purple), var(--z-blue)); color: #fff; flex: none; }
+.comment-body { margin: 0; color: #dfe3f6; line-height: 1.6; font-size: .92rem; white-space: pre-line; overflow-wrap: anywhere; }
+.comment-actions { margin: .4rem 0 0; display: flex; gap: .8rem; font-size: .78rem; }
+.slot-img.is-empty { aspect-ratio: auto; height: 84px; }
+@media (max-width: 819px) { .slot-card { grid-template-columns: 76px 1fr; } .slot-img.is-empty { height: 76px; } }

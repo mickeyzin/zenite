@@ -103,6 +103,8 @@ export interface Perfume {
   /** Licença da foto (ex.: "CC BY-SA 4.0") e, quando houver, a página de origem. */
   posterLicense?: string | null;
   posterSourceUrl?: string | null;
+  /** Perfume de referência (geralmente de nicho) que este declara ou é apontado como inspiração. */
+  inspiredBy?: { slug?: string; name: string; note?: string };
   /** Pôster gerado por IA (sempre exibido com o selo e o aviso; nunca como foto de oferta). */
   posterAi?: boolean;
   /** Escala do frasco na cena (frascos largos, como o Prada, ficam menores). */

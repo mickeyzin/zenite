@@ -35,6 +35,9 @@ interface PerfumeRow {
   intro_status: DataStatus;
   intro_note: string | null;
   volume_ml: number | null;
+  inspired_by_id?: string | null; // ausentes até a migração 0008
+  inspired_by_name?: string | null;
+  inspired_note?: string | null;
   perfume_notes: { tier: "top" | "heart" | "base"; position: number; note: { name_pt: string } | null }[];
   perfume_sources: { id: string; field: string; label: string; url: string }[];
   perfume_images: { id: string; url: string; kind: string; credit: string | null; license?: string | null }[];
@@ -146,7 +149,19 @@ function EditorForm({
     top: tierText("top"),
     heart: tierText("heart"),
     base: tierText("base"),
+    inspired_by_id: p.inspired_by_id ?? "",
+    inspired_by_name: p.inspired_by_name ?? "",
+    inspired_note: p.inspired_note ?? "",
   });
+  const hasInspiration = "inspired_by_id" in p;
+  const [others, setOthers] = useState<{ id: string; full_name: string }[]>([]);
+  useEffect(() => {
+    sb.from("perfumes")
+      .select("id, full_name")
+      .neq("id", p.id)
+      .order("full_name")
+      .then(({ data }) => setOthers((data ?? []) as { id: string; full_name: string }[]));
+  }, [sb, p.id]);
   const [rv, setRv] = useState({
     status: r?.status ?? ("provisorio" as DataStatus),
     status_note: r?.status_note ?? "",
@@ -212,6 +227,11 @@ function EditorForm({
       intro_note: nul(f.intro_note),
       notes_status: f.notes_status,
       notes_note: nul(f.notes_note),
+      ...(hasInspiration && {
+        inspired_by_id: f.inspired_by_id || null,
+        inspired_by_name: f.inspired_by_id ? null : nul(f.inspired_by_name),
+        inspired_note: f.inspired_by_id || f.inspired_by_name.trim() ? nul(f.inspired_note) : null,
+      }),
     };
     const review = {
       perfume_id: p.id,
@@ -323,6 +343,35 @@ function EditorForm({
           <Status label="Situação" {...field("intro_status")} />
           <Text label="Observação" {...field("intro_note")} />
         </div>
+      </fieldset>
+
+      <fieldset className="admin-fieldset">
+        <legend>Inspirado em (aparece primeiro em “Perfumes semelhantes”)</legend>
+        {hasInspiration ? (
+          <>
+            <p className="admin-muted">
+              Só para perfumes inspirados num de nicho/grife. Escolha o original no catálogo ou, se ele ainda não estiver cadastrado, escreva o
+              nome. Sem observação, o site mostra “a confirmar com a marca”.
+            </p>
+            <div className="admin-grid">
+              <label className="admin-field">
+                Perfume do catálogo
+                <select value={f.inspired_by_id} onChange={(e) => setF({ ...f, inspired_by_id: e.target.value })}>
+                  <option value="">— nenhum —</option>
+                  {others.map((o) => (
+                    <option key={o.id} value={o.id}>
+                      {o.full_name}
+                    </option>
+                  ))}
+                </select>
+              </label>
+              {!f.inspired_by_id && <Text label="ou nome (se não estiver no catálogo)" {...field("inspired_by_name")} />}
+              <Text label="Observação / fonte (ex.: “a marca cita como inspiração”)" {...field("inspired_note")} />
+            </div>
+          </>
+        ) : (
+          <p className="admin-muted">Rode a migração 0008_inspiration_comments.sql no Supabase para ativar este campo.</p>
+        )}
       </fieldset>
 
       <fieldset className="admin-fieldset">

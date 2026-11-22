@@ -44,6 +44,11 @@ export default function PrivacidadePage() {
           </li>
           <li>Esses dados são visíveis apenas para você. Nem outros visitantes nem outras contas conseguem ver.</li>
           <li>
+            <strong>Comentários são a exceção:</strong> o que você escrever na área de comentários de uma resenha fica público, com o
+            nome do seu perfil e a data (o e-mail nunca aparece). Você pode apagar os seus a qualquer momento; ao apagar a conta, eles
+            são apagados junto. A editoria pode ocultar comentários ofensivos, com spam ou com dados pessoais.
+          </li>
+          <li>
             Em “Minha conta” você pode sair, corrigir os dados e <strong>apagar a conta</strong>: o perfil e o armário são
             apagados junto, na hora.
           </li>

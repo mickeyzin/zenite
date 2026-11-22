@@ -224,5 +224,64 @@ await as("authenticated", BIA, async () => {
   check("desligar a autorização apaga o histórico", n1 === 2 && n2 === 0, `${n1} → ${n2}`);
 });
 
+// ——— comentários dos leitores ———
+const CAIO = "55555555-5555-5555-5555-555555555555";
+await db.exec(`insert into auth.users values ('${CAIO}', 'caio@x')`);
+let cid = null;
+await as("authenticated", BIA, async () => {
+  await tryq(`update profiles set display_name = 'Bia' where user_id = '${BIA}'`);
+  const c = await tryq(`insert into comments (perfume_id, body, user_id, author_name, hidden) values ('${pubId}', '  Adorei a fixação!  ', '${CAIO}', 'Falso', true) returning id, user_id, author_name, hidden, body`);
+  cid = c.rows?.[0]?.id;
+  const r = c.rows?.[0];
+  check("comentário: autor, nome e visibilidade vêm do servidor", !c.error && r.user_id === BIA && r.author_name === "Bia" && r.hidden === false && r.body === "Adorei a fixação!", c.error ?? JSON.stringify(r));
+  const fast = await tryq(`insert into comments (perfume_id, body) values ('${pubId}', 'de novo')`);
+  check("comentário: limite de um a cada 30 segundos", !!fast.error, fast.error?.slice(0, 50));
+});
+if (draftRow)
+  await as("authenticated", CAIO, async () => {
+    const d = await tryq(`insert into comments (perfume_id, body) values ('${draftRow.id}', 'oi oi')`);
+    check("comentário: perfume não publicado recusa", !!d.error && !/Aguarde/.test(d.error), d.error?.slice(0, 60));
+  });
+await as("anon", null, async () => {
+  const r = await tryq(`select id, author_name, body from comments where perfume_id = '${pubId}'`);
+  check("visitante lê os comentários", !r.error && r.rows.length === 1, r.error);
+  const u = await tryq(`select user_id from comments`);
+  check("visitante não vê o código do usuário", !!u.error, u.error?.slice(0, 50));
+  const w = await tryq(`insert into comments (perfume_id, body) values ('${pubId}', 'anônimo')`);
+  check("visitante sem conta não comenta", !!w.error);
+});
+await as("authenticated", CAIO, async () => {
+  const d = await tryq(`delete from comments where id = ${cid} returning id`);
+  check("ninguém apaga comentário alheio", !!d.error || d.rows.length === 0);
+  const h = await tryq(`update comments set hidden = true where id = ${cid} returning id`);
+  check("usuário comum não oculta comentário", !!h.error || h.rows.length === 0);
+});
+await as("authenticated", ADMIN, async () => {
+  const h = await tryq(`update comments set hidden = true where id = ${cid} returning id`);
+  check("admin oculta comentário", !h.error && h.rows.length === 1, h.error);
+});
+await as("anon", null, async () => {
+  const r = await tryq(`select count(*)::int n from comments`);
+  check("comentário oculto some para o público", !r.error && r.rows[0].n === 0, r.error);
+});
+await as("authenticated", BIA, async () => {
+  const r = await tryq(`select count(*)::int n from comments where hidden`);
+  check("autor ainda vê o próprio comentário oculto", !r.error && r.rows[0].n === 1, r.error);
+  const d = await tryq(`delete from comments where id = ${cid} returning id`);
+  check("autor apaga o próprio comentário", !d.error && d.rows.length === 1, d.error);
+});
+
+// ——— inspiração ———
+await as("authenticated", USER, async () => {
+  const u = await tryq(`update perfumes set inspired_by_name = 'X' where id = '${pubId}' returning id`);
+  check("usuário comum não marca inspiração", !!u.error || u.rows.length === 0);
+});
+await as("authenticated", ADMIN, async () => {
+  const self = await tryq(`update perfumes set inspired_by_id = id where id = '${pubId}'`);
+  check("perfume não pode ser inspirado em si mesmo", !!self.error);
+  const ok = await tryq(`update perfumes set inspired_by_name = 'Kilian Angels'' Share', inspired_note = 'a confirmar' where id = '${pubId}' returning id`);
+  check("admin marca inspiração", !ok.error && ok.rows.length === 1, ok.error);
+});
+
 console.log(`\n${pass} ok, ${fail} falhas`);
 process.exit(fail ? 1 : 0);
