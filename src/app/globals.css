@@ -1074,3 +1074,4 @@ body {
 .admin-ai-actions { display: grid; gap: .3rem; justify-items: end; }
 .admin-ai-actions label { cursor: pointer; }
 @media (max-width: 640px) { .admin-ai-row { grid-template-columns: auto 1fr; } .admin-ai-actions { grid-column: 1 / -1; justify-items: start; grid-auto-flow: column; justify-content: start; gap: 1rem; } }
+.constellation-credit { margin-top: .4rem; font-size: .7rem; color: var(--z-muted); text-align: center; }

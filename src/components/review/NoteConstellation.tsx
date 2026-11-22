@@ -1,9 +1,14 @@
+import aiNoteImages from "@/data/note-images-ai.json";
 import type { Perfume } from "@/data/types";
 import { Icon, type IconName } from "@/components/ui/Icons";
 import { layoutConstellation, type Layout, type Tier } from "@/lib/constellation";
 import { normalize } from "@/lib/olfactory";
 import { ConstellationReveal } from "./ConstellationReveal";
 import { NoteOrb } from "./NoteOrb";
+
+/** Imagens de notas geradas por IA (public/notas), usadas quando a nota não tem imagem própria no banco. */
+const AI_NOTES = aiNoteImages as Record<string, string>;
+const noteImage = (p: Perfume, note: string) => p.noteImages?.[normalize(note)] ?? AI_NOTES[normalize(note)];
 
 const TIER_INFO: Record<Tier, { label: string; hint: string; icon: IconName }> = {
   top: { label: "Saída", hint: "os primeiros minutos", icon: "up" },
@@ -16,11 +21,15 @@ export function NoteConstellation({ perfume: p }: { perfume: Perfume }) {
   const notes = p.notes.value;
   const desk = layoutConstellation(notes, 6);
   const mob = layoutConstellation(notes, 3, 0.4);
+  const usesAi = [...notes.top, ...notes.heart, ...notes.base].some((n) => !p.noteImages?.[normalize(n)] && AI_NOTES[normalize(n)]);
   return (
-    <ConstellationReveal className="constellation-wrap">
-      <Sky layout={desk} perfume={p} variant="desk" />
-      <Sky layout={mob} perfume={p} variant="mob" />
-    </ConstellationReveal>
+    <>
+      <ConstellationReveal className="constellation-wrap">
+        <Sky layout={desk} perfume={p} variant="desk" />
+        <Sky layout={mob} perfume={p} variant="mob" />
+      </ConstellationReveal>
+      {usesAi && <p className="constellation-credit">Imagens das notas: ilustrações geradas por IA.</p>}
+    </>
   );
 }
 
@@ -59,7 +68,7 @@ function Sky({ layout: L, perfume: p, variant }: { layout: Layout; perfume: Perf
             key={`${s.tier}-${s.note}`}
             note={s.note}
             override={p.noteWeights}
-            image={p.noteImages?.[normalize(s.note)]}
+            image={noteImage(p, s.note)}
             className={`constellation-star tier-${s.tier}`}
             style={{ left: `${s.x}%`, top: `${s.y}%`, ["--d" as string]: `${0.1 + (s.order / Math.max(total, 1)) * 1.4}s` }}
           />
