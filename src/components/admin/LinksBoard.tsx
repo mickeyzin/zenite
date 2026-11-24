@@ -191,6 +191,52 @@ export function LinksBoard({ sb, rows, onSaved }: { sb: SupabaseClient; rows: Li
     if (ins.error) throw new Error(ins.error.message);
   };
 
+  /** Foto do anúncio do Mercado Livre pela API → pôster. Devolve a mensagem para a linha. */
+  const fetchPhoto = async (p: LinkRow, link: string) => {
+    try {
+      const r = await ml(sb, { action: "photo", url: link });
+      const blob = await cropToWebp(new File([await (await fetch(r.image)).blob()], "ml.jpg"), POSTER_W, POSTER_H);
+      await savePoster(p, blob, ML_CREDIT, `Mercado Livre ${r.permalink}`);
+      return "foto do anúncio salva";
+    } catch (e) {
+      return `foto: ${(e as Error).message}`;
+    }
+  };
+
+  /** Para os perfumes da lista que já têm oferta do Mercado Livre: busca a foto sem precisar colar o link de novo. */
+  const photosFromOffers = async () => {
+    const targets = rows.filter((p) => !realPoster(p) || replaceReal);
+    if (!targets.length) return;
+    setBusy(true);
+    const { data, error } = await sb
+      .from("offers")
+      .select("perfume_id, url, affiliate_url, store:stores!inner(slug)")
+      .eq("store.slug", "mercado-livre")
+      .in(
+        "perfume_id",
+        targets.map((p) => p.id),
+      );
+    if (error) {
+      setBusy(false);
+      return alert(error.message);
+    }
+    const byPerfume = new Map<string, string>();
+    for (const o of (data ?? []) as { perfume_id: string; url: string; affiliate_url: string | null }[])
+      if (!byPerfume.has(o.perfume_id)) byPerfume.set(o.perfume_id, o.url || o.affiliate_url!);
+    let saved = 0;
+    for (const p of targets) {
+      const link = byPerfume.get(p.id);
+      if (!link) continue;
+      setState(p.id, { state: "salvando", msg: "buscando a foto do anúncio…" });
+      const msg = await fetchPhoto(p, link);
+      if (msg.startsWith("foto do")) saved++;
+      setState(p.id, { state: msg.startsWith("foto do") ? "ok" : "aviso", msg });
+    }
+    setBusy(false);
+    if (saved) await onSaved();
+    else if (!byPerfume.size) alert("Nenhum perfume desta lista (sem foto real) tem oferta do Mercado Livre.");
+  };
+
   const saveAll = async () => {
     if (!pending.length) return;
     if (Object.keys(pasted).length && !credit.trim()) return alert("Informe o crédito das fotos coladas.");
@@ -239,16 +285,7 @@ export function LinksBoard({ sb, rows, onSaved }: { sb: SupabaseClient; rows: Li
           notes.push("foto colada salva");
         } else if (link && isML(link) && (!realPoster(p) || replaceReal)) {
           if (!connected) notes.push("foto não buscada: conecte o Mercado Livre");
-          else {
-            try {
-              const r = await ml(sb, { action: "photo", url: link });
-              const blob = await cropToWebp(new File([await (await fetch(r.image)).blob()], "ml.jpg"), POSTER_W, POSTER_H);
-              await savePoster(p, blob, ML_CREDIT, `Mercado Livre ${r.permalink}`);
-              notes.push("foto do anúncio salva");
-            } catch (e) {
-              notes.push(`foto: ${(e as Error).message}`);
-            }
-          }
+          else notes.push(await fetchPhoto(p, link));
         } else if (link && isML(link)) notes.push("já tem foto real (mantida)");
         changed++;
         setState(p.id, {
@@ -295,6 +332,14 @@ export function LinksBoard({ sb, rows, onSaved }: { sb: SupabaseClient; rows: Li
         <div className="admin-actions">
           <button className="btn-primary" disabled={busy || !pending.length} onClick={saveAll}>
             {busy ? "Salvando…" : `Salvar tudo (${pending.length})`}
+          </button>
+          <button
+            className="btn-ghost"
+            disabled={busy || !connected}
+            title={connected ? undefined : "Conecte o Mercado Livre primeiro"}
+            onClick={photosFromOffers}
+          >
+            Buscar fotos dos anúncios já cadastrados
           </button>
         </div>
       </div>
