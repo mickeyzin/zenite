@@ -134,7 +134,8 @@ function Login({ sb }: { sb: SupabaseClient }) {
 }
 
 function Panel({ sb, session }: { sb: SupabaseClient; session: Session }) {
-  const [tab, setTab] = useState<Tab>("rascunhos");
+  // Volta do login do Mercado Livre cai na aba Perfumes (modo links).
+  const [tab, setTab] = useState<Tab>(() => (/[?&]ml_(code|error)=/.test(location.search) ? "perfumes" : "rascunhos"));
   const [notice, setNotice] = useState<string | null>(null);
 
   // Depois de mudar algo público, pede ao site para atualizar o cache.

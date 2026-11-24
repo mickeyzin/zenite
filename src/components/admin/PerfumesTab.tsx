@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import type { TabProps } from "./AdminApp";
+import { LinksBoard } from "./LinksBoard";
 import { PerfumeEditor } from "./PerfumeEditor";
 import { describe, generate, saveAiPoster } from "./AiPoster";
 import { useLoad } from "./useLoad";
@@ -15,7 +16,7 @@ export interface PerfumeListRow {
   featured: boolean;
   updated_at: string;
   brand: { name: string } | null;
-  perfume_images: { id: string }[];
+  perfume_images: { id: string; url?: string; kind?: string; license?: string | null }[];
   perfume_notes: { note_id: string }[];
 }
 
@@ -31,11 +32,15 @@ export function PerfumesTab({ sb, refreshSite }: TabProps) {
   const [bulkMsg, setBulkMsg] = useState<string | null>(null);
   const [aiLog, setAiLog] = useState<string[]>([]);
   const [fromMemory, setFromMemory] = useState(false);
+  // Volta do login do Mercado Livre: abre direto no modo de links.
+  const [mode, setMode] = useState<"lista" | "links">(() =>
+    typeof location !== "undefined" && /[?&]ml_(code|error)=/.test(location.search) ? "links" : "lista",
+  );
   const { data, error, loading, reload } = useLoad<PerfumeListRow[]>(() =>
     sb
       .from("perfumes")
       .select(
-        "id, slug, name, full_name, status, featured, updated_at, brand:brands(name), perfume_images(id), perfume_notes(note_id)",
+        "id, slug, name, full_name, status, featured, updated_at, brand:brands(name), perfume_images(id, url, kind, license), perfume_notes(note_id)",
       )
       .order("updated_at", { ascending: false }),
   );
@@ -65,7 +70,12 @@ export function PerfumesTab({ sb, refreshSite }: TabProps) {
   const aiTargets = picked.filter((p) => !p.perfume_images.length);
   const aiBatch = async () => {
     if (!aiTargets.length) return;
-    if (!confirm(`Gerar ilustração com IA para ${aiTargets.length} perfume(s)? Leva cerca de 1 minuto cada e usa créditos da OpenAI.`)) return;
+    if (
+      !confirm(
+        `Gerar ilustração com IA para ${aiTargets.length} perfume(s)? Leva cerca de 1 minuto cada e usa créditos da OpenAI.`,
+      )
+    )
+      return;
     setBusy("ai");
     const log: string[] = [];
     const push = (l: string) => {
@@ -201,133 +211,159 @@ export function PerfumesTab({ sb, refreshSite }: TabProps) {
         </div>
       </header>
 
-      <div className="admin-actions">
-        <button
-          className="btn-ghost"
-          disabled={!rows.length}
-          onClick={() => setSelected(allShown ? new Set() : new Set(rows.map((p) => p.id)))}
-        >
-          {allShown ? "Desmarcar todos" : `Marcar todos da lista (${rows.length})`}
+      <div className="admin-actions" role="group" aria-label="Modo de trabalho">
+        <button className="btn-ghost" aria-pressed={mode === "lista"} onClick={() => setMode("lista")}>
+          Lista
         </button>
-        <button className="btn-primary" disabled={busy === "bulk" || !publishable.length} onClick={() => bulk("publicado")}>
-          Publicar selecionados ({publishable.length})
+        <button className="btn-ghost" aria-pressed={mode === "links"} onClick={() => setMode("links")}>
+          Links e fotos
         </button>
-        <button
-          className="btn-ghost"
-          disabled={busy === "bulk" || !picked.some((p) => p.status === "publicado")}
-          onClick={() => bulk("rascunho")}
-        >
-          Despublicar selecionados
-        </button>
-        <button className="btn-ghost" disabled={!!busy || !aiTargets.length} onClick={aiBatch}>
-          {busy === "ai" ? "Gerando ilustrações…" : `Gerar ilustração IA (${aiTargets.length} sem pôster)`}
-        </button>
-        <label className="admin-check">
-          <input type="checkbox" checked={fromMemory} onChange={(e) => setFromMemory(e.target.checked)} /> sem foto oficial, gerar de
-          memória
-        </label>
       </div>
-      {aiLog.length > 0 && (
-        <details className="admin-log" open>
-          <summary>Ilustrações IA ({aiLog.length})</summary>
-          <ul>
-            {aiLog.map((l, i) => (
-              <li key={i}>{l}</li>
-            ))}
-          </ul>
-        </details>
-      )}
-      {bulkMsg && (
-        <p className="admin-notice" role="status">
-          {bulkMsg}
-        </p>
-      )}
 
-      {loading && <p className="admin-muted">Carregando…</p>}
-      {error && <p className="admin-error">{error}</p>}
+      {mode === "links" ? (
+        <>
+          {loading && <p className="admin-muted">Carregando…</p>}
+          {error && <p className="admin-error">{error}</p>}
+          <LinksBoard
+            sb={sb}
+            rows={rows}
+            onSaved={async () => {
+              reload();
+              await refreshSite();
+            }}
+          />
+        </>
+      ) : (
+        <>
+          <div className="admin-actions">
+            <button
+              className="btn-ghost"
+              disabled={!rows.length}
+              onClick={() => setSelected(allShown ? new Set() : new Set(rows.map((p) => p.id)))}
+            >
+              {allShown ? "Desmarcar todos" : `Marcar todos da lista (${rows.length})`}
+            </button>
+            <button className="btn-primary" disabled={busy === "bulk" || !publishable.length} onClick={() => bulk("publicado")}>
+              Publicar selecionados ({publishable.length})
+            </button>
+            <button
+              className="btn-ghost"
+              disabled={busy === "bulk" || !picked.some((p) => p.status === "publicado")}
+              onClick={() => bulk("rascunho")}
+            >
+              Despublicar selecionados
+            </button>
+            <button className="btn-ghost" disabled={!!busy || !aiTargets.length} onClick={aiBatch}>
+              {busy === "ai" ? "Gerando ilustrações…" : `Gerar ilustração IA (${aiTargets.length} sem pôster)`}
+            </button>
+            <label className="admin-check">
+              <input type="checkbox" checked={fromMemory} onChange={(e) => setFromMemory(e.target.checked)} /> sem foto oficial,
+              gerar de memória
+            </label>
+          </div>
+          {aiLog.length > 0 && (
+            <details className="admin-log" open>
+              <summary>Ilustrações IA ({aiLog.length})</summary>
+              <ul>
+                {aiLog.map((l, i) => (
+                  <li key={i}>{l}</li>
+                ))}
+              </ul>
+            </details>
+          )}
+          {bulkMsg && (
+            <p className="admin-notice" role="status">
+              {bulkMsg}
+            </p>
+          )}
 
-      <div className="admin-table-wrap">
-        <table className="admin-table">
-          <thead>
-            <tr>
-              <th scope="col">
-                <input
-                  type="checkbox"
-                  aria-label="Marcar todos da lista"
-                  checked={allShown}
-                  onChange={() => setSelected(allShown ? new Set() : new Set(rows.map((p) => p.id)))}
-                />
-              </th>
-              <th scope="col">Perfume</th>
-              <th scope="col">Situação</th>
-              <th scope="col">Notas</th>
-              <th scope="col">Pôster</th>
-              <th scope="col">
-                <span className="sr-only">Ações</span>
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {rows.map((p) => (
-              <tr key={p.id}>
-                <td>
-                  <input
-                    type="checkbox"
-                    aria-label={`Selecionar ${p.full_name}`}
-                    checked={selected.has(p.id)}
-                    onChange={() => toggle(p.id)}
-                  />
-                </td>
-                <td>
-                  <button className="admin-link admin-strong" onClick={() => setEditing({ id: p.id })}>
-                    {p.full_name}
-                  </button>
-                  {p.featured && <span className="admin-tag">destaque</span>}
-                </td>
-                <td>
-                  <span className={`admin-tag admin-tag-${p.status}`}>{STATUS_LABEL[p.status]}</span>
-                </td>
-                <td>{p.perfume_notes.length || <span className="admin-tag admin-tag-warn">sem notas</span>}</td>
-                <td>
-                  <button className="admin-link" onClick={() => setEditing({ id: p.id, focus: "poster" })}>
-                    {p.perfume_images.length ? "Trocar" : "Enviar pôster"}
-                  </button>
-                </td>
-                <td className="admin-row-actions">
-                  {p.status !== "publicado" ? (
-                    <button
-                      className="btn-ghost"
-                      disabled={busy === p.id || !p.perfume_notes.length}
-                      title={!p.perfume_notes.length ? "Cadastre a pirâmide antes de publicar" : undefined}
-                      onClick={() => set(p, { status: "publicado" })}
-                    >
-                      Publicar
-                    </button>
-                  ) : (
-                    <button className="btn-ghost" disabled={busy === p.id} onClick={() => set(p, { status: "rascunho" })}>
-                      Despublicar
-                    </button>
-                  )}
-                  <button
-                    className="admin-link"
-                    disabled={busy === p.id}
-                    aria-pressed={p.featured}
-                    onClick={() => set(p, { featured: !p.featured })}
-                  >
-                    {p.featured ? "Tirar destaque" : "Destacar"}
-                  </button>
-                  {p.status === "publicado" && (
-                    <a className="admin-link" href={`/perfumes/${p.slug}`} target="_blank" rel="noreferrer">
-                      Ver ↗
-                    </a>
-                  )}
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-      {!loading && !rows.length && <p className="admin-muted">Nenhum perfume.</p>}
+          {loading && <p className="admin-muted">Carregando…</p>}
+          {error && <p className="admin-error">{error}</p>}
+
+          <div className="admin-table-wrap">
+            <table className="admin-table">
+              <thead>
+                <tr>
+                  <th scope="col">
+                    <input
+                      type="checkbox"
+                      aria-label="Marcar todos da lista"
+                      checked={allShown}
+                      onChange={() => setSelected(allShown ? new Set() : new Set(rows.map((p) => p.id)))}
+                    />
+                  </th>
+                  <th scope="col">Perfume</th>
+                  <th scope="col">Situação</th>
+                  <th scope="col">Notas</th>
+                  <th scope="col">Pôster</th>
+                  <th scope="col">
+                    <span className="sr-only">Ações</span>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {rows.map((p) => (
+                  <tr key={p.id}>
+                    <td>
+                      <input
+                        type="checkbox"
+                        aria-label={`Selecionar ${p.full_name}`}
+                        checked={selected.has(p.id)}
+                        onChange={() => toggle(p.id)}
+                      />
+                    </td>
+                    <td>
+                      <button className="admin-link admin-strong" onClick={() => setEditing({ id: p.id })}>
+                        {p.full_name}
+                      </button>
+                      {p.featured && <span className="admin-tag">destaque</span>}
+                    </td>
+                    <td>
+                      <span className={`admin-tag admin-tag-${p.status}`}>{STATUS_LABEL[p.status]}</span>
+                    </td>
+                    <td>{p.perfume_notes.length || <span className="admin-tag admin-tag-warn">sem notas</span>}</td>
+                    <td>
+                      <button className="admin-link" onClick={() => setEditing({ id: p.id, focus: "poster" })}>
+                        {p.perfume_images.length ? "Trocar" : "Enviar pôster"}
+                      </button>
+                    </td>
+                    <td className="admin-row-actions">
+                      {p.status !== "publicado" ? (
+                        <button
+                          className="btn-ghost"
+                          disabled={busy === p.id || !p.perfume_notes.length}
+                          title={!p.perfume_notes.length ? "Cadastre a pirâmide antes de publicar" : undefined}
+                          onClick={() => set(p, { status: "publicado" })}
+                        >
+                          Publicar
+                        </button>
+                      ) : (
+                        <button className="btn-ghost" disabled={busy === p.id} onClick={() => set(p, { status: "rascunho" })}>
+                          Despublicar
+                        </button>
+                      )}
+                      <button
+                        className="admin-link"
+                        disabled={busy === p.id}
+                        aria-pressed={p.featured}
+                        onClick={() => set(p, { featured: !p.featured })}
+                      >
+                        {p.featured ? "Tirar destaque" : "Destacar"}
+                      </button>
+                      {p.status === "publicado" && (
+                        <a className="admin-link" href={`/perfumes/${p.slug}`} target="_blank" rel="noreferrer">
+                          Ver ↗
+                        </a>
+                      )}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          {!loading && !rows.length && <p className="admin-muted">Nenhum perfume.</p>}
+        </>
+      )}
     </section>
   );
 }

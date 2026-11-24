@@ -283,5 +283,21 @@ await as("authenticated", ADMIN, async () => {
   check("admin marca inspiração", !ok.error && ok.rows.length === 1, ok.error);
 });
 
+// ——— conexão com o Mercado Livre (tokens) ———
+await as("authenticated", ADMIN, async () => {
+  const w = await tryq(`insert into integration_tokens (provider, access_token, expires_at) values ('mercadolivre', 'tok', now()) on conflict (provider) do update set access_token = excluded.access_token returning provider`);
+  check("admin grava a conexão do Mercado Livre", !w.error && w.rows.length === 1, w.error);
+});
+await as("authenticated", USER, async () => {
+  const r = await tryq(`select access_token from integration_tokens`);
+  check("usuário comum não lê tokens", !!r.error || r.rows.length === 0);
+  const w = await tryq(`update integration_tokens set access_token = 'x' returning provider`);
+  check("usuário comum não altera tokens", !!w.error || w.rows.length === 0);
+});
+await as("anon", null, async () => {
+  const r = await tryq(`select access_token from integration_tokens`);
+  check("visitante não lê tokens", !!r.error || r.rows.length === 0);
+});
+
 console.log(`\n${pass} ok, ${fail} falhas`);
 process.exit(fail ? 1 : 0);
